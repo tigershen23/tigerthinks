@@ -55,6 +55,50 @@ task :draft, :title do |t, args|
 # system ("#{ENV['EDITOR']} #{filename}")
 end
 
+# usage: rake book['my new draft']
+desc 'create a new draft book post with "rake book[\'book title\']"'
+task :book, :title do |t, args|
+  if args.title
+    title = args.title
+  else
+    puts "Please try again. Remember to include the filename."
+  end
+  mkdir_p "#{drafts_dir}"
+  filename = "#{drafts_dir}/#{title.downcase.gsub(/[^\w]+/, '-')}.md"
+  puts "Creating new draft: #{filename}"
+  File.open(filename, "w") do |f|
+    f << <<-EOS.gsub(/^    /, '')
+    ---
+    layout: post
+    title: #{title}
+    date: #{Time.new.strftime('%Y-%m-%d %H:%M')}
+    categories:
+    tags: [book]
+    author:
+    rating:
+    date_started:
+    date_finished:
+    image:
+    summary:
+    ---
+
+    #### By {{ page.author }}
+
+    Rating: {% for post in page.rating.to_i %} :star: {% endfor %}
+
+    Started: {{ page.date_started }}
+    Finished: {{ page.date_started }}
+
+    *TL;DR*:
+
+    ## Key Points
+
+    ## Notes
+
+    EOS
+  end
+end
+
 desc 'preview the site with drafts'
 task :preview do
   puts "## Generating site"

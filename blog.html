@@ -1,0 +1,51 @@
+---
+layout: default
+title: Blog
+permalink: /blog/
+tags: blog-home
+pagination:
+  enabled: true
+  tag: personal-blog
+---
+{% assign posts_count = paginator.posts | size %}
+
+<div class="home">
+  <h2 class="page-heading">
+    Posts about my life
+  </h2>
+
+  <hr align="left" style="width: 50%;" />
+
+  {% if posts_count > 0 %}
+    <div class="posts">
+      {% for post in paginator.posts %}
+        <div class="post py3">
+          <p class="post-meta">{{ post.date | date: site.date_format }}</p>
+          <a href="{{ post.url | prepend: site.baseurl }}" class="post-link"><h3 class="h1 post-title">{{ post.title }}</h3></a>
+          <div class="metadata" style="padding-bottom: 1em;">
+            <span>
+              <b>{% for star in (1..post.rating) %}  ★   {% endfor %}</b>
+            </span>
+
+            <span class="vertical-separator" style="border-right: thin solid #A9A9A9; margin-right: 20px; padding-left: 15px;"></span>
+
+            {% for tag in post.tags %}
+              <a href="/{{ tag }}" class="badge badge-{{ site.tag_badge_colors[tag] }}">{{ tag }}</a>
+            {% endfor %}
+          </div>
+          <span class="post-summary">
+            {% if post.summary %}
+              {{ post.summary }}
+            {% else %}
+              {{ post.excerpt }}
+            {% endif %}
+          </span>
+        </div>
+      {% endfor %}
+    </div>
+
+    {% include pagination.html %}
+  {% else %}
+    <h1 class='center'>{{ site.text.index.coming_soon }}</h1>
+  {% endif %}
+</div>

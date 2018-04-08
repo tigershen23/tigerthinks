@@ -1,0 +1,5 @@
+<div class="tags">
+  {% for tag in page.tags %}
+    <a href="/{{ tag }}" class="badge badge-{{ site.tag_badge_colors[tag] }}">{{ tag }}</a>
+  {% endfor %}
+</div>

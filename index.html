@@ -1,28 +1,50 @@
 ---
 layout: default
+title: Home
 ---
-{% assign posts_count = paginator.posts | size %}
+<article class="post-content">
+  <p>
+  Hey, I'm Tiger. I live in Denver, Colorado with my pup Niko. I'm currently
+  working on a stealth real estate tech startup, <a
+  href="https://medium.com/paper-club">running an AI and machine learning study
+  group</a>, <a href="/books/top">reading a lot of books</a>, and <a
+  href="/images/fanduel-wfbbc.png">building
+  models to win sports bets</a>.
+  </p>
 
-<div class="home">
-  {% if posts_count > 0 %}
-    <div class="posts">
-      {% for post in paginator.posts %}
-        <div class="post py3">
-          <p class="post-meta">{{ post.date | date: site.date_format }}</p>
-          <a href="{{ post.url | prepend: site.baseurl }}" class="post-link"><h3 class="h1 post-title">{{ post.title }}</h3></a>
-          <span class="post-summary">
-            {% if post.summary %}
-              {{ post.summary }}
-            {% else %}
-              {{ post.excerpt }}
-            {% endif %}
-          </span>
-        </div>
-      {% endfor %}
-    </div>
+  <p>
+  I think a lot about what makes people tick, how machine learning will shape
+  the future, how to write better software, my health and nutrition,
+  and whether or not Bronn will finally get his castle.
+  </p>
 
-    {% include pagination.html %}
-  {% else %}
-    <h1 class='center'>{{ site.text.index.coming_soon }}</h1>
-  {% endif %}
-</div>
+  <h5 class="no-anchor">Compressed Knowledge</h5>
+
+  <p>
+  I've always had difficulty with information retention, feeling frustrated
+  about forgetting concepts I studied hard for after just a few weeks. In early
+  2018 I learned about the idea of <a
+  href="https://sivers.org/2do">compressed knowledge</a> and immediately
+  began to implement it. I started taking notes on anything I read, watched, or listened
+  to that I found interesting. You can check these out by running a search query of following the links in
+  the header.
+  </p>
+
+  <p>
+  So far, this tradeoff of consuming less and taking extra time to consolidate
+  knowledge has been worth it. It has both a) helped solidify concepts in my
+  head as I compose notes, and b) been a much better refresher than Google
+  (since everything is in my own words) whenever something rings a bell. I'm
+  looking forward to continuing the practice in the future.
+  </p>
+
+  <p>
+  - Tiger
+  <br/>
+  <a href="mailto:tigershen23@gmail.com">tigershen23@gmail.com</a>
+  </p>
+
+  <hr align="left" style="width: 50%;" />
+
+  <img src="/images/home.jpg" alt="Niko and I" />
+</article>

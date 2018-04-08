@@ -1,14 +1,11 @@
 # Site settings
-title: Tiger Thinks
+title: "Tiger Shen"
 email: tigertigertigershen@gmail.com
 author: Tiger Shen
-description: "Tiger's compressed wisdom"
+description: "Tiger Shen"
 baseurl: ""
-url: "https://tigerthinks.com"
+url: "http://tigerthinks.com"
 date_format: "%b %-d, %Y"
-header_pages:
- - about.md
- - contact.html
 
 # Google analytics
 google_analytics:
@@ -17,13 +14,85 @@ google_analytics:
 animated: true
 show_related_posts: false
 show_post_footers: false
-show_social_icons: true
+show_social_icons: false
 ajaxify_contact_form: false
 enable_mathjax: true
 extended_fonts: true
 enable_anchorjs: true
 # Preview image for social media aka og:image and twitter:image
 post_preview_image: true
+
+# Tag badge colors
+tag_badge_colors:
+  # Top level
+  book: 'red-base'
+  podcast: 'blue-base'
+  article: 'purple-base'
+  paper: 'green-base'
+  word: 'orange-base'
+  personal-blog: 'yellow-base'
+  course: 'blue-grey-base'
+  technical-blog: 'deep-orange-base'
+  self-written: 'deep-purple-a700'
+
+  # Big category
+  nonfiction: 'light-green-base'
+  fiction: 'light-blue-base'
+  technical: 'deep-orange-base'
+
+  # Subject
+  # Go through all 200 shades then do 800 shades
+  advice: 'brown-200'
+  architecture: 'yellow-200'
+  betting: 'red-100'
+  body: 'grey-200'
+  business: 'teal-200'
+  career: 'red-200'
+  devops: 'blue-200'
+  dogs: 'amber-200'
+  funny: 'deep-orange-200'
+  historical-fiction: 'blue-grey-200'
+  life: 'indigo-200'
+  memoir: 'orange-200'
+  ml: 'light-green-200'
+  news: 'green-200'
+  ppl: 'deep-purple-200'
+  practices: 'pink-200'
+  programming: 'lime-200'
+  role-model: 'cyan-200'
+  startups: 'light-blue-200'
+  tools: 'purple-200'
+  random: 'blue-grey-100'
+  money: 'red-100'
+  life-event: 'pink-100'
+  math: 'purple-100'
+  cs: 'deep-orange-100'
+  sports: 'orange-100'
+  writing: 'deep-purple-100'
+
+  # Specific provider
+  # Do all the a100s
+  masters-of-scale: 'red-a100'
+  the-minimalists: 'orange-a100'
+  joe-rogan: 'pink-a100'
+  you-are-not-so-smart: 'deep-orange-a100'
+  data-skeptic: 'yellow-a100'
+  side-hustle-school: 'green-a100'
+  how-i-built-this: 'amber-a100'
+  the-forbes-interview: 'blue-a100'
+  the-art-of-manliness: 'light-green-a100'
+  freakonomics-radio: 'deep-purple-a100'
+  twiml-ai: 'indigo-a100'
+  a16z: 'lime-a100'
+  the-jordan-harbinger-show: 'purple-a100'
+  the-forbes-interview: 'light-blue-a100'
+  the-pitch: 'teal-a100'
+  stuff-you-should-know: 'cyan-a100'
+  99-percent-invisible: 'deep-orange-a200'
+  the-upgrade: 'light-blue-a200'
+  medium: 'orange-a200'
+  paper-club: 'cyan-a200'
+  bradfield: 'amber-a200'
 
 # Facebook Page integration
 # (for instant articles and other stuff)
@@ -55,7 +124,7 @@ steam_nickname:
 google_plus_id:
 linkedin_username:
 angellist_username:
-medium_id: "@regit"
+medium_id:
 bitcoin_url:
 paypal_url:
 flattr_button:
@@ -108,17 +177,39 @@ text:
   thanks: 'Thanks for contacting us. We will reply as soon as possible.'
   og_locale: 'en_US'
 
+# Search
+algolia:
+  application_id: Q1JJ6NM1UC
+  index_name: tigerthinks
+  search_only_api_key: 5a99d8bb6e9d1a03163a5eb0d67496e0
+  nodes_to_index: p,li,pre,h1,h2,h3,h4,h5,h6,blockquote
+
 # Build settings
+plugins:
+  - jemoji
+  - jekyll-sitemap
+  - jekyll-paginate-v2
 markdown:     kramdown
 redcarpet:
   extensions: ['smart', 'tables', 'with_toc_data']
 permalink:    pretty
-paginate:     4
+pagination:
+  enabled: true
+  per_page: 1000
+  permalink: '/page/:num/' # Pages are index.html inside this folder (default)
+  sort_reverse: true
+  limit: 0
+autopages:
+  enabled: true
+
+  # Tag pages, omit to disable
+  tags:
+    layouts:
+      - 'autopage_tags.html'
+    title: 'Tagged with :tag' # :tag is replaced by the tag name
+    permalink: '/:tag'
 sass:
   style: compressed
-plugins:
-  - jekyll-paginate
-  - jekyll-sitemap
 # https://github.com/jekyll/jekyll/issues/2938
 exclude:
   - Gemfile

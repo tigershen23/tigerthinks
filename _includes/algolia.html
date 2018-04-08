@@ -1,0 +1,134 @@
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch-theme-algolia.min.css">
+
+<script>
+const search = instantsearch({
+  appId: '{{ site.algolia.application_id }}',
+  indexName: '{{ site.algolia.index_name }}',
+  apiKey: '{{ site.algolia.search_only_api_key }}',
+  searchFunction: function(helper) {
+    const searchHits = document.getElementById("search-hits")
+    const content = document.getElementById("content")
+
+    if (helper.state.query === '') {
+      searchHits.style.display = "none";
+      content.style.display = "block";
+      return;
+    }
+
+    helper.search();
+    searchHits.style.display = "block";
+    content.style.display = "none";
+  },
+  searchParameters: {
+    hitsPerPage: 10
+  }
+});
+
+const hitTemplate = function(hit) {
+  let date = '';
+  if (hit.date) {
+    date = moment.unix(hit.date).format('MMM D, YYYY');
+  }
+
+  let url = `{{ site.baseurl }}${hit.url}#${hit.anchor}`;
+
+  const title = hit._highlightResult.title.value;
+
+  let breadcrumbs = '';
+  if (hit._highlightResult.headings) {
+    breadcrumbs = hit._highlightResult.headings.map(match => {
+      return `<span class="post-breadcrumb">${match.value}</span>`
+    }).join(' > ')
+  }
+
+  const content = hit._highlightResult.html.value;
+
+  return `
+    <div class="post-item">
+      <span class="post-meta small">${date}</span>
+      <a class="post-link" href="${url}"><h2 class="search-hit-title post-title">${title}</h2></a>
+
+      {{#breadcrumbs}}
+      <a href="${url}" class="post-breadcrumbs"><h5>${breadcrumbs}</h5></a>
+      {{/breadcrumbs}}
+
+      <div class="post-snippet">${content}</div>
+    </div>`;
+}
+
+// Adding searchbar and results widgets
+search.addWidget(
+  instantsearch.widgets.searchBox({
+    container: '#search-searchbar',
+    placeholder: '',
+    poweredBy: true,
+    autofocus: false,
+    cssClasses: {
+      root: 'tigerthinks-searchbar'
+    }
+  })
+);
+
+
+search.addWidget(
+  instantsearch.widgets.hits({
+    container: '#search-hits',
+    templates: {
+      item: hitTemplate
+    }
+  })
+);
+
+// Starting the search
+search.start();
+</script>
+
+<style>
+.ais-search-box {
+  max-width: 100%;
+}
+
+.post-item {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: thin solid #f3f3f3;
+}
+
+.post-link .ais-Highlight {
+  color: #0076df;
+  font-style: normal;
+}
+
+.post-breadcrumbs {
+  font-style: normal;
+  display: block;
+  padding-bottom: 10px;
+  background-image: none !important;
+  color: #333 !important;
+}
+
+.post-breadcrumb {
+  font-style: normal;
+  font-size: 18px;
+  color: #333;
+}
+
+.post-breadcrumb .ais-Highlight {
+  font-weight: bold;
+  font-style: normal;
+  color: #0076df;
+}
+
+.post-snippet .ais-Highlight {
+  color: #0076df;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.post-snippet img {
+  display: none;
+}
+</style>

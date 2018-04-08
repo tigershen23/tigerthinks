@@ -1,13 +1,19 @@
-{% assign default_paths = site.pages | map: "path" %}
-{% assign page_paths = site.header_pages | default: default_paths %}
+<a href="/blog">
+  Blog ({{ site.tags.personal-blog.size }})
+</a>
 
-{% for path in page_paths %}
-    
-    {% assign page = site.pages | where: "path", path | first %}
-    
-    {% if page.title %}
-        <a href="{{ page.url }}">{{ page.title }}</a>
-    {% endif %}
+<a href="/books/top">
+  Books ({{ site.tags.book.size }})
+</a>
 
-    
-{% endfor %}
+<a href="/articles/top">
+  Articles ({{ site.tags.article.size }})
+</a>
+
+<a href="/podcasts/top">
+  Podcasts ({{ site.tags.podcast.size }})
+</a>
+
+<a href="/other/top">
+  Other ({{ site.tags.course.size | plus: site.tags.paper.size | plus: site.tags.technical-blog.size }})
+</a>
