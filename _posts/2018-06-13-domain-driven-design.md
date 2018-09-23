@@ -126,7 +126,7 @@ rest of the book.
   forth, can be focused on expressing the domain model. This allows a
   model to evolve to be rich enough and clear enough to capture
   essential business knowledge and put it to work._ (70)
-  * Nice. In Sparo, this is the service layer
+  * Nice. The service layer
 
 ### Ch 5: A Model Expressed in Software
 
