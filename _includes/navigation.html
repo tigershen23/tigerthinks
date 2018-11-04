@@ -1,5 +1,13 @@
 <a href="/blog">
-  Blog ({{ site.tags.personal-blog.size }})
+  Blog
+</a>
+
+<a href="/anki">
+  Anki
+</a>
+
+<a href="#">
+  |
 </a>
 
 <a href="/books/top">
@@ -10,10 +18,6 @@
   Articles ({{ site.tags.article.size }})
 </a>
 
-<a href="/podcasts/top">
-  Podcasts ({{ site.tags.podcast.size }})
-</a>
-
 <a href="/other/top">
-  Other ({{ site.tags.course.size | plus: site.tags.paper.size | plus: site.tags.technical-blog.size }})
+  Other ({{ site.tags.course.size | plus: site.tags.paper.size | plus: site.tags.technical-blog.size | plus: site.tags.podcast.size }})
 </a>

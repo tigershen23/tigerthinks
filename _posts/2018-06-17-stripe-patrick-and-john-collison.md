@@ -8,7 +8,7 @@ author: How I Built This
 rating: 4
 play_time: 43
 date_published: 2018-05-06
-summary: "Patrick (29) and John (27) Collison are fantastic entrepreneurs and two of the sharpest folks...in the world?"
+summary: "Patrick (29) and John (27) Collison are inspirations."
 ---
 
 ## Notes

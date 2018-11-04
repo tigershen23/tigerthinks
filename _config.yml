@@ -215,3 +215,5 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - vendor
+  - bin
+  - data
