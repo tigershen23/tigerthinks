@@ -53,45 +53,40 @@ it's been drilled into their head over and over.
 
 <blockquote>
   <p>
+    The music business slowly changed from an art-house business run by men with
+    ears into a corporate enterprise of quarterly earnings and timely results.
+    (143)
   </p>
 </blockquote>
 
 <blockquote>
   <p>
+    Guy Zapoleon observed that popular music fads seem to move in a three-part
+    cycle. Over time, he formulated a set of laws that, he believes, drives the
+    pop cycle. It starts in the middle, with "pure pop" [...] But pure pop eras
+    inevitably give way to what Zapoleon calls "the doldrums," when Top 40
+    becomes bland and boring, and ratings decline. In response, program
+    directors row away from pure pop, toward the more perilous waters Zapoleon
+    calls "the extremes," in order to restore excitement to their stations. The
+    extremes--alt-rock and hip-hop--attract younger listeners [...] but repel
+    older ones, and so program directors begin rowing back toward the pure-pop
+    mainstream, and the cycle starts again. (150)
   </p>
 </blockquote>
 
 <blockquote>
   <p>
+    Henceforth [Lee Soo-Man's] stars would be made, not born, using a
+    sophisticated system of artistic development. Lee took Lou Pearlman's idea
+    of putting together different personality types in a singing group and made
+    a musical Samsung out of it, employing a method of cultural production Lee
+    called "cultural technology". (187)
   </p>
 </blockquote>
 
 <blockquote>
   <p>
-  </p>
-</blockquote>
-
-<blockquote>
-  <p>
-  </p>
-</blockquote>
-
-<blockquote>
-  <p>
-  </p>
-</blockquote>
-
-<blockquote>
-  <p>
-  </p>
-</blockquote>
-
-<blockquote>
-  <p>
-  </p>
-</blockquote>
-
-<blockquote>
-  <p>
+    The eye at the center of this expanding ring of influence is Max Martin.
+    (vi)
   </p>
 </blockquote>

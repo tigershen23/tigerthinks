@@ -69,6 +69,7 @@ tag_badge_colors:
   cs: 'deep-orange-100'
   sports: 'orange-100'
   writing: 'deep-purple-100'
+  dyslexia: 'red-800'
 
   # Specific provider
   # Do all the a100s
