@@ -12,7 +12,7 @@ date_started: 2018-02-27
 date_finished: 2018-03-05
 goodreads_url: "https://www.goodreads.com/book/show/21853621-the-nightingale"
 image: /books/the-nightingale.jpg
-summary: "The moving story of two French sisters during World War II. Very very good."
+summary: "The moving story of two French sisters during World War II."
 ---
 
 *TL;DR*: Vianne and Isabelle are sisters who lost their mother young,

@@ -70,6 +70,7 @@ tag_badge_colors:
   sports: 'orange-100'
   writing: 'deep-purple-100'
   dyslexia: 'red-800'
+  comedy: 'pink-800'
 
   # Specific provider
   # Do all the a100s
@@ -86,7 +87,6 @@ tag_badge_colors:
   twiml-ai: 'indigo-a100'
   a16z: 'lime-a100'
   the-jordan-harbinger-show: 'purple-a100'
-  the-forbes-interview: 'light-blue-a100'
   the-pitch: 'teal-a100'
   stuff-you-should-know: 'cyan-a100'
   99-percent-invisible: 'deep-orange-a200'
@@ -94,6 +94,11 @@ tag_badge_colors:
   medium: 'orange-a200'
   paper-club: 'cyan-a200'
   bradfield: 'amber-a200'
+  invest-like-the-best: 'yellow-a200'
+  revisionist-history: 'light-blue-a100'
+  h3h3: 'lime-a200'
+  hidden-brain: 'light-green-a200'
+  radiolab: 'green-a200'
 
 # Facebook Page integration
 # (for instant articles and other stuff)

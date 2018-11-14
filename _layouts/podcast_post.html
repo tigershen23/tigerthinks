@@ -23,7 +23,7 @@ layout: default
     {% endif %}
   </h1>
   {% include tag_badges.html %}
-  <span class="post-meta">{{ page.author }} | {{ page.play_time | times: 107 }} words | {{ page.date_published | date: site.date_format }}</span><br>
+  <span class="post-meta">{{ page.author }} | {{ page.play_time }} minutes | {{ page.date_published | date: site.date_format }}</span><br>
   {% if page.update_date %}
     <span class="post-meta">{{ site.text.post.updated }}: {{ page.update_date | date: site.date_format }}</span><br>
   {% endif %}

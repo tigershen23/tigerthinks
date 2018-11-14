@@ -5,7 +5,7 @@ date: 2018-07-30 16:26
 categories:
 tags: [book, nonfiction, writing, advice, life]
 author: Stephen King
-rating: 3
+rating: 4
 length_pages: 320
 length_loc: 3463
 date_started: 2018-07-20

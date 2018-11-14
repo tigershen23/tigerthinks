@@ -12,7 +12,7 @@ date_started: 2018-03-14
 date_finished: 2018-05-18
 goodreads_url: "https://www.goodreads.com/book/show/29430012-a-gentleman-in-moscow"
 image: /books/a-gentleman-in-moscow.jpg
-summary: "Fantastic characters in a story that reflects its main cahracter, turning the seemingly mundane into something wonderful. One of Obama's favorite books he read in 2017! Really freaking enjoyed."
+summary: "Fantastic story, turning the seemingly mundane into something wonderful. One of Obama's favorite books he read in 2017."
 ---
 
 *TL;DR*: Count Alexander Rostov, a "former person", is sentenced to

@@ -1,7 +1,7 @@
 ---
 layout: podcast_post
 title: "Jim Breyer On How He Picks Winners"
-date: 2018-05-16 15:49
+date: "2018-05-16 15:49"
 categories:
 tags: [podcast, startups, business, role-model, the-forbes-interview]
 author: The Forbes Interview
