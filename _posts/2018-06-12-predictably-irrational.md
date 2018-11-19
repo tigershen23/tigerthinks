@@ -1,12 +1,11 @@
 ---
 layout: book_post
-title: "Predictably Irrational: The Hidden Forces That Shape Our
-Decisions"
+title: "Predictably Irrational: The Hidden Forces That Shape Our Decisions"
 date: 2018-06-12 18:44
 categories:
 tags: [book, nonfiction, life, advice]
 author: Dan Ariely
-rating: 5
+rating: 4
 length_pages: 280
 length_loc: 5115
 date_started: 2018-06-02

@@ -5,7 +5,8 @@
 require 'date'
 require 'json'
 
-POSTS_FILE = "data/posts_2018-11-04.json"
+# POSTS_FILE = "data/posts_2018-11-04.json"
+POSTS_FILE = "data/articles_2018-11-15.json"
 
 def create_podcast_post(post_data)
 end
@@ -22,8 +23,8 @@ posts_json.each do |post_data|
   post_path = "_posts/#{post_filename}"
   if File.exist?(post_path)
     puts "#{post_filename} already exists, skipping..."
-    File.delete(post_path)
-    # next
+    # File.delete(post_path)
+    next
   end
 
   puts "Creating #{post_filename}..."
@@ -31,14 +32,15 @@ posts_json.each do |post_data|
   File.open(post_path, "w") do |f|
     f << <<-EOS.gsub(/^    /, '')
     ---
-    layout: podcast_post
+    layout: article_post
     title: "#{post_data[:title]}"
     date: "#{post_data[:date]}"
     categories:
     tags: #{post_data[:tags]}
     author: #{post_data[:author]}
     rating: #{post_data[:rating]}
-    play_time: #{post_data[:play_time]}
+    article_url: #{post_data[:article_url]}
+    reading_time: #{post_data[:reading_time]}
     date_published: #{post_data[:date_published]}
     summary: "#{post_data[:summary]}"
     ---
@@ -46,6 +48,25 @@ posts_json.each do |post_data|
     ## Notes
     EOS
   end
+
+  # File.open(post_path, "w") do |f|
+  #   f << <<-EOS.gsub(/^    /, '')
+  #   ---
+  #   layout: podcast_post
+  #   title: "#{post_data[:title]}"
+  #   date: "#{post_data[:date]}"
+  #   categories:
+  #   tags: #{post_data[:tags]}
+  #   author: #{post_data[:author]}
+  #   rating: #{post_data[:rating]}
+  #   play_time: #{post_data[:play_time]}
+  #   date_published: #{post_data[:date_published]}
+  #   summary: "#{post_data[:summary]}"
+  #   ---
+
+  #   ## Notes
+  #   EOS
+  # end
 
   puts "Created #{post_filename}."
 end

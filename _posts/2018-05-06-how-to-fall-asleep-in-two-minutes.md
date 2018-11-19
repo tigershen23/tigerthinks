@@ -5,7 +5,7 @@ date: 2018-05-06 16:44
 categories:
 tags: [article, nonfiction, practices, life]
 author: Brett Mckay
-rating: 4
+rating: 3
 article_url: "https://www.artofmanliness.com/articles/fall-asleep-fast/"
 reading_time: 5
 date_published: 2018-03-21

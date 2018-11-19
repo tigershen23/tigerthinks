@@ -71,6 +71,8 @@ tag_badge_colors:
   writing: 'deep-purple-100'
   dyslexia: 'red-800'
   comedy: 'pink-800'
+  property-management: 'purple-800'
+  music: 'deep-purple-800'
 
   # Specific provider
   # Do all the a100s

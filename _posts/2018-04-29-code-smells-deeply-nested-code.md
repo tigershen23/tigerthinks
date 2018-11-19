@@ -5,7 +5,7 @@ date: 2018-04-29 09:04
 categories:
 tags: [article, technical, programming]
 author: Trisha Gee
-rating: 3
+rating: 2
 article_url: "https://blog.jetbrains.com/idea/2017/08/code-smells-deeply-nested-code/"
 reading_time: 12
 date_published: 2017-08-16

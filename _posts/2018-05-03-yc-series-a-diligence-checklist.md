@@ -5,7 +5,7 @@ date: 2018-05-03 16:58
 categories:
 tags: [article, nonfiction, startups, business]
 author: Aaron Harris and Jason Kwon
-rating: 4
+rating: 2
 article_url: "https://blog.ycombinator.com/ycs-series-a-diligence-checklist/"
 reading_time: 5
 date_published: 2018-02-22
