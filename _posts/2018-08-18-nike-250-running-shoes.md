@@ -13,3 +13,6 @@ summary: "Quantitative Nike Zoom Vaporfly 4% effects on marathon running perform
 ---
 
 ## Notes
+
+* Yes! Somehow, there is a 4% improvement while running in VaporFlys. Great
+  example of a quantitative deep dive into a pretty interesting claim/scenario

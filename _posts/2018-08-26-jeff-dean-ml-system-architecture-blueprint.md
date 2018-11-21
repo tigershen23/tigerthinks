@@ -13,3 +13,11 @@ summary: "Lifestyle business, a counterpoint to VC-backed businesses."
 ---
 
 ## Notes
+
+  5 components of Jeff Dean's ML System Architecture Blueprint for the future:
+
+  * Large model, but sparsely activated
+  * Single model to solve many tasks
+  * Dynamically learn and grow pathways through a large model
+  * Hardware specialized for ML supercomputing
+  * ML for efficient mapping onto hardware

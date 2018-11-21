@@ -13,3 +13,6 @@ summary: "'Curmudgeonly' take on computer science vs. programming"
 ---
 
 ## Notes
+
+* Conclusion: don't call yourself a scientist if all you're doing is pouring
+  water from bucket to bucket.

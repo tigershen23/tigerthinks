@@ -13,3 +13,5 @@ summary: "List of 100 startup directories to submit startup for publicity."
 ---
 
 ## Notes
+
+* Good reference for submitting side hustle or Sparo when launching.

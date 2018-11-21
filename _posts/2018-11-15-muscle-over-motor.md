@@ -13,3 +13,9 @@ summary: "Manual labor > electric labor for the able-bodied. Also need to consid
 ---
 
 ## Notes
+
+* **Muscle Over Motor**
+* Save money and gain enjoyment with manual labor
+* Which activities do we choose: the expensive ones where you sit on your butt
+  and twist a throttle? Or the low-cost ones that also make us healthy and
+  develop our physical skills?

@@ -13,3 +13,8 @@ summary: "Clear communication and good practices keeps code quality high and peo
 ---
 
 ## Notes
+
+* More than a couple back and forths and the discussion should be taken offline
+  and fleshed out in real time. This can be indicative of a PR that was not
+  properly spec’d or scoped, but regardless of why a PR discussion has
+  spiraled, it’s important to recognize that it has and solve it appropriately.

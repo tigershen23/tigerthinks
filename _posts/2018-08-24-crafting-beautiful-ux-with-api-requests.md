@@ -13,3 +13,7 @@ summary: "Developer experience matters internally and externally and there are s
 ---
 
 ## Notes
+
+1. timeouts with an upper bound and good messaging
+2. minimum wait time so the experience isn't too jarring
+3. retry with an exponential backoff
