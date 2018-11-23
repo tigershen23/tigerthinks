@@ -1,6 +1,6 @@
 ---
 layout: article_post
-title: "Part 1: Debits and Credits"
+title: "Part 1: Intro"
 date: "2018-09-22 00:01"
 categories:
 tags: [article, technical, money, property-management]
@@ -13,3 +13,5 @@ summary: "PM Accounting"
 ---
 
 ## Notes
+
+* Goal: rundown of property management accounting basics

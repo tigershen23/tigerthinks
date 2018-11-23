@@ -29,37 +29,18 @@ posts_json.each do |post_data|
 
   puts "Creating #{post_filename}..."
 
-  File.open(post_path, "w") do |f|
-    f << <<-EOS.gsub(/^    /, '')
-    ---
-    layout: article_post
-    title: "#{post_data[:title]}"
-    date: "#{post_data[:date]}"
-    categories:
-    tags: #{post_data[:tags]}
-    author: #{post_data[:author]}
-    rating: #{post_data[:rating]}
-    article_url: #{post_data[:article_url]}
-    reading_time: #{post_data[:reading_time]}
-    date_published: #{post_data[:date_published]}
-    summary: "#{post_data[:summary]}"
-    ---
-
-    ## Notes
-    EOS
-  end
-
   # File.open(post_path, "w") do |f|
   #   f << <<-EOS.gsub(/^    /, '')
   #   ---
-  #   layout: podcast_post
+  #   layout: article_post
   #   title: "#{post_data[:title]}"
   #   date: "#{post_data[:date]}"
   #   categories:
   #   tags: #{post_data[:tags]}
   #   author: #{post_data[:author]}
   #   rating: #{post_data[:rating]}
-  #   play_time: #{post_data[:play_time]}
+  #   article_url: #{post_data[:article_url]}
+  #   reading_time: #{post_data[:reading_time]}
   #   date_published: #{post_data[:date_published]}
   #   summary: "#{post_data[:summary]}"
   #   ---
@@ -67,6 +48,25 @@ posts_json.each do |post_data|
   #   ## Notes
   #   EOS
   # end
+
+  File.open(post_path, "w") do |f|
+    f << <<-EOS.gsub(/^    /, '')
+    ---
+    layout: podcast_post
+    title: "#{post_data[:title]}"
+    date: "#{post_data[:date]}"
+    categories:
+    tags: #{post_data[:tags]}
+    author: #{post_data[:author]}
+    rating: #{post_data[:rating]}
+    play_time: #{post_data[:play_time]}
+    date_published: #{post_data[:date_published]}
+    summary: "#{post_data[:summary]}"
+    ---
+
+    ## Notes
+    EOS
+  end
 
   puts "Created #{post_filename}."
 end

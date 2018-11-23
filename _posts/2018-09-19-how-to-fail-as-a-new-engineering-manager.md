@@ -13,3 +13,16 @@ summary: "Stop coding. Care about people. Express yourself."
 ---
 
 ## Notes
+
+* Stop coding. Instead focus on code reviews etc.
+* Focus on the people and the work
+* Measure your value by the impact you have on others' output, not on your own
+  output
+* Express your expectations: assumptions and expectations when delegating work
+* Communicate commitments/deadlines clearly to the team
+* Lead, don't direct. Leadership inspires, it doesn't dictate.
+* Lean in to hard conversations
+  * Address issues quickly
+  * Be specific, have examples
+  * Focus on behavior, not on the person themself
+* Keep learning your craft

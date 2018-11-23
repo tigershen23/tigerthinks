@@ -12,7 +12,7 @@ date_started: 2018-06-02
 date_finished: 2018-06-09
 goodreads_url: "https://www.goodreads.com/book/show/1713426.Predictably_Irrational?ac=1&from_search=true"
 image: /books/predictably-irrational.jpg
-summary: "15 great chapters on different examples of the human mind completely failing the people it is supposed to support"
+summary: "How the human mind fails the people it is supposed to support"
 ---
 
 *TL;DR*: The human mind sucks. A lot. And it sucks the same way very

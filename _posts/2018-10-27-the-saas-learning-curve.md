@@ -13,3 +13,12 @@ summary: "People > tech; SaaS = Service as a Software"
 ---
 
 ## Notes
+
+* Innovators represent about 10% of the market and will provide you with great
+  product feedback but rarely have a budget. As such, they are quite useful in
+  the pre-revenue stage of a Service as a Software company.
+* Early Adopters represent another 10–15% of the market and they have a budget.
+  They often buy because they seek a competitive advantage. They see that being
+  achieved by working with you to realize what should become a shared vision for
+  your product.
+* Start thinking of SaaS as Service as a Software, not Software as a Service. 

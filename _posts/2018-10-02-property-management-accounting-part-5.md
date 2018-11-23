@@ -13,3 +13,5 @@ summary: "Rent charges in PM accounting"
 ---
 
 ## Notes
+
+* Examples to Anki

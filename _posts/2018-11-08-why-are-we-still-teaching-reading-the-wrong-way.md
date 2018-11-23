@@ -13,3 +13,8 @@ summary: "Reading should be taught methodically beginning with phonics, not by p
 ---
 
 ## Notes
+
+* Reading should be taught methodically beginning with phonics, not by putting
+  books in front of kids and telling them to read.
+* Study backing this up: https://www.apmreports.org/story/2018/09/10/further-reading-hard-words
+

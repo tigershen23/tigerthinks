@@ -101,6 +101,7 @@ tag_badge_colors:
   h3h3: 'lime-a200'
   hidden-brain: 'light-green-a200'
   radiolab: 'green-a200'
+  dissect: 'teal-a200'
 
 # Facebook Page integration
 # (for instant articles and other stuff)

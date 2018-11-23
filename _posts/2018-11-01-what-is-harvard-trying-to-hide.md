@@ -13,3 +13,7 @@ summary: "Best article on Harvard racial discrimination lawsuit"
 ---
 
 ## Notes
+
+* With great prestige should come great responsibility. That’s why opening up
+  Harvard’s admissions practices to the light of day is more than just the means
+  to a good story or a cudgel in the affirmative action wars. It’s only fair.

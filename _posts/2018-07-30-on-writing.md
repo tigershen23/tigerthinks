@@ -12,7 +12,7 @@ date_started: 2018-07-20
 date_finished: 2018-07-24
 goodreads_url: "https://www.goodreads.com/book/show/10569.On_Writing?ac=1&from_search=true"
 image: /books/on-writing.jpg
-summary: "Half memoir, half writing advice from one of the great modern fiction writers. Well-crafted. Would mean more to someone who writes fiction, but many concepts apply to writing as a craft."
+summary: "Half memoir, half writing advice from one of the great modern fiction writers."
 ---
 
 *TL;DR*: Stephen King talks about his life and how he approaches

@@ -13,3 +13,5 @@ summary: "Interesting account from a software developer who quit his job and how
 ---
 
 ## Notes
+
+Interesting account from a software developer who quit his job and how it helped his life.

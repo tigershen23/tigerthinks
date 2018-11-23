@@ -9,7 +9,8 @@ rating: 5
 article_url: https://commoncog.com/blog/teaching-tech-together/
 reading_time: 18
 date_published: 2018-11-06
-summary: "Summary of Teaching Tech Together by Greg Wilson"
+summary: "Learn by constructing mental models where you can put the facts
+related to the domain"
 ---
 
 ## Notes

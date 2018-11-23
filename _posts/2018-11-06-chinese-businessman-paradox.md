@@ -13,3 +13,14 @@ summary: "The success of Chinese businessmen under 'poor' business practices sho
 ---
 
 ## Notes
+
+* Characteristics of people with "Chinese businessman wisdom": thrifty, low-key,
+  savvy, cunning, pragmatic, and respected — even begrudgingly! — by the
+  communities they run businesses in.
+* The following paradox: first, that the most successful Chinese businessmen
+  were often the least educated ones. Second, that Chinese businessmen as a
+  group were more superstitious than most, but that this didn’t seem to have
+  much of an effect on their ability to run their businesses! And finally, that
+  the vast majority of Chinese businesspeople did not think too far ahead. They
+  optimised locally, and by keeping close tabs on the bottom line, shut down
+  lines of business that weren’t performing as well.

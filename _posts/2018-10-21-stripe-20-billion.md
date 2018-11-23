@@ -13,3 +13,6 @@ summary: "Narrative deep-dive on one of my favorite startups and pair of founder
 ---
 
 ## Notes
+
+Narrative deep-dive on one of my favorite startups and pair of founders, Patrick
+and John Collison.

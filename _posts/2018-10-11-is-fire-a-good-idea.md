@@ -13,3 +13,10 @@ summary: "You need money so you don't have to worry about day-to-day living, but
 ---
 
 ## Notes
+
+* FIRE is attractive to engineer types
+* FIRE is predicated on being able to retire early
+* But living frugally, adopting the ideas of the FIRE movement with regard to
+  early investment in index funds or ETFs, and remaining financially prudent
+  throughout one’s career — these ideas are definitely a prerequisite to
+  building career moats.

@@ -12,7 +12,8 @@ date_started: 2018-04-25
 date_finished: 2018-04-29
 goodreads_url: "https://www.goodreads.com/book/show/37814186-how-to-american"
 image: /books/how-to-american.jpg
-summary: "Fantastic and relatable storytelling about the Asian-American experience and life in general from one of my new favorite people."
+summary: "Fantastic and relatable storytelling about the Asian-American
+experience for someone who rejects the lawyer/doctor/engineer career path."
 ---
 
 *TL;DR*: Love this story. Would never have the balls to do some of the stuff he did. Super happy for his success chasing his dreams

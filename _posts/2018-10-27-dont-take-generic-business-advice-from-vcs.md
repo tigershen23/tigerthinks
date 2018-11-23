@@ -13,3 +13,8 @@ summary: "VC's incentives are not the same as entrepreneurs', don't delude yours
 ---
 
 ## Notes
+
+![possible-businesses](/images/articles/generic-vcs-possible-businesses.png)
+
+* VC's incentives are not the same as entrepreneurs', don't delude yourself into
+  thinking that they are.
