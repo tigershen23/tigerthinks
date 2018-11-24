@@ -1,26 +1,18 @@
 ---
 layout: default
-title: Top Other
-permalink: /other/top
-tags: other-home
+title: Technical Blog
+permalink: /tech-blog/
+tags: technical-blog-home
 pagination:
   enabled: true
-  tag:
-    values:
-    - paper
-    - course
-    - podcast
-    matching: any
-  sort_field: 'rating'
-  sort_reverse: true
+  tag: technical-blog
 ---
 {% assign posts_count = paginator.posts | size %}
 
 <div class="home">
   <h2 class="page-heading">
-    Other content I've enjoyed (papers, courses, podcasts, etc.) and written (technical blog posts)
+    Technical blog posts
   </h2>
-  <span class="post-meta">sorted by rating (<a href="/other/recent">sort by recent</a>)</span>
 
   <hr align="left" style="width: 50%;" />
 
