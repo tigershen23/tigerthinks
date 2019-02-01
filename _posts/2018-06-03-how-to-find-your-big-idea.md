@@ -3,7 +3,7 @@ layout: podcast_post
 title: "#22 How to find your big idea"
 date: 2018-06-03 20:49
 categories:
-tags: [podcast, startups, business, masters-of-scale]
+tags: [podcast, nonfiction, startups, business, masters-of-scale]
 author: Masters of Scale
 rating: 2
 play_time: 44

@@ -12,6 +12,8 @@ date_published: 2016-08-06
 summary: "Variational autoencoders are generative encoder-decoder networks with a constraint on the encoding network. Well-explained."
 ---
 
+[Updated 2018-11-25]
+
 ## Notes
 
 * Downsides of GANs:
@@ -23,6 +25,8 @@ summary: "Variational autoencoders are generative encoder-decoder networks with 
 * AE adds an encoder network that encodes latent vector/variables, then
   passes to decoder.
   ![basic_ae](http://kvfrans.com/content/images/2016/08/autoenc.jpg)
+  * If we save the encoded vector of an image, we can reconstruct it later by
+    passing it into the decoder portion.
 * Can't generate anything like this though -- need an existing image to
   generate latent vector
 * Solution: add a constraint on encoding network forcing it to generate

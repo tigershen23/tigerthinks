@@ -73,6 +73,8 @@ tag_badge_colors:
   comedy: 'pink-800'
   property-management: 'purple-800'
   music: 'deep-purple-800'
+  management: 'indigo-800'
+  story: 'blue-800'
 
   # Specific provider
   # Do all the a100s
@@ -102,6 +104,12 @@ tag_badge_colors:
   hidden-brain: 'light-green-a200'
   radiolab: 'green-a200'
   dissect: 'teal-a200'
+  full-stack-radio: 'cyan-a200'
+  ycombinator-podcast: 'light-blue-a200'
+  80000-hours: 'blue-a200'
+  ted-interview: 'indigo-a200'
+  without-fail: 'deep-purple-a200'
+  ezra-klein-show: 'purple-a200'
 
 # Facebook Page integration
 # (for instant articles and other stuff)

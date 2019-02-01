@@ -5,10 +5,10 @@ date: "2018-08-29 18:21"
 categories:
 tags: [podcast, nonfiction, life, body, the-upgrade]
 author: The Upgrade
-rating: 3
+rating: 4
 play_time: 42
 date_published: 2018-07-02
-summary: "Psychedelics are tools."
+summary: "Psychedelics are tools. They should be researched and used more."
 ---
 
 ## Notes

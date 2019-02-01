@@ -5,7 +5,7 @@
 require 'date'
 require 'json'
 
-POSTS_FILE = "data/podcasts_2018-11-23.json"
+POSTS_FILE = "data/podcasts_2019-01-30.json"
 # POSTS_FILE = "data/articles_2018-11-15.json"
 
 def create_podcast_post(post_data)
