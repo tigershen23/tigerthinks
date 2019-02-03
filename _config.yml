@@ -75,6 +75,7 @@ tag_badge_colors:
   music: 'deep-purple-800'
   management: 'indigo-800'
   story: 'blue-800'
+  memory: 'light-blue-800'
 
   # Specific provider
   # Do all the a100s

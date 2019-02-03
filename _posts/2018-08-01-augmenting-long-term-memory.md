@@ -3,7 +3,7 @@ layout: article_post
 title: "Augmenting Long-term Memory"
 date: "2018-08-01 00:01"
 categories:
-tags: [article, nonfiction, paper, life, practices]
+tags: [article, nonfiction, paper, life, memory, practices]
 author: Michael Nielsen
 rating: 5
 article_url: http://augmentingcognition.com/ltm.html
