@@ -13,3 +13,10 @@ summary: "Open Source financials echo those of the music industry; what's being 
 ---
 
 ## Notes
+
+* It wasn’t necessarily “fair” that music industry sales plummeted, and yes,
+companies like Apple with its iPod business made billions off of piracy. The
+only reality that mattered, though, was that music itself, thanks to its
+infinite reproducibility, was as pure a commodity as there could be.
+* Right now everyone is winning: simply following economic realities could, in
+  the long run, mean everyone is worse off.
