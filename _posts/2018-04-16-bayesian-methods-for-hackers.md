@@ -5,7 +5,7 @@ date: 2018-04-16 06:00
 categories:
 tags: [book, nonfiction, technical, ppl]
 author: Cam Davidson-Pilon
-rating: 3
+rating: 2
 length_pages: 256
 length_loc: 7475
 date_started: 2018-01-28

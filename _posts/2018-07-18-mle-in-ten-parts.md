@@ -558,3 +558,5 @@ it's causing your model to have a difficult time generalizing.
 You should implement two Logistic Regression classifiers. Softmax
 Regression classifiers are able to perform multi-class classification,
 not the multi-output classification this problem calls for.
+
+* ~From here on out, I took notes exclusively through Anki~, sorry!

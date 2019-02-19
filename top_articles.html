@@ -6,8 +6,6 @@ tags: articles-home
 pagination:
   enabled: true
   tag: article
-  sort_field: 'rating'
-  sort_reverse: true
 ---
 {% assign posts_count = paginator.posts | size %}
 
@@ -20,30 +18,36 @@ pagination:
   <hr align="left" style="width: 50%;" />
 
   {% if posts_count > 0 %}
+    {% assign sortedByRating = paginator.posts | group_by: "rating" %}
+    {% assign ratingsSorted = sortedByRating | sort: "name" | reverse %}
     <div class="posts">
-      {% for post in paginator.posts %}
-        <div class="post py3">
-          <p class="post-meta">{{ post.date | date: site.date_format }}</p>
-          <a href="{{ post.url | prepend: site.baseurl }}" class="post-link"><h3 class="h1 post-title">{{ post.title }}</h3></a>
-          <div class="metadata" style="padding-bottom: 1em;">
-            <span>
-              <b>{% for star in (1..post.rating) %}  ★   {% endfor %}</b>
+      {% for rating in ratingsSorted %}
+        {% assign ratingTitlesSorted = rating.items | sort: "title" %}
+
+        {% for post in ratingTitlesSorted %}
+          <div class="post py3">
+            <p class="post-meta">{{ post.date | date: site.date_format }}</p>
+            <a href="{{ post.url | prepend: site.baseurl }}" class="post-link"><h3 class="h1 post-title">{{ post.title }}</h3></a>
+            <div class="metadata" style="padding-bottom: 1em;">
+              <span>
+                <b>{% for star in (1..post.rating) %}  ★   {% endfor %}</b>
+              </span>
+
+              <span class="vertical-separator" style="border-right: thin solid #A9A9A9; margin-right: 20px; padding-left: 15px;"></span>
+
+              {% for tag in post.tags %}
+                <a href="/{{ tag }}" class="badge badge-{{ site.tag_badge_colors[tag] }}">{{ tag }}</a>
+              {% endfor %}
+            </div>
+            <span class="post-summary">
+              {% if post.summary %}
+                {{ post.summary }}
+              {% else %}
+                {{ post.excerpt }}
+              {% endif %}
             </span>
-
-            <span class="vertical-separator" style="border-right: thin solid #A9A9A9; margin-right: 20px; padding-left: 15px;"></span>
-
-            {% for tag in post.tags %}
-              <a href="/{{ tag }}" class="badge badge-{{ site.tag_badge_colors[tag] }}">{{ tag }}</a>
-            {% endfor %}
           </div>
-          <span class="post-summary">
-            {% if post.summary %}
-              {{ post.summary }}
-            {% else %}
-              {{ post.excerpt }}
-            {% endif %}
-          </span>
-        </div>
+        {% endfor %}
       {% endfor %}
     </div>
 

@@ -3,7 +3,7 @@ layout: book_post
 title: Domain-Driven Design
 date: 2018-06-13 19:51
 categories:
-tags: [book, nonfiction, technical, programming, architecture]
+tags: [book, technical, programming, architecture]
 author: Eric Evans
 rating: 5
 length_pages: 560
