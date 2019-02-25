@@ -5,7 +5,7 @@ date: 2018-08-04 07:25
 categories:
 tags: [book, nonfiction, random]
 author: John Seabrook
-rating: 2
+rating: 1
 length_pages: 368
 length_loc: 5904
 date_started: 2018-07-04
