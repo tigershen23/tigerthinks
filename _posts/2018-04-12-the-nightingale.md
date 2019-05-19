@@ -3,7 +3,7 @@ layout: book_post
 title: The Nightingale
 date: 2018-04-12 18:18
 categories:
-tags: [book, fiction]
+tags: [book, fiction, historical-fiction]
 author: Kristin Hannah
 rating: 4
 length_pages: 584

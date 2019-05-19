@@ -5,7 +5,7 @@ date: 2018-06-03 14:42
 categories:
 tags: [book, nonfiction, life]
 author: Pema Chodron
-rating: 2
+rating: 1
 length_pages: 108
 length_loc: 1701
 date_started: 2018-05-21

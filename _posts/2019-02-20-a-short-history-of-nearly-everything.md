@@ -1,6 +1,6 @@
 ---
 layout: book_post
-title: "The Song Machine: Inside the Hit Factory"
+title: "A Short History of Nearly Everything"
 date: 2019-02-21 00:01
 categories:
 tags: [book, nonfiction, random]
