@@ -112,6 +112,7 @@ tag_badge_colors:
   ted-interview: 'indigo-a200'
   without-fail: 'deep-purple-a200'
   ezra-klein-show: 'purple-a200'
+  ml-guide: 'pink-a200'
 
 # Facebook Page integration
 # (for instant articles and other stuff)
