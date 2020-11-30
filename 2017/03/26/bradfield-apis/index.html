@@ -1,0 +1,1624 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Program Interfaces, Patterns, and Anti-Patterns &#8211; Tiger Shen</title>
+    <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Lecture notes from Bradfield's APIs class">
+    <meta name="robots" content="all">
+    <meta name="author" content="Tiger Shen">
+    
+    <meta name="keywords" content="">
+    <link rel="canonical" href="http://tigerthinks.com/2017/03/26/bradfield-apis/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for Tiger Shen" href="/feed.xml" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/pixyll.css?202011300937" type="text/css">
+
+    <!-- Fonts -->
+    
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&amp;subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300&amp;subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    
+    
+
+    <!-- MathJax -->
+    
+    <script type="text/javascript" async
+        src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+
+    <!-- Verifications -->
+    
+    
+
+    <!-- Open Graph -->
+    <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Program Interfaces, Patterns, and Anti-Patterns">
+    <meta property="og:description" content="Tiger Shen">
+    <meta property="og:url" content="http://tigerthinks.com/2017/03/26/bradfield-apis/">
+    <meta property="og:site_name" content="Tiger Shen">
+    
+    <meta property="og:image" content="http://tigerthinks.com/images/me.jpg">
+    
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    
+    <meta name="twitter:title" content="Program Interfaces, Patterns, and Anti-Patterns" />
+    <meta name="twitter:description" content="Lecture notes from Bradfield's APIs class" />
+    <meta name="twitter:url" content="http://tigerthinks.com/2017/03/26/bradfield-apis/" />
+    
+    <meta name="twitter:image" content="http://tigerthinks.com/images/me.jpeg" />
+    
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    
+</head>
+
+
+<body>
+  
+  
+
+  <div class="site-wrap">
+    <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="http://tigerthinks.com/" class="site-title">Tiger Shen</a>
+      <nav class="site-nav">
+        <a href="/blog">
+  Personal
+</a>
+
+<a href="/tech-blog">
+  Tech
+</a>
+
+<a href="/anki">
+  Anki
+</a>
+
+<a href="#">
+  |
+</a>
+
+<a href="/books/top">
+  Books (43)
+</a>
+
+<a href="/articles/top">
+  Articles (119)
+</a>
+
+<a href="/other/top">
+  Other (151)
+</a>
+
+      </nav>
+      <div class="clearfix"></div>
+      
+
+      <span id="search-searchbar"></span>
+
+    </div>
+  </div>
+</header>
+
+
+    <div class="post p2 p-responsive wrap" role="main">
+      <div class="measure">
+        <div class="post-list" id="search-hits">
+        </div>
+
+        <div id="content">
+          
+
+
+<div class="post-header mb2">
+  <h1>
+    
+    <div class="clearfix mxn2">
+      <div class="col col-2 sm-col-12 px2">
+        <img class="inline" src="/images//courses/bradfield.png" alt="Book Cover">
+
+      </div>
+      <div class="col col-10 sm-col-12 px2">
+        Program Interfaces, Patterns, and Anti-Patterns
+      </div>
+    </div>
+    
+  </h1>
+  <div class="tags">
+  
+    <a href="/course" class="badge badge-blue-grey-base">course</a>
+  
+    <a href="/technical" class="badge badge-deep-orange-base">technical</a>
+  
+    <a href="/programming" class="badge badge-lime-200">programming</a>
+  
+    <a href="/bradfield" class="badge badge-amber-a200">bradfield</a>
+  
+</div>
+
+  <span class="post-meta">By Bradfield | <a target="_blank" href="https://bradfieldcs.com/courses/apis/">Course Page</a> | Taken 2017</span><br>
+  
+  <span class="post-meta small">
+  
+    28 minute read
+  
+  </span>
+</div>
+
+<article class="post-content">
+  <b> <img class="emoji" title=":star:" alt=":star:" src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png" height="20" width="20">  <img class="emoji" title=":star:" alt=":star:" src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png" height="20" width="20">  <img class="emoji" title=":star:" alt=":star:" src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png" height="20" width="20">  <img class="emoji" title=":star:" alt=":star:" src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png" height="20" width="20"> </b>
+
+  <h2 id="notes">Notes</h2>
+
+<h3 id="1---binary-formats-for-integers-and-characters">1 - Binary Formats for Integers and Characters</h3>
+
+<h4 id="binary-coded-decimal-wiki-page">Binary Coded Decimal Wiki Page</h4>
+
+<ul>
+  <li>Class of binary encodings of decimal numbers where each decimal digit
+is represented by a byte</li>
+  <li>Main virtue: more accurate representation and rounding of decimal
+quantities
+    <ul>
+      <li>Also ease of conversion into human-readable representations</li>
+    </ul>
+  </li>
+  <li>
+<em>Natural BCD</em> is 8421 in one nybble, encoding 0-9
+    <ul>
+      <li>
+<em>Unpacked</em>: each numeral is encoded into one byte, with padding</li>
+      <li>
+<em>Packed</em>: two numerals in each byte, with one in least sig nybble
+and other in most significant nybble</li>
+    </ul>
+  </li>
+  <li>Sum is easy; just binary addition first, then add 6 to the sum when
+the five-bit result has a value greater than 9. Whew</li>
+  <li>Subtraction a smidge more difficult: use signed BCD to represent
+negative ten’s complement of the subtrahend, and then add that to the
+first number to get the difference. Whew</li>
+  <li>Vs. pure binary
+    <ul>
+      <li>Decimals have finite place value (e.g. 0.2 -&gt; 0.0010)</li>
+      <li>Scaling by factor of 10 is simpler (just add empty nybbles)</li>
+      <li>Slower than binary</li>
+      <li>Smidge more space than binary (~ 20%)</li>
+      <li>Adding and stuff is more complicated, as you can see</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="binary-plusses-and-minuses-why-we-use-twos-complement">Binary: Plusses and Minuses (Why We Use Two’s Complement)</h4>
+
+<ul>
+  <li>How to represent negative numbers?</li>
+  <li>Universally, leftmost bit is sign. 0 is positive, 1 is negative</li>
+  <li>
+<em>Sign and magnitude</em> NO, since the sign bit isn’t really part of the
+number, so you can’t do natural addition/subtraction</li>
+  <li>
+<em>One’s complement</em>: flip all the bits to get negative representation
+    <ul>
+      <li>Bleh, two representations of 0 :/</li>
+      <li>Treat the sign bit as normal, if you get a final carry bit, bring it
+all the way back over to the right and do an add again</li>
+    </ul>
+  </li>
+  <li>
+<em>Two’s complement</em>: do one’s complement and add 1
+    <ul>
+      <li>If the carry into the sign bit is definitely different from teh
+carry out, then you have an overflow!</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="a-history-of-character-encodings">A History of Character Encodings</h4>
+
+<ul>
+  <li>Computers use binary character codes as “shadow representations” of
+graphical characters that it outputs to screen. Allows for efficiency
+and stuff</li>
+  <li>Start: Morse code. Pretty efficient, uses shortest dots and dashes for
+most frequently used characters (“e”, “t”), still in use today</li>
+  <li>Baudot used 5-bit encoding (5 bits b/c of hardware constraints) with
+switching b/t two planes of characters. Gave him 64 chars to work
+with, okay okay</li>
+  <li>For 1890 Census and stuff, Hollerith develops a punched card code. 12
+rows of punched card, but only 69 valid characters. Extra spaces are
+for ease of use (fewer punches needed on average to differentiate
+characters)</li>
+  <li>1963: American Standards Association announces ASCII, which has 32
+control characters and 96 printing characters, cool
+    <ul>
+      <li>Adopted by all main U.S. computer manufacturers except IBM</li>
+      <li>IBM makes EBCDIC, which is proprietary. Super yucky, 57 different
+standards (!) so international exchange is a nightmare, overall this
+sucks</li>
+      <li>Overall, you come out of the other side with ASCII-based OS’s with
+OS-specific extensions for European languages and whatnot</li>
+    </ul>
+  </li>
+  <li>Lots of different standards and stuff for Korean/Chinese/Japanese
+encodings</li>
+  <li>Xerox starts Unicode</li>
+  <li>
+    <p>Unicode has been criticized as being little more than an exercise in
+cultural imperialism on the part of western computer manufacturers,
+the biggest problems with Unicode are in fact technical ones, which
+can be listed as follows:</p>
+
+    <p>1) There is no information to identify the language being used, which
+affects sorting, etc.
+2) User defined characters, which cause problems in data transmission,
+are allowed
+3) There is no room for further expansion using two-byte (16-bit)
+codes
+4) There is an excess of similar characters
+5) Some characters are created through composition, which destroys the
+fixed-length scheme
+6) Conversion to/from Unicode is not simple for users of Chinese,
+Japanese, and Korean</p>
+  </li>
+  <li>Sigh. Designed to avoid using escape sequences, use a maximum of 16
+bits (2 bytes)</li>
+  <li>Man, all kinds of wild stuff going on. This is from 1999. Unicode
+still in use today I guess</li>
+</ul>
+
+<h4 id="r-remembering-the-origin-of-utf-8">R@ Remembering the Origin of UTF-8</h4>
+
+<ul>
+  <li>http://doc.cat-v.org/bell_labs/utf-8_history</li>
+  <li>Rob Pike da god</li>
+  <li>IBM proposed a FSS/UTF format, asked Ken/Rob to look over it. They
+thought they could do better, so they went to dinner, outlined it on a
+placemat, implemented it, and ran with it.</li>
+  <li>
+    <p>Dam son</p>
+
+    <p>We define 7 byte types:
+T0  0xxxxxxx    7 free bits
+Tx  10xxxxxx    6 free bits
+T1  110xxxxx    5 free bits
+T2  1110xxxx    4 free bits
+T3  11110xxx    3 free bits
+T4  111110xx    2 free bits
+T5  111111xx    2 free bits</p>
+
+    <p>Encoding is as follows.</p>
+    <blockquote>
+      <p>From hex   Thru hex    Sequence        Bits
+00000000    0000007f    T0          7
+00000080    000007FF    T1 Tx           11
+00000800    0000FFFF    T2 Tx Tx        16
+00010000    001FFFFF    T3 Tx Tx Tx     21
+00200000    03FFFFFF    T4 Tx Tx Tx Tx      26
+04000000    FFFFFFFF    T5 Tx Tx Tx Tx Tx   32</p>
+    </blockquote>
+  </li>
+</ul>
+
+<h4 id="characters-symbols-and-the-unicode-miracle">Characters, Symbols, and the Unicode Miracle</h4>
+
+<ul>
+  <li>Knock off the leftmost two bits to get to alphabet index in ASCII
+(since A starts at 65…)</li>
+  <li>Uh oh, this is bad because too small of a set, we start sending all
+kinds of crazy stuff over the web and we get screwed</li>
+  <li>Unicode Consortium has 100,000 characters mapped!</li>
+  <li>Set up UTF-8
+    <ul>
+      <li>Problem 1: tons of blank space for the most common characters if you
+just use 4 bytes!</li>
+      <li>Problem 2: Old computers interpret null bytes as end of stream! Can’t have null
+bytes</li>
+      <li>Problem 3: Must be backwards compatible with ASCII</li>
+    </ul>
+  </li>
+  <li>Nice hack :)</li>
+</ul>
+
+<h4 id="lecture">Lecture</h4>
+
+<ul>
+  <li>Types of interface</li>
+  <li>
+<em>Format</em>: how the data between two programs looks</li>
+  <li>
+<em>Call</em>: conventions. Place-based, rules about where to get data and
+such</li>
+  <li>
+    <p><em>Protocol</em>: combination of agreed-upon format and agreed-upon calling
+convention. When you introduce stuff like sequencing, you get a
+protocol</p>
+  </li>
+  <li>Gottlob Frege introduced:
+    <ul>
+      <li>Take 1 + 2</li>
+      <li>
+<em>Sign</em>: the + symbol is the sign of the plus</li>
+      <li>
+<em>Sense</em>: the operation you associate with the + symbol, which is
+addition for us</li>
+      <li>
+<em>Reference</em>: the concrete representation of the sense - 32 vs 64
+bit, signed vs unsigned, etc.</li>
+    </ul>
+  </li>
+  <li>Get the story straight about IBM and EBCDIC. Assumption is that IBM
+wanted to achieve vendor lock-in
+    <ul>
+      <li>But no, they were actually using those light things that look like
+8’s and can have lights light up to represent numeric values</li>
+      <li>Constraints of the user interface device (the output channel)
+<em>always</em> bubbles down to the program implementation (if it doesn’t,
+your implementation sucks)</li>
+      <li>If you do what you say you’re gonna do, faster and better than
+others, you win the market. Sometimes this requires cutting through
+layers of abstraction</li>
+    </ul>
+  </li>
+  <li>Now you have BCD, next you add IC (Interchange Code). Needs to include
+letters. Adds two more bits to each value (6 bits total)
+    <ul>
+      <li>This is optimized for the actual paper punch card interface, with 12
+holes</li>
+      <li>Then add the E, which adds two more bits (for stuff like
+punctuation). Now 8 bits. Now people are mad at IBM for breaking
+standard</li>
+    </ul>
+  </li>
+  <li>UTF-16 issues
+    <ul>
+      <li>Possibility of corrupt byte streams through combo of breaking in the
+middle of a byte + custom shift-based encodings on Japanese
+computers</li>
+      <li>Fixed by UTF-8, duh!</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="2---indirect-access-vs-direct-access">2 - Indirect Access vs. Direct Access</h3>
+
+<ul>
+  <li>High level interface or low level interface?</li>
+</ul>
+
+<h4 id="stallman-my-lisp-experiences-and-the-development-of-gnu-emacs">Stallman: My Lisp Experiences and the Development of GNU EMACS</h4>
+
+<ul>
+  <li>https://www.gnu.org/gnu/rms-lisp.en.html</li>
+  <li>Welp, I guess Stallman wrote EMACS</li>
+  <li>Dah dee dah, story time</li>
+  <li>Initially, EMACS was written in some crappy other low level language</li>
+  <li>But people wanted something with Lisp inside it that could be extended
+by rewriting or writing new Lisp</li>
+  <li>So he rewrote Emacs in C from TECO; with a few Lisp things, but mostly
+C</li>
+  <li>Gradually got to re-implementing in all Lisp primitives</li>
+  <li>Built a Lisp machine for Lisp primitives I guess, at the AI Lab
+    <ul>
+      <li>This is what Myles is talking about re: AI &amp; Lisp</li>
+    </ul>
+  </li>
+  <li>Meh, lab goes to dump and there’s rudeness and such, Stallman tries to
+keep Lisp Machines in business</li>
+  <li>
+    <p>Because of GNU having Lisp implementations for userland programs,
+Stallman was led to write GNU Emacs. Okay</p>
+
+    <p><strong>The crucial thing is that you are free to run the program, free to
+study what it does, free to change it to suit your needs, free to
+redistribute the copies of others and free to publish improved,
+extended versions. This is what free software means. If you are using
+a non-free program, you have lost crucial freedom, so don’t ever do
+that.</strong></p>
+  </li>
+  <li>HAVING EXTENSIBILITY IS GOOD
+    <blockquote>
+      <p>There’s an interesting benefit you can get from using such a powerful
+language as a version of Lisp as your primary extensibility language.
+You can implement other languages by translating them into your primary
+language. If your primary language is TCL, you can’t very easily
+implement Lisp by translating it into TCL. But if your primary language
+is Lisp, it’s not that hard to implement other things by translating
+them. Our idea was that if each extensible application supported Scheme,
+you could write an implementation of TCL or Python or Perl in Scheme
+that translates that program into Scheme. Then you could load that into
+any application and customize it in your favorite language and it would
+work with other customizations as well.</p>
+
+      <p>As long as the extensibility languages are weak, the users have to use
+only the language you provided them. Which means that people who love
+any given language have to compete for the choice of the developers of
+applications — saying “Please, application developer, put my language
+into your application, not his language.” Then the users get no choices
+at all — whichever application they’re using comes with one language and
+they’re stuck with [that language].</p>
+    </blockquote>
+  </li>
+</ul>
+
+<h4 id="microcode-wikipedia-page">Microcode Wikipedia page</h4>
+
+<ul>
+  <li>https://en.wikipedia.org/wiki/Microcode</li>
+  <li><strong>A technique that imposes an interpreter between the hardware and the
+architectural level of a computer</strong></li>
+  <li>Used in CPUs; the hardware instructions that implement the
+assembly/machine code instructions</li>
+  <li>Lower-level than application programs :) differentiated with <em>micro</em>
+prefix (microinstruction, microassembler, etc.)</li>
+  <li>Example horizontal microinstruction (executed in one cycle)
+  Connect register 1 to the A side of the ALU
+  Connect register 7 to the B side of the ALU
+  Set the ALU to perform two’s-complement addition
+  Set the ALU’s carry input to zero
+  Store the result value in register 8
+  Update the condition codes from the ALU status flags (negative, zero,
+  overflow, and carry)
+  Microjump to microPC nnn for the next microinstruction</li>
+  <li>Must be super optimized!</li>
+  <li>Microcode simplifies fetch/decode/execute cycle by allowing processor
+behavior to be defined with microprogram routines instead of dedicated
+circuitry. Can change the microcode without changing actual hardwire
+design, woohoo!!</li>
+  <li><strong>Microprograms operate on a more primitive, totally different, and
+much more hardware-oriented architecture than the assembly
+instructions visible to normal programmers</strong></li>
+  <li>Each microinstruction in a microprogram provides the bits that control
+the functional elements that internally compose a CPU.</li>
+  <li>Compared to RISC? Many RISC and VLIW processors are designed to
+execute every instruction (as long as it is in the cache) in a single
+cycle. This is very similar to the way CPUs with microcode execute one
+microinstruction per cycle.</li>
+  <li>Not really sure, but okay</li>
+</ul>
+
+<h4 id="lecture-1">Lecture</h4>
+
+<ul>
+  <li>Abstraction vs. Indirection
+    <ul>
+      <li>Example: pedestrians currently have access to the other side of the
+road (contract), but when you go to self-driving cars you may have
+to introduce a constraint that pedestrians can’t cross to the other
+side</li>
+      <li>Indirection is any time you deny direct access, mediate the access
+through an interface. E.g. bridge over road vs. crosswalk is an
+indirection but not an abstraction</li>
+      <li>Abstraction allows you to think at a higher level than before</li>
+    </ul>
+  </li>
+  <li>Lisp interpreter -&gt; Lisp ASM -&gt; microcode
+    <ul>
+      <li>Abstraction! Indirect access to microcode; most people only write
+stuff in Lisp ASM, only a select few contribute to the
+implementations of the List ASM targeting specific microcodes</li>
+    </ul>
+  </li>
+  <li>BSD vs. Linux
+    <ul>
+      <li>Linus just wrote the Linux kernel, which he intended to combine with
+GNU tools to make a functioning operating system</li>
+      <li>BSD did it differently - encapsulates everything</li>
+      <li>Write a C program for Linux? Target a kernel version, and C version,
+and all kinds of other package versions</li>
+      <li>Write a C program for BSD - just target a BSD version</li>
+    </ul>
+  </li>
+  <li>React vs jQuery
+    <ul>
+      <li>React is an abstraction (you’re not even talking to the browser
+directly), jQuery is indirection (allows you to talk to browser
+differently)</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="3---the-system-call-the-function-call-and-the-method-call">3 - The System Call, the Function Call, and the Method Call</h3>
+
+<h4 id="the-definitive-guide-to-linux-system-calls">The Definitive Guide to Linux System Calls</h4>
+
+<ul>
+  <li>This’ll be a bit of revision from operating systems</li>
+  <li>More of a reference than an actual thingy</li>
+</ul>
+
+<h4 id="the-freebsd-developers-handbook-x86-syscall-section-short">The FreeBSD developer’s handbook, x86 syscall section (short)</h4>
+
+<ul>
+  <li>Same</li>
+</ul>
+
+<h4 id="the-history-of-calling-conventions">The History of Calling Conventions</h4>
+
+<ul>
+  <li>Ayyah</li>
+</ul>
+
+<h4 id="lets-build-objc_msgsend">Let’s Build objc_msgSend</h4>
+
+<ul>
+  <li>Code tutorial, notes are rough, just read</li>
+  <li>In general, any small piece of code that serves to redirect code
+somewhere else can be called a trampoline.</li>
+</ul>
+
+<h4 id="lecture-2">Lecture</h4>
+
+<ul>
+  <li>Problems with Assembly?
+    <ul>
+      <li>Want a way to address lines of code: labels!</li>
+      <li>This is the beginning of subroutines</li>
+      <li>Add jump, JAL, RET</li>
+      <li>What differentiates subroutine from function? Subroutines cannot be
+nested, also don’t have formal parameters/state</li>
+    </ul>
+  </li>
+  <li>To implement a function call:
+    <ul>
+      <li>Store return address</li>
+      <li>Store registers that function will clobber</li>
+      <li>Store args (or at least agree on location)</li>
+      <li>Where to get return values</li>
+    </ul>
+  </li>
+  <li>Function is stack space and lexical scope for a subroutine</li>
+  <li>Method: expands on function by having an instance environment.
+Invisible argument is self
+    <ul>
+      <li>Fucking yucky, need to go up the inheritance tree to find the method</li>
+    </ul>
+  </li>
+  <li>Lambda: does not need an entry on the symbol table
+    <ul>
+      <li>Also implements a closure, gg</li>
+      <li>Has reference to the lexical scope under which it was invoked, as
+well as its own stack frame</li>
+    </ul>
+  </li>
+  <li>Fork/exec/syscall is pretty much review</li>
+</ul>
+
+<h3 id="4---command-line-interfaces">4 - Command (Line) Interfaces</h3>
+
+<h4 id="aosa-book---the-bourne-again-shell">AOSA Book - The Bourne-Again Shell</h4>
+
+<ul>
+  <li>http://aosabook.org/en/bash.html</li>
+  <li>Okay okay</li>
+  <li>Input -&gt; Lex/Parse -&gt; Expand (braces, tilde, substitution, word
+splitting, filename generation) -&gt; Execute -&gt; Exit status</li>
+</ul>
+
+<h6 id="syntactic-units">Syntactic Units</h6>
+
+<ul>
+  <li>Tokens:
+    <ul>
+      <li>
+<em>Reserved words</em> like if and while</li>
+      <li>
+<em>Operators</em> like +, -, etc.</li>
+      <li>Everything else is just normal <em>words</em>
+</li>
+    </ul>
+  </li>
+  <li>Dollar sign introduces a parameter or variable, yep</li>
+  <li>Support for arrays, integers, and strings</li>
+  <li>Hash table for storing and retrieving variables, linked lists of these
+hash tables to implement variable scoping
+    <ul>
+      <li>Different scopes for each function call, etc</li>
+    </ul>
+  </li>
+  <li>All built on top of primitive data structures - arrays, trees,
+singly-linked, doubly-linked lists</li>
+</ul>
+
+<h6 id="input-processing">Input Processing</h6>
+
+<ul>
+  <li>
+<em>Readline</em> library to provide functions allowing users to edit command
+lines, functions to save command lines as they are entered, recall
+previous commands, expand history, etc.</li>
+  <li>This is for interactive input processing. For noninteractive input,
+uses buffered input routines</li>
+</ul>
+
+<h6 id="parsing">Parsing</h6>
+
+<ul>
+  <li>Bash needs to be lexed and parsed just like any other language</li>
+  <li>Parser returns a command struct to the word expander</li>
+</ul>
+
+<h6 id="word-expansion">Word Expansion</h6>
+
+<ul>
+  <li>Not much to see here</li>
+  <li>Implemented using a small pipeline: each stage takes a word, and,
+after potentially transforming it, passes it along</li>
+  <li>Uses the same word data structure as the rest of the system</li>
+</ul>
+
+<h6 id="command-execution">Command Execution</h6>
+
+<ul>
+  <li>Yeah, skimmed :/</li>
+</ul>
+
+<h6 id="lessons-learned">Lessons Learned</h6>
+
+<ul>
+  <li>Important to have <em>change logs</em>!</li>
+  <li>Regression testing if appropriate</li>
+  <li>Standards, documentation often ignored by developers but are very
+important</li>
+  <li>Okay</li>
+</ul>
+
+<h4 id="powershell-wikipedia-page">PowerShell Wikipedia page</h4>
+
+<ul>
+  <li>Administrative tasks performed by <em>cmdlets</em> which implement a specific
+operation. Can be combined into scripts
+    <ul>
+      <li>
+<em>Providers</em> make the file system/registry available to cmdlets</li>
+    </ul>
+  </li>
+  <li>Works with Windows OS</li>
+  <li>Core grammar based on POSIX /shrug</li>
+  <li>Yeah yeah yeah some history cool</li>
+  <li>Similar command line interface to bash, where parameters are
+translated from arguments by PowerShell and passed to the cmdlet</li>
+  <li>Always processes objects individually (doesn’t work on collections)</li>
+  <li>Each cmdlet implements Begin(), Process(), End()…</li>
+  <li>Differences in pipelining from Bash: all happens in same process, and
+passes .NET objects rather than byte streams</li>
+</ul>
+
+<h4 id="lecture-3">Lecture</h4>
+
+<ul>
+  <li>PowerShell passes around <em>structured data</em>, Bash passes around text</li>
+  <li>The shell exists to interface with the operating system</li>
+  <li>OS startup: kernel -&gt; initd/launchd -&gt; bash (connected to teletype
+terminal or tty)</li>
+</ul>
+
+<h6 id="myles-walking-through-bash-execution">Myles walking through bash execution</h6>
+
+<ul>
+  <li>Lex into words</li>
+  <li>Parse into AST</li>
+  <li>Expand words</li>
+  <li>Execute
+    <ul>
+      <li>Look for pipe chars</li>
+      <li>If no job:
+        <ul>
+          <li>Resolve command (aliases, etc.)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="5---interprocess-communiation-ipc">5 - Interprocess Communiation (IPC)</h3>
+
+<h4 id="pipes-a-brief-introduction">Pipes: A Brief Introduction</h4>
+
+<ul>
+  <li>Pipes transfer standard output of a process to another destination</li>
+  <li>Can create a pipeline of commands</li>
+  <li>Made <em>modularity</em> possible as part of Unix philosophy</li>
+  <li>Buh I know all dis</li>
+</ul>
+
+<h4 id="bsd-sockets-a-quick-and-dirty-primer">BSD Sockets: A Quick And Dirty Primer</h4>
+
+<ul>
+  <li>
+<em>Socket</em> is the method for accomplishing IPC. Allows processes to
+speak to one another. <em>Analogy is a telephone</em>
+</li>
+  <li>
+<em>UNIX sockets</em> use UNIX pathnames to identify sockets, used for same
+machine</li>
+  <li>
+<em>INET sockets</em> use an IP address, include a port, used for remote
+accesses</li>
+  <li>
+<em>bind</em> binds socket to an address on which to receive calls</li>
+  <li>
+<em>listen</em> to set max # of requests to buffer</li>
+  <li>
+<em>accept</em> to finally start getting data on the socket</li>
+  <li>Usually fork off jobs to handle each new connection that gets accepted</li>
+  <li>
+<em>connect</em> to a socket to start dropping data onto it
+    <ul>
+      <li>Calls particular port number on particular host. Returns socket
+through which data can flow</li>
+    </ul>
+  </li>
+  <li>Now you can talk via read() and write()</li>
+  <li>close() to hang up the call</li>
+</ul>
+
+<h4 id="zeromq-guide-socket-stuff">ZeroMQ Guide: Socket Stuff</h4>
+
+<ul>
+  <li>Socket-like API doesn’t come for free!</li>
+  <li>Bind in one node, connect in others. <em>Generally</em> (not always), the
+server binds and clients connect. Bind to a well-known address,
+connect to arbitrary network addresses</li>
+  <li>Differences with TCP sockets:
+    <ul>
+      <li>zmq sockets carry messages not a stream of bytes</li>
+      <li>i/o in background thread, messages always sent and received locally
+no matter what application is doing (?)</li>
+      <li>one-to-N routing is built-in</li>
+    </ul>
+  </li>
+  <li>Dealer/Broker used for n-n connections and such
+    <blockquote>
+      <blockquote>
+        <blockquote>
+          <p>The built-in core ZeroMQ patterns are:
+  Request-reply, which connects a set of clients to a set of services.
+  This is a remote procedure call and task distribution pattern.
+  Pub-sub, which connects a set of publishers to a set of subscribers.
+  This is a data distribution pattern.  Pipeline, which connects nodes
+  in a fan-out/fan-in pattern that can have multiple steps and loops.
+  This is a parallel task distribution and collection pattern.
+  Exclusive pair, which connects two sockets exclusively. This is a
+  pattern for connecting two threads in a process, not to be confused
+  with “normal” pairs of sockets.</p>
+        </blockquote>
+      </blockquote>
+    </blockquote>
+  </li>
+</ul>
+
+<h4 id="lecture-4">Lecture</h4>
+
+<ul>
+  <li>
+    <p>Pipes for one process to one process, socket for multiple</p>
+  </li>
+  <li>Advantage of multi-process architecture is that if a component
+crashes, the whole process doesn’t go down
+    <ul>
+      <li>Single process can still load fast because of how OS lazily pages</li>
+      <li>Better reliability, but it’s very annoying</li>
+    </ul>
+  </li>
+  <li>
+    <p><em>Zombie</em> process: got killed, but parent didn’t call wait() in its
+SIGCHILD handler, so it stays as an entry in the process table but is
+unreachable</p>
+  </li>
+  <li>Pipes don’t touch the file system!</li>
+</ul>
+
+<h3 id="6---human-readable-ie-text-based-interchange-and-archival-formats">6 - “Human Readable” (i.e. Text Based) Interchange and Archival Formats</h3>
+
+<h4 id="the-rule-of-least-power">The Rule of Least Power</h4>
+
+<ul>
+  <li>
+<strong>Choose the least powerful language suitable for a given purpose</strong>,
+where language doesn’t necessarily a programming language (English,
+diagrams, etc.)</li>
+  <li>Principle: <strong>Powerful languages inhibit information reuse</strong>
+</li>
+  <li>What is Turing complete? Can compute anything a computer can compute
+    <ul>
+      <li>Give you memory and jumping</li>
+      <li>Tradeoff: hard to tell what it’ll do without actually running it</li>
+    </ul>
+  </li>
+  <li>Less powerful = easy to secure, easy to analyze</li>
+  <li>Practice for the Internet: <em>Use the least powerful language suitable
+for expressing information, constraints or programs on the World Wide
+Web</em>
+</li>
+  <li>Still needs to solve your problem!</li>
+  <li>HTML/CSS is least power, Java applet is more powerful</li>
+</ul>
+
+<h4 id="my-history-of-the-internet-robustness-principle">My history of the (Internet) Robustness Principle</h4>
+
+<ul>
+  <li>Robustness Principle: <strong>Be liberal in what you accept, and
+conservative in what you send</strong>
+</li>
+  <li>Applies to life!</li>
+  <li>Getting looser as time goes on :/ early formulation was
+“Implementation must be conservative in its sending behavior, and
+liberal in its receiving behavior”, latest is “Be strict when
+sending and tolerant when receiving”</li>
+  <li>aka Postel’s Principle</li>
+</ul>
+
+<h4 id="edn-format">EDN Format</h4>
+
+<ul>
+  <li>Extensible Data Notation</li>
+</ul>
+
+<h4 id="lecture-5">Lecture</h4>
+
+<ul>
+  <li>Why use text based formats?</li>
+  <li>Pros
+    <ul>
+      <li>Human readability (terminals, text editors, anything that can read
+UTF-8)</li>
+      <li>Open for extensibility</li>
+      <li>Platform independence (don’t need to worry about stuff like
+endianness)</li>
+    </ul>
+  </li>
+  <li>Cons
+    <ul>
+      <li>Space</li>
+      <li>Time to parse</li>
+    </ul>
+  </li>
+  <li>Postel Principle in action:</li>
+  <li>HTTP takes \r\n or just \n as line break</li>
+  <li>
+    <p>HTML has super optional stuff, ew</p>
+  </li>
+  <li>Rule of Least Power</li>
+  <li>It was an inevitability that JavaScript would subsume HTML and CSS
+because it was the only general purpose language of the three related
+to the web</li>
+  <li>Web succeeds because it is <em>open</em>, in spite of all of its design
+failures</li>
+  <li>Rule of Least Power failed?</li>
+</ul>
+
+<h3 id="7---binary-interchange-and-archival-formats">7 - Binary Interchange and Archival Formats</h3>
+
+<h4 id="protobufs">ProtoBufs</h4>
+<p>https://developers.google.com/protocol-buffers/docs/encoding</p>
+
+<ul>
+  <li>A language-neutral, platform-neutral, extensible way of serializing
+structured data for use in communications protocols, data storage, and
+more
+    <ul>
+      <li>XML, but smaller, faster, and simpler</li>
+    </ul>
+  </li>
+  <li>Define in <code class="language-plaintext highlighter-rouge">.proto</code> files, run compiler, you get generated source code
+for interacting</li>
+  <li>vs. XML:
+    <ul>
+      <li>Simpler</li>
+      <li>Order of magnitude smaller</li>
+      <li>Order of magnitude faster</li>
+      <li>Less ambiguity</li>
+      <li>Easier to use programmatically/semantically</li>
+    </ul>
+  </li>
+  <li>Protobufs introduced at Google for request/response without needing to
+have ugly versioning code :)
+    <ul>
+      <li>Introduce new fields easily</li>
+      <li>Self-describing formats that can be used in multiple languages</li>
+    </ul>
+  </li>
+</ul>
+
+<h6 id="encoding">Encoding</h6>
+
+<ul>
+  <li>Use varints to encode integers - okay, zzz, I can get this</li>
+  <li>Protobuf message is a series of key-value pairs; binary version
+just uses field numbers as keys, concats keys and values into a
+byte stream</li>
+  <li>For backwards compatibility, encode key with a <em>wire type</em> indicating
+how long the following value is. This allows you to add new fields
+without breaking existing parsers</li>
+  <li>Boring stuff for how each field type is encoded</li>
+  <li>Better to serialize fields in order</li>
+</ul>
+
+<h4 id="redis-protocol">Redis Protocol</h4>
+<p>https://redis.io/topics/protocol</p>
+
+<ul>
+  <li>RESP: REdis Serialization Protocol</li>
+  <li>Balance these things:
+    <ul>
+      <li>Simple to implement</li>
+      <li>Fast to parse</li>
+      <li>Human readable</li>
+    </ul>
+  </li>
+  <li>For client-server communication (client sends array of strings
+representing command arguments, server responds with command-specific
+data type)</li>
+  <li>First byte indicates the datatype</li>
+  <li>Okay and there’s a bunch of different types</li>
+  <li>Kind of a balance between binary and text protocol?</li>
+</ul>
+
+<h4 id="fressian">Fressian</h4>
+<p>https://www.youtube.com/watch?v=JArZqMqsaB0</p>
+
+<ul>
+  <li>Takes ideas from Hessian/EDN</li>
+  <li>Datomic distributed database on Clojure…?</li>
+  <li>
+<em>Not serialization</em>
+    <ul>
+      <li>
+        <h2 id="data-structuresobjects-drive-decisionmaking">Data structures/objects drive decisionmaking</h2>
+      </li>
+    </ul>
+  </li>
+  <li>Use <em>data encoding</em> instead
+    <ul>
+      <li>Encoding drives decisionmaking</li>
+      <li>In 6 years you’ll just have your data</li>
+      <li>No objects</li>
+      <li>No identity</li>
+      <li>Consumers don’t need to understand everything!</li>
+    </ul>
+  </li>
+  <li>EDN is like Fressian
+    <ul>
+      <li>Language neutral (even though it’s made for Clojure, it’s important
+to be able to read data in 10 years with different language)</li>
+      <li>Self-describing</li>
+      <li>Immutable values</li>
+      <li>Namespaces</li>
+      <li>Extensible</li>
+      <li>Composable</li>
+      <li>Batteries-included
+        <ul>
+          <li>Enough stuff in the format to get rolling without wondering about
+ints being in the encoding and stuff</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Why EDN <em>and</em> Fressian? <em>Performance</em>
+    <ul>
+      <li>Fressian is aware of primitives in language</li>
+      <li>Domain-specific compression in Fressian</li>
+    </ul>
+  </li>
+  <li>Design-time</li>
+  <li>
+<em>Sufficiency, then efficiency</em>
+    <ul>
+      <li>Requirement is language neutrality; helps you avoid
+language-specific serialization</li>
+      <li>Requirement is rich types; helps you avoid extra-message convention
+(everyone does custom JSON)</li>
+      <li>Extensibility: helps you avoid arbitrary extension points, that
+no one can understand</li>
+      <li>Self-describing; helps you avoid contextual description (e.g.
+language-specific)</li>
+    </ul>
+  </li>
+  <li>Efficiency tricks
+    <ul>
+      <li>Primitive and array support</li>
+      <li>Byte code language: the encoding is a bytecode</li>
+      <li>Packed encoding (e.g type and data encoded together - ints 0-63
+encode themselves)</li>
+      <li>Chunked encoding (can stream in parsing)</li>
+      <li>Domain-aware caching
+        <ul>
+          <li>In the bytecode stream you can have a cached value indicated by
+something</li>
+          <li>Writer chooses what to cache (super dynamic!)</li>
+          <li>Cached items represented once in full, then all following
+representations are by alias/code</li>
+          <li>Beats generic compression by a bunch</li>
+          <li>Entirely transparent to readers</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Tagged stuff like EDN, can be ignored by intermediaries</li>
+  <li>
+    <p>More clojure-specific stuff</p>
+  </li>
+  <li>Language-neutral is the most important! Don’t make Clojure a private
+island</li>
+</ul>
+
+<h4 id="bitmap-image-file">BitMap image file</h4>
+
+<ul>
+  <li>
+    <p>The BMP file format, also known as bitmap image file or device
+independent bitmap (DIB) file format or simply a bitmap, is a raster
+graphics image file format used to store bitmap digital images,
+independently of the display device (such as a graphics adapter),
+especially on Microsoft Windows[1] and OS/2[2] operating systems.</p>
+
+    <p>The BMP file format is capable of storing two-dimensional digital
+images both monochrome and color, in various color depths, and
+optionally with data compression, alpha channels, and color profiles.
+The Windows Metafile (WMF) specification covers the BMP file
+format.[3] Among others wingdi.h defines BMP constants and structures.</p>
+  </li>
+  <li>
+    <p>See image in 07_binary_formats</p>
+  </li>
+</ul>
+
+<h4 id="lecture-6">Lecture</h4>
+
+<ul>
+  <li>RESP is a good choice for the most basic host-to-host communication,
+where you don’t want to pull in any dependencies and such</li>
+  <li>Schema === non-self-describing (JSON is self-describing, schemaless)</li>
+  <li>Diff between text and binary:
+    <ul>
+      <li>num = buffer.read32LE(8) is constant time (movement)</li>
+      <li>num = parseInt(“1234567”) is linear time (computation)</li>
+    </ul>
+  </li>
+  <li>In-memory format concerns:
+    <ul>
+      <li>Alignment</li>
+      <li>Padding</li>
+      <li>These things don’t matter as much over the wire; this
+alignment/padding allows you to do constant time lookups</li>
+    </ul>
+  </li>
+  <li>
+<em>Packing</em> is putting values next to each other (without identifiers),
+differing from compression because compression looks for patterns in
+the values from themselves as well</li>
+  <li>Protobuf: you need a schema</li>
+  <li>How do you know which object type is in protobuf</li>
+  <li>
+    <p>Myles thinks out-of-band schemas are always a disadvantage because of
+the unnecessary overhead</p>
+  </li>
+  <li>Fressian is a bytecode format
+    <ul>
+      <li>Very complicated but still half the size of JSON parser</li>
+    </ul>
+  </li>
+  <li>
+<em>Binary safe</em> format can have arbitrary binary in it without
+transformations and parse successfully</li>
+</ul>
+
+<h3 id="8---distributed-systems-remote-call-interfaces-formats-and-protocols">8 - Distributed systems: remote call interfaces, formats, and protocols</h3>
+
+<h4 id="hateoas">HATEOAS</h4>
+<p>http://restfulapi.net/hateoas/</p>
+
+<ul>
+  <li><strong>Hypermedia as the Engine of Application State</strong></li>
+  <li>Sets apart REST from other network application architectures</li>
+  <li>
+<em>Hypermedia</em>: any content that contains links to other forms of media</li>
+  <li>Add links in JSON responses so client can dynamically navigate to
+another resource :)
+    <ul>
+      <li>I.e. Response includes { “link”: { “href”: “10/employees” } }; thus,
+the hypermedia returned from the server drives the application’s
+state
+        <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>{
+"departmentId": 10,
+"departmentName": "Administration",
+"locationId": 1700,
+"managerId": 200,
+"links": [
+    {
+        "href": "10/employees",
+        "rel": "employees",
+        "type" : "GET"
+    }
+]
+}
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>If HATEOAS is implemented the REST client requests an initial URI,
+then the server provides links to dynamically discover the rest of the
+stuff. This means <strong>clients no longer have to hard code the URI
+structures for different resources</strong>
+</li>
+  <li>Okay</li>
+</ul>
+
+<h4 id="grpc-google-rpc">gRPC (Google RPC)</h4>
+<p>http://www.grpc.io/docs/guides/index.html</p>
+
+<ul>
+  <li>gRPC lets client applications directly call methods on server
+applications on different machines as if they were local objects</li>
+  <li>Client/server stubs just like normal RPCs</li>
+  <li>Uses protobufs</li>
+  <li>Okay</li>
+</ul>
+
+<h4 id="graphql-fields">GraphQL Fields</h4>
+<p>http://graphql.org/learn/queries/#fields</p>
+
+<ul>
+  <li>You query a GraphQL server by specifying fields on objects</li>
+  <li>Req:
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>{
+hero {
+  name
+  # Queries can have comments!
+  friends {
+    name
+  }
+}
+}
+</code></pre></div>    </div>
+  </li>
+  <li>Resp:
+    <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>{
+"data": {
+  "hero": {
+    "name": "R2-D2",
+    "friends": [
+      {
+        "name": "Luke Skywalker"
+      },
+      {
+        "name": "Han Solo"
+      },
+      {
+        "name": "Leia Organa"
+      }
+    ]
+  }
+}
+}
+</code></pre></div>    </div>
+  </li>
+  <li>So on and so forth :)</li>
+  <li>Okay</li>
+</ul>
+
+<h4 id="lecture-7">Lecture</h4>
+
+<ul>
+  <li>Networking gives you the ability to make phone calls, you have to
+build application level protocols above that
+    <ul>
+      <li>TCP illusion is sequential passing of messages back and forth</li>
+      <li>
+<em>Connection</em>: link between two hosts that they can pass data back
+and forth on</li>
+      <li>
+<em>Packet</em>: message sized by some link or network layer constraint</li>
+      <li>
+<em>Fragment</em>: zzz, break up a piece of data into smaller sizes so that
+you can be more granular with requests (e.g. YouTube videos)</li>
+      <li>
+<em>Stream</em>: sequence of bytes made available over time (conveyor belt
+one at a time, not large batches)</li>
+    </ul>
+  </li>
+  <li>High level concepts:
+    <ul>
+      <li>
+<em>Service</em>: something that interacts with a network</li>
+      <li>
+<em>Endpoint</em>: the thing you’re targeting; could be URL, IP address,
+port. When you add a feature to a service, you are adding an
+endpoint</li>
+      <li>
+<em>Message</em>: single unit of communication between two nodes</li>
+    </ul>
+  </li>
+  <li>Application level concepts:
+    <ul>
+      <li>
+<em>Idempotency</em>: more than just “no side effects”. It should produce
+the same output state regardless of how many times you perform an
+operation
+        <ul>
+          <li>POST isn’t idempotent :*(</li>
+          <li>PUT is idempotent because applying the same update over and over
+should produce the same state
+            <ul>
+              <li>Client should generate ID for creating a record so that it can
+generate a message that can safely be retried</li>
+            </ul>
+          </li>
+          <li>Ensure consistency with client applications</li>
+        </ul>
+      </li>
+      <li>
+<em>Transactions</em>: two things need to happen together or not at all</li>
+      <li>
+<em>Sagas</em>: transactions are above the level of the technology, but
+sometimes rollback involves a physical side effect out of the time
+band where you need to respond to the user. In this case you use a
+saga
+        <ul>
+          <li>Example: 50k tickets available, will hvae demand for 100k, but
+payment processor can only process one payment per second
+            <ul>
+              <li>So when user makes purchase, issue “optimistic” ticket to the
+user but on the backend the transaction is still in a queue</li>
+              <li>Payment fails -&gt; write a record saying “this ticket ID has an
+associated payment failure”. Ticket only valid if you have an
+associated successful payment</li>
+              <li>Payment succeeds -&gt; you good</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Metaphors</li>
+  <li>Calling <em>Procedures</em>
+    <ul>
+      <li>RPCs</li>
+      <li>Around since 1950s</li>
+      <li>Get a bad rap because they sucked at first</li>
+      <li>Can’t tell which lines of code do things slowly because they’re
+going over the network! Impossible to profile code and estimate
+performance</li>
+      <li>Yuck</li>
+      <li>Treat an endpoint like a function, treat payload like parameters to
+function, you’ll receive a response that is in a certain agreed-upon
+format</li>
+      <li>gRPC
+        <ul>
+          <li>Protobuf message formatting</li>
+          <li>Built-in timeouts</li>
+          <li>Not everything is one request-one response
+            <ul>
+              <li>gRPC allows you to stream stuff up and down</li>
+            </ul>
+          </li>
+          <li>Very good for primarily mobile client on cloud-based backend!
+            <ul>
+              <li>Then if you need HTTP later you can pull out what you need</li>
+            </ul>
+          </li>
+          <li>Google’s woe: reduce resource load because HTTP is freaking noisy</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Exchanging <em>Resources</em>
+    <ul>
+      <li>HTTP 1.0 - 2000</li>
+      <li>Now, message should be a document that lives at a location</li>
+      <li>
+<em>Resource</em> based (URIs)
+        <ul>
+          <li>Can have different representations of resources (HTML, etc.)</li>
+          <li>To have a different representation, you put it in a header, in the
+query string, or as a URL file extension</li>
+          <li>Blahblah</li>
+        </ul>
+      </li>
+      <li>
+<em>Semantic web</em>: failed attempt at stuff</li>
+      <li>REST - 2005</li>
+      <li>HATEOAS - 2010
+        <ul>
+          <li>Other URIs should be embedded in the response that help the client
+do the next thing</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Querying <em>Graphs</em>
+</li>
+  <li>GraphQL - mid-2010s
+    <ul>
+      <li>Facebook time</li>
+      <li>Problem: client code needs to know about a crap ton of different
+endpoints to render a simple UI; round-trips, different formats
+        <ul>
+          <li>But the killer: different clients may have different needs for
+the same endpoint, you end up with a monster response but each
+client only uses a part of it</li>
+          <li>New clients like the watch, ayyah</li>
+        </ul>
+      </li>
+      <li>Database engines get queries that include a projection (the
+properties of the object you want, i.e. SELECT *)</li>
+      <li>GraphQL is like this, for the web</li>
+      <li>GraphQL allows client to specify exactly what it wants from your
+backend database, which is represented as a graph</li>
+      <li>Why not adopt this right away? You don’t have Facebook’s problems</li>
+      <li>Also kinda immature, stuff like caching isn’t super clear</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="9---the-web-call-interfaces-formats-and-protocols">9 - The web: call interfaces, formats, and protocols</h3>
+
+<h4 id="lecture-8">Lecture</h4>
+
+<ul>
+  <li>Web web web</li>
+  <li>Future:
+    <ul>
+      <li>WebRTC
+        <ul>
+          <li>I/O, networking</li>
+          <li>At first, no way to make network request without requesting new
+page
+            <ul>
+              <li>2003: introduce XMLHttpRequest (never actually used XML!)</li>
+            </ul>
+          </li>
+          <li>WebSockets: message-based server push
+            <ul>
+              <li>Can’t have raw TCP because then client can issue arbitrary
+network requests through that socket, port scan</li>
+            </ul>
+          </li>
+          <li>WebRTC time</li>
+          <li>Combines audio/video/text in one :/</li>
+          <li>Still getting there</li>
+        </ul>
+      </li>
+      <li>WebAssembly
+        <ul>
+          <li>Based on asm.js</li>
+          <li>Take existing C/C++ programs, compile into web bytecode/asm, then
+browser compiles that into local hardware ASM, then it runs</li>
+          <li>Right now it has to run in isolation, may change in the future</li>
+        </ul>
+      </li>
+      <li>WebGL
+        <ul>
+          <li>
+            <h2 id="gpu-stuff">GPU stuff</h2>
+          </li>
+        </ul>
+      </li>
+      <li>Beaker</li>
+    </ul>
+  </li>
+  <li>Bad stuff
+    <ul>
+      <li>Didn’t accomplish original goals</li>
+      <li>Ayyah</li>
+      <li>Text-based :/</li>
+      <li>Cross browser compatibility</li>
+      <li>Performance</li>
+      <li>Lagging platform integration</li>
+    </ul>
+  </li>
+  <li>Good stuff
+    <ul>
+      <li>Deployment for web is great! Can have users using your just-written
+software within seconds!</li>
+      <li>Multi-platform</li>
+      <li>Security model
+        <ul>
+          <li>It’s built-in; web is designed for documents, and documents
+should never be able to <code class="language-plaintext highlighter-rouge">rm -rf /</code>
+</li>
+          <li><em>Sandboxed</em></li>
+          <li>End-to-end encryption</li>
+        </ul>
+      </li>
+      <li>Open source on the client (you can still maintain software if
+companies go out of business)</li>
+    </ul>
+  </li>
+</ul>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="center">
+  <div class="measure">
+    <small>
+      © 2018
+    </small>
+  </div>
+</footer>
+<!-- AnchorJS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.0.0/anchor.min.js"></script>
+<script>
+    anchors.options.visible = 'always';
+    anchors.add('article h2, article h3:not(.no-anchor), article h4:not(.no-anchor), article h5:not(.no-anchor), article h6');
+</script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch-theme-algolia.min.css">
+
+<script>
+const search = instantsearch({
+  appId: 'Q1JJ6NM1UC',
+  indexName: 'tigerthinks',
+  apiKey: '5a99d8bb6e9d1a03163a5eb0d67496e0',
+  searchFunction: function(helper) {
+    const searchHits = document.getElementById("search-hits")
+    const content = document.getElementById("content")
+
+    if (helper.state.query === '') {
+      searchHits.style.display = "none";
+      content.style.display = "block";
+      return;
+    }
+
+    helper.search();
+    searchHits.style.display = "block";
+    content.style.display = "none";
+  },
+  searchParameters: {
+    hitsPerPage: 10
+  }
+});
+
+const hitTemplate = function(hit) {
+  let date = '';
+  if (hit.date) {
+    date = moment.unix(hit.date).format('MMM D, YYYY');
+  }
+
+  let url = `${hit.url}#${hit.anchor}`;
+
+  const title = hit._highlightResult.title.value;
+
+  let breadcrumbs = '';
+  if (hit._highlightResult.headings) {
+    breadcrumbs = hit._highlightResult.headings.map(match => {
+      return `<span class="post-breadcrumb">${match.value}</span>`
+    }).join(' > ')
+  }
+
+  const content = hit._highlightResult.html.value;
+
+  return `
+    <div class="post-item">
+      <span class="post-meta small">${date}</span>
+      <a class="post-link" href="${url}"><h2 class="search-hit-title post-title">${title}</h2></a>
+
+      
+      <a href="${url}" class="post-breadcrumbs"><h5>${breadcrumbs}</h5></a>
+      
+
+      <div class="post-snippet">${content}</div>
+    </div>`;
+}
+
+// Adding searchbar and results widgets
+search.addWidget(
+  instantsearch.widgets.searchBox({
+    container: '#search-searchbar',
+    placeholder: '',
+    poweredBy: true,
+    autofocus: false,
+    cssClasses: {
+      root: 'tigerthinks-searchbar'
+    }
+  })
+);
+
+
+search.addWidget(
+  instantsearch.widgets.hits({
+    container: '#search-hits',
+    templates: {
+      item: hitTemplate
+    }
+  })
+);
+
+// Starting the search
+search.start();
+</script>
+
+<style>
+.ais-search-box {
+  max-width: 100%;
+}
+
+.post-item {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: thin solid #f3f3f3;
+}
+
+.post-link .ais-Highlight {
+  color: #0076df;
+  font-style: normal;
+}
+
+.post-breadcrumbs {
+  font-style: normal;
+  display: block;
+  padding-bottom: 10px;
+  background-image: none !important;
+  color: #333 !important;
+}
+
+.post-breadcrumb {
+  font-style: normal;
+  font-size: 18px;
+  color: #333;
+}
+
+.post-breadcrumb .ais-Highlight {
+  font-weight: bold;
+  font-style: normal;
+  color: #0076df;
+}
+
+.post-snippet .ais-Highlight {
+  color: #0076df;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.post-snippet img {
+  display: none;
+}
+</style>
+
+</body>
+</html>

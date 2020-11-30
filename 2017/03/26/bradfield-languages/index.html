@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Languages, Compilers and Interpreters &#8211; Tiger Shen</title>
+    <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Lecture notes from Bradfield's languages class">
+    <meta name="robots" content="all">
+    <meta name="author" content="Tiger Shen">
+    
+    <meta name="keywords" content="">
+    <link rel="canonical" href="http://tigerthinks.com/2017/03/26/bradfield-languages/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for Tiger Shen" href="/feed.xml" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/pixyll.css?202011300937" type="text/css">
+
+    <!-- Fonts -->
+    
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&amp;subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300&amp;subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    
+    
+
+    <!-- MathJax -->
+    
+    <script type="text/javascript" async
+        src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+
+    <!-- Verifications -->
+    
+    
+
+    <!-- Open Graph -->
+    <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Languages, Compilers and Interpreters">
+    <meta property="og:description" content="Tiger Shen">
+    <meta property="og:url" content="http://tigerthinks.com/2017/03/26/bradfield-languages/">
+    <meta property="og:site_name" content="Tiger Shen">
+    
+    <meta property="og:image" content="http://tigerthinks.com/images/me.jpg">
+    
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    
+    <meta name="twitter:title" content="Languages, Compilers and Interpreters" />
+    <meta name="twitter:description" content="Lecture notes from Bradfield's languages class" />
+    <meta name="twitter:url" content="http://tigerthinks.com/2017/03/26/bradfield-languages/" />
+    
+    <meta name="twitter:image" content="http://tigerthinks.com/images/me.jpeg" />
+    
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    
+</head>
+
+
+<body>
+  
+  
+
+  <div class="site-wrap">
+    <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="http://tigerthinks.com/" class="site-title">Tiger Shen</a>
+      <nav class="site-nav">
+        <a href="/blog">
+  Personal
+</a>
+
+<a href="/tech-blog">
+  Tech
+</a>
+
+<a href="/anki">
+  Anki
+</a>
+
+<a href="#">
+  |
+</a>
+
+<a href="/books/top">
+  Books (43)
+</a>
+
+<a href="/articles/top">
+  Articles (119)
+</a>
+
+<a href="/other/top">
+  Other (151)
+</a>
+
+      </nav>
+      <div class="clearfix"></div>
+      
+
+      <span id="search-searchbar"></span>
+
+    </div>
+  </div>
+</header>
+
+
+    <div class="post p2 p-responsive wrap" role="main">
+      <div class="measure">
+        <div class="post-list" id="search-hits">
+        </div>
+
+        <div id="content">
+          
+
+
+<div class="post-header mb2">
+  <h1>
+    
+    <div class="clearfix mxn2">
+      <div class="col col-2 sm-col-12 px2">
+        <img class="inline" src="/images//courses/bradfield.png" alt="Book Cover">
+
+      </div>
+      <div class="col col-10 sm-col-12 px2">
+        Languages, Compilers and Interpreters
+      </div>
+    </div>
+    
+  </h1>
+  <div class="tags">
+  
+    <a href="/course" class="badge badge-blue-grey-base">course</a>
+  
+    <a href="/technical" class="badge badge-deep-orange-base">technical</a>
+  
+    <a href="/programming" class="badge badge-lime-200">programming</a>
+  
+    <a href="/cs" class="badge badge-deep-orange-100">cs</a>
+  
+    <a href="/bradfield" class="badge badge-amber-a200">bradfield</a>
+  
+</div>
+
+  <span class="post-meta">By Bradfield | <a target="_blank" href="https://bradfieldcs.com/courses/languages/">Course Page</a> | Taken 2017</span><br>
+  
+  <span class="post-meta small">
+  
+    20 minute read
+  
+  </span>
+</div>
+
+<article class="post-content">
+  <b> <img class="emoji" title=":star:" alt=":star:" src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png" height="20" width="20">  <img class="emoji" title=":star:" alt=":star:" src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png" height="20" width="20">  <img class="emoji" title=":star:" alt=":star:" src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png" height="20" width="20">  <img class="emoji" title=":star:" alt=":star:" src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png" height="20" width="20">  <img class="emoji" title=":star:" alt=":star:" src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png" height="20" width="20"> </b>
+
+  <h2 id="notes">Notes</h2>
+
+<h3 id="1-overview-and-history">1: Overview and History</h3>
+
+<ul>
+  <li>Moving up in abstraction</li>
+  <li>Binary-&gt;hex-&gt;ASM-&gt;compilers</li>
+  <li>Need something cross-platform, enter C</li>
+  <li>Compiler compiles an “object file” that includes assembly code and
+metadata. Run separately</li>
+  <li>Interpreter takes source code and produces a running program, without
+giving you an intermediary runnable object</li>
+  <li>Phases of interpreting/compiling code:
+    <ul>
+      <li>Lex(ical analysis): Get the array of characters and build pairs
+with categories (i.e. 1 + 1 -&gt; (num “1”) (op “+”) (num “1”)). Pairs
+of class and lexeme</li>
+      <li>Parsing: Build an AST with instructions</li>
+      <li>Semantic analysis: Hey, you declared this type but try to use
+something different here, what’s up with that. Validate stuff</li>
+      <li>Optimize: Make stuff faster</li>
+      <li>Code generation: Output machine language</li>
+    </ul>
+  </li>
+  <li>Overengineering: Domain is wider in your head than it is in reality!</li>
+  <li>Apple language toolchain
+    <ul>
+      <li>Start with microprocessors (i5, i7, a5, a6, a7, a8)
+        <ul>
+          <li>Different instruction sets (ISA = Instruction Set Architecture)</li>
+        </ul>
+      </li>
+      <li>C language targeting both? From C straight to the architecture
+        <ul>
+          <li>Insert LLVM IR, which is for no machine in particular. And so if
+your code can run on LLVM IR, you don’t have to care about the
+underlying CPU/hardware since LLVM will make it run there.</li>
+          <li>So now C programs compile to this Intermediate Representation</li>
+          <li>You’ve got a bunch of fancy new processors but can’t make use of
+them cause you have to have backwards compatibility. Solution:
+another intermediate step! Add a “bitcode compiler” that interprets
+bitcode, no-ops on older generations, adds optimizations to newer
+generations</li>
+        </ul>
+      </li>
+      <li>So now Apple has stuff written in C++/Obj-C/C, it is parsed out by
+the Clang compiler, which goes down to LLVM IR instructions</li>
+      <li>Later down the line, Swift-&gt;Swift IR-&gt;LLVM IR
+(optimized!)-&gt;bitcode-&gt;hooray</li>
+      <li>This is a crazy toolchain. Previously, it was just C-&gt;gcc-&gt;wtf this
+is just for one CPU</li>
+    </ul>
+  </li>
+  <li>Ambiguity in nouns and stuff is solved by very strict rules</li>
+  <li>Nowadays optimization takes up the bulk of the stuff</li>
+</ul>
+
+<h3 id="2-lexical-analysis-and-fsas">2: Lexical analysis and FSAs</h3>
+
+<h4 id="students-should-understand">Students should understand</h4>
+
+<ul>
+  <li>The value of treating lexical analysis as a distinct concern</li>
+  <li>The difference between lexemes and tokens</li>
+  <li>How input buffering is used to scan ahead on input</li>
+  <li>The concepts of transition diagrams and finite automata</li>
+  <li>The relationship between deterministic and nondeterministic finite automata</li>
+  <li>The technical definition of regular languages (and regular expressions)</li>
+  <li>How a finite automata is implemented</li>
+  <li>An intuition for how a program like lex/flex/jison-lex works</li>
+</ul>
+
+<h4 id="students-should-be-able-to">Students should be able to</h4>
+
+<ul>
+  <li>Draw state transition diagrams for simple tokenization problems</li>
+  <li>Write simple regular expressions</li>
+  <li>Given a simple transition diagram or regular expression, convert by hand to
+the other form</li>
+  <li>Use <a href="https://github.com/zaach/jison-lex">zaach/jison-lex</a> (or lex/flex) to
+generate lexical analyzers from Bison’s lexical grammar format</li>
+</ul>
+
+<h4 id="aiken-videos">Aiken videos</h4>
+
+<ul>
+  <li>Lexical analysis: <em>recognize</em> lexical units (place dividers) and then
+<em>classify</em> elements according to their roles (identifier, keyword, variable,
+etc)
+    <ul>
+      <li>Identifier: string of letter or digits starting with a letter (like Foo or
+B17)</li>
+      <li>Integer</li>
+      <li>Keyword</li>
+      <li>Whitespace</li>
+    </ul>
+  </li>
+  <li>
+<em>Goal</em>: Classify substrings of program according to role/class and communicate
+these tokens to the parser
+    <ul>
+      <li>Sends tuples to parser</li>
+    </ul>
+  </li>
+  <li>Lookahead may be required to decide where one token ends and the next begins</li>
+  <li>More FSM stuff:
+https://www.youtube.com/watch?v=dmgX0jKoUJw&amp;list=PLLH73N9cB21VSVEX1aSRlNTufaLK1dTAI</li>
+</ul>
+
+<h4 id="lets-look-at-aiken-videos-for-regexes-and-fsm">Let’s look at Aiken videos for regexes and FSM</h4>
+
+<ul>
+  <li>Lexical spec helps you lex stuff</li>
+  <li>Maximal munch: when you have a choice between two different both valid
+tokens take the bigger one</li>
+  <li>Error is anything that doesn’t match any rule</li>
+  <li>Good algos known</li>
+  <li>Choose highest priority, longest match if there are ambiguities</li>
+  <li>Regexes are good!</li>
+  <li>Regex = specification, finite automata = implementation</li>
+  <li>Finite automata:
+    <ul>
+      <li>Input alphabet</li>
+      <li>Set of states</li>
+      <li>Start state</li>
+      <li>Set of accepting states</li>
+      <li>Set of transitions</li>
+    </ul>
+  </li>
+  <li>Notations and stuff</li>
+  <li>If end of input and in accepting state -&gt; accept that thing and move
+on
+    <ul>
+      <li>Otherwise, reject</li>
+    </ul>
+  </li>
+  <li>Can draw out finite automata as graphs</li>
+  <li>Language of FA = set of accepted strings</li>
+  <li>Can have self-loops :)</li>
+  <li>Epsilon-move means state can change without changing input pointer
+    <ul>
+      <li>Free move</li>
+      <li>It’s a choice :)</li>
+    </ul>
+  </li>
+  <li>DFA (deterministic) only have one transition per input per state. No
+epsilon moves. :)
+    <ul>
+      <li>Only one path through state graph per input</li>
+    </ul>
+  </li>
+  <li>NFA (nondeterministic) can hvae multiple transitions for one input in
+a given state, can have epsilon moves
+    <ul>
+      <li>Accepts if <em>some</em> choices lead to acceptance at end of input</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="3-parsing">3: Parsing</h3>
+
+<h4 id="recursive-descent-parsing">Recursive Descent Parsing</h4>
+
+<ul>
+  <li>Top-down
+    <ul>
+      <li>Parse tree constructed top to bottom, left to right</li>
+    </ul>
+  </li>
+  <li>Start with a grammar for E and T</li>
+  <li>Start with top-level non-terminal E</li>
+  <li>Keep going as long as you have unexpanded non-terminals</li>
+  <li>Try rules for E in order
+    <ul>
+      <li>Keep trying decisions, undo if wrong, keep going until right</li>
+      <li>Possibilities when you see something??</li>
+    </ul>
+  </li>
+  <li>Keep going till you get to something you accept ._.</li>
+  <li>Ok let’s try an algorithm</li>
+  <li>First define a bunch of boolean functions that check for matches
+    <ul>
+      <li>Given token terminal?</li>
+      <li>nth production of a non-terminal?</li>
+      <li>Try all productions of a non-terminal</li>
+      <li>Backtracking: save the pointer to the next token so that you can go
+back</li>
+    </ul>
+  </li>
+  <li>Starting parser
+    <ul>
+      <li>Initialize next to point to first token</li>
+      <li>Invoke the top thingy, E()</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="bottom-up-parsing">Bottom-up parsing</h4>
+
+<ul>
+  <li>More general than top-down parsing</li>
+  <li>Just as efficient, uses similar ideas. Used more</li>
+  <li>
+<em>reduces</em> a string to the start symbol by inverting productions</li>
+  <li>Reduction is the opposite of production</li>
+  <li>To get back, keep doing the rightmost non terminal
+    <ul>
+      <li>Bottom-up parser traces a rightmost derivation in reverse</li>
+    </ul>
+  </li>
+  <li>Reduction: replace the children of the right hand side of a production
+with its parent?</li>
+</ul>
+
+<h4 id="lecture">Lecture</h4>
+
+<ul>
+  <li>Parts of a language
+    <ul>
+      <li>Reader
+        <ul>
+          <li>Just takes stuff in</li>
+        </ul>
+      </li>
+      <li>Generator
+        <ul>
+          <li>Creates things that have been read</li>
+        </ul>
+      </li>
+      <li>Translator
+        <ul>
+          <li>Changes generated output to some other output</li>
+        </ul>
+      </li>
+      <li>Interpreter
+        <ul>
+          <li>Actually produces output</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Regular vs. context-free language
+    <ul>
+      <li>Regular language can be recognized with regular expression (e.g.
+emails)</li>
+      <li>Context-free language canNOT be recognized with regular expression</li>
+    </ul>
+  </li>
+  <li>Deterministic vs. Non-deterministic
+    <ul>
+      <li>Deterministic: can be parsed in one pass. Can tell you how long
+it’ll take to parse just by looking at length</li>
+      <li>Non-deterministic: Cannot determine how long it’ll take to parse
+just by looking at the length</li>
+    </ul>
+  </li>
+  <li>So, JS is context-free and non-deterministic</li>
+  <li>LL vs LR are two types of parsers
+    <ul>
+      <li>First L is for read left-to-right, second char is whether you read
+from top or bottom</li>
+      <li>LL = top-down recursive descent
+        <ul>
+          <li>Use if backtracking required</li>
+        </ul>
+      </li>
+      <li>LR = bottom up, faster
+        <ul>
+          <li>Use if no backtracking required</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>All parsers come from EBNF</li>
+</ul>
+
+<h3 id="4-semantic-analysis">4: Semantic Analysis</h3>
+
+<h4 id="compilers-as-assistants">Compilers as Assistants</h4>
+
+<ul>
+  <li>http://elm-lang.org/blog/compilers-as-assistants</li>
+  <li>Compilers as assistants not adversaries
+    <ul>
+      <li>Good error messages</li>
+      <li>Incomplete pattern matches
+        <ul>
+          <li>If there’s no else branch for an if, for example</li>
+        </ul>
+      </li>
+      <li>Tail-call optimization
+        <ul>
+          <li>Some recursive functions can be turned into while loops which is a
+huge performance benefit</li>
+        </ul>
+      </li>
+      <li>Remove unneeded syntax and code</li>
+    </ul>
+  </li>
+  <li>Explicit type errors and helpful messages and whatnot</li>
+  <li>Cool, fancy stuff</li>
+</ul>
+
+<h4 id="aiken-stuff-9-1-9-4-9-5">Aiken Stuff (9-1, 9-4, 9-5)</h4>
+
+<ul>
+  <li>Lexing detects inputs with illegal tokens, parsing detects inputs with
+bad parse trees, now Semantic Analysis is the last “front end” phase
+and catches remaining errors</li>
+  <li>Does checks
+    <ul>
+      <li>Declared identifiers</li>
+      <li>Type checking</li>
+      <li>Check inheritance</li>
+      <li>Check single definitions for classes/methods</li>
+      <li>Check that keywords aren’t misused</li>
+    </ul>
+  </li>
+  <li>Let’s look at types</li>
+  <li>
+<em>Type</em> is a set of values and a set of operations on those values
+    <ul>
+      <li>Type system <em>specifies which operations are valid for which types</em>
+</li>
+      <li>Type checking <em>ensures that operations are used only with the
+correct types</em>
+</li>
+    </ul>
+  </li>
+  <li>Static vs dynamic
+    <ul>
+      <li>Static catches errors at compile time instead of runtime, also more
+efficient because don’t need to type check at runtime</li>
+      <li>Dynamic typing more flexible and restricts development speed</li>
+    </ul>
+  </li>
+  <li>Distinguish some terms
+    <ul>
+      <li>
+<em>Type checking</em> is process of verifying fully typed programs</li>
+      <li>
+<em>Type inference</em> is filling in missing type information :)</li>
+    </ul>
+  </li>
+  <li>Type checking bois</li>
+  <li>Start with simple system, add features</li>
+  <li>Notations
+    <ul>
+      <li>^ is and</li>
+      <li>=&gt; is “if-then”</li>
+      <li>x:T is “x has type T”</li>
+      <li>Turnstile is “it is provable that”</li>
+    </ul>
+  </li>
+  <li>Soundness in type system
+    <ul>
+      <li>If it is provable that e is of type T, then e should always
+evaluate to type T</li>
+    </ul>
+  </li>
+  <li>In he type rule used for e:
+    <ul>
+      <li>Hypotheses are the proofs of type e’s subexpressions</li>
+      <li>Conclusion is the type of e</li>
+      <li>Thus, types must be computed bottom up from the AST</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="lecture-1">Lecture</h4>
+
+<ul>
+  <li>SemAn can be done throughout compilation process. Can be done before
+or after AST
+    <ul>
+      <li>Lex time enforcement: “can’t have star followed by snowman token”</li>
+      <li>Parse time enforcement: “let foo == bar”, can’t use equality like
+dat</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="5-stack-based-virtual-machines">5: Stack-based virtual machines</h3>
+
+<h4 id="python-interpreter-in-python">Python interpreter in python</h4>
+
+<ul>
+  <li>Take compiled machine code and run it!</li>
+  <li>Byterun is a python interpreter in python :)</li>
+  <li>Disadvantage is speed</li>
+  <li>Goal is to understand the interpretation process</li>
+  <li>Most modern VM’s are stack-based cool</li>
+  <li>Test your interpreter vs. reference implementation :) test stdout,
+exception state, etc.</li>
+  <li>Stack machine means it manipulates stacks to do everything</li>
+  <li>Interpreter needs a stack, and a way to interact with that stack :)
+    <ul>
+      <li>Value loader is what interacts with the stack</li>
+    </ul>
+  </li>
+  <li>Arguments to instructions are packed into bytecode. Okay</li>
+  <li>Disassembler gives you information about the instructions in bytecode:
+name, index, arguments. <code class="language-plaintext highlighter-rouge">dis</code> is one for python bytecode</li>
+  <li>Call stack is made up of frames. Each frame is a “context” or “scope”;
+module, function, etc.</li>
+  <li>Actual implementation of C interpreter of Python is just a huuuge
+switch statement on opcodes</li>
+  <li>Should be one data stack per frame not one for the whole interpreter
+    <ul>
+      <li>Need this for generators</li>
+    </ul>
+  </li>
+  <li>Whoaa string formatting is done with binary modulo</li>
+  <li>“In absence of types, every instruction must be treated as
+invoke_arbitrary_method” :feels:</li>
+  <li>kool</li>
+</ul>
+
+<h4 id="lecture-2">Lecture</h4>
+
+<ul>
+  <li>Let’s look at object format for our VM</li>
+  <li>Data for string literal in <em>const pool</em>
+</li>
+  <li>
+<em>Code</em> is bytes where instruction + arguments are in there (e.g. the
+string “Hello World” goes here)</li>
+  <li>
+<em>Globals</em> is where global keys are stored. So if you declare “foo =
+bar” globally, “foo” is a global and the value for “bar” is in the
+const pool</li>
+  <li>
+<em>Locals</em> is a map of string to object (we call env)</li>
+  <li>
+<em>ip</em> is the instruction pointer</li>
+  <li>
+<em>env</em> is environment variables</li>
+  <li>
+<em>local stack</em> is what we start up for looking @ what we got</li>
+  <li>
+<em>call stack</em> is another thing we start up, for tracking function call
+nesting</li>
+  <li>It’s much easier to target the JVM than a processor
+    <ul>
+      <li>Processor has so many physical constraints that instruction set is
+limited. Can abstract that away in a virtual machine</li>
+      <li>Slower but cross-platform :)</li>
+    </ul>
+  </li>
+  <li>The JVM is a bytecode interpreter in general, but is a just in time
+compiler on hot code paths</li>
+</ul>
+
+<h3 id="6-code-generation">6: Code Generation</h3>
+
+<ul>
+  <li>We basically just worked on converting our AST into a flat list of
+instructions. Cool beans</li>
+  <li>Basically do a post order depth first traversal to generate set of
+instructions</li>
+</ul>
+
+<h4 id="dragon-book-81-and-82">Dragon Book 8.1 and 8.2</h4>
+
+<h3 id="7-optimization">7: Optimization</h3>
+
+<h4 id="dragon-book-91">Dragon Book 9.1</h4>
+
+<ul>
+  <li>Languages can have a lot of overhead if we naively translate each
+construct independently to machine code! Making this better is called
+optimization</li>
+  <li>Most important thing is to preserve semantics of program</li>
+  <li>Most programming languages abstract away stuff like pointer
+arithmetic. Compiler can help manage this stuff well :)</li>
+  <li>
+    <p>Example of array access. Must be transformed by compiler to do pointer
+arithmetic to find address of next array element, and then you access
+whatever is at that address</p>
+  </li>
+  <li>Here are some transformations</li>
+  <li>Common-subexpression elimination. E.g. if you compute an array index by
+doing 4 * (i) a bunch of times, you can just do it once and have
+subsequent references use the first calculation. Must be sure the
+calculation is the same though!
+    <ul>
+      <li>Common subexpression is when an expression has been previously
+computed and values of variables have not changed since</li>
+    </ul>
+  </li>
+  <li>Copy propagation
+    <ul>
+      <li>Use original value instead of the copy wherever possible
+        <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>x = t3
+a[t2] = t5
+a[t4] = x
+goto B
+</code></pre></div>        </div>
+        <p>to</p>
+        <div class="language-plaintext highlighter-rouge">
+<div class="highlight"><pre class="highlight"><code>x = t3
+a[t2] = t5
+a[t4] = t3
+goto B
+</code></pre></div>        </div>
+      </li>
+      <li>Helps with dead code elimination</li>
+    </ul>
+  </li>
+  <li>Dead-code elimination
+    <ul>
+      <li>Can eliminate stuff that cannot be reached</li>
+      <li>Deducing at compile time that an expression is constant and using
+constant instead of variable is called <em>constant folding</em>
+</li>
+      <li>Can now eliminate <code class="language-plaintext highlighter-rouge">x = t3</code> after copy propagation above</li>
+    </ul>
+  </li>
+  <li>Loops can def be optimized. <em>Code motion</em> takes an expression that
+is constant inside the loop and moves it outside the loop so that it
+can only be computed once. <code class="language-plaintext highlighter-rouge">while (i &lt;= limit - 2)</code> -&gt; <code class="language-plaintext highlighter-rouge">t = limit - 2;
+while ( i&lt;= t)</code>
+</li>
+  <li>Also want to optimize induction variables in loops. Induction
+variables change by a constant value in each iteration (e.g. the
+iterator)</li>
+  <li>Okay maybe these videos will help</li>
+</ul>
+
+<h4 id="aiken-videos-14-02-and-14-03">Aiken Videos (14-02 and 14-03)</h4>
+
+<ul>
+  <li>Why optimize? Tradeoffs?</li>
+  <li>Largest, most complex phase</li>
+  <li>When to optimize?
+    <ul>
+      <li>On AST: machine independent, but too high level</li>
+      <li>On assembly: exposes more opportunities, but machine dependent, yuck</li>
+      <li>On IR: Machine independent and exposes opportunities. Nice</li>
+    </ul>
+  </li>
+  <li>Basic block: maximal sequence of instructions with no labels (except
+first instruction) and no jumps (except last). Good for optimization
+    <ul>
+      <li>Guaranteed to go from beginning to end with no break</li>
+      <li>Single entry single exit straight line code segment</li>
+    </ul>
+  </li>
+  <li>Can look at stuff and try to optimize by hand :)</li>
+  <li>Control flow graph is a directed graph with basic blocks as nodes.
+Edge goes from A to B if last instruction in A can go to first
+instruction in B
+    <ul>
+      <li>Can always represent method with control flow graph</li>
+    </ul>
+  </li>
+  <li>Mostly want to optimize to improve execution time. But can also
+optimize code size, network activity, etc.</li>
+  <li>Different granularities of optimization
+    <ul>
+      <li>Local: occur within one basic block</li>
+      <li>“Global”: apply to control flow graph in isolation (just in one
+function)</li>
+      <li>Inter-procedural: apply across a collection of functions</li>
+    </ul>
+  </li>
+  <li>Most do local, many do global, not many do interprocedural
+    <ul>
+      <li>Better payoff at more local levels</li>
+      <li>Goal: max benefit, min cost :)</li>
+    </ul>
+  </li>
+  <li>Let’s look at local optimizations</li>
+  <li>Delete temp vars</li>
+  <li>Anything times 0 is 0</li>
+  <li>Anything squared is just it times itself (simpler)
+    <ul>
+      <li>These are algebraic simplifications zzz</li>
+    </ul>
+  </li>
+  <li>Compute constant operation results at compile time not runtime :)
+    <ul>
+      <li>x = 2 + 2 -&gt; x = 4</li>
+      <li>Constant folding</li>
+      <li>Dangerous! Don’t mess up the code! If you cross-compile you might
+mess something up</li>
+      <li>Floating point ops are super messy
+        <ul>
+          <li>Represent floating point ops as strings and then do operations
+with all sig figs, then export with large numbers and let other
+architecture figure it out?</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Can also eliminate unreachable basic blocks
+    <ul>
+      <li>If you have conditional that is always false, can remove one branch</li>
+      <li>Also remove unused parts of stdlib or something?</li>
+    </ul>
+  </li>
+  <li>Write intermediate code in single assignment form :) at most assign
+one register once</li>
+  <li>Explains copy propagation again :)
+    <ul>
+      <li>Only useful in conjunction with other optimizations</li>
+    </ul>
+  </li>
+  <li>Each optimization does little by itself, but they can interact (one
+enables another) and they eventually add up</li>
+</ul>
+
+<h4 id="lecture-3">Lecture</h4>
+
+<ul>
+  <li>Optimization with cc</li>
+  <li>`cc -S -O 1 -masm=intel -o grain-O1.s grain.c</li>
+</ul>
+
+<h3 id="8-runtime-environments-stack-management-garbage-collection">8: Runtime environments, stack management, garbage collection</h3>
+
+<h4 id="aiken-videos-171---173">Aiken videos (17.1 - 17.3)</h4>
+
+<ul>
+  <li>Storage management and memory management sucks</li>
+  <li>Bugs! Forgetting to free, dereferencing dangling pointer, overwriting
+parts of data by accident. Hard to find!
+    <ul>
+      <li>Suck b/c they show themselves far away from the source</li>
+    </ul>
+  </li>
+  <li>Automatic memory management popularized by Java</li>
+  <li>Strategy:
+    <ul>
+      <li>When object created, unused space automatically allocated</li>
+      <li>After a while all space is used up</li>
+      <li>Some space occupied by objects that will never be used again</li>
+      <li>This space “garbage collected” to use later</li>
+    </ul>
+  </li>
+  <li>How to know if object never used again?
+    <ul>
+      <li>Program can only use objects that it can find…if an object is
+unreachable (no more pointers to it), toss it</li>
+    </ul>
+  </li>
+  <li>Object <em>reachable</em> iff a register contains a pointer to x <em>or</em> another
+reachable object y contains a pointer to x</li>
+  <li>Can find all reachable objects by starting at registers and following
+all pointers
+    <ul>
+      <li>Kinda an approximation for using stuff again. Just because object is
+reachable does <em>not</em> mean it will be used again</li>
+    </ul>
+  </li>
+  <li>Unreachable object can never be used, is <em>garbage</em>
+</li>
+  <li>Accumulator and stack pointer cover all the pointers you may need</li>
+  <li>Some unreachable objects have pointers to them, but those will come
+from other unreachable object</li>
+  <li>Garbage collector:
+    <ul>
+      <li>Allocate space as needed for new objects</li>
+      <li>When space runs out compute what objects may be used again, free
+space used by objects that won’t be used again</li>
+    </ul>
+  </li>
+  <li>Mark and Sweep GC</li>
+  <li>Two phases</li>
+  <li>Mark: trace reachable objects</li>
+  <li>Sweep: collect gargbage objects</li>
+  <li>Every obj has extra bit: <em>mark</em> bit
+    <ul>
+      <li>Reserved for memory management</li>
+      <li>Set to 0 originally</li>
+      <li>Set to 1 for reachable objects in mark phase</li>
+    </ul>
+  </li>
+  <li>Sweep phase scans heap looking for objects with mark bit 0
+    <ul>
+      <li>Add items with mark bit 0 to free list</li>
+      <li>Objects with mark bit 1 have mark bit reset to 0</li>
+      <li>Free list ends up being linked list of free space</li>
+    </ul>
+  </li>
+  <li>Tricky details :( typical!</li>
+  <li>Sweep phase starts when we are out of space, but it needs somewhere to
+construct the todo list! Sizeof todo list is unbounded oops
+    <ul>
+      <li>Trick: pointer reversal. When pointer followed, it is turned around
+to point to parent</li>
+      <li>Move up and down todo list by flipping your pointers</li>
+      <li>Keep last pointer I traversed to in one register, so you can go from
+there up to the parents and grandparents</li>
+    </ul>
+  </li>
+  <li>Free list is stored in the free objects themselves</li>
+  <li>Space for new object comes from free list
+    <ul>
+      <li>Block with enough size picked</li>
+      <li>Area of correct size allocated</li>
+      <li>Leftover put back in free list</li>
+    </ul>
+  </li>
+  <li>Mark and sweep can fragment and merge blocks :)</li>
+  <li>
+    <p>Advantage of mark and sweep: objects not moved during GC. Means no
+need to update pointers to objects, can work for C and C++</p>
+  </li>
+  <li>Stop and Copy</li>
+  <li>Old space used for allocation, new space used as reserve for GC.
+Program only allowed to use half the space</li>
+  <li>Heap pointer points to next free word in old space</li>
+  <li>Allocation just advances the heap pointer</li>
+  <li>GC starts when old space is full</li>
+  <li>Copy all reachable objects from old space to new space
+    <ul>
+      <li>Garbage left behind</li>
+    </ul>
+  </li>
+  <li>Swap role of new and old space</li>
+  <li>Problem: find all reachable objects!</li>
+  <li>Difference: <em>copy</em> not mutate. Find and fix all pointers
+    <ul>
+      <li>As we copy, store in old copy a forwarding pointer to new copy
+        <ul>
+          <li>When we reach an object with forwarding pointer we know it’s been
+copied</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>How to traverse without using extra space? Partition new space in
+three regions: start, scan, alloc
+    <ul>
+      <li>start: copied objects whose pointer fields have been followed all
+the way through</li>
+      <li>scan: copied objects whose pointer fields have not been followed
+yet. “work list”</li>
+      <li>alloc: empty working space after scan space. When scan catches up
+with alloc we’re done</li>
+    </ul>
+  </li>
+  <li>Step by step</li>
+  <li>1: Copy objects pointed to by roots and set forwarding pointers</li>
+  <li>2: Follow pointer to next unscanned object in tree. Copy. Fix pointer
+in copied version of root. Set forwarding pointer. Keep going until
+done?</li>
+  <li>Stop and copy generally believed to be fastest</li>
+  <li>Allocation is cheap! Just incrememnt heap pointer</li>
+  <li>Collection relatively cheap, especially if lots of garbage. Only touch
+reachable objects</li>
+</ul>
+
+<h4 id="lecture-4">Lecture</h4>
+
+<ul>
+  <li>Java OO and GC language :)</li>
+  <li>GC tradeoff is dev productivity vs program performance</li>
+  <li>Basic manual memory management: brk is a syscall that sets the heap
+pointer to different places. malloc/free wrap this syscall</li>
+  <li>Reference counting: count how many times an object is referenced by
+another object
+    <ul>
+      <li>Storing the number of references, pointers, or handles to a resource
+such as an object, block of memory, disk space or other resource.</li>
+      <li>Automatic reference counting: when reference count is 0, then that
+space can be reused</li>
+    </ul>
+  </li>
+  <li>Cool this is all background for garbage collection</li>
+  <li>Generational: have different object pools with different frequencies
+of GC if you can tell that some big objects that won’t need to be
+checked for GC much</li>
+</ul>
+
+<h3 id="9-language-design-considerations-and-applications">9: Language Design Considerations and Applications</h3>
+
+<h4 id="hamming-on-hamming---software">Hamming on Hamming - Software</h4>
+
+<ul>
+  <li>Context of software</li>
+  <li>Books/paper with programs handstamped in</li>
+  <li>Von neumann reports about software</li>
+  <li>Primitive step of programs - Symbolic names for assembly programs
+(recognize ADD and convert to binary)</li>
+  <li>GG people just wanted to keep using binaries</li>
+  <li>Logical languages don’t last long, psychological languages do</li>
+  <li>Fortran survived; starts 50’s</li>
+  <li>Then Lisp in 60’s</li>
+  <li>People who speak first get credit
+    <ul>
+      <li>Person who discovers something rarely understands it</li>
+    </ul>
+  </li>
+  <li>Everything in  a language is contained in subroutines</li>
+  <li>
+    <p>Rules for his language: easy to use, easy to learn, easy to debug,
+easy to run subroutines</p>
+  </li>
+  <li>Gotta think about your languages more deeply than “this is literal”
+    <ul>
+      <li>We say a lot of stuff that isn’t black and white</li>
+    </ul>
+  </li>
+  <li>Must understand the nature of language :)</li>
+  <li>
+    <p>Two languages: you to machine (want terse), machine to you (want
+verbose)</p>
+  </li>
+  <li>Think before you write!</li>
+  <li>Don’t write one line of code until you decide what your acceptance
+test is</li>
+  <li>
+    <p>Good programmers are 10x better. Thanks Hamming</p>
+  </li>
+  <li>Programming like writing novels</li>
+  <li>Most great writers don’t take courses in creative writing. Way to
+become a great writer is not to take creative writing courses.</li>
+  <li>Experience, using many languages - not good criteria for good
+programmer</li>
+  <li>Programmer who knows the constraints of problem and fills it in,
+<em>thinking first</em>, is good</li>
+  <li>Top-down approach - start with everything, fill it in. Cool</li>
+  <li>
+    <p>Come up with rules for yourself :) Helps with pattern recognition</p>
+  </li>
+  <li>Team programming very different from individual</li>
+</ul>
+
+<h4 id="lecture-5">Lecture</h4>
+
+<ul>
+  <li>Egan Understanding Hierarchy:</li>
+  <li>Somatic: subconscious training of looking at stuff and recognizing
+patterns. Chess players seeing patterns, doctors, etc. Custom
+circuitry</li>
+  <li>Mythic: big binary distinctions (children); old and young, black and
+white. “Mythic” from old Greek/Roman myths that carve up the world
+like this</li>
+  <li>Romantic: reading and writing forms of communication</li>
+  <li>Philosophic: math and stuff. Assign meaning</li>
+  <li>Ironic: meta (puns)</li>
+  <li>As you move between these levels you lose and gain things!
+    <ul>
+      <li>Missed goal of programming languages: fix-all languages that try to
+not let you think in some of these ways</li>
+    </ul>
+  </li>
+  <li>
+    <p>Why is this important?</p>
+  </li>
+  <li>Language fundamentals</li>
+  <li>Data vs code: it’s bad when you conflate code and data. Express what
+you can of your program in data (stuff that doesn’t have conditions,
+looping, etc.). Data more important! If you had to choose between data
+and code, take data every time. Try to move immutable things from code
+to data
+    <ul>
+      <li>Antipattern: Gemfile, gemspec. Package.json better. Gemfile.lock
+best</li>
+    </ul>
+  </li>
+  <li>Complexity: don’t confuse complexity/simplicity with
+difficulty/easiness</li>
+  <li>Primitives: what are the <em>most basic</em> parts of your program? Don’t get
+bogged down in anything else until you nail this down</li>
+  <li>Tools and tooling: tools and tooling get built up over a long time
+    <ul>
+      <li>Languages are products of passion, tools products of rage</li>
+    </ul>
+  </li>
+  <li>Comparing languages is apples and oranges and people do it wrong</li>
+  <li>Some good ideas in languages</li>
+  <li>bash: REPL-first! Interactive, fast feedback. Good for its problems.
+Large user base. Systems integration</li>
+  <li>C: cross platform assembler! That’s the goal and we did it</li>
+  <li>Clojure: it’s a lisp on the JVM. It’s a DSL for immutable data types.
+    <ul>
+      <li>Parasite language: no runtime of its own. Just uses the underlying
+types (int, string, etc.)</li>
+    </ul>
+  </li>
+</ul>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="center">
+  <div class="measure">
+    <small>
+      © 2018
+    </small>
+  </div>
+</footer>
+<!-- AnchorJS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.0.0/anchor.min.js"></script>
+<script>
+    anchors.options.visible = 'always';
+    anchors.add('article h2, article h3:not(.no-anchor), article h4:not(.no-anchor), article h5:not(.no-anchor), article h6');
+</script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch-theme-algolia.min.css">
+
+<script>
+const search = instantsearch({
+  appId: 'Q1JJ6NM1UC',
+  indexName: 'tigerthinks',
+  apiKey: '5a99d8bb6e9d1a03163a5eb0d67496e0',
+  searchFunction: function(helper) {
+    const searchHits = document.getElementById("search-hits")
+    const content = document.getElementById("content")
+
+    if (helper.state.query === '') {
+      searchHits.style.display = "none";
+      content.style.display = "block";
+      return;
+    }
+
+    helper.search();
+    searchHits.style.display = "block";
+    content.style.display = "none";
+  },
+  searchParameters: {
+    hitsPerPage: 10
+  }
+});
+
+const hitTemplate = function(hit) {
+  let date = '';
+  if (hit.date) {
+    date = moment.unix(hit.date).format('MMM D, YYYY');
+  }
+
+  let url = `${hit.url}#${hit.anchor}`;
+
+  const title = hit._highlightResult.title.value;
+
+  let breadcrumbs = '';
+  if (hit._highlightResult.headings) {
+    breadcrumbs = hit._highlightResult.headings.map(match => {
+      return `<span class="post-breadcrumb">${match.value}</span>`
+    }).join(' > ')
+  }
+
+  const content = hit._highlightResult.html.value;
+
+  return `
+    <div class="post-item">
+      <span class="post-meta small">${date}</span>
+      <a class="post-link" href="${url}"><h2 class="search-hit-title post-title">${title}</h2></a>
+
+      
+      <a href="${url}" class="post-breadcrumbs"><h5>${breadcrumbs}</h5></a>
+      
+
+      <div class="post-snippet">${content}</div>
+    </div>`;
+}
+
+// Adding searchbar and results widgets
+search.addWidget(
+  instantsearch.widgets.searchBox({
+    container: '#search-searchbar',
+    placeholder: '',
+    poweredBy: true,
+    autofocus: false,
+    cssClasses: {
+      root: 'tigerthinks-searchbar'
+    }
+  })
+);
+
+
+search.addWidget(
+  instantsearch.widgets.hits({
+    container: '#search-hits',
+    templates: {
+      item: hitTemplate
+    }
+  })
+);
+
+// Starting the search
+search.start();
+</script>
+
+<style>
+.ais-search-box {
+  max-width: 100%;
+}
+
+.post-item {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: thin solid #f3f3f3;
+}
+
+.post-link .ais-Highlight {
+  color: #0076df;
+  font-style: normal;
+}
+
+.post-breadcrumbs {
+  font-style: normal;
+  display: block;
+  padding-bottom: 10px;
+  background-image: none !important;
+  color: #333 !important;
+}
+
+.post-breadcrumb {
+  font-style: normal;
+  font-size: 18px;
+  color: #333;
+}
+
+.post-breadcrumb .ais-Highlight {
+  font-weight: bold;
+  font-style: normal;
+  color: #0076df;
+}
+
+.post-snippet .ais-Highlight {
+  color: #0076df;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.post-snippet img {
+  display: none;
+}
+</style>
+
+</body>
+</html>

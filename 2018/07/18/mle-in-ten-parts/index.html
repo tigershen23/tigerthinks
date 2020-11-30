@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Machine Learning Engineering in Ten Parts &#8211; Tiger Shen</title>
+    <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Machine Learning Engineering in Ten Parts, with Paper Club">
+    <meta name="robots" content="all">
+    <meta name="author" content="Tiger Shen">
+    
+    <meta name="keywords" content="">
+    <link rel="canonical" href="http://tigerthinks.com/2018/07/18/mle-in-ten-parts/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for Tiger Shen" href="/feed.xml" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/pixyll.css?202011300937" type="text/css">
+
+    <!-- Fonts -->
+    
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&amp;subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300&amp;subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    
+    
+
+    <!-- MathJax -->
+    
+    <script type="text/javascript" async
+        src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+
+    <!-- Verifications -->
+    
+    
+
+    <!-- Open Graph -->
+    <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Machine Learning Engineering in Ten Parts">
+    <meta property="og:description" content="Tiger Shen">
+    <meta property="og:url" content="http://tigerthinks.com/2018/07/18/mle-in-ten-parts/">
+    <meta property="og:site_name" content="Tiger Shen">
+    
+    <meta property="og:image" content="http://tigerthinks.com/images/me.jpg">
+    
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    
+    <meta name="twitter:title" content="Machine Learning Engineering in Ten Parts" />
+    <meta name="twitter:description" content="Machine Learning Engineering in Ten Parts, with Paper Club" />
+    <meta name="twitter:url" content="http://tigerthinks.com/2018/07/18/mle-in-ten-parts/" />
+    
+    <meta name="twitter:image" content="http://tigerthinks.com/images/me.jpeg" />
+    
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    
+</head>
+
+
+<body>
+  
+  
+
+  <div class="site-wrap">
+    <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="http://tigerthinks.com/" class="site-title">Tiger Shen</a>
+      <nav class="site-nav">
+        <a href="/blog">
+  Personal
+</a>
+
+<a href="/tech-blog">
+  Tech
+</a>
+
+<a href="/anki">
+  Anki
+</a>
+
+<a href="#">
+  |
+</a>
+
+<a href="/books/top">
+  Books (43)
+</a>
+
+<a href="/articles/top">
+  Articles (119)
+</a>
+
+<a href="/other/top">
+  Other (151)
+</a>
+
+      </nav>
+      <div class="clearfix"></div>
+      
+
+      <span id="search-searchbar"></span>
+
+    </div>
+  </div>
+</header>
+
+
+    <div class="post p2 p-responsive wrap" role="main">
+      <div class="measure">
+        <div class="post-list" id="search-hits">
+        </div>
+
+        <div id="content">
+          
+
+
+<div class="post-header mb2">
+  <h1>
+    
+    <div class="clearfix mxn2">
+      <div class="col col-2 sm-col-12 px2">
+        <img class="inline" src="/images//courses/handson-ml.jpg" alt="Book Cover">
+
+      </div>
+      <div class="col col-10 sm-col-12 px2">
+        Machine Learning Engineering in Ten Parts
+      </div>
+    </div>
+    
+  </h1>
+  <div class="tags">
+  
+    <a href="/course" class="badge badge-blue-grey-base">course</a>
+  
+    <a href="/technical" class="badge badge-deep-orange-base">technical</a>
+  
+    <a href="/cs" class="badge badge-deep-orange-100">cs</a>
+  
+    <a href="/paper-club" class="badge badge-cyan-a200">paper-club</a>
+  
+</div>
+
+  <span class="post-meta">By Paper Club | <a target="_blank" href="https://medium.com/paper-club">Course Page</a> | Taken 2018</span><br>
+  
+  <span class="post-meta small">
+  
+    15 minute read
+  
+  </span>
+</div>
+
+<article class="post-content">
+  <b> <img class="emoji" title=":star:" alt=":star:" src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png" height="20" width="20">  <img class="emoji" title=":star:" alt=":star:" src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png" height="20" width="20">  <img class="emoji" title=":star:" alt=":star:" src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png" height="20" width="20">  <img class="emoji" title=":star:" alt=":star:" src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png" height="20" width="20">  <img class="emoji" title=":star:" alt=":star:" src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png" height="20" width="20"> </b>
+
+  <h2 id="notes">Notes</h2>
+
+<p>In mid-2018, Paper Club welcomed a few new members to learn machine
+learning engineering together. This is a more currently practical side
+of ML than the fancy deep learning we started the group with, and we’re
+all excited to be able to build real-world, interpretable models using
+machine learning.</p>
+
+<p>The main source materials are the <a href="http://shop.oreilly.com/product/0636920052289.do">Hands-on ML
+book</a> and Andrew Ng’s
+Machine Learning <a href="https://www.coursera.org/learn/machine-learning/home/welcome">Coursera
+course</a>
+with other helpful pieces interspersed.</p>
+
+<h3 id="1-ch-2-hands-on-ml-end-to-end-machine-learning-project-2018-07-18">1: Ch 2, Hands-on ML: End-To-End Machine Learning Project (2018-07-18)</h3>
+
+<p>Colab notebook: https://colab.research.google.com/drive/1aiFLy1fUxW6YpJ7J-mqzYKeHJqZI7Oj-</p>
+
+<p>The steps of a machine learning project:</p>
+
+<ol>
+  <li>Look at the big picture</li>
+  <li>Get the data</li>
+  <li>Discover and visualize the data to gain insights</li>
+  <li>Prepare the data for ML algorithms</li>
+  <li>Select a model and train it</li>
+  <li>Fine-tune your model</li>
+  <li>Present your solution</li>
+  <li>Launch, monitor, and maintain your system</li>
+</ol>
+
+<h4 id="frame-the-problem">Frame the Problem</h4>
+
+<ul>
+  <li>Predict house prices</li>
+  <li>
+<em>The first question to ask your boss is what exactly is the business
+objective; building a model is probably not the end goal. How does the
+company expect to use and benefit from this model?</em> (35)
+    <ul>
+      <li>i.e. Does the company need dollar estimates or will buckets like
+low/medium/high work?</li>
+    </ul>
+  </li>
+  <li>
+<em>The next question to ask is what the current solution looks like (if
+any). It will often give you a reference performance, as well as
+insights on how to solve the problem.</em> (36)
+    <ul>
+      <li>This might be a manual process</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="select-a-performance-measure">Select a Performance Measure</h4>
+
+<ul>
+  <li>
+<strong>Loss function</strong>. “How accurate is my model?”</li>
+  <li>RMSE (Root Mean Squared Error) \(d_i\) = prediction, \(f_i\) = true label:
+    <ul>
+      <li>Penalizes values far away from true label a lot more heavily</li>
+      <li>Generally used for regression problems</li>
+    </ul>
+
+\[\sqrt{\frac{1}{n}\Sigma_{i=1}^{n}{\Big(\frac{d_i -f_i}{\sigma_i}\Big)^2}}\]
+  </li>
+  <li>
+    <p>MAE (Mean Absolute Error) (use for datasets with more outliers)</p>
+
+\[\frac{1}{n}\sum_{i=1}^{n}|d_i - f_i|\]
+  </li>
+</ul>
+
+<h4 id="get-the-data">Get the Data</h4>
+
+<ul>
+  <li>Data loaded to Pandas <strong>DataFrame</strong> (<code class="language-plaintext highlighter-rouge">housing</code> variable)</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">housing.head()</code> to inspect first N rows and their attributes</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">housing.info()</code> for description of data (type, n-rows, n-non-null
+values)</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">housing.describe()</code> shows summary of numerical attributes (mean,
+stdev, etc.)</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">housting.hist()</code> -&gt; histogram of each attribute
+    <ul>
+      <li>Look for <strong>tail-heavy</strong> attributes; will affect model choice</li>
+    </ul>
+  </li>
+  <li>Create a test set
+    <ul>
+      <li>Do it blind
+        <ul>
+          <li>
+<em>Your brain is an amazing pattern detection system, which means
+it is highly prone to overfitting; if you look at the test set,
+you may stumble upon some seemingly interesting pattern in the
+test data that leads you to select a particular kind of model.
+When you estimate the generalization error using the test set,
+your estimate will be too optimistic and you will launch a system
+that will not perform as well as expected. This is called *data
+snooping bias*.</em> (47)</li>
+        </ul>
+      </li>
+      <li>JBenn: in practice, you’ll be looking at this. /shrug</li>
+      <li><code class="language-plaintext highlighter-rouge">train, test = sklearn.model_selection.train_test_split(housing,
+test_size=0.2, random_state=42)</code></li>
+      <li>
+<strong>Stratified sampling</strong>: instead of purely random, make sure it
+represents the true distribution of an important attribute
+        <ul>
+          <li>i.e. 51.3% male, 48.7% female</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="discover-and-visualize-the-data-to-gain-insights">Discover and Visualize the Data to Gain Insights</h4>
+
+<ul>
+  <li>Do visualizations, etc. on training set only</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">corr_matrix = housing.corr()</code> to get correlations between every
+attribute
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">corr_matrix['median_house_value'].sort_values(ascending=False)</code></li>
+    </ul>
+  </li>
+  <li>Play around with combined attributes, i.e. <code class="language-plaintext highlighter-rouge">bedrooms_per_room</code>
+</li>
+  <li>
+<em>This round of exploration does not have to be absolutely thorough;
+the point is to start off on the right foot and quickly gain insights
+that will help you get a first reasonably good prototype.</em> (59)</li>
+</ul>
+
+<h4 id="prepare-the-data-for-ml-algorithms">Prepare the data for ML algorithms</h4>
+
+<ul>
+  <li>Write reusable functions. Why?
+    <ul>
+      <li>Reproduce on new data in same project</li>
+      <li>Build a library to use in future projects</li>
+      <li>Use same functions in live systems to ensure consistency</li>
+      <li>Try various transformations to see which combination works best</li>
+    </ul>
+  </li>
+  <li>
+<code class="language-plaintext highlighter-rouge">Imputer</code> used to fill in null values
+    <ul>
+      <li>Good idea to use even if no null values in training set, can’t make
+any guarantees about test set and live data</li>
+    </ul>
+  </li>
+  <li>Text attributes:
+    <ul>
+      <li>Encode as an enum</li>
+      <li>
+<code class="language-plaintext highlighter-rouge">ocean_proximity</code> holds values like 1H OCEAN, NEAR OCEAN, INLAND,
+etc.</li>
+      <li><code class="language-plaintext highlighter-rouge">housing_cat_encoded, housing_categories = housing_cat.factorize()</code></li>
+      <li>
+<code class="language-plaintext highlighter-rouge">housing_categories</code> maps values to indices, <code class="language-plaintext highlighter-rouge">housing_cat_encoded</code>
+has values 0, 1, 2, 3, etc.</li>
+      <li>
+<em>One issue with this representation is that ML algorithms will
+assume that two nearby values are more similar than two distant
+values. Obviously this is not the case. To fix this issue, a common
+solution is to create one binary attribute per category. This is
+called <b>one-hot encoding</b>.</em> (63)
+        <ul>
+          <li>
+<code class="language-plaintext highlighter-rouge">housing_cat_1hot =
+sklearn.preprocessing.OneHotEncoder().fit_transform(housing_cat_encoded.reshape(-1,
+1))</code>
+            <ul>
+              <li>Need to reshape since fit_transform expects 2D array</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Custom transformer
+    <ul>
+      <li>
+<em>You want your transformer to work seamlessly with Scikit-Learn
+functionalities (such as pipelines), and since Scikit-Learn relies
+on duck typing (not inheritance), all you need is to create a class
+and implement three methods: <code class="language-plaintext highlighter-rouge">fit()</code> (returning self),
+<code class="language-plaintext highlighter-rouge">transform()</code>, and <code class="language-plaintext highlighter-rouge">fit_transform()</code>.</em> (65)
+        <ul>
+          <li>Add <code class="language-plaintext highlighter-rouge">TransformerMixin</code> and <code class="language-plaintext highlighter-rouge">BaseEstimator</code> as base classes to get
+goodies</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+<strong>Feature scaling</strong>
+    <ul>
+      <li>All features should be on the same scale. With no feature scaling,
+room totals range from 6 to 39,320, while median income only rated
+from 0 to 15. This throws things off</li>
+      <li>
+<strong>Min-max scaling</strong>
+        <ul>
+          <li>Scale to 0-1. Bad if there are outliers.</li>
+          <li><code class="language-plaintext highlighter-rouge">MinMaxScaler</code></li>
+        </ul>
+      </li>
+      <li>
+<strong>Standardization</strong>
+        <ul>
+          <li>Subtract the mean from all values, divide by variance so that
+resulting distribution has zero variance</li>
+          <li>No specific range, which can negatively affect some models</li>
+          <li>Less affected by outliers</li>
+          <li><code class="language-plaintext highlighter-rouge">StandardScaler</code></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+<code class="language-plaintext highlighter-rouge">Pipeline</code> is a great abstraction. You can use it to set off sequences
+of transformations
+    <ul>
+      <li>Exposes same methods as final estimator</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">num_pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+    <span class="p">(</span><span class="s">'imputer'</span><span class="p">,</span> <span class="n">Imputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s">'median'</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s">'attribs_adder'</span><span class="p">,</span> <span class="n">CombinedAttributesAdder</span><span class="p">()),</span>
+    <span class="p">(</span><span class="s">'std_scaler'</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
+  <span class="p">])</span>
+
+<span class="n">housing_num_tr</span> <span class="o">=</span> <span class="n">num_pipeline</span><span class="p">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">housing_num</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="select-and-train-a-model">Select and Train a Model</h4>
+
+<ul>
+  <li>Start with linear regression to establish baseline</li>
+  <li>Decision tree (example code):</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeRegressor</span>
+
+<span class="n">tree_reg</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">tree_reg</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">housing_prepared</span><span class="p">,</span> <span class="n">housing_labels</span><span class="p">)</span>
+
+<span class="n">housing_predictions</span> <span class="o">=</span> <span class="n">tree_reg</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">housing_prepared</span><span class="p">)</span>
+<span class="n">tree_mse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">housing_labels</span><span class="p">,</span> <span class="n">housing_predictions</span><span class="p">)</span>
+<span class="n">tree_rmse</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">tree_mse</span><span class="p">)</span>
+<span class="n">tree_rmse</span>
+</code></pre></div></div>
+
+<ul>
+  <li>
+<em>The main ways to fix underfitting are to select a more powerful
+model, to feed the training algorithm with better features, or to
+reduce the constraints on the model.</em> (70)</li>
+  <li>Better evaluation using <strong>K-fold cross-validation</strong>
+    <ul>
+      <li>
+<em>randomly splits the training set into 10 distinct subsets called
+folds, then it trains and evaluates the Decision Tree model 10
+times, picking a different fold for evaluation every time and
+training on the other 9 folds. The result is an array containing the
+10 evaluation scores.</em> (71)</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="fine-tune-your-model">Fine-tune Your Model</h4>
+
+<ul>
+  <li>JBenn: <strong>Model selection and data cleanliness are 95% of performance.
+Hyperparameter tuning is only the last 5%</strong>
+</li>
+  <li>Can use <code class="language-plaintext highlighter-rouge">GridSearchCV</code> (you specify the hyperparameter space to
+search) or <code class="language-plaintext highlighter-rouge">RandomizedSearchCV</code> (for large search spaces)</li>
+  <li>Once model is fine-tuned, it’s ready for showtime</li>
+</ul>
+
+<h4 id="launch-monitor-and-maintain-your-system">Launch, Monitor, and Maintain Your System</h4>
+
+<ul>
+  <li>Considerations:
+    <ul>
+      <li>Monitoring</li>
+      <li>Sample predictions and verify (most of the time with human help)</li>
+      <li>Pipeline to retrieve fresh data</li>
+    </ul>
+  </li>
+  <li>Deploy with SciKit <code class="language-plaintext highlighter-rouge">joblib</code>
+</li>
+  <li>Can deploy separate data prep pipeline and actual prediction pipeline</li>
+</ul>
+
+<h3 id="2-ch-3-hands-on-ml-classification">2: Ch 3, Hands-on ML: Classification</h3>
+
+<p><a href="https://colab.research.google.com/drive/1CCvLsfbkK6KT9Rgs-kd4Abv-eX6esmIe">Notebook</a></p>
+
+<h4 id="mnist">MNIST</h4>
+
+<h4 id="training-a-binary-classifier">Training a Binary Classifier</h4>
+
+<ul>
+  <li>Two classes
+    <ul>
+      <li>
+<code class="language-plaintext highlighter-rouge">y_train_5 = (y_train == 5)</code>: neat shorthand. Results in array like
+[0, 0, 0, 0, 1, 0, 0] where 0 indicates “not a 5”, 1 indicates “yes
+a 5”</li>
+    </ul>
+  </li>
+  <li>
+<code class="language-plaintext highlighter-rouge">SGDClassifier</code> good starting point. Fast and scalable since it treats
+each example independently</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sgd_clf</span> <span class="o">=</span> <span class="n">SGDClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">sgd_clf</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train_5</span><span class="p">)</span>
+
+<span class="n">sgd_clf</span><span class="p">.</span><span class="n">predict</span><span class="p">([</span><span class="n">x</span><span class="p">])</span> <span class="c1"># =&gt; True/False
+</span></code></pre></div></div>
+
+<h4 id="performance-measures">Performance Measures</h4>
+
+<ul>
+  <li>Evaluating classifier is more difficult than evaluating regressor
+    <ul>
+      <li>
+<img class="emoji" title=":question:" alt=":question:" src="https://github.githubassets.com/images/icons/emoji/unicode/2753.png" height="20" width="20"> why? Intuitively, discrete is simpler than continuous</li>
+    </ul>
+  </li>
+  <li>
+<strong>Cross-validation</strong> (introduced Ch. 2): split training set into N
+subsets, train on N - 1, use last set for evaluation. Rotate so that
+every subset is the “evaluation set” once
+    <ul>
+      <li>
+<code class="language-plaintext highlighter-rouge">sklearn.model_selection.cross_val_score(sgd_classifier, X_train,
+y_train_5, cv=3, scoring='accuracy'</code>
+        <ul>
+          <li>
+<code class="language-plaintext highlighter-rouge">cv</code>: number of folds</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+<strong>Confusion matrix</strong>: count # times instances of class A are
+classified as class B, plot in an MxM table where M = number of
+classes</li>
+  <li>
+<strong>Precision</strong>:
+\(\frac{tp}{tp + fp}\)
+    <ul>
+      <li>“What are the chances of my True guess being correct?”</li>
+    </ul>
+  </li>
+  <li>
+<strong>Recall</strong>:
+\(\frac{tp}{tp + fn}\)
+    <ul>
+      <li>“What are the chances of me guessing True for an actual True?”</li>
+    </ul>
+  </li>
+  <li>
+<strong>F1 score</strong> to combine precision and recall;
+\(2 x \frac{precision x recall}{precision + recall}\) <strong>OR</strong>
+\(\frac{tp}{tp + \frac{fn + fp}{2}}\)
+    <ul>
+      <li>Favors classifiers with close precision and recall. This may not be
+what you want, e.g. for finding shoplifters some false positives are
+okay but false negatives are not</li>
+      <li>
+<code class="language-plaintext highlighter-rouge">sklearn.metrics.f1_score(y_train_5, y_train_pred)</code>
+<img src="/images/courses/mle-in-ten-parts-precision-recall.png" alt="precision-recall">
+</li>
+    </ul>
+  </li>
+  <li>
+<strong>Precision/recall tradeoff</strong>: increasing one decreases the other.
+Intuition: if you guess more trues, your recall is likely to be higher
+since you’re making fewer negative guesses overall, but your precision
+will suffer because some of your “extra” true guesses will be
+incorrect
+    <ul>
+      <li>Higher decision threshold -&gt; higher precision, lower recall</li>
+    </ul>
+  </li>
+  <li>
+<strong>ROC Curve</strong>: receiver operating characteristic: plots <strong>sensitivity
+(recall) vs. 1 - specificity (true negative rate)</strong>
+    <ul>
+      <li>
+<img class="emoji" title=":question:" alt=":question:" src="https://github.githubassets.com/images/icons/emoji/unicode/2753.png" height="20" width="20"> origin of name ROC? Intuition for it?</li>
+      <li>Metric: <strong>ROC AUC</strong> (ROC area under curve). Random: 0.5. Goal: 1.
+<img src="/images/courses/mle-in-ten-parts-roc.png" alt="roc">
+</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="multiclass-classification">Multiclass Classification</h4>
+
+<ul>
+  <li>Some models (Random Forest) can directly do multiclass</li>
+  <li>Otherwise, you can do multi-class with a bunch of binary classifiers
+    <ul>
+      <li>
+<strong>One-versus-all</strong>: one classifier per class. Prediction = class
+whose classifier outputs highest score</li>
+      <li>
+<strong>One-versus-one</strong>: one classifier for every pair of digits (1 vs.
+2, 1 vs. 3, etc.). Prediction = class whose classifier wins the most
+of these pairs.</li>
+      <li>Choose OvA most of the time, way fewer models. Choose OvO only if
+your model (e.g. SVM) scales poorly</li>
+    </ul>
+  </li>
+  <li>
+<img class="emoji" title=":question:" alt=":question:" src="https://github.githubassets.com/images/icons/emoji/unicode/2753.png" height="20" width="20"> “Scaling inputs increases accuracy” –&gt; aren’t all inputs
+0-255 already?</li>
+</ul>
+
+<h4 id="error-analysis">Error Analysis</h4>
+
+<ul>
+  <li>Good to print out examples of TP, FP, TN, FN in order to visualize
+what types of errors model is making
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">true_positives = X_train[(y_train == a) &amp; (y_train_pred == a)]</code></li>
+      <li><code class="language-plaintext highlighter-rouge">false_positives = X_train[(y_train == a) &amp; (y_train_pred == b)]</code></li>
+      <li><code class="language-plaintext highlighter-rouge">true_negatives = X_train[(y_train == b) &amp; (y_train_pred == b)]</code></li>
+      <li><code class="language-plaintext highlighter-rouge">false_negatives = X_train[(y_train == b) &amp; (y_train_pred == a)]</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="multilabel-classification">Multilabel Classification</h4>
+
+<ul>
+  <li>Model trained on three faces: Alice, Bob, Charlie
+    <ul>
+      <li>If Alice and Charlie in a picture, model should output [1, 0, 1]</li>
+      <li>Can use <code class="language-plaintext highlighter-rouge">KNeighborsClassifier</code>
+</li>
+      <li>Evaluation: measure F1 for each label and compute average score</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="multioutput-classification">Multioutput Classification</h4>
+
+<ul>
+  <li>Example: add noise to MNIST images. Use noisy images as X, clean
+images as Y. Prediction is the “cleaned” image.</li>
+</ul>
+
+<h3 id="3-ch-4-hands-on-ml-training-models">3: Ch 4, Hands-on ML: Training Models</h3>
+
+<p><a href="https://drive.google.com/file/d/1o3hgXYDVM3gmcPFhdinWbW8nkAEGi2oz/view?usp=sharing">Colab Notebook</a></p>
+
+<h4 id="linear-regression">Linear Regression</h4>
+
+<ul>
+  <li>Prediction: weighted sum of input features + <strong>bias</strong> (<strong>intercept term</strong>)
+    <ul>
+      <li>\(\theta\): parameters</li>
+      <li>\(n\): number of features</li>
+      <li>\(x\): inputs</li>
+      <li>\(\hat{y}\): prediction</li>
+      <li>\(h_\theta(x)\): (vectorized) hypothesis function, using model parameters.</li>
+      <li>\(\theta^T\): transpose of theta</li>
+    </ul>
+  </li>
+  <li>
+    <p>Loss function: MSE</p>
+
+\[MSE(X, h_\theta) = {\frac{1}{m}\Sigma_{i=1}^{m}{\Big(\theta^T \cdotp x^{(i)} - y^{(i)}\Big)^2}}\]
+
+    <ul>
+      <li>How far away are predictions from actuals?</li>
+      <li>Penalize big error more than small error</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="the-normal-equation">The Normal Equation</h5>
+
+<ul>
+  <li>
+<strong>Closed-form solution</strong> to linear regression
+    <ul>
+      <li>Not used a ton, no need to memorize</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="computation-complexity">Computation Complexity</h5>
+
+<ul>
+  <li>Normal equation doesn’t scale well. Computational complexity of inverting matrix is
+\(O(n^{2.4})\) to \(O(n^3)\)</li>
+</ul>
+
+<h4 id="gradient-descent">Gradient Descent</h4>
+
+<ul>
+  <li>
+<em>The general idea of Gradient Descent is to tweak parameters
+iteratively in order to minimize a cost function.</em> (111)</li>
+  <li>Start with a random value (<strong>random initialization</strong>) then take steps
+down the valley until you hit a minimum
+<img src="/images/courses/mle-in-ten-parts-gradient-descent.png" alt="gradient-descent">
+</li>
+  <li>
+<strong>Learning rate</strong>: size of each step</li>
+  <li>MSE is <strong>convex</strong> (bowl-shaped) and <strong>continuous</strong> (no abrupt slope
+changes)
+    <ul>
+      <li>This guarantees that GD will approach global minimum</li>
+    </ul>
+  </li>
+  <li>Make sure to <strong>scale inputs</strong>. Makes it easier for GD to find minimum
+across all dimensions more quickly</li>
+</ul>
+
+<h5 id="batch-gradient-descent">Batch Gradient Descent</h5>
+
+<ul>
+  <li>Compute <strong>partial derivative</strong> of cost function with regards to each
+parameter \(\theta_j\)
+    <ul>
+      <li>Keep all other parameters constant
+        <ul>
+          <li>Parameter 1: “What is the slope of the mountain under my feet if I
+face East?” Parameter 2: “North?”</li>
+        </ul>
+      </li>
+      <li>
+<strong>Batch</strong> GD: compute gradient vector over the entire training set</li>
+    </ul>
+  </li>
+  <li>Once you have gradient vector (highest uphill direction), just go the
+opposite direction to go downhill
+    <ul>
+      <li>Multiplied by <strong>learning rate</strong> \(\eta\)</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">eta</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">n_iterations</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">iteration</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_iterations</span><span class="p">):</span>
+  <span class="n">gradients</span> <span class="o">=</span> <span class="mi">2</span><span class="o">/</span><span class="n">m</span> <span class="o">*</span> <span class="n">X_b</span><span class="p">.</span><span class="n">T</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_b</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
+  <span class="n">theta</span> <span class="o">=</span> <span class="n">theta</span> <span class="o">-</span> <span class="n">eta</span> <span class="o">*</span> <span class="n">gradients</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Set a high number of iterations, and stop the algorithm when gradient
+vector becomes very small
+    <ul>
+      <li>When <strong>norm</strong> (magnitude) becomes smaller than <strong>tolerance \(\epsilon\)</strong>
+</li>
+      <li>This indicates GD has reached minimum</li>
+    </ul>
+  </li>
+  <li>
+<strong>Convergence rate</strong> of GD is approx. \(O(1/\epsilon)\), so it slows
+down as you lower the tolerance</li>
+</ul>
+
+<h5 id="stochastic-gradient-descent">Stochastic Gradient Descent</h5>
+
+<ul>
+  <li>
+<strong>One random training example at a time</strong> to adjust parameters
+    <ul>
+      <li>Pro:
+        <ul>
+          <li>Converges and scales much faster</li>
+          <li>Adds element of randomness, to escape local minima</li>
+        </ul>
+      </li>
+      <li>Cons:
+        <ul>
+          <li>Less stable cost function, will not find the exact optimal solution
+            <ul>
+              <li>Add <strong>simulated annealing</strong> (gradually reduce learning rate) to
+help with this</li>
+              <li>
+<strong>Learning schedule</strong> determines learning rate at each
+iteration. SK-Learn has defaults</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+<img class="emoji" title=":question:" alt=":question:" src="https://github.githubassets.com/images/icons/emoji/unicode/2753.png" height="20" width="20"> why does shuffling training set and going instance by
+instance converge more slowly than picking random instances with the
+possibility of duplicates? Seems like they should be the same.</li>
+  <li>
+<img class="emoji" title=":question:" alt=":question:" src="https://github.githubassets.com/images/icons/emoji/unicode/2753.png" height="20" width="20"> What does <code class="language-plaintext highlighter-rouge">y.ravel()</code> do?
+    <ul>
+      <li>Flattens array to 1D</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="mini-batch-gradient-descent">Mini-batch Gradient Descent</h5>
+
+<ul>
+  <li>Middle ground between BGD and SGD. Splits training set into small sets
+and updates parameters after processing each mini batch.
+<img src="/images/courses/mle-in-ten-parts-gradient-descent-paths.png" alt="gradient-descent-paths">
+</li>
+</ul>
+
+<h4 id="polynomial-regression">Polynomial Regression</h4>
+
+<ul>
+  <li>Basically the same as linear regression, add more parameters using
+<code class="language-plaintext highlighter-rouge">sklearn.preprocessing.PolynomialFeatures(degree=2, include_bias=False).fit_transform(X)</code>
+</li>
+</ul>
+
+<h4 id="learning-curves">Learning Curves</h4>
+
+<ul>
+  <li>How to decide # of parameters?
+    <ul>
+      <li>
+<em>If a model performs well on the training data but generalizes
+poorly according to the cross-validation metrics, then your model is
+overfitting. If it performs poorly on both, then it is
+underfitting.</em> (125)</li>
+      <li>
+<strong>Learning curve</strong>: plot of model performance on training set and
+validation set as function of training set size or iteration #
+<img src="/images/courses/mle-in-ten-parts-learning-curve.png" alt="learning-curve">
+</li>
+      <li>Underfitting curve: both curves reach a plateau at larger training
+set size, close to each other and with fairly high error</li>
+      <li>Overfitting curve: training set error is much lower than validation
+set. Large gap between curves</li>
+    </ul>
+  </li>
+  <li>
+<strong>Bias/variance tradeoff</strong>: generalization error can be expressed as
+sum of several components
+    <ul>
+      <li>
+<strong>Bias</strong>: wrong assumptions, such as assuming data is linear when
+it’s actually quadratic. High bias -&gt; underfitting</li>
+      <li>
+<strong>Variance</strong>: model is too sensitive to small variations in training
+set, e.g. with too many parameters. High variance -&gt; overfitting</li>
+      <li>
+<strong>Irreducible error</strong>: noisiness of data, unavoidable. Can be
+reduced by cleaning up data</li>
+      <li><strong>Increased model complexity -&gt; increased variance, reduced bias.</strong></li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="regularized-linear-models">Regularized Linear Models</h4>
+
+<ul>
+  <li>Constraining model weights makes it harder for model to overfit data</li>
+</ul>
+
+<h5 id="ridge-regression">Ridge Regression</h5>
+
+<ul>
+  <li>Add a <strong>regularization term</strong> to the cost function based on the sum of
+squares of model parameters (L2 norm)</li>
+  <li>Regularization term: \(\alpha\frac{1}{2}\Sigma_{i=1}^{m}\theta_i^2\)</li>
+  <li>Hyperparameter \(\alpha\) controls how much to regularize. 0 = no
+regularization. High = all weights converge to 0.
+<img src="/images/courses/mle-in-ten-parts-ridge-regression.png" alt="ridge-regression">
+</li>
+</ul>
+
+<h5 id="lasso-regression">Lasso Regression</h5>
+
+<ul>
+  <li>
+<strong>Least Absolute Shrinkage and Selection Operator Regression</strong> (<img class="emoji" title=":flushed:" alt=":flushed:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f633.png" height="20" width="20">)</li>
+  <li>Uses L1 norm instead of L2 norm</li>
+  <li>Regularization term: \(\alpha\Sigma_{i=1}^{n}\|\theta_i\|\)</li>
+  <li>Completely eliminates weights of least important features</li>
+  <li>Can behave erratically. Use Elastic Net instead.</li>
+</ul>
+
+<h5 id="elastic-net">Elastic Net</h5>
+
+<ul>
+  <li>Combine Ridge and Lasso with mix ratio \(r\)
+    <ul>
+      <li>When r = 0, it’s Ridge</li>
+      <li>When r = 1, it’s Lasso</li>
+    </ul>
+  </li>
+  <li>Always use some regularization
+    <ul>
+      <li>Ridge is a good default, but Elastic Net is better if you think only
+a few features are useful.
+        <ul>
+          <li>Just make it a hyperparameter! :)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="early-stopping">Early Stopping</h5>
+
+<ul>
+  <li>Just stop training as soon as validation error reaches a minimum
+<img src="/images/courses/mle-in-ten-parts-early-stopping.png" alt="early-stopping">
+</li>
+</ul>
+
+<h4 id="logistic-regression">Logistic Regression</h4>
+
+<ul>
+  <li>Aka <strong>Logit Regression</strong>
+    <ul>
+      <li>The logit function is the inverse of the sigmoidal “logistic”
+function or logistic transform used in mathematics, especially in
+statistics. When the function’s variable represents a probability p,
+the logit function gives the log-odds, or the logarithm of the odds
+p/(1 − p).</li>
+      <li>Effectively, pushes probability towards 0 or 1
+<img src="/images/courses/mle-in-ten-parts-logit.png" alt="logit">
+</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="estimating-probabilities">Estimating Probabilities</h5>
+
+<ul>
+  <li>Estimated probability function:</li>
+</ul>
+
+\[\hat{p} = h_\theta(x) = \sigma(\theta^T \cdotp x)\]
+
+<ul>
+  <li>Sigmoid function: \(\sigma(t) = \frac{1}{1 + exp( - t)}\)</li>
+</ul>
+
+<h5 id="training-and-cost-function">Training and Cost Function</h5>
+
+<ul>
+  <li>
+<em>The objective of training is to set the parameter vector \(\theta\)
+so that the model estimates high probabilities for positive instances
+(y = 1) and low probabilities for negative instances (y = 0).</em> (137)
+    <ul>
+      <li>Cost function uses <strong>log loss</strong>
+        <ul>
+          <li>Intuition: use -log(prediction) if the actual value is 1.
+-log(prediction) will grow very large as prediction approaches 0,
+penalizing a “wrong” guess of 0 when the actual is 1. Same logic
+applies for using -log(1 - prediction) if actual value is 0.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+\[J(\theta) = - \frac{1}{m}\Sigma_{i=1}^{m}[y^{(i)}log(\hat{p}^{(i)}) + (1 - y^{(i)})log(1 - \hat{p}^{(i)})]\]
+
+<ul>
+  <li>Convex (bowl-shaped) so gradient descent will find the minimum</li>
+</ul>
+
+<h5 id="decision-boundaries">Decision Boundaries</h5>
+
+<ul>
+  <li>Thresholds where logistic regression will make different predictions:
+<img src="/images/courses/mle-in-ten-parts-decision-boundary.png" alt="decision-boundary">
+</li>
+</ul>
+
+<h5 id="softmax-regression">Softmax Regression</h5>
+
+<ul>
+  <li>Generalized version of logistic regression to support multiple classes
+    <ul>
+      <li>
+<em>When given an instance x, the Softmax Regression model first
+computes a score \(s_k(x)\) for each class \(k\), then estimates the
+probability of each class by applying the softmax function to the
+scores.</em> (141)
+        <ul>
+          <li>Softmax sums all of them to one</li>
+          <li>Picks the highest probability after softmax</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Goal: model should estimate a high probability for the target class
+and low probability for the other classes.
+    <ul>
+      <li>Cost function: <strong>cross entropy</strong>
+        <ul>
+          <li>When only two classes, it’s the same as log loss</li>
+          <li>
+\[J(\Theta) = - \frac{1}{m}\Sigma_{i=1}^{m}\Sigma_{k=1}^{K}y_k^{(i)}log\Big(\hat{p}_k^{(i)}\Big)\]
+            <ul>
+              <li>\(k\): classes</li>
+              <li>\(y_k^{(i)}\) = 1 if target class for ith instance is k,
+otherwise = 0</li>
+            </ul>
+          </li>
+          <li>Measure how well a set of estimated class probabilities match
+target classes</li>
+          <li>
+<img class="emoji" title=":question:" alt=":question:" src="https://github.githubassets.com/images/icons/emoji/unicode/2753.png" height="20" width="20"> are cost function and loss function the same?
+            <ul>
+              <li>Nope, even though they are used loosely: https://stats.stackexchange.com/a/179027</li>
+              <li>A loss function is a part of a cost function which is a type of
+an objective function.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="exercises">Exercises</h4>
+
+<ul>
+  <li>Assigned: #5, #11</li>
+</ul>
+
+<h5 id="exercise-5">Exercise 5</h5>
+
+<ul>
+  <li>Suppose you use Batch GD and you plot the validation error at
+every epoch. If you notice that the validation error consistently goes
+up, what is likely going on? How can you fix this?</li>
+</ul>
+
+<p>You want to plot the training error alongside the validation error to
+get a complete picture of your learning curve. If your training error is
+going down while your validation error is going up, it’s likely that
+your model error is overfitting. If your training error is bouncing
+around, it’s possible that you’ve chosen a suboptimal learning rate and
+it’s causing your model to have a difficult time generalizing.</p>
+
+<h5 id="exercise-11">Exercise 11</h5>
+
+<ul>
+  <li>Suppose you want to classify pictures as outdoor/indoor and
+daytime/nighttime. Should you implement two Logistic Regression
+classifiers or one Softmax Regression classifier?</li>
+</ul>
+
+<p>You should implement two Logistic Regression classifiers. Softmax
+Regression classifiers are able to perform multi-class classification,
+not the multi-output classification this problem calls for.</p>
+
+<ul>
+  <li>~From here on out, I took notes exclusively through Anki~, sorry!</li>
+</ul>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="center">
+  <div class="measure">
+    <small>
+      © 2018
+    </small>
+  </div>
+</footer>
+<!-- AnchorJS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.0.0/anchor.min.js"></script>
+<script>
+    anchors.options.visible = 'always';
+    anchors.add('article h2, article h3:not(.no-anchor), article h4:not(.no-anchor), article h5:not(.no-anchor), article h6');
+</script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch-theme-algolia.min.css">
+
+<script>
+const search = instantsearch({
+  appId: 'Q1JJ6NM1UC',
+  indexName: 'tigerthinks',
+  apiKey: '5a99d8bb6e9d1a03163a5eb0d67496e0',
+  searchFunction: function(helper) {
+    const searchHits = document.getElementById("search-hits")
+    const content = document.getElementById("content")
+
+    if (helper.state.query === '') {
+      searchHits.style.display = "none";
+      content.style.display = "block";
+      return;
+    }
+
+    helper.search();
+    searchHits.style.display = "block";
+    content.style.display = "none";
+  },
+  searchParameters: {
+    hitsPerPage: 10
+  }
+});
+
+const hitTemplate = function(hit) {
+  let date = '';
+  if (hit.date) {
+    date = moment.unix(hit.date).format('MMM D, YYYY');
+  }
+
+  let url = `${hit.url}#${hit.anchor}`;
+
+  const title = hit._highlightResult.title.value;
+
+  let breadcrumbs = '';
+  if (hit._highlightResult.headings) {
+    breadcrumbs = hit._highlightResult.headings.map(match => {
+      return `<span class="post-breadcrumb">${match.value}</span>`
+    }).join(' > ')
+  }
+
+  const content = hit._highlightResult.html.value;
+
+  return `
+    <div class="post-item">
+      <span class="post-meta small">${date}</span>
+      <a class="post-link" href="${url}"><h2 class="search-hit-title post-title">${title}</h2></a>
+
+      
+      <a href="${url}" class="post-breadcrumbs"><h5>${breadcrumbs}</h5></a>
+      
+
+      <div class="post-snippet">${content}</div>
+    </div>`;
+}
+
+// Adding searchbar and results widgets
+search.addWidget(
+  instantsearch.widgets.searchBox({
+    container: '#search-searchbar',
+    placeholder: '',
+    poweredBy: true,
+    autofocus: false,
+    cssClasses: {
+      root: 'tigerthinks-searchbar'
+    }
+  })
+);
+
+
+search.addWidget(
+  instantsearch.widgets.hits({
+    container: '#search-hits',
+    templates: {
+      item: hitTemplate
+    }
+  })
+);
+
+// Starting the search
+search.start();
+</script>
+
+<style>
+.ais-search-box {
+  max-width: 100%;
+}
+
+.post-item {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: thin solid #f3f3f3;
+}
+
+.post-link .ais-Highlight {
+  color: #0076df;
+  font-style: normal;
+}
+
+.post-breadcrumbs {
+  font-style: normal;
+  display: block;
+  padding-bottom: 10px;
+  background-image: none !important;
+  color: #333 !important;
+}
+
+.post-breadcrumb {
+  font-style: normal;
+  font-size: 18px;
+  color: #333;
+}
+
+.post-breadcrumb .ais-Highlight {
+  font-weight: bold;
+  font-style: normal;
+  color: #0076df;
+}
+
+.post-snippet .ais-Highlight {
+  color: #0076df;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.post-snippet img {
+  display: none;
+}
+</style>
+
+</body>
+</html>

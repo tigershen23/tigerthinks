@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Domain-Driven Design &#8211; Tiger Shen</title>
+    <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Software should be optimized for the domain it is performing in, or else it will turn into an unmaintainable nightmare for both developers and domain experts.">
+    <meta name="robots" content="all">
+    <meta name="author" content="Tiger Shen">
+    
+    <meta name="keywords" content="">
+    <link rel="canonical" href="http://tigerthinks.com/2018/06/13/domain-driven-design/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for Tiger Shen" href="/feed.xml" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/pixyll.css?202011300937" type="text/css">
+
+    <!-- Fonts -->
+    
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&amp;subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300&amp;subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    
+    
+
+    <!-- MathJax -->
+    
+    <script type="text/javascript" async
+        src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+
+    <!-- Verifications -->
+    
+    
+
+    <!-- Open Graph -->
+    <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Domain-Driven Design">
+    <meta property="og:description" content="Tiger Shen">
+    <meta property="og:url" content="http://tigerthinks.com/2018/06/13/domain-driven-design/">
+    <meta property="og:site_name" content="Tiger Shen">
+    
+    <meta property="og:image" content="http://tigerthinks.com/images/me.jpg">
+    
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    
+    <meta name="twitter:title" content="Domain-Driven Design" />
+    <meta name="twitter:description" content="Software should be optimized for the domain it is performing in, or else it will turn into an unmaintainable nightmare for both developers and domain experts." />
+    <meta name="twitter:url" content="http://tigerthinks.com/2018/06/13/domain-driven-design/" />
+    
+    <meta name="twitter:image" content="http://tigerthinks.com/images/me.jpeg" />
+    
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    
+</head>
+
+
+<body>
+  
+  
+
+  <div class="site-wrap">
+    <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="http://tigerthinks.com/" class="site-title">Tiger Shen</a>
+      <nav class="site-nav">
+        <a href="/blog">
+  Personal
+</a>
+
+<a href="/tech-blog">
+  Tech
+</a>
+
+<a href="/anki">
+  Anki
+</a>
+
+<a href="#">
+  |
+</a>
+
+<a href="/books/top">
+  Books (43)
+</a>
+
+<a href="/articles/top">
+  Articles (119)
+</a>
+
+<a href="/other/top">
+  Other (151)
+</a>
+
+      </nav>
+      <div class="clearfix"></div>
+      
+
+      <span id="search-searchbar"></span>
+
+    </div>
+  </div>
+</header>
+
+
+    <div class="post p2 p-responsive wrap" role="main">
+      <div class="measure">
+        <div class="post-list" id="search-hits">
+        </div>
+
+        <div id="content">
+          
+
+
+<div class="post-header mb2">
+  <h1>
+    
+    <div class="clearfix mxn2">
+      <div class="col col-2 sm-col-12 px2">
+        <img class="inline" src="/images//books/domain-driven-design.jpg" alt="Book Cover" />
+
+      </div>
+      <div class="col col-10 sm-col-12 px2">
+        Domain-Driven Design
+      </div>
+    </div>
+    
+  </h1>
+  <div class="tags">
+  
+    <a href="/book" class="badge badge-red-base">book</a>
+  
+    <a href="/technical" class="badge badge-deep-orange-base">technical</a>
+  
+    <a href="/programming" class="badge badge-lime-200">programming</a>
+  
+    <a href="/architecture" class="badge badge-yellow-200">architecture</a>
+  
+</div>
+
+  <span class="post-meta">By Eric Evans | <a target="_blank" href=https://www.goodreads.com/book/show/179133.Domain_Driven_Design?ac=1&from_search=true>Goodreads Page</a> | 560 pages, 159984 words | Jun 11, 2018</span><br>
+  
+  <span class="post-meta small">
+  
+    19 minute read
+  
+  </span>
+</div>
+
+<article class="post-content">
+  <b>  ★     ★     ★     ★     ★   </b>
+
+  <p><em>TL;DR</em>: One of the best software books I’ve ever read. Puts into words
+a lot of the best advice I’ve received about building software.</p>
+
+<h2 id="notes">Notes</h2>
+
+<p>Note: Part IV, Strategic Design, was much less useful to me than the
+rest of the book.</p>
+
+<h3 id="foreword-martin-fowler">Foreword (Martin Fowler)</h3>
+
+<ul>
+  <li><em>The greatest value of a domain model is that it provides a
+<strong>ubiquitous language</strong> that ties domain experts and technologists
+together.</em></li>
+</ul>
+
+<h3 id="preface">Preface</h3>
+
+<ul>
+  <li>Premise:
+    <ul>
+      <li>For most software projects, the primary focus should be on the domain
+and domain logic</li>
+      <li>Complex domain designs should be based on a model</li>
+    </ul>
+  </li>
+  <li>Prereqs:
+    <ul>
+      <li>Development is iterative</li>
+      <li>Developers and domain experts have a close relationship</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="part-i-putting-the-domain-model-to-work">Part I: Putting the Domain Model to Work</h2>
+
+<ul>
+  <li>A <strong>model</strong>:
+    <ul>
+      <li>Is a selective simplification</li>
+      <li>Consciously structured form of knowledge</li>
+      <li>Focuses information on a problem</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="ch-1-crunching-knowledge">Ch 1: Crunching Knowledge</h3>
+
+<ul>
+  <li><strong>Conversations</strong>
+    <ul>
+      <li><em>It is the creativity of brainstorming and massive experimentation,
+leveraged through a model-based language and disciplined by the
+feedback loop through implementation, that makes it possible to find
+a knowledge-rich model and distill it. This kind of <strong>knowledge
+crunching</strong> turns the knowledge of the team into valuable models.</em>
+(12)</li>
+    </ul>
+  </li>
+  <li>Techincal success requires <strong>serious learning about the specific
+domain</strong></li>
+  <li>Be <strong>specific</strong>: <em>Domain experts are usually not aware of how copmlex
+their mental processes are as, in the course of their work, they
+navigate all these rules, reconcile contradictions, and fill in gaps
+with common sense. Software can’t do this.</em> (16)</li>
+</ul>
+
+<h3 id="ch-2-communication-and-the-use-of-language">Ch 2: Communication and the Use of Language</h3>
+
+<ul>
+  <li>Issue: <em>across this linguistic divide, the domain experts vaguely
+describe what they want. Developers, struggling to understand a domain
+new to them, vaguely understand.</em> (24)
+    <ul>
+      <li><em>A project faces serious problems when its language is fractured.
+Domain experts use their jargon while technical team members have
+their own language tuned for dicussing the domain in terms of their
+design.</em> (24)</li>
+    </ul>
+  </li>
+  <li>Solution: <strong>ubiquitous language</strong>
+    <ul>
+      <li><em>Use the model as the backbone of a language. Commit the team to
+exercising that language relentlessly in all communication within
+the team and in the code. Use the same language in diagrams,
+writing, and especially speech.</em> (26)</li>
+    </ul>
+  </li>
+  <li>Speech is the lossiest form of communication. Thus, if you have a
+model you can explain in conversation, it’s probably good.
+    <ul>
+      <li>“If we give the routing service an origin, destination, and arrival
+time, it can look up the stops the cargo will have to make, and,
+well…stick them in the database” –&gt; vague, technical</li>
+      <li>“The origin, destination, and so on…it all feeds into the routing
+service, and we get back an itinerary that has everything we need in
+it.” –&gt; more complete, but verbose</li>
+      <li><strong>A routing service finds an itinerary that satistfies a route
+specification</strong> –&gt; bingo</li>
+    </ul>
+  </li>
+  <li><em>If sophisticated domain experts don’t understand the model, there is
+something wrong with the model</em> (32)</li>
+  <li><em>It takes fastidiousness to write code that doesn’t just do the right
+thing but also says the right thing.</em> (40)</li>
+  <li>Written design docs:
+    <ul>
+      <li>Should complement code and speech, not replace them</li>
+      <li>Should work for a living and stay current
+        <ul>
+          <li>If can’t stay current, get rid of it</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="ch-3-binding-model-and-implementation">Ch 3: Binding Model and Implementation</h3>
+
+<ul>
+  <li><em>Domain-driven design calls for a model that doesn’t just aid early
+analysis but is the very foundation of the deisgn […] tightly
+relating the code to an underlying model gives the code meaning and
+makes the model relevant.</em> (46)
+    <ul>
+      <li><em>If the design, or some central part of it, does not map to the
+domain model, that model is of little value, and the correctness of
+the softwarte is suspect.</em> (48)</li>
+    </ul>
+  </li>
+  <li>How to bind model and implementation: <em>Design a portion of the
+software system to reflect the domain model in a very literal way, so
+that the mapping is obvious. Revisit the model and modify it to be
+implemented more naturally in software, even as you seek to make it
+reflect deeper insight into the domain. Demand a single model that
+serves both purposes well, in addition to supporting a robust
+<strong>ubiquitous language</strong>.</em> (49)</li>
+  <li>Silent side affects are generally unacceptable.</li>
+</ul>
+
+<h2 id="part-ii-the-building-blocks-of-a-model-driven-design">Part II: The Building Blocks of a Model-Driven Design</h2>
+
+<p><img src="/images/books/domain-driven-design-model-driven-design.png" alt="model-driven-design" /></p>
+
+<h3 id="ch-4-isolating-the-domain">Ch 4: Isolating the Domain</h3>
+
+<ul>
+  <li><em>Concentrate all the code related to the domain model in one layer and
+isolate it from the user interface, application, and infrastructure
+code. The domain objects, free of the responsibility of displaying
+themselves, storing themselves, managing application tasks, and so
+forth, can be focused on expressing the domain model. This allows a
+model to evolve to be rich enough and clear enough to capture
+essential business knowledge and put it to work.</em> (70)
+    <ul>
+      <li>Nice. The service layer</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="ch-5-a-model-expressed-in-software">Ch 5: A Model Expressed in Software</h3>
+
+<ul>
+  <li>Three patterns of model eelements express model:
+    <ul>
+      <li><strong>Entity</strong> represents something with continuity and identity,
+tracked through different states
+        <ul>
+          <li><strong>Defined primarily by its identity</strong></li>
+          <li>YES: Person, city, car, lottery ticket</li>
+          <li>NO: color, etc.</li>
+          <li><em>The model must define what it means to be the same thing.</em> (92)</li>
+          <li><em>The most basic responsibility of entities is to establish
+continuity so that behavior can be clear and predictable. They do
+this best if they are kept spare. Rather than focusing on the
+attributes or even the behavior, strip the entity object’s
+definition down to the most intrinsic characteristics,
+particularly those that identify it or are commonly used to find
+or match it. Add only behavior that is essential to the concept
+and attributes that are required by that behavior. Beyond that,
+look to remove behavior and attributes into other objects
+associated with the core enty. Some of these will be entities.
+Some will be value objects.</em> (93)</li>
+        </ul>
+      </li>
+      <li><strong>Value object</strong> is basically anything that does not fit the above
+        <ul>
+          <li><em>Tracking the identity of entities is essential, but attaching
+identity to other objects can hurt system performance, add
+analytical work, and muddle the model by making all objects look
+the same.</em> (97)</li>
+          <li><em>An object that represents a descriptive aspect of the domain with
+no conceptual identity is called a value object. Value objects are
+instantiated to represent elements of the design that we only care
+about for what they are, not who or which they are</em> (97)</li>
+          <li>Color or Route</li>
+          <li><strong>Make it immutable</strong></li>
+        </ul>
+      </li>
+      <li><strong>Service</strong> is something that is done for a client on request
+        <ul>
+          <li><em>When a significant process or transformation in the domain is not
+a natural responsibility of an entity or value object, add an
+operation to the model as a standalone interface declared as a
+service. Define the interface in terms of the language of the
+model and make sure the operation name is part of the ubiquitous
+language. Make the service stateless.</em> (105)</li>
+          <li>Three good characteristics
+            <ul>
+              <li>Operation relates to concept that doesn’t fit in entity or value
+object</li>
+              <li>Interface defined in terms of other elements in domain model</li>
+              <li>Operation is stateless</li>
+            </ul>
+          </li>
+          <li>Best at “medium” granularity. Varies project o project</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Implementing every real-life association complicates implementation
+and maintenance. Some strategies:
+    <ul>
+      <li>Impose a traversal direction</li>
+      <li>Add a qualifier to reduce multiplicity (scope down associations)</li>
+      <li>Eliminate nonessential associations</li>
+    </ul>
+  </li>
+  <li><strong>Modules</strong> are also a part of the model. Package code together to
+organize objects.
+    <ul>
+      <li><strong>Low coupling</strong>: force users to think about as few things as
+possible at a time</li>
+      <li><strong>High cohesion</strong>: force users to think about related topics at the
+same time</li>
+      <li>Don’t be too heavy-handed with module and package distinctions</li>
+    </ul>
+  </li>
+  <li><em>The most effective tool for holding the parts together is a robust
+ubiquitous language that underlies the whole heterogeneous model.</em>
+(121)</li>
+</ul>
+
+<h3 id="ch-6-the-life-cycle-of-a-domain-object">Ch 6: The Life Cycle of a Domain Object</h3>
+
+<ul>
+  <li>Managing object life cycle: must <strong>maintain integrity</strong> and <strong>manage
+complexity</strong></li>
+  <li><strong>Aggregates</strong>
+    <ul>
+      <li><em>a cluster of associated objects that we treat as a unit for the
+purpose of data changes. Each aggregate has a <strong>root</strong> and a <strong>boundary</strong>.
+The boundary defines what is inside the aggregate. The root is a
+single, specific entity contained in the aggregate. The root is the
+only member of the aggregate that outside objects are allowed to
+hold references to, although objects within the boundary may hold
+references to each other.</em> (126)</li>
+    </ul>
+  </li>
+  <li><strong>Factories</strong>
+    <ul>
+      <li>Cars aren’t assembled and driven at the same time. Similarly,
+complex objects should be assembled separate from where they’re
+used</li>
+      <li>A program whose <strong>responsibility is the creation of other objects</strong></li>
+      <li>Each creation method is atomic and enforces invariants of the entity
+or aggregate being created</li>
+      <li>If not super complex, can still use a constructor, but still a
+very useful pattern to have available</li>
+    </ul>
+  </li>
+  <li><strong>Repositories</strong>
+    <ul>
+      <li><strong>Reconstitution</strong>: Creation of an instance from stored data</li>
+      <li>Why? <em>Domain logic moves into queries and client code, and the
+entities and value objects become mere data containers. The sheer
+technical complexity of applying most database access infrastructure
+quickly swamps the client code, which leads developers to dumb down
+the domain layer, which makes the model irrelevant.</em> (149)</li>
+      <li><em>A repository represents all objects of a certain type as a
+conceptual set. It acts like a collection, except with more
+elaborate querying capability. Objects of the appropriate type are
+added and removed, and the machinery behind the repository inserts
+them or deletes them from the database.</em> (151)</li>
+      <li>Present simple interface to clients</li>
+      <li>Decouple application and domain design from persistence</li>
+      <li>Communicate design decisions about object access</li>
+      <li>Allow easy mocking</li>
+    </ul>
+  </li>
+  <li><strong>Avoid find or create</strong>. Distinction between new and existing object
+is important. Distinguishing between entities and value objects seems
+to get you most of the value.</li>
+</ul>
+
+<h3 id="ch-7-using-the-language-an-extended-example">Ch 7: Using the Language: An Extended Example</h3>
+
+<p><img src="/images/books/domain-driven-design-shipping-modules.png" alt="shipping-modules" />
+<img src="/images/books/domain-driven-design-shipping-applications.png" alt="shipping-applications" /></p>
+
+<h2 id="part-iii-refactoring-toward-deeper-insight">Part III: Refactoring Toward Deeper Insight</h2>
+
+<ul>
+  <li>Developing useful models:
+    <ul>
+      <li>Sophisticated domain models are <strong>achievable</strong> and <strong>worth the
+time</strong></li>
+      <li>Domain models are developed through an iterative process of
+refactoring</li>
+      <li>Domain models may call for sophisticated design skills</li>
+    </ul>
+  </li>
+  <li><strong>Refactoring</strong>: the redesign of software in ways that do not change
+its functionality
+    <ul>
+      <li>Instead of big up-front design, make a continuous series of small
+changes leaving existing functionality unchanged while making design
+more flexible and easier to understand</li>
+      <li><em>The goal is that not only can a developer understand what the code
+dos; he or she can also understand why it does what it does and can
+relate that to the ongoing communication with the domain experts.</em>
+(188)</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="ch-8-breakthrough">Ch 8: Breakthrough</h3>
+
+<p><img src="/images/books/domain-driven-design-fixed-shares.png" alt="fixed-shares" />
+<img src="/images/books/domain-driven-design-share-pie.png" alt="share-pie" />
+<img src="/images/books/domain-driven-design-constraints.png" alt="constraints" /></p>
+
+<h3 id="ch-9-making-implicit-concepts-explicit">Ch 9: Making Implicit Concepts Explicit</h3>
+
+<ul>
+  <li>Steps:
+    <ul>
+      <li>Recognize a concept that has been hinted at in discussion or
+implicitly in the design</li>
+      <li>Represent it explicitly in the model with one or more objects or
+relationships</li>
+    </ul>
+  </li>
+  <li>
+    <p>Before and after introducing <strong>Itinerary</strong> object:</p>
+
+    <p><img src="/images/books/domain-driven-design-before-itinerary.png" alt="before-itinerary" />
+<img src="/images/books/domain-driven-design-after-itinerary.png" alt="after-itinerary" /></p>
+  </li>
+</ul>
+
+<h3 id="ch-10-supple-design">Ch 10: Supple Design</h3>
+
+<ul>
+  <li><em>To have a project accelerate as development proceeds–rather than get
+weighed down by its own legacy–demands a design that is a pleasure to
+work with, inviting to change. A supple design.</em> (244)</li>
+</ul>
+
+<p><img src="/images/books/domain-driven-design-supple-design.png" alt="supple-design" /></p>
+
+<ul>
+  <li><strong>Intention-revealing interfaces</strong>:
+    <ul>
+      <li><em>In domain-driven design, we want to think about meaningful domain
+logic. Code that produces the effect of a rule without explicitly
+stating the rule forces us to think of step-by-step software
+procedures.</em> (245)</li>
+      <li><em>If the interface doesn’t tell the client developer what he needs to
+know in order to use the object effectively, he will have to dig into
+the internals to understand the details anyway. A reader of the
+client code will have to do the same. Then most of the value of the
+encapsulation is lost.</em> (246)</li>
+      <li>Therefore: <em><strong>Name classes and operations to describe their effect
+and purpose</strong>, without reference to to the means by which they do
+what they promise. This relieves the client developer of the need to
+understand the internals. These names should conform to the
+ubiquitous language so that team members can quickly infer their
+meaning.</em> (247)</li>
+    </ul>
+  </li>
+  <li><strong>Side-effect-free functions</strong>:
+    <ul>
+      <li><strong>Queries</strong> obtain information from the system, e.g. retrieving
+variable data or performing a calculation
+        <ul>
+          <li>These should cause <strong>no side effects</strong></li>
+        </ul>
+      </li>
+      <li><strong>Commands</strong> affect some change to the system</li>
+      <li><em>Place as much of the logic of the program as possible into
+functions, operations that return results with no observable side
+effects. Strictly segregate commands into very sipmle operations
+that do not return domain information.</em> (250)
+        <ul>
+          <li>Example: extracting <code class="language-plaintext highlighter-rouge">Pigment Color</code> class from <code class="language-plaintext highlighter-rouge">Paint</code> that
+handles all of the mixing logic</li>
+        </ul>
+      </li>
+      <li><em>The necessity of tracing concrete execution defeats abstraction.</em>
+(255)</li>
+    </ul>
+  </li>
+  <li><strong>Contours</strong>:
+    <ul>
+      <li><em>Find the conceptually meaningful unit of functionality, and the
+resulting design will be both flexible and understandable. For
+example, if an “addition” of two objects has a coherent meaning in
+the domain, then implement methods at that level. Don’t break the
+add() method into two steps.</em> (261)</li>
+      <li>Make as many <strong>conceptually independent</strong> classes as possible</li>
+    </ul>
+  </li>
+  <li><strong>Closure of operations</strong>:
+    <ul>
+      <li><em>Where it fits, define an operation who return type is the same as
+the type of its argument(s). […] Such an operation is closed under
+the set of instances of that type. A closed operation provides a
+high-level interface without introducing any dependency on other
+concepts.</em> (268)</li>
+    </ul>
+  </li>
+  <li>Goal (e.g. with Share Pie refactor): <em>producing code that begins to
+read like a conceptual definition of the business transaction, rather
+than a calculation.</em> (290)</li>
+</ul>
+
+<h3 id="ch-11-applying-analysis-patterns">Ch 11: Applying Analysis Patterns</h3>
+
+<ul>
+  <li><strong>Analysis patterns</strong> are groups of concepts that represent a common
+construction in business modeling.</li>
+  <li>Double-entry accounting pattern:
+<img src="/images/books/domain-driven-design-analysis-patterns.png" alt="analysis-patterns" /></li>
+  <li>Reapplying organized knowledge. Kind of out of scope without reading
+Fowler’s book?
+    <ul>
+      <li><em>Analysis patterns focus on the most critical and difficult
+decisions and illuminate alternatives and choices. They anticipate
+downstream consequences that are expensive if you have to discover
+them for yourself.</em> (306)</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="ch-12-relating-design-patterns-to-the-model">Ch 12: Relating Design Patterns to the Model</h3>
+
+<ul>
+  <li>Two levels:
+    <ul>
+      <li>Technical design patterns in code</li>
+      <li>Conceptual patterns in model</li>
+    </ul>
+  </li>
+  <li><strong>Strategy/Policy</strong> pattern
+    <ul>
+      <li><em>Factor the varying parts of a process into a separate “strategy”
+object in the model. Factor apart a rule and the behavior it
+governs. Implement the rule or substitutable process following the
+Strategy design pattern. Multiple versions of the strategy object
+represent different ways the process can be done.</em> (311)</li>
+      <li>Ex: route-finding can be “default strategy” or “leg magnitude
+policy” (fastest) or “cost strategy” (cheapest)</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="ch-13-refactoring-toward-deeper-insight">Ch 13: Refactoring Toward Deeper Insight</h3>
+
+<ul>
+  <li><strong>Three main points</strong>:
+    <ul>
+      <li>Live in the domain</li>
+      <li>Keep looking at things a different way</li>
+      <li>Maintain an unbroken dialog with domain experts</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="part-iv-strategic-design">Part IV: Strategic Design</h2>
+
+<h3 id="ch-14-maintaining-model-integrity">Ch 14: Maintaining Model Integrity</h3>
+
+<ul>
+  <li><em>The most fundamental requirement of a model is that it be internally
+consistent; that its terms always have the same meaning, and that it
+contain no contradictory rules. The internal consistency of a model,
+such that each term is unambiguous and no rules contradict, is called
+<strong>unification</strong>.</em> (332)
+    <ul>
+      <li><em>Through a combination of proactive decisions about what should be
+unified and pragmatic recognition of what is not unified, we can
+create a clear, shared picture of the situation.</em> (333)</li>
+    </ul>
+  </li>
+  <li><strong>Bounded Contexts</strong> is the specific place in the domain where a
+model applies
+    <ul>
+      <li>Look out for <strong>duplicate concepts</strong> (same thing expressed in two
+different ways) and <strong>false cognates</strong> (sound the same but are
+not the same)</li>
+    </ul>
+  </li>
+  <li>Best processes for <strong>continuous integration</strong>:
+    <ul>
+      <li>Reproducible merge/build technique</li>
+      <li>Automated testing</li>
+      <li>Rules setting an upper limit on the lifetime of unmerged changes</li>
+      <li>Constant exercise of ubiquitous language in discussion of the model
+and application</li>
+    </ul>
+  </li>
+  <li>
+    <p><em>A <strong>context map</strong> is in the overlap between project management and
+software design. The natural course of events is for the boundaries to
+follow the contours of team organization. People who work closely will
+naturally share a model context.</em> (344)</p>
+
+    <p><img src="/images/books/domain-driven-design-bounded-context.png" alt="bounded-context" /></p>
+  </li>
+  <li><strong>Shared kernel</strong> is where multiple teams share ownership over the
+core domain</li>
+  <li><strong>Anticorruption layer</strong>: <em>Create an isolating layer to provide
+clients with functionality in terms of their own domain model. The
+layer talks to the other system through its existing interface,
+requiring little or no modification to the other system. Internally,
+the layer translates in both directions as necessary between the two
+models.</em> (365)
+    <ul>
+      <li><em>A <strong>Facade</strong> is an alternative interface for a subsystem that
+simplifies access for the client and makes the subsystem easier to
+use. […] The <strong>facade</strong> belongs in the bounded context of the
+other system. It just presents a friendlier face specialized for
+your needs.</em> (366)</li>
+      <li><em>An <strong>Adapter</strong> is a wrapper that allows a client to use a different
+protocol than that understood by the implementer of the behavior.
+When a client sends a message to an adapter, it is converted to a
+semantically equivalent message and sent on to the “adaptee”.</em> (366)</li>
+    </ul>
+  </li>
+  <li>Balancing boundaries
+    <ul>
+      <li>Larger bounded contexts:
+        <ul>
+          <li>Flow between user tasks is smoother</li>
+          <li>Easier to understand one model than two plus mappings</li>
+          <li>Translation overhead</li>
+          <li>Shared language fosters clear team communication</li>
+        </ul>
+      </li>
+      <li>Smaller bounded contexts
+        <ul>
+          <li>Less coordination required between teams</li>
+          <li>Don’t need to stretch as far for abstractions</li>
+          <li>Can cater to special needs or narrower domains</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><em>There is a range of strategies for unifying or integrating models. In
+general terms, you will trade off the benefits of seamless integration
+of functionality against the additional effort of coordination and
+communication. You trade more independent action against smoother
+communication. More ambitious unification requries control over the
+design of the subsystems involved.</em> (387)</li>
+</ul>
+
+<p><img src="/images/books/domain-driven-design-context-relationship-patterns.png" alt="context-relationship-patterns" /></p>
+
+<h3 id="ch-15-distillation">Ch 15: Distillation</h3>
+
+<ul>
+  <li><em><strong>Distillation</strong> is the process of separating the components of a
+mixture to extract the essence in a form that makes it more valuable
+and useful. A model is a distillation of knowledge.</em> (397)
+    <ul>
+      <li><em>The effort is motivated by the desire to extract that one
+particularly valuable part, the part that distinguishes out software
+and makes it worth building: the <strong>Core Domain</strong>.</em> (397)</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/images/books/domain-driven-design-distillation.png" alt="distillation" /></p>
+
+<ul>
+  <li><em>Boil the model down. Find the <strong>core domain</strong> and provide a means of
+easily distinguishing it from the mass of supporting model and code.
+Bring the most valuable and specialized concepts into sharp relief.
+Make the core small. Apply top talent to the core domain, and recruit
+accordingly. Spend the effort in the core to find a deep model and
+develop a supple design–sufficient to fulfill the vision of the
+system. Justify investment in any other part by how it supports the
+distilled core.</em> (401)</li>
+  <li><em>When the field already has a highly formalized and rigorous model,
+use it. Acccounting and physics are two examples that come to mind.</em>
+(408)</li>
+  <li><strong>Domain vision statement</strong>
+    <ul>
+      <li><em>Write a short description (about one page) of the Core Domain and
+the value it will bring, the “value proposition”. Ignore those
+aspects that do not distinguish this domain model from others. Show
+how the domain model serves and balances diverse interests. Keep it
+narrow. Write this statement early and revise it as you gain new
+insight.</em> (415)</li>
+      <li>Corollary: the <strong>Distillation document</strong>
+        <ul>
+          <li><em>Write a very brief document (three to seven sparse pages) that
+describes the core domain and the primary interactions among core
+elements.</em> (417)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/images/books/domain-driven-design-domain-vision-statement.png" alt="domain-vision-statement" /></p>
+
+<h3 id="ch-16-large-scale-structure">Ch 16: Large-Scale Structure</h3>
+
+<ul>
+  <li><em>A <strong>large-scale structure</strong> is a language that lets you discuss and
+understand the system in broad strokes. A set of high-level concepts
+or rules, or both, establishes a pattern of design for an entire
+system. This organizing principle can guide design as well as aid
+understanding. It helps coordinate independent work because there is a
+shared concept of the big picture: how the roles of various parts
+shape the whole.</em> (442)
+    <ul>
+      <li><em>Devise a pattern of rules or roles and relationships that will span
+the entire system and that allows some understanding of each part’s
+place in the whole–even without detailed knowledge of the part’s
+responsibility.</em> (442)</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/images/books/domain-driven-design-large-scale-structure.png" alt="large-scale-structure" /></p>
+
+<ul>
+  <li><strong>Evolving order (my favorite)</strong>
+    <ul>
+      <li><em>An up-front imposition of a large-scale structure is likely to be
+costly. As development proceeds, you will almost certainly find a
+more suitable structure, and you may even find that the prescribed
+structure is prohibiting you from taking a design route that would
+greatly clarify or simplify the application.</em> (444)</li>
+      <li><em>Let this conceptual large-scale structure <strong>evolve</strong> with the
+application, possibly changing to a completely different type of
+structure along the way. Don’t overconstrain the detailed design and
+model decisions that must be made with detailed knowledge.</em> (444)</li>
+    </ul>
+  </li>
+  <li><strong>Responsibility layers</strong>
+    <ul>
+      <li><em>Layers are partitions of a system in which the members of each
+partition are aware of and are able to use the services of the layer
+“below”, but unaware of and independent of the layers “above”.</em>
+(450)</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/images/books/domain-driven-design-responsibility-layers.png" alt="responsibility-layers" /></p>
+
+<ul>
+  <li>Espousing <strong>minimalism</strong> in refactoring towards a fitting structure
+    <ul>
+      <li><em>One key to keeping the cost down is to keep the structure simple
+and lightweight. Don’t attempt to be comprehensive. Just address the
+most serious concerns and leave the rest to be handled on a
+case-by-case basis. Early on, it can be helpful to choose a loose
+structure, such as a system metaphor or a couple of responsibility
+layers.</em> (481)</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="ch-17-bringing-the-strategy-together">Ch 17: Bringing the Strategy Together</h3>
+
+<p><img src="/images/books/domain-driven-design-part-four.png" alt="part-four" /></p>
+
+<ul>
+  <li><strong>Assessment first</strong> of a project
+    <ul>
+      <li>Draw a context map. Is it consistent?</li>
+      <li>Attend to use of language. Is it using a ubiquitious language?</li>
+      <li>Understand what is important. Is the core domain identified? Is
+there a domain vision statement? Can you write one?</li>
+      <li>Does the technology work for or against a model-driven design?</li>
+      <li>Do the developers have the necessary technical skills?</li>
+      <li>Are the developers knowledgeable about the domain?</li>
+    </ul>
+  </li>
+  <li><strong>Six essentials for strategis design decision making</strong>
+    <ul>
+      <li>Decisions must reach the entire team</li>
+      <li>The decision process must absorb feedback</li>
+      <li>The plan must allow for evolution</li>
+      <li>Architecture teams must not siphon off all the best and the
+brightest</li>
+      <li>Strategic design requires minimalism and humility</li>
+      <li>Objects are specialists; Developers are generalists</li>
+    </ul>
+  </li>
+  <li><em>The success of a design is not necessarily marked by its stasis. Take
+a system people depend on, make it opaque, and it will live forever as
+untouchable legacy. A deep model allows clear vision that can yield
+new insight, while a supple design facilitates ongoing change. The
+model they came up with was deeper, better aligned with the real
+concerns of the users. Their design solved real problems. It is the
+nature of software to change, and this program has continued to evolve
+in the hands of the team that owns it.</em> (502)</li>
+</ul>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="center">
+  <div class="measure">
+    <small>
+      © 2018
+    </small>
+  </div>
+</footer>
+<!-- AnchorJS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.0.0/anchor.min.js"></script>
+<script>
+    anchors.options.visible = 'always';
+    anchors.add('article h2, article h3:not(.no-anchor), article h4:not(.no-anchor), article h5:not(.no-anchor), article h6');
+</script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch-theme-algolia.min.css">
+
+<script>
+const search = instantsearch({
+  appId: 'Q1JJ6NM1UC',
+  indexName: 'tigerthinks',
+  apiKey: '5a99d8bb6e9d1a03163a5eb0d67496e0',
+  searchFunction: function(helper) {
+    const searchHits = document.getElementById("search-hits")
+    const content = document.getElementById("content")
+
+    if (helper.state.query === '') {
+      searchHits.style.display = "none";
+      content.style.display = "block";
+      return;
+    }
+
+    helper.search();
+    searchHits.style.display = "block";
+    content.style.display = "none";
+  },
+  searchParameters: {
+    hitsPerPage: 10
+  }
+});
+
+const hitTemplate = function(hit) {
+  let date = '';
+  if (hit.date) {
+    date = moment.unix(hit.date).format('MMM D, YYYY');
+  }
+
+  let url = `${hit.url}#${hit.anchor}`;
+
+  const title = hit._highlightResult.title.value;
+
+  let breadcrumbs = '';
+  if (hit._highlightResult.headings) {
+    breadcrumbs = hit._highlightResult.headings.map(match => {
+      return `<span class="post-breadcrumb">${match.value}</span>`
+    }).join(' > ')
+  }
+
+  const content = hit._highlightResult.html.value;
+
+  return `
+    <div class="post-item">
+      <span class="post-meta small">${date}</span>
+      <a class="post-link" href="${url}"><h2 class="search-hit-title post-title">${title}</h2></a>
+
+      
+      <a href="${url}" class="post-breadcrumbs"><h5>${breadcrumbs}</h5></a>
+      
+
+      <div class="post-snippet">${content}</div>
+    </div>`;
+}
+
+// Adding searchbar and results widgets
+search.addWidget(
+  instantsearch.widgets.searchBox({
+    container: '#search-searchbar',
+    placeholder: '',
+    poweredBy: true,
+    autofocus: false,
+    cssClasses: {
+      root: 'tigerthinks-searchbar'
+    }
+  })
+);
+
+
+search.addWidget(
+  instantsearch.widgets.hits({
+    container: '#search-hits',
+    templates: {
+      item: hitTemplate
+    }
+  })
+);
+
+// Starting the search
+search.start();
+</script>
+
+<style>
+.ais-search-box {
+  max-width: 100%;
+}
+
+.post-item {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: thin solid #f3f3f3;
+}
+
+.post-link .ais-Highlight {
+  color: #0076df;
+  font-style: normal;
+}
+
+.post-breadcrumbs {
+  font-style: normal;
+  display: block;
+  padding-bottom: 10px;
+  background-image: none !important;
+  color: #333 !important;
+}
+
+.post-breadcrumb {
+  font-style: normal;
+  font-size: 18px;
+  color: #333;
+}
+
+.post-breadcrumb .ais-Highlight {
+  font-weight: bold;
+  font-style: normal;
+  color: #0076df;
+}
+
+.post-snippet .ais-Highlight {
+  color: #0076df;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.post-snippet img {
+  display: none;
+}
+</style>
+
+</body>
+</html>

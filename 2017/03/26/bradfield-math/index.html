@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Mathematics for Computing &#8211; Tiger Shen</title>
+    <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Lecture notes from Bradfield's math class">
+    <meta name="robots" content="all">
+    <meta name="author" content="Tiger Shen">
+    
+    <meta name="keywords" content="">
+    <link rel="canonical" href="http://tigerthinks.com/2017/03/26/bradfield-math/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for Tiger Shen" href="/feed.xml" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/pixyll.css?202011300937" type="text/css">
+
+    <!-- Fonts -->
+    
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&amp;subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300&amp;subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    
+    
+
+    <!-- MathJax -->
+    
+    <script type="text/javascript" async
+        src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+
+    <!-- Verifications -->
+    
+    
+
+    <!-- Open Graph -->
+    <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Mathematics for Computing">
+    <meta property="og:description" content="Tiger Shen">
+    <meta property="og:url" content="http://tigerthinks.com/2017/03/26/bradfield-math/">
+    <meta property="og:site_name" content="Tiger Shen">
+    
+    <meta property="og:image" content="http://tigerthinks.com/images/me.jpg">
+    
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    
+    <meta name="twitter:title" content="Mathematics for Computing" />
+    <meta name="twitter:description" content="Lecture notes from Bradfield's math class" />
+    <meta name="twitter:url" content="http://tigerthinks.com/2017/03/26/bradfield-math/" />
+    
+    <meta name="twitter:image" content="http://tigerthinks.com/images/me.jpeg" />
+    
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    
+</head>
+
+
+<body>
+  
+  
+
+  <div class="site-wrap">
+    <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="http://tigerthinks.com/" class="site-title">Tiger Shen</a>
+      <nav class="site-nav">
+        <a href="/blog">
+  Personal
+</a>
+
+<a href="/tech-blog">
+  Tech
+</a>
+
+<a href="/anki">
+  Anki
+</a>
+
+<a href="#">
+  |
+</a>
+
+<a href="/books/top">
+  Books (43)
+</a>
+
+<a href="/articles/top">
+  Articles (119)
+</a>
+
+<a href="/other/top">
+  Other (151)
+</a>
+
+      </nav>
+      <div class="clearfix"></div>
+      
+
+      <span id="search-searchbar"></span>
+
+    </div>
+  </div>
+</header>
+
+
+    <div class="post p2 p-responsive wrap" role="main">
+      <div class="measure">
+        <div class="post-list" id="search-hits">
+        </div>
+
+        <div id="content">
+          
+
+
+<div class="post-header mb2">
+  <h1>
+    
+    <div class="clearfix mxn2">
+      <div class="col col-2 sm-col-12 px2">
+        <img class="inline" src="/images//courses/bradfield.png" alt="Book Cover">
+
+      </div>
+      <div class="col col-10 sm-col-12 px2">
+        Mathematics for Computing
+      </div>
+    </div>
+    
+  </h1>
+  <div class="tags">
+  
+    <a href="/course" class="badge badge-blue-grey-base">course</a>
+  
+    <a href="/technical" class="badge badge-deep-orange-base">technical</a>
+  
+    <a href="/math" class="badge badge-purple-100">math</a>
+  
+    <a href="/bradfield" class="badge badge-amber-a200">bradfield</a>
+  
+</div>
+
+  <span class="post-meta">By Bradfield | <a target="_blank" href="https://bradfieldcs.com/courses/math/">Course Page</a> | Taken 2017</span><br>
+  
+  <span class="post-meta small">
+  
+    21 minute read
+  
+  </span>
+</div>
+
+<article class="post-content">
+  <b> <img class="emoji" title=":star:" alt=":star:" src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png" height="20" width="20">  <img class="emoji" title=":star:" alt=":star:" src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png" height="20" width="20">  <img class="emoji" title=":star:" alt=":star:" src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png" height="20" width="20">  <img class="emoji" title=":star:" alt=":star:" src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png" height="20" width="20"> </b>
+
+  <h2 id="notes">Notes</h2>
+
+<p>Schedule: Wednesdays 6pm-9pm and Saturdays 10am-4pm.</p>
+
+<h3 id="1---counting-things">1 - Counting Things</h3>
+
+<h4 id="ll-ch-2-let-us-count">LL Ch 2: Let us count!</h4>
+
+<h5 id="sets-and-the-like">Sets and the like</h5>
+
+<ul>
+  <li>Gg, combinatorials and permutations, okay</li>
+  <li>Formalize these counting operations using a <em>set</em>, made up of
+<em>elements</em>. Deck of cards, people in a group are both sets</li>
+  <li>
+<em>R</em> for real numbers, <em>Q</em> for rational numbers, <em>Z</em> for all integers,
+<em>Z+</em> for all non-negative integers, <em>N</em> for all positive integers, 0
+for empty set</li>
+  <li>b ∈ A if b is in A</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>
+<em>Cardinality</em> of A (number of items) is</td>
+          <td>A</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>Denote items in set with curly braces</li>
+  <li>B is <em>subset</em> of C if every element of B is also an element of C. Would
+say B ⊆ C</li>
+  <li>
+<em>Intersection</em> is set consisting of elements that are in both sets
+    <ul>
+      <li>
+<em>Disjoint</em> sets have the empty set as their intersection</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="the-number-of-subsets">The number of subsets</h5>
+
+<ul>
+  <li><strong>A set with n elements has 2^n subsets</strong></li>
+  <li>Can use a binary representation of integers (on/off) to represent
+whether or not item is in a given subset. Helps you prove the above
+theorem</li>
+  <li>Useful to play around with powers of 2 and 10 to get a ballpark
+estimate of the order of magnitude of a number or set</li>
+</ul>
+
+<h5 id="sequences">Sequences</h5>
+
+<ul>
+  <li><strong>Number of strings of length n composed of k given elements is k^n</strong></li>
+  <li><strong>Suppose that we want to form strings of length n so that we can use
+any of a given set of k1 symbols as the first element of the string,
+any of a given set of k2 symbols as the second element of the string,
+etc., any of a given set of kn symbols as the last element of the
+string. Then the total number of strings we can form is k1 ·k2
+·…·kn</strong></li>
+</ul>
+
+<h5 id="permutations">Permutations</h5>
+
+<ul>
+  <li>
+<em>Permuting</em> an ordered list of n objects is rearranging it in a
+different order. Each rearrangement is a <em>permutation</em>
+</li>
+  <li><strong>The number of permutations of n objects is n!</strong></li>
+  <li><strong>Stirling’s Formula: n! ∼  (n/e)^n(√2πn)</strong></li>
+</ul>
+
+<h4 id="lecture">Lecture</h4>
+
+<ul>
+  <li>When in doubt about naive set theory/properties, draw the venn diagram
+inside the universe and look at it</li>
+</ul>
+
+<h3 id="2---advanced-counting-things">2 - Advanced counting things</h3>
+
+<h4 id="--ll-book-ch-4---binomial-theorem">- LL Book Ch 4 - Binomial Theorem</h4>
+
+<h5 id="binomial-stuff">Binomial stuff</h5>
+
+<ul>
+  <li>
+<strong>The number of ordered k-subsets of an n-set is n(n-1)…(n-k+1)</strong>
+    <ul>
+      <li>Or, n! / (n-k)!</li>
+    </ul>
+  </li>
+  <li>
+<strong>The number of k-subsets of an n-set is n! / (k!(n-k)!)</strong>
+    <ul>
+      <li>Call this n choose k</li>
+      <li>We overcounted by k!, duhhhhhhh</li>
+    </ul>
+  </li>
+  <li>N choose K are <em>binomial coefficients</em>
+</li>
+  <li>
+<strong>The Binomial Theorem</strong>:
+https://gyazo.com/231b62be4247dc22294f42387d585611</li>
+</ul>
+
+<h5 id="distributing-presents">Distributing presents</h5>
+
+<ul>
+  <li>What if you need to distribute things</li>
+  <li>
+<strong>Number of ways to distribute n things between k children is n! /
+(n1!n2!…nk!)</strong>. You overcounted all of the permutations (n!) where
+each child still got the same set of presents</li>
+</ul>
+
+<h5 id="distributing-money">Distributing money</h5>
+
+<ul>
+  <li>Presents are <em>distinguishable</em>, pennies are not. Thus, fewer distinct
+ways to distribute pennies</li>
+  <li>
+<strong>The number of ways to distribute n identical pennies to k children,
+so that each child gets at least one, is (n-1 choose k-1)</strong>
+    <ul>
+      <li>n-1 points where you can swap out a child for another child, we have
+to select k-1 of those points (since first child always starts at
+beginning)</li>
+      <li>** The number of ways to distribute n identical pennies to k
+children is (n+k-1 choose k-1)</li>
+    </ul>
+  </li>
+  <li>Man, my poor brain</li>
+</ul>
+
+<h4 id="ll-book-ch-5---pascals-triangle">LL Book Ch 5 - Pascal’s Triangle</h4>
+
+<ul>
+  <li>I’ve seen this before</li>
+  <li>Formula for finding the proportion between the middle entry and the
+entry at index t</li>
+</ul>
+
+<h5 id="identities">Identities</h5>
+
+<ul>
+  <li>Every number is the sum of the two numbers immediately above it</li>
+</ul>
+
+<h5 id="birds-eye-view">Bird’s-Eye View</h5>
+
+<ul>
+  <li>It’s symmetrical</li>
+  <li>Entries increase until middle, then decrease</li>
+  <li>Identity: (n choose k+1) / (n choose k) = (n-k) / (k+1)</li>
+  <li>This got real deep real fast fam</li>
+</ul>
+
+<h4 id="lecture-1">Lecture</h4>
+
+<ul>
+  <li>Draw out the combinations thing by with m or n = 3
+    <ul>
+      <li>Every time you choose down first, you’re double-counting blah blah</li>
+    </ul>
+  </li>
+  <li>Note: function in math and function in programming are NOT equivalent
+    <ul>
+      <li>Function is mapping of inputs to outputs; programming “functions”
+are more like procedures</li>
+      <li>Function maps each item from set X to precisely one value of set Y</li>
+      <li>X is domain, Y is range</li>
+      <li>
+<em>Surjective</em> “on to”: every value of X maps <em>on to</em> a value of Y.
+The entire output range is covered/reachable</li>
+      <li>
+<em>Injective</em> “one to one”: every value of X maps one-to-one to Y
+        <ul>
+          <li>Real numbers-&gt;Real numbers for a squaring function is injective
+but not surjective - it’s a one to one mapping, but negative real
+numbers in the range are not reachable</li>
+        </ul>
+      </li>
+      <li>
+<em>Bijective</em>: both surjective and injective</li>
+    </ul>
+  </li>
+  <li>Bijection: a one-to-one mapping that covers the entire output space</li>
+</ul>
+
+<h3 id="3---probability">3 - Probability</h3>
+
+<h4 id="ll-book-ch-7">LL Book Ch 7</h4>
+
+<ul>
+  <li>
+<em>Probability theory</em>: way of modeling dependence of outcomes on chance</li>
+  <li>
+<em>Probability space</em> or <em>sample space</em> is the set of possible outcomes
+    <ul>
+      <li>We only consider <em>uniform spaces</em>, where each outcome has the same
+probability</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="independent-repetition">Independent repetition</h5>
+
+<ul>
+  <li>
+<em>Independence</em> of events: information about one doesn’t influence
+probability of other</li>
+  <li>Null set independent from every event</li>
+</ul>
+
+<h5 id="the-law-of-large-numbers">The Law of Large Numbers</h5>
+
+<ul>
+  <li><strong>Let 0 ≤ t ≤ m. Then the probability that out of 2m independent coin
+tosses, the number of heads is less than m − t or larger than m + t,
+is at most m/t2.</strong></li>
+  <li>Corollary: <strong>With probability at least .99, the number of heads among
+2m independent coin tosses is between m − 10√m and m + 10√m.</strong>
+-</li>
+</ul>
+
+<h4 id="lecture-2">Lecture</h4>
+
+<ul>
+  <li>New information updates your model of the world!</li>
+  <li>Bayes Bayes Bayes</li>
+</ul>
+
+<h3 id="4---logic">4 - Logic</h3>
+
+<h4 id="mcs-ch-1-25-pages">MCS Ch 1 (25 pages)</h4>
+
+<ul>
+  <li>A <em>mathematical proof</em> of a proposition is a chain of logical
+deductions leading to the proposition from a base set of axioms</li>
+  <li>A <em>proposition</em> is a statement (communication) that is either true or
+false.
+    <ul>
+      <li>Up to us to prove or disprove</li>
+    </ul>
+  </li>
+  <li>For programmers, very important to be able to prove correctness of
+programs and systems if possible</li>
+  <li>A <em>predicate</em> can be understood as a proposition whose truth depends on
+the value of one or more variables
+    <ul>
+      <li>e.g. “n is a perfect square”</li>
+    </ul>
+  </li>
+  <li>
+<em>Axioms</em> are things that are accepted as true</li>
+  <li>
+<em>Theorems</em> are important true propositions</li>
+  <li>
+<em>Lemmas</em> are preliminary propositions useful for proving later
+propositions</li>
+  <li>
+    <p><em>Corollaries</em> are propositions that follow in just a few logical steps
+from a theorem</p>
+  </li>
+  <li>Hard to tell if you should or should not be assuming something, so
+best practice is to be very up front about your assumptions</li>
+  <li>
+<em>Inference rules</em>, or logical deductions, are used to prove new
+propositions using previously proved ones</li>
+  <li>
+<em>Modus ponens</em>: a proof of P + proof that P implies Q equals a proof
+of Q</li>
+  <li>Written fraction-like, where <em>antecedents</em> are above the line and
+<em>conclusion</em> is below the line</li>
+  <li>
+<em>Sound</em> inference rule: assignment that makes all antecedents true
+must also make the conclusion true</li>
+  <li>Woohoo, some proof templates. See book</li>
+  <li>You’ll often need to do some scratchwork while you’re trying to
+figure out the logical steps of a proof. Your scratchwork can be as
+disorganized as you like—full of dead-ends, strange diagrams, obscene
+words, whatever. But keep your scratchwork separate from your final
+proof, which should be clear and concise.</li>
+  <li>Proofs typically begin with the word “Proof” and end with some sort
+of de- limiter like [square]  or “QED.” The only purpose for these
+conventions is to clarify where proofs begin and end.</li>
+  <li>Read through the different types of proofs
+    <ul>
+      <li>Proof by contradiction, by cases, etc.</li>
+    </ul>
+  </li>
+  <li>Proofs are tough. Some tips:
+    <ul>
+      <li>State your game plan</li>
+      <li>Keep a linear flow</li>
+      <li>A proof is an essay, not a calculation</li>
+      <li>Avoid excessive symbolism</li>
+      <li>Revise and simplify</li>
+      <li>Introduce notation thoughtfully</li>
+      <li>Structure long proofs</li>
+      <li>Be wary of the “obvious”</li>
+      <li>Finish!</li>
+    </ul>
+  </li>
+  <li>Come back and do problems?</li>
+</ul>
+
+<h4 id="mcs-ch-3---logical-formulas-21-pages">MCS Ch 3 - Logical Formulas (21 pages)</h4>
+
+<ul>
+  <li>Need a special language for precise communication because of
+ambiguities in other written/spoken language</li>
+  <li>Not/And/Or change or combine propositions, just like in boolean logic</li>
+  <li>
+<em>iff</em> is if and only if: true if both sides are the same</li>
+  <li>An <em>implication</em> is true exactly when the if-part is false or the
+then-part is true. Okay
+    <ul>
+      <li>“If pigs could fly, then your account won’t get hacked” is a valid
+mathematical implication, but remember that it <em>ignores causal
+connections</em> :)</li>
+    </ul>
+  </li>
+  <li>This stuff comes up all the time as boolean (or otherwise) logic in
+computer programs
+    <ul>
+      <li>Simplifying these boolean expressions is nice</li>
+    </ul>
+  </li>
+  <li>Bleh, some cryptic notation</li>
+  <li>Implications and their contrapositives are logically equivalent - “If
+I am hungry, then I am grumpy” == “If I am not grumpy, then I am not
+hungry”
+    <ul>
+      <li>
+<em>Converse</em> (If I am grumpy, then I am hungry) is not necessarily
+true though</li>
+    </ul>
+  </li>
+  <li>Formula is <em>valid</em> iff it is equivalent to T</li>
+  <li>Formula is <em>satisfiable</em> if it can be equivalent to T under certain
+circumstances
+    <ul>
+      <li>E.g. if you need to fit all of the specs, the set of specs must be
+satisfiable (the &amp;&amp; of all specs must be achievable)</li>
+    </ul>
+  </li>
+  <li>
+<em>Disjunctive form</em> of a propositional formula is pretty much the most
+naive way to write it - expand all of its terms and write it as ORs of
+all the AND terms: (true evaluation) || (true evaluation) …</li>
+  <li>
+<em>Conjunctive form</em> is the expansion of all terms that evaluate to
+false: (false evaluation) || (false evaluation) …</li>
+  <li>Using truth tables works for small expressions, but for larger ones
+may need to use algebra to prove equivalence</li>
+  <li>Use properties of booleans and such</li>
+  <li>Problem of deciding whether a proposition is satisfiable is <em>SAT</em>
+    <ul>
+      <li>This is np-hard</li>
+    </ul>
+  </li>
+  <li>“For all”, “sometimes”  are statements that quantify how often a
+predicate is true. An assertion that a predicate is always true is a
+<em>universal quantification</em>, assertion that predicate is sometimes true
+is <em>existential quantification</em>
+    <ul>
+      <li>Changing order of quantifiers changes meaning of proposition most of
+the time</li>
+    </ul>
+  </li>
+  <li>Ayyah, okay, lots of this was over my head, but at least I got a
+somewhat general idea</li>
+</ul>
+
+<h4 id="lecture-3">Lecture</h4>
+
+<ul>
+  <li>All the set stuff translates to logic: the truth set is the set of
+values that satisfy a predicate or something</li>
+</ul>
+
+<h3 id="5---induction">5 - Induction</h3>
+
+<h4 id="ll-ch-3-p21-p27">LL Ch 3 (p21-p27)</h4>
+
+<ul>
+  <li>
+<em>Mathematical induction</em>: say you want to prove a property of positive
+integers, and you can prove:
+    <ul>
+      <li>1 has the property</li>
+      <li>Whenever n - 1 has the property (n &gt;= 1), then n has the property as
+well</li>
+    </ul>
+  </li>
+  <li>
+<em>Principle of induction</em> says that if you meet these two criteria
+every positive integer fits these criteria</li>
+  <li>Process: try to prove statement for n, allowing to use that the
+statement is true if n is replaced by n - 1. If can’t do this, can’t
+prove :)</li>
+  <li>Do exercises</li>
+  <li>Okay, walkthrough of counting regions
+    <ul>
+      <li>The +1 comes from the bottom of the blackboard - if 4 intersections,
+5 regions</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="lecture-4">Lecture</h4>
+
+<ul>
+  <li>Reason through stuff! Use more rigor than “hackers” might</li>
+  <li>
+<em>Rational numbers</em>: basically, every possible pair of integers that
+can be expressed as a fraction</li>
+  <li>
+<em>Isomorphic</em>: bijection between these two things</li>
+  <li>Induction: prove base case + continuation over anything that’s
+countable
+    <ul>
+      <li>
+<em>Countable</em>: bijection with natural numbers</li>
+    </ul>
+  </li>
+  <li>Aliph naught (X0) is the size of a countably infinite set</li>
+  <li>
+    <p>Can use induction to prove things about aliph naught sets</p>
+  </li>
+  <li>Proof format</li>
+  <li>Theorem:  blah blah</li>
+  <li>Proof: we use mathematical induction</li>
+  <li>Base case: …..</li>
+  <li>
+    <p>Inductive case: suppose that [base case]. Then, [prove inductive case
+using inductive hypothesis] as required. Therefore, the theorem holds
+true</p>
+  </li>
+  <li>Strong induction: basically, prove more stuff</li>
+  <li>Induction step: If P(m), P(m+1), P(m+2)… P(k) is true then  P(k+1) is
+true as well for some k &gt; m.</li>
+  <li>Prove more stuffs</li>
+  <li>Use strong induction if P(m-1) doesn’t directly help you solve P(m)</li>
+  <li>Graph with K connected components, number of edges is bounded by Sum
+from 1 to k of (ni choose 2) where ni is the cardinality of the ith
+copmonent’s vertices</li>
+</ul>
+
+<h3 id="6---graph-theory">6 - Graph Theory</h3>
+
+<h4 id="ll-ch-9-p73-p81">LL Ch 9 (p73-p81)</h4>
+
+<ul>
+  <li>
+<em>Graph</em> is <em>nodes</em> connected by <em>edges</em>
+    <ul>
+      <li>Each edge is a set {u, v}</li>
+    </ul>
+  </li>
+  <li>Use graphs whenever you have a “relation” between certain objects
+(atoms, connections, descendence, etc.)</li>
+  <li><strong>In every graph, the number of nodes with odd degree is even</strong></li>
+  <li><strong>The sum of degrees of all nodes in a graph is twice the number of
+edges</strong></li>
+  <li>
+<em>Empty graph</em>: nodes but no edges</li>
+  <li>
+<em>Complete graph</em> (clique, strongly connected component): make all th
+edges</li>
+  <li>
+<em>Cycle</em>: connect consecutive nodes until you get back to the first</li>
+  <li>H is <em>subgraph</em> of G if you can get H from G by deleting notes</li>
+  <li>
+<em>Connected</em> graph: every 2 nodes can be connected by  apath</li>
+  <li>Cool, playing around with graphs and such</li>
+</ul>
+
+<h4 id="ll-ch-12-p98-p110">LL Ch 12 (p98-p110)</h4>
+
+<ul>
+  <li>Ok</li>
+  <li>
+<em>Bipartite graph</em> has two sides, connected from side to side in a
+given way, nodes on the same side don’t have connections
+    <ul>
+      <li>
+<em>Perfect matching</em>: set of edges in bipartite graph such that each
+node is incident with exactly one of them</li>
+      <li>
+<em>Degree</em> is how many nodes each node is connected to</li>
+    </ul>
+  </li>
+  <li>
+<strong>If every node of a bipartite graph  has the same degree d&gt;=1, then
+it contains a perfect matching</strong>
+    <ul>
+      <li>Or, for every k nodes on the left, there must be at least k nodes on
+the right connected to at least one of them (see below)</li>
+    </ul>
+  </li>
+  <li>
+<em>Marriage Theorem</em>: <strong>A bipartite graph has a perfect matching if and
+only if |A| = |B| and for any subset of k nodes of A there are at
+least k nodes in B that are connected to one of them</strong>
+</li>
+  <li>Proof: try and prove that <em>if a “good” (satisfying conditions of
+marriage theorem) bipartite graph then it can be partitioned into two
+good bipartite graphs</em>, broken down so on and so forth</li>
+  <li>Ayyah, okay</li>
+  <li>Okay, now you can see if a bipartite graph has a perfect matching -
+but how to actually find it?</li>
+  <li>
+<em>Matching</em>: a set of edges that have no endpoint in common
+    <ul>
+      <li>Becomes perfect when edges cover all the nodes as well, but regular
+matchings can be much smaller</li>
+    </ul>
+  </li>
+  <li>
+<em>Augmenting path</em>: path that starts and ends at nodes that are
+unmatched by your matching M; every second edge of P belongs to M
+    <ul>
+      <li>If we find one, delete edges of P that are in M an dreplace them by
+edges of P that are not in M</li>
+      <li>Keep doing augmenting path until you find perfect matching or
+there’s no more augmenting path
+        <ul>
+          <li>If no more augmenting path, no perfect matching!</li>
+        </ul>
+      </li>
+      <li>
+<em>Almost augmenting</em>: everything but the last edge in augmenting
+path; ends with a node in M</li>
+    </ul>
+  </li>
+  <li>
+<em>Hamiltonian cycle</em> is a cycle that contains all nodes of a graph
+    <ul>
+      <li>In perfect matching every node belongs to one edge, in Hamiltonian
+cycle every node belongs to two edge</li>
+    </ul>
+  </li>
+  <li>np-hard to find them</li>
+  <li>Not a ton known</li>
+</ul>
+
+<h3 id="7---linear-algebra-crash-course">7 - Linear algebra crash course</h3>
+
+<h4 id="essence-of-linear-algebra-videos-1-7">Essence of Linear Algebra Videos 1-7</h4>
+<p>https://www.youtube.com/watch?v=kjBOesZCoqc&amp;list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab&amp;index=1</p>
+
+<ul>
+  <li>People end up understanding linear algebra on a numerical level (i.e.
+how to do a matrix multiplication from memory), but you’d rather have
+a geometric understanding so that you have an intuition for which
+tools to use when</li>
+  <li>Core visual intuitions underlie the subject</li>
+</ul>
+
+<h5 id="vectors-what-even-are-they">Vectors, what even are they?</h5>
+
+<ul>
+  <li>Physics definition: arrow pointing in space; defined by length +
+direction</li>
+  <li>CS definition: ordered list of numbers, i.e. [square footage, price]
+tuple for houses</li>
+  <li>Math definition: generalizes both of these; anything that can be
+sensibly joined or added. Use more concrete setting most of the time</li>
+  <li>When you hear <em>vector</em>, think about arrow in coordinate system
+starting at the origin
+    <ul>
+      <li>Then, coordinates can be used to translate into a list of numbers :)</li>
+    </ul>
+  </li>
+  <li>Pair of numbers is a bijection with vectors: (x, y)
+    <ul>
+      <li>In 3D, just add one more number</li>
+    </ul>
+  </li>
+  <li>Every topic in linear algebra centered around vector addition and
+multiplication by numbers</li>
+  <li>To add: move tail of 2nd to head of 1st, then draw new vector from
+tail of 1st one to new head of 2nd one, new vector is the sum. Cool.
+Visual :)</li>
+  <li>To multiply: Stretch out to be a multiple of original length
+    <ul>
+      <li>Called “scaling” –&gt; <em>scalar</em> is the factor you stretch out by</li>
+    </ul>
+  </li>
+  <li>Visual visual</li>
+</ul>
+
+<h5 id="linear-combinations-span-and-basis-vector">Linear combinations, span, and basis vector</h5>
+
+<ul>
+  <li>Subtlety to thinking about vector coordinates: think of both the x and
+y coordinates as scalars on the ^i (1, 0) and ^j (0, 1) vectors
+    <ul>
+      <li>Cool</li>
+      <li>^i and ^j are the <em>basis vectors</em> (the things that are scaled by the
+coordinates zzz)</li>
+    </ul>
+  </li>
+  <li>Can reach any possible vector from any basis vectors</li>
+  <li>
+<em>Linear combination</em> is scaling and then adding</li>
+  <li>
+<em>Span</em> of two scalars is the set of all their linear combinations
+    <ul>
+      <li>Span of most pairs of 2D vectors is all 2D vectors</li>
+      <li>Unless they line up, then it’s all vectors whose tip lines on that
+line</li>
+    </ul>
+  </li>
+  <li>Tip: <strong>Think of individual vectors as lines, think of sets of vectors
+as points</strong>
+</li>
+  <li>What is the span of two 3D vectors?
+    <ul>
+      <li>A 2D plane? Yes</li>
+    </ul>
+  </li>
+  <li>Span of three 3D vectors is the entire 3D space</li>
+  <li>
+<em>Linearly dependent</em> vectors: one vector in a set of three can be
+expressed in terms of the linear combinations of the other two vectors
+    <ul>
+      <li>If this isn’t the case, they’re <em>linearly independent</em>
+</li>
+    </ul>
+  </li>
+  <li>The <em>basis</em> of a vector space is a set of linearly independent vectors
+that span the full space
+    <ul>
+      <li>okay</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="linear-transformations-and-matrices">Linear transformations and matrices</h5>
+
+<ul>
+  <li>Linear transformations* relationship to matrices :thinking_face:</li>
+  <li>
+<em>Linear transformation</em>
+    <ul>
+      <li>Tranformation analogous to function; in linear algebra,
+generally a vector input and vector output
+        <ul>
+          <li>In 2D: think of transformation as operation on the entire 2D grid</li>
+        </ul>
+      </li>
+      <li>Linear ones: all lines must remain lines, origin remains fixed in
+place</li>
+    </ul>
+  </li>
+  <li>How to describe linear transformation numerically? Just give the new
+basis vectors :)</li>
+  <li>Ez visualization</li>
+  <li>Any 2D linear transformation is described by the coordinates of new ^i
+and new ^j, woohoo</li>
+  <li>Whoa, matrix-vector multiplication explained :)
+    <ul>
+      <li>Any transformation can be described by a 2x2 matrix</li>
+      <li>This is intuitive! Columns in 2x2 matrix are the new basis vectors,
+and the 2x1 vector is just the original coordinates</li>
+    </ul>
+  </li>
+  <li>Matrices transform space!!!!!!!!!!!!</li>
+</ul>
+
+<h5 id="matrix-multiplication-as-composition">Matrix multiplication as composition</h5>
+
+<ul>
+  <li>
+<em>Composition</em> can be defined by recording where ^i and ^j land
+after two successive transformations</li>
+  <li>This is matrix multiplication: applying one transformation after
+another</li>
+  <li>How to get composition without looking at animation? 2x2 matrix
+multiplication. zzz. Ayyah</li>
+  <li>Apply first transformation to ^i, then multiply by second to get the
+final spot for ^i</li>
+  <li>Order doesn’t matter</li>
+  <li><strong>Good explanation &gt; symbolic proof</strong></li>
+</ul>
+
+<h5 id="three-dimensional-linear-transformations">Three-dimensional linear transformations</h5>
+
+<ul>
+  <li>Whew, [3x3][3x1]. Okay</li>
+  <li>Zuggly</li>
+</ul>
+
+<h5 id="the-determinant">The determinant</h5>
+
+<ul>
+  <li>¿Cuál es?</li>
+  <li>How are areas squished or scaled by a linear transformation?
+    <ul>
+      <li>Measure factor by which area of given region increases or decreases</li>
+      <li>If the area bounded by the basis vectors goes from 1-&gt;6, then you
+say the transformation scaled the space by 6</li>
+      <li>Whatever happens to one square must happen to every other square!</li>
+    </ul>
+  </li>
+  <li>The <em>determinant</em> is the scaling factor of a transformation</li>
+  <li>If determinant is 0, you got squeezed into a smaller dimension</li>
+  <li>Focus on 1x1x1 cube for 3 dimensions, focus on 1x1 square for 2
+dimensions
+    <ul>
+      <li>In 3D, slant object that cube turns into is <em>parallelepiped</em>
+</li>
+    </ul>
+  </li>
+  <li>How to compute determinant?
+    <ul>
+      <li>ad - bc where matrix is [a b, c d]</li>
+      <li>With 3D, <img class="emoji" title=":zzz:" alt=":zzz:" src="https://github.githubassets.com/images/icons/emoji/unicode/1f4a4.png" height="20" width="20">
+</li>
+    </ul>
+  </li>
+  <li>Why does det(M1M2) = det(M1)det(M2)
+    <ul>
+      <li>Basis vectors end up in same place, so the area scale is the same</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="lecture-5">Lecture</h4>
+
+<ul>
+  <li>Don’t get too attached to geometric or non-geometric definitions of
+vector - still need to conceptualize a 26-dimensional vector
+sometimes!</li>
+  <li>Dot product is the projection of one vector onto another (using right
+angle yaya)</li>
+  <li>Fractal is an object with infinite surface area, bounded volume</li>
+</ul>
+
+<h3 id="8---cryptography">8 - Cryptography</h3>
+
+<h4 id="ll-ch-8-integers-divisors-and-primes-p55-73">LL Ch 8: Integers, divisors, and primes (p55-73)</h4>
+
+<ul>
+  <li>Properties of integers, AKA <em>Number Theory</em>
+</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>*1</td>
+          <td>a* means a is divisible by 1</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+<em>Primes</em> are not divisible by any other integer than 1, -1, p, and -p</li>
+  <li>Lots to understand still!</li>
+  <li>Every number has a unique basic prime factoring :)</li>
+  <li>Difficulty of prime factorization and finding new primes is still
+ridiculous</li>
+  <li>
+<strong>Fundamental Theorem of Number Theory: Every positive integer can be
+written as the product of primes, and this factorization is unique up
+to the order of the prime factors</strong>
+    <ul>
+      <li>No integer can have two different prime factorizations</li>
+    </ul>
+  </li>
+  <li><strong>The number sqrt(2) is irrational (cannot be written as the ratio of
+two integers)</strong></li>
+  <li><strong>There are infinitely many primes</strong></li>
+  <li>
+<strong>For every positive integer k, there exist k consecutive composite
+integers</strong>
+    <ul>
+      <li>Big gaps between primes!</li>
+    </ul>
+  </li>
+  <li>
+<em>Composite Integer</em>: integer n &gt; 1 that is not a prime</li>
+  <li>
+<em>Twin primes</em>: primes that are two apart</li>
+  <li>
+<strong>Prime number theorem: number of primes among 1, 2, …n is ~ (n/ln(n))</strong>
+    <ul>
+      <li>Sketchy</li>
+    </ul>
+  </li>
+  <li>More, more, more!</li>
+  <li>
+    <p><strong>Fermat’s Little Theorem</strong>: If p is a prime and a is an integer, then
+a^p - a is divisible by p</p>
+  </li>
+  <li>So what do we do with these primes and prime factors?</li>
+  <li>Find the <em>GCF</em> (greatest common factor) - biggest thing that is a
+common factor
+    <ul>
+      <li>
+<em>Relatively prime</em> numbers have a GCF of 1</li>
+    </ul>
+  </li>
+  <li>
+<em>LCD</em> is the least common divisor, can get it from the common prime
+factors, okay</li>
+  <li>Ugh I remember this shitty way to find the GCD using Euclidean
+algorithm. Fine maybe it’s not shitty I just didn’t much enjoy doing
+it</li>
+  <li>
+    <p><strong>The number of steps of the euclidean algorithm, applied to two
+positive integers a and b, is at most log2(a) + log2(b)</strong></p>
+  </li>
+  <li>How to test number for primality?</li>
+  <li>Whew</li>
+</ul>
+
+<h4 id="ll-ch-15-a-glimpse-of-cryptography-p117">LL Ch 15: A glimpse of cryptography (p117)</h4>
+
+<ul>
+  <li>
+<em>Cryptography</em>: the science of secret communication</li>
+  <li>Message to send is <em>plaintext</em>
+</li>
+  <li>
+<em>Key</em> is what unlocks the translation from ciphertext to plaintext</li>
+  <li>Naive/simple: <em>substitution code</em>, replace each letter of alphabet
+with another one :)</li>
+</ul>
+
+<h4 id="ll-ch-16-one-time-pads-p117-123">LL Ch 16: One-time pads (p117-123)</h4>
+
+<ul>
+  <li>Safer cryptography</li>
+  <li>
+<em>One-time pad</em> is randomly generated string of 0’s and 1’s</li>
+  <li>Both parties share the pad, do a bitwise operation on the plaintext to
+produce ciphertext, and vice versa</li>
+  <li>Chess move example, read and intake please</li>
+  <li>Primes!</li>
+  <li>
+    <p><strong>It is easy to test whether a number is a prime (and thereby it is
+easy to compute the encryption), but it is difficult to find the prime
+factors of a composite number (and so it is difficult to break the
+cryptosystem)</strong></p>
+  </li>
+  <li>RSA encryption</li>
+  <li>K</li>
+</ul>
+
+<h4 id="lecture-6">Lecture</h4>
+
+<ul>
+  <li>Use a clock metaphor for modulo arithmetic</li>
+  <li>
+    <p>The multiplicative inverse of a(mod b) exists if gcd(a, b) is 1</p>
+  </li>
+  <li>Oz walking through RSA</li>
+  <li>“RSA is computer science’s most successful bijection”; function from
+set of all possible plaintext messages to all ciphertext messages
+    <ul>
+      <li>D(E(m)) = m; for there to be an equivalent D for E, E must be a
+bijection</li>
+    </ul>
+  </li>
+  <li>Generaate two large primes p and q</li>
+  <li>n = p * q</li>
+  <li>Message will be integer m so that 0 less than m less than n</li>
+  <li>Encryption: E(m) = x; x = rem(m^e, n)</li>
+  <li>Decryption: D(x) = m; m = rem(x^d, n)</li>
+  <li>GCD: tiling problem (biggest tiles you can use to perfectly tile a
+rectangular space?)</li>
+  <li>Fermat: you can always construct a bijection because if p is prime,
+then a and p must be coprime. Now you can check if a number is prime
+    <ul>
+      <li>a^(p-1) ~= 1 (mod p)</li>
+    </ul>
+  </li>
+  <li>Okay, now for RSA</li>
+  <li>Rewrite Fermat: a^((k)(p-1)) = 1 (mod p)
+    <ul>
+      <li>Because 1^(anything) is 1</li>
+    </ul>
+  </li>
+  <li>Then a^((k)(p-1) + 1) = a (mod p)</li>
+  <li>Can’t find private key given public key!</li>
+  <li>Used extended Euclid (GCD) algorithm (or the Pulverizer) to find the
+multiplicative inverse of e, which is d, which is part of the private
+key</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>Need to show that n</td>
+          <td>(m^(ed) - m)</td>
+        </tr>
+      </tbody>
+    </table>
+    <ul>
+      <li>Know that n is the product of two primes p and q</li>
+      <li>So if p and q both individually divide into that expression, then n
+must divide into that expression</li>
+      <li>Remember, ed ~= 1 (mod (p-1)(q-1))</li>
+      <li>So, ed = k(p-1)(q-1)</li>
+    </ul>
+  </li>
+  <li>Combine all this, need to prove:
+    <ul>
+      <li>
+        <table>
+          <tbody>
+            <tr>
+              <td>p</td>
+              <td>m^(k(p-1)(q-1)+1) - m</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+      <li>
+        <table>
+          <tbody>
+            <tr>
+              <td>q</td>
+              <td>m^(k(p-1)(q-1)+1) - m</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="center">
+  <div class="measure">
+    <small>
+      © 2018
+    </small>
+  </div>
+</footer>
+<!-- AnchorJS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.0.0/anchor.min.js"></script>
+<script>
+    anchors.options.visible = 'always';
+    anchors.add('article h2, article h3:not(.no-anchor), article h4:not(.no-anchor), article h5:not(.no-anchor), article h6');
+</script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch-theme-algolia.min.css">
+
+<script>
+const search = instantsearch({
+  appId: 'Q1JJ6NM1UC',
+  indexName: 'tigerthinks',
+  apiKey: '5a99d8bb6e9d1a03163a5eb0d67496e0',
+  searchFunction: function(helper) {
+    const searchHits = document.getElementById("search-hits")
+    const content = document.getElementById("content")
+
+    if (helper.state.query === '') {
+      searchHits.style.display = "none";
+      content.style.display = "block";
+      return;
+    }
+
+    helper.search();
+    searchHits.style.display = "block";
+    content.style.display = "none";
+  },
+  searchParameters: {
+    hitsPerPage: 10
+  }
+});
+
+const hitTemplate = function(hit) {
+  let date = '';
+  if (hit.date) {
+    date = moment.unix(hit.date).format('MMM D, YYYY');
+  }
+
+  let url = `${hit.url}#${hit.anchor}`;
+
+  const title = hit._highlightResult.title.value;
+
+  let breadcrumbs = '';
+  if (hit._highlightResult.headings) {
+    breadcrumbs = hit._highlightResult.headings.map(match => {
+      return `<span class="post-breadcrumb">${match.value}</span>`
+    }).join(' > ')
+  }
+
+  const content = hit._highlightResult.html.value;
+
+  return `
+    <div class="post-item">
+      <span class="post-meta small">${date}</span>
+      <a class="post-link" href="${url}"><h2 class="search-hit-title post-title">${title}</h2></a>
+
+      
+      <a href="${url}" class="post-breadcrumbs"><h5>${breadcrumbs}</h5></a>
+      
+
+      <div class="post-snippet">${content}</div>
+    </div>`;
+}
+
+// Adding searchbar and results widgets
+search.addWidget(
+  instantsearch.widgets.searchBox({
+    container: '#search-searchbar',
+    placeholder: '',
+    poweredBy: true,
+    autofocus: false,
+    cssClasses: {
+      root: 'tigerthinks-searchbar'
+    }
+  })
+);
+
+
+search.addWidget(
+  instantsearch.widgets.hits({
+    container: '#search-hits',
+    templates: {
+      item: hitTemplate
+    }
+  })
+);
+
+// Starting the search
+search.start();
+</script>
+
+<style>
+.ais-search-box {
+  max-width: 100%;
+}
+
+.post-item {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: thin solid #f3f3f3;
+}
+
+.post-link .ais-Highlight {
+  color: #0076df;
+  font-style: normal;
+}
+
+.post-breadcrumbs {
+  font-style: normal;
+  display: block;
+  padding-bottom: 10px;
+  background-image: none !important;
+  color: #333 !important;
+}
+
+.post-breadcrumb {
+  font-style: normal;
+  font-size: 18px;
+  color: #333;
+}
+
+.post-breadcrumb .ais-Highlight {
+  font-weight: bold;
+  font-style: normal;
+  color: #0076df;
+}
+
+.post-snippet .ais-Highlight {
+  color: #0076df;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.post-snippet img {
+  display: none;
+}
+</style>
+
+</body>
+</html>

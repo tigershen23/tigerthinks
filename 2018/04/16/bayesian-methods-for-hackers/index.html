@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Bayesian Methods For Hackers &#8211; Tiger Shen</title>
+    <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="The simplest explanation of Bayesian methods and probabilistic programming I've come across. Says a lot about the field that this book was still extremely difficult to get through.">
+    <meta name="robots" content="all">
+    <meta name="author" content="Tiger Shen">
+    
+    <meta name="keywords" content="">
+    <link rel="canonical" href="http://tigerthinks.com/2018/04/16/bayesian-methods-for-hackers/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for Tiger Shen" href="/feed.xml" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/pixyll.css?202011300937" type="text/css">
+
+    <!-- Fonts -->
+    
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&amp;subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300&amp;subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    
+    
+
+    <!-- MathJax -->
+    
+    <script type="text/javascript" async
+        src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+
+    <!-- Verifications -->
+    
+    
+
+    <!-- Open Graph -->
+    <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Bayesian Methods For Hackers">
+    <meta property="og:description" content="Tiger Shen">
+    <meta property="og:url" content="http://tigerthinks.com/2018/04/16/bayesian-methods-for-hackers/">
+    <meta property="og:site_name" content="Tiger Shen">
+    
+    <meta property="og:image" content="http://tigerthinks.com/images/me.jpg">
+    
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    
+    <meta name="twitter:title" content="Bayesian Methods For Hackers" />
+    <meta name="twitter:description" content="The simplest explanation of Bayesian methods and probabilistic programming I've come across. Says a lot about the field that this book was still extremely difficult to get through." />
+    <meta name="twitter:url" content="http://tigerthinks.com/2018/04/16/bayesian-methods-for-hackers/" />
+    
+    <meta name="twitter:image" content="http://tigerthinks.com/images/me.jpeg" />
+    
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    
+</head>
+
+
+<body>
+  
+  
+
+  <div class="site-wrap">
+    <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="http://tigerthinks.com/" class="site-title">Tiger Shen</a>
+      <nav class="site-nav">
+        <a href="/blog">
+  Personal
+</a>
+
+<a href="/tech-blog">
+  Tech
+</a>
+
+<a href="/anki">
+  Anki
+</a>
+
+<a href="#">
+  |
+</a>
+
+<a href="/books/top">
+  Books (43)
+</a>
+
+<a href="/articles/top">
+  Articles (119)
+</a>
+
+<a href="/other/top">
+  Other (151)
+</a>
+
+      </nav>
+      <div class="clearfix"></div>
+      
+
+      <span id="search-searchbar"></span>
+
+    </div>
+  </div>
+</header>
+
+
+    <div class="post p2 p-responsive wrap" role="main">
+      <div class="measure">
+        <div class="post-list" id="search-hits">
+        </div>
+
+        <div id="content">
+          
+
+
+<div class="post-header mb2">
+  <h1>
+    
+    <div class="clearfix mxn2">
+      <div class="col col-2 sm-col-12 px2">
+        <img class="inline" src="/images//books/bayesian-methods-for-hackers.jpg" alt="Book Cover" />
+
+      </div>
+      <div class="col col-10 sm-col-12 px2">
+        Bayesian Methods For Hackers
+      </div>
+    </div>
+    
+  </h1>
+  <div class="tags">
+  
+    <a href="/book" class="badge badge-red-base">book</a>
+  
+    <a href="/nonfiction" class="badge badge-light-green-base">nonfiction</a>
+  
+    <a href="/technical" class="badge badge-deep-orange-base">technical</a>
+  
+    <a href="/ppl" class="badge badge-deep-purple-200">ppl</a>
+  
+</div>
+
+  <span class="post-meta">By Cam Davidson-Pilon | <a target="_blank" href=https://www.goodreads.com/book/show/19089710-probabilistic-programming-bayesian-methods-for-hackers>Goodreads Page</a> | 256 pages, 134550 words | Apr 12, 2018</span><br>
+  
+  <span class="post-meta small">
+  
+    1 minute read
+  
+  </span>
+</div>
+
+<article class="post-content">
+  <b>  ★     ★   </b>
+
+  <p><em>TL;DR</em>: The simplest explanation of Bayesian methods and probabilistic
+programming I’ve come across. Says a lot about the field that this book
+was still extremely difficult to get through. Enjoyed the writing style
+quite a bit, and thought the examples were fascinating.</p>
+
+<h2 id="notes">Notes</h2>
+
+<p>Simple definition of Bayesian Inference: <strong>updating your beliefs after
+considering new evidence</strong>. We can get more and more confident, but never
+absolutely sure!</p>
+
+<p>My notes on this book are in a series of Colab Notebooks, following the
+book’s format of being written in Jupyter notebooks:</p>
+
+<ol>
+  <li><a href="https://drive.google.com/file/d/1whF74HRgB_YuWD_pUYNjJsXBwVqGaoHx/view?usp=sharing">Introduction</a>
+    <ol>
+      <li>Example: text message data inference (“can you detect the
+inflection point in a user’s behavior given their text message counts
+by day?”)</li>
+    </ol>
+  </li>
+  <li><a href="https://drive.google.com/file/d/1x7OSIsGdqAIOimNbx-PuGYrZ4yqA15Ut/view?usp=sharing">A Little More on PyMC</a>
+    <ol>
+      <li>Example: A/B testing – finding a distribution for the delta of two
+sites, Site A and Site B, to probabilistically determine which
+performed better in the A/B test and by how much.</li>
+    </ol>
+  </li>
+  <li><a href="https://drive.google.com/file/d/1qKEgcw2dbQIPjsHp_0cWMTdvBkrDs6Qk/view?usp=sharing">Opening the Black Box of MCMC</a>
+    <ol>
+      <li>Example: unsupervised clustering of a dataset around two normal
+distributions using a mixture model.</li>
+    </ol>
+  </li>
+  <li><a href="https://drive.google.com/file/d/1Po1KaT28qDY7s_6H0heGp3yppctVwlmN/view?usp=sharing">The Greatest Theorem Never Told</a>
+    <ol>
+      <li>Example: how to order Reddit submissions (factors: vote count, time
+passed, etc.)</li>
+    </ol>
+  </li>
+  <li><a href="https://drive.google.com/file/d/16AwVu84R1eEmgYpNcjQESCSIuOxg5UoS/view?usp=sharing">Loss Functions</a>
+    <ol>
+      <li>Example: optimizing for The Showcase on The Price is Right</li>
+      <li>Example: Bayesian Kaggle submission for observing dark matter</li>
+    </ol>
+  </li>
+  <li><a href="https://drive.google.com/open?id=14ajIQOoI7z9icpzCxRJ--bZthNTeby1i">Priors</a>
+    <ol>
+      <li>Example: predicting stock returns</li>
+    </ol>
+  </li>
+</ol>
+
+<p>Overall, this is some of the most challenging material I’ve worked on in
+any field, not just machine learning. I’m really grateful for this book,
+since I was completely drowning in the material before I found it. I
+believe in the power of probabilistic programming and modeling, and I
+look forward to exploring it more with libraries like Uber’s Pyro and
+Google’s Tensorflow Probabilities.</p>
+
+<p>After reading this book I don’t feel like I have a great handle on MCMC
+or building PyMC models, but I have at least enough of a foundation in
+vocabulary and concepts to begin branching out.</p>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="center">
+  <div class="measure">
+    <small>
+      © 2018
+    </small>
+  </div>
+</footer>
+<!-- AnchorJS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.0.0/anchor.min.js"></script>
+<script>
+    anchors.options.visible = 'always';
+    anchors.add('article h2, article h3:not(.no-anchor), article h4:not(.no-anchor), article h5:not(.no-anchor), article h6');
+</script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch-theme-algolia.min.css">
+
+<script>
+const search = instantsearch({
+  appId: 'Q1JJ6NM1UC',
+  indexName: 'tigerthinks',
+  apiKey: '5a99d8bb6e9d1a03163a5eb0d67496e0',
+  searchFunction: function(helper) {
+    const searchHits = document.getElementById("search-hits")
+    const content = document.getElementById("content")
+
+    if (helper.state.query === '') {
+      searchHits.style.display = "none";
+      content.style.display = "block";
+      return;
+    }
+
+    helper.search();
+    searchHits.style.display = "block";
+    content.style.display = "none";
+  },
+  searchParameters: {
+    hitsPerPage: 10
+  }
+});
+
+const hitTemplate = function(hit) {
+  let date = '';
+  if (hit.date) {
+    date = moment.unix(hit.date).format('MMM D, YYYY');
+  }
+
+  let url = `${hit.url}#${hit.anchor}`;
+
+  const title = hit._highlightResult.title.value;
+
+  let breadcrumbs = '';
+  if (hit._highlightResult.headings) {
+    breadcrumbs = hit._highlightResult.headings.map(match => {
+      return `<span class="post-breadcrumb">${match.value}</span>`
+    }).join(' > ')
+  }
+
+  const content = hit._highlightResult.html.value;
+
+  return `
+    <div class="post-item">
+      <span class="post-meta small">${date}</span>
+      <a class="post-link" href="${url}"><h2 class="search-hit-title post-title">${title}</h2></a>
+
+      
+      <a href="${url}" class="post-breadcrumbs"><h5>${breadcrumbs}</h5></a>
+      
+
+      <div class="post-snippet">${content}</div>
+    </div>`;
+}
+
+// Adding searchbar and results widgets
+search.addWidget(
+  instantsearch.widgets.searchBox({
+    container: '#search-searchbar',
+    placeholder: '',
+    poweredBy: true,
+    autofocus: false,
+    cssClasses: {
+      root: 'tigerthinks-searchbar'
+    }
+  })
+);
+
+
+search.addWidget(
+  instantsearch.widgets.hits({
+    container: '#search-hits',
+    templates: {
+      item: hitTemplate
+    }
+  })
+);
+
+// Starting the search
+search.start();
+</script>
+
+<style>
+.ais-search-box {
+  max-width: 100%;
+}
+
+.post-item {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: thin solid #f3f3f3;
+}
+
+.post-link .ais-Highlight {
+  color: #0076df;
+  font-style: normal;
+}
+
+.post-breadcrumbs {
+  font-style: normal;
+  display: block;
+  padding-bottom: 10px;
+  background-image: none !important;
+  color: #333 !important;
+}
+
+.post-breadcrumb {
+  font-style: normal;
+  font-size: 18px;
+  color: #333;
+}
+
+.post-breadcrumb .ais-Highlight {
+  font-weight: bold;
+  font-style: normal;
+  color: #0076df;
+}
+
+.post-snippet .ais-Highlight {
+  color: #0076df;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.post-snippet img {
+  display: none;
+}
+</style>
+
+</body>
+</html>

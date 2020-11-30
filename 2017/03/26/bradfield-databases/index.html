@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Databases &#8211; Tiger Shen</title>
+    <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Lecture notes from Bradfield's databases class">
+    <meta name="robots" content="all">
+    <meta name="author" content="Tiger Shen">
+    
+    <meta name="keywords" content="">
+    <link rel="canonical" href="http://tigerthinks.com/2017/03/26/bradfield-databases/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for Tiger Shen" href="/feed.xml" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/pixyll.css?202011300937" type="text/css">
+
+    <!-- Fonts -->
+    
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&amp;subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300&amp;subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    
+    
+
+    <!-- MathJax -->
+    
+    <script type="text/javascript" async
+        src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+
+    <!-- Verifications -->
+    
+    
+
+    <!-- Open Graph -->
+    <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Databases">
+    <meta property="og:description" content="Tiger Shen">
+    <meta property="og:url" content="http://tigerthinks.com/2017/03/26/bradfield-databases/">
+    <meta property="og:site_name" content="Tiger Shen">
+    
+    <meta property="og:image" content="http://tigerthinks.com/images/me.jpg">
+    
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    
+    <meta name="twitter:title" content="Databases" />
+    <meta name="twitter:description" content="Lecture notes from Bradfield's databases class" />
+    <meta name="twitter:url" content="http://tigerthinks.com/2017/03/26/bradfield-databases/" />
+    
+    <meta name="twitter:image" content="http://tigerthinks.com/images/me.jpeg" />
+    
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    
+</head>
+
+
+<body>
+  
+  
+
+  <div class="site-wrap">
+    <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="http://tigerthinks.com/" class="site-title">Tiger Shen</a>
+      <nav class="site-nav">
+        <a href="/blog">
+  Personal
+</a>
+
+<a href="/tech-blog">
+  Tech
+</a>
+
+<a href="/anki">
+  Anki
+</a>
+
+<a href="#">
+  |
+</a>
+
+<a href="/books/top">
+  Books (43)
+</a>
+
+<a href="/articles/top">
+  Articles (119)
+</a>
+
+<a href="/other/top">
+  Other (151)
+</a>
+
+      </nav>
+      <div class="clearfix"></div>
+      
+
+      <span id="search-searchbar"></span>
+
+    </div>
+  </div>
+</header>
+
+
+    <div class="post p2 p-responsive wrap" role="main">
+      <div class="measure">
+        <div class="post-list" id="search-hits">
+        </div>
+
+        <div id="content">
+          
+
+
+<div class="post-header mb2">
+  <h1>
+    
+    <div class="clearfix mxn2">
+      <div class="col col-2 sm-col-12 px2">
+        <img class="inline" src="/images//courses/bradfield.png" alt="Book Cover">
+
+      </div>
+      <div class="col col-10 sm-col-12 px2">
+        Databases
+      </div>
+    </div>
+    
+  </h1>
+  <div class="tags">
+  
+    <a href="/course" class="badge badge-blue-grey-base">course</a>
+  
+    <a href="/technical" class="badge badge-deep-orange-base">technical</a>
+  
+    <a href="/cs" class="badge badge-deep-orange-100">cs</a>
+  
+    <a href="/bradfield" class="badge badge-amber-a200">bradfield</a>
+  
+</div>
+
+  <span class="post-meta">By Bradfield | <a target="_blank" href="https://bradfieldcs.com/courses/databases/">Course Page</a> | Taken 2017</span><br>
+  
+  <span class="post-meta small">
+  
+    18 minute read
+  
+  </span>
+</div>
+
+<article class="post-content">
+  <b> <img class="emoji" title=":star:" alt=":star:" src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png" height="20" width="20">  <img class="emoji" title=":star:" alt=":star:" src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png" height="20" width="20">  <img class="emoji" title=":star:" alt=":star:" src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png" height="20" width="20">  <img class="emoji" title=":star:" alt=":star:" src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png" height="20" width="20"> </b>
+
+  <h2 id="notes">Notes</h2>
+
+<h3 id="1-introduction-to-database-engines">1: Introduction to Database Engines</h3>
+
+<h4 id="architecture-of-a-database-system-hellerstein-stonebraker-hamilton">Architecture of a Database System (Hellerstein, Stonebraker, Hamilton)</h4>
+
+<ul>
+  <li>
+    <p>What goes into designing a database? Process models, parallelism,
+storage system, transaction system, query processor + optimizer,
+shared components</p>
+  </li>
+  <li>Database architecture info isn’t as well circulated as it should be
+because the community is small and traditionally people focus on
+algorithms not architecture</li>
+  <li>Relational systems most common nowadays</li>
+  <li>Five parts of a dbms: process manager, client communications manager,
+relational query processor, transactional storage manager, shared
+components and utilities</li>
+  <li>Life of a query
+    <ul>
+      <li>Query initialized by a call or something, client server interaction
+Dbms assigns thread of computation to command. Makes sure client can get
+to output stream. Job of process manager. Admission control is important
+here - start processing query now or defer until more resources
+available?</li>
+      <li>Relational query processor checks that user is authorized to run query,
+compiles sql into a query plan. Then the plan executor, which is made up
+of operators for executing queries (join, select, etc) , takes the plan
+and runs it</li>
+      <li>Part of query plan is operator whose job is to request data. They make
+calls to the transactional storage manager, which manages data crud.
+Storage system is made up of tables and indices (“access methods”) and
+whatnot. Also has buffers for storage and disk and memory and stuff.
+Lock must be acquired from lock manager to make sure no conflicts. If
+it’s a write, interact with log manager to make sure transaction is
+durable</li>
+      <li>Now record access is happening, result being computed for client.
+“Unwind the stack”: access methods return to query executor operators,
+which compute the results from db data, which are placed on buffer for
+client communications manager, which puts results on caller’s plate.
+Then connection is closed and everyone cleans up. Txn manager cleans
+state, process manager frees control structures, communications manager
+cleans control state</li>
+    </ul>
+  </li>
+  <li>Overview</li>
+  <li>
+    <p>Scope of this paper is mostly architectural yay</p>
+  </li>
+  <li>Process models</li>
+  <li>Models for highly concurrent systems</li>
+  <li>
+<em>Process</em> is an OS program execution unit with a private execution
+space and address space</li>
+  <li>
+<em>Thread</em> is an OS program execution unit without additional private
+context and without additional private address space. Each thread can
+get to same memory as other threads in the process. Execution scheduled
+by OS, called “k-threads”. Compute isolation abstraction, whereas
+processes are memory abstracted</li>
+  <li>
+<em>Lightweight thread package</em>: application-level construct for multiple
+threads in a single process. Scheduled at application level, not OS.
+Faster thread switches because you don’t need to context switch to
+kernel code. However, blocking ops (e.g. synchronous i/o) stop all
+threads in process rather than just one. Remedy this by only doing async
+work. More difficult. Some DBMS’s implement their own lightweight thread
+packages.</li>
+  <li>
+<em>Client</em> is what talks to the database from application programs</li>
+  <li>
+    <p><em>DBMS Worker</em> is the thread of execution that does work on behalf of
+client. Each worker handles SQL requests from one client</p>
+  </li>
+  <li>Some simple systems</li>
+  <li>Assumptions: good OS thread support and uniprocessor hardware (these break
+later!)</li>
+  <li>Process per DBMS worker: each client gets a process. Easy to
+implement, but getting data shared between workers is hard. Doesn’t
+scale well. Shared data needs to happen with OS-supported shared
+memory (e.g. memory mapping)</li>
+  <li>Thread per DBMS worker: Single process hosts all workers. Dispatcher
+thread listens for new client connections and allocates new thread.
+Hard because of lack of memory protection between threads. Scales to
+large number of connections. Use a DBMS worker if you’re nixing the
+first assumption (implement your own lightweight threads)</li>
+  <li>Process pool: similar to process per, but instaed of spinning up one
+process per client you have a pool of processes through which requests
+get multiplexed. Much more memory efficient</li>
+  <li>How to deal with sharing? Share data structures and state.
+By using buffers: disk i/o and client communication</li>
+  <li>(Disk i/o) <em>Buffer pool</em> is where all persistent data is staged.
+Thread generates request asking for an address on disk and provides a
+free buffer pool spot where it wants to read the memory from. To go from
+buffer-&gt;disk, thread gives a destination and a pointer to spot in buffer
+where data is stored. For thread per worker, it’s just a structure on
+the heap. Otherwise, it’s in shared memory</li>
+  <li>(Disk i/o) <em>Log Tail</em> is where all logs from processes/threads go, and it is
+flushed to disk first in first out. Key point: threads/processes need
+to be able to request that log records be written and that log tail be
+flushed. Shared memory</li>
+  <li>Client communication buffer preps stuff it thinks the client will
+need, prefetching so it’s already available</li>
+  <li>Postgres, Oracle use process per DBMS worker, MySQL uses thread per DBMS
+worker</li>
+  <li>SQL Server, Microsoft SQL Server use DBMS workers multiplexed over a
+thread pool</li>
+  <li>
+<em>Admission Control</em>: don’t accept new work unless there are available
+resources. Two tiers
+    <ul>
+      <li>Dispatcher keeps # of client connections below a certain amount</li>
+      <li>After parse and optimize, query processor determines whether to run
+immediately, postpone, or start execution with fewer resources. Uses
+info about how long the optimizer expects it to take. Memory
+footprint generally the most crucial aspect</li>
+    </ul>
+  </li>
+  <li>Processes and Memory Coordination (Parallel Architecture)</li>
+  <li>Modern hardware has <em>shared memory and disk</em> with equally access time
+from all cores, works well for all models, supporting execution of
+multiple independent queries in parallel</li>
+  <li>Another model is <em>shared-nothing</em>, where you have a bunch of nodes ina
+cluster and you horizontally partition your data between them. Each
+node can accept requests and then send out requests to other nodes to
+try and find the data they’re looking for. Query run in parallel a bunch
+of times, data returned back</li>
+  <li>
+    <p><em>Shared disk</em>: processor can access the same disk, but have separate
+RAM. Advantage over shared-nothing is lower cost of administration
+(don’t need to think about partitioning). Nice b/c failure of one node
+doesn’t affect other nodes’ ability to access entire database. Because
+memory isn’t shared, need a distributed lock manager and cache coherency
+protocol to resolve conflicts between each node’s copy of the data</p>
+  </li>
+  <li>Now if we break the assumption of uniprocessor hardware things get
+interesting</li>
+  <li>
+    <p>If you do thread per DBMS worker, you can only have one process, so
+you lose all advantages of multi-processor hardaware. Instead, you
+should map DBMS threads onto multiple processes. Generally have one OS
+process per processor, and then allocate them evenly?</p>
+  </li>
+  <li>Same theme in terms of support: most DBMS’s support multiple
+parallelism models. Shared memory is almost ubiquitious. Then, systems
+make choiec between shared disk and shared nothing</li>
+</ul>
+
+<h5 id="relational-query-processor">Relational Query Processor</h5>
+
+<ul>
+  <li>Bit finer-grained</li>
+  <li>Job: take a declarative SQL statement, validate it, optimize it into
+a query plan, execute that plan on behalf of the client program</li>
+  <li>Client pulls the result tuples one at a time or in pages</li>
+  <li>
+    <p>Concurrency managed at lower levels, so this can be abstracted as
+single user single thread</p>
+  </li>
+  <li>Parsing and authorization</li>
+  <li>Query correctly specified?</li>
+  <li>Resolve names and references</li>
+  <li>Convert query into internal format</li>
+  <li>Verify user is authorized for query</li>
+  <li>Four part name for unique table: <code class="language-plaintext highlighter-rouge">server.database.schema.table</code>
+</li>
+  <li>
+    <p>Asks <em>catalog manager</em> to make sure tables are registered in the
+catalog so you can quit if they aren’t. Catalog contains metadata</p>
+  </li>
+  <li>Query rewrite</li>
+  <li>Simplify and normalize query without changing semantics</li>
+</ul>
+
+<h4 id="stonebraker-retrospective">Stonebraker retrospective</h4>
+
+<ul>
+  <li>https://www.youtube.com/watch?v=9K0SWs1mOD0</li>
+  <li>Spent lots of time since 70’s trying to make RDBMS’s the truth (added
+ADTs, triggers, etc)</li>
+  <li>Realized in 2005 that this wouldn’t work, streaming was so so
+different</li>
+  <li>One Size Fits None now :(</li>
+  <li>Data Warehouses: column stores are way faster than row stores, column
+stores will replace them soon enough</li>
+  <li>OLTP (online transaction processing): just put all your data in main
+memory, pay that cost</li>
+  <li>NoSQL has no standards and none are same as row stores from legacy
+vendors</li>
+  <li>Analytics: lots of more complex stuff than SQL, data scientists will
+do fancier stuff than table operations (arrays not tables)</li>
+  <li>Graph Analytics: can simulate in a column store/array engine, or use
+special purpose graph engine. Row stores will not work here</li>
+  <li>Huge diversity of engines, all oriented towards specific
+verticals/applications. Traditional row stores are good at none of
+these markets :(</li>
+  <li>Lots of different engines and new ideas</li>
+  <li>Elephants in the room have a hard time going from old to new without
+losing market share</li>
+  <li>Hekaton is main-memory implementation behind the interface of SQL
+Server</li>
+  <li>80’s and 90’s “dead on our feet” because of One Size Fits All
+philosophy
+    <ul>
+      <li>Now better because we don’t believe that any more</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="lecture">Lecture</h4>
+
+<ul>
+  <li>Relational vs non-relational</li>
+  <li>Relational: define relations strictly, with column names. E.g. <em>all</em>
+employees have id, name, salary</li>
+  <li>
+    <p>Non-relational: relations are not defined strictly, hierarchical,
+arbitrarily nested</p>
+  </li>
+  <li>SQL vs NoSQL</li>
+  <li>SQL: supposed to be super simple (it isn’t now), databases that can be
+queried with the SQL language. SQL defines and manipulates data</li>
+  <li>NoSQL: document based, key-value pairs, graph DBs, no schema</li>
+</ul>
+
+<h3 id="2-sorting-hashing-single-table-queries">2: Sorting, Hashing, Single-table queries</h3>
+
+<h4 id="cs186-lectures-2015-01-22-2015-01-27">CS186 Lectures (2015-01-22, 2015-01-27)</h4>
+
+<ul>
+  <li>
+    <p>Slides and stuff:
+https://sites.google.com/site/cs186spring2015/home/schedule-and-notes</p>
+  </li>
+  <li>Why sort? Data locality, eliminate duplicates, ordering results</li>
+  <li>Fundamental: sort-merge join algorithm (rendezvous)</li>
+  <li>Fundamental: First step in bulk loading tree indices (ordering)</li>
+  <li>Problem: how to sort 100GB data with 1GB RAM? Can’t just allocate
+100GB of virtual memory :|</li>
+  <li>
+    <p>Must be intelligent about accessing data on disk</p>
+  </li>
+  <li>Constraint: data stored on disk. Can only read/write; no pointer
+derefs and shit</li>
+  <li>Stuff on magnetic disk is cheap but slow</li>
+  <li>Focus on memory hierarchy at the level of RAM vs. disk as our order of
+magnitude</li>
+  <li>Disk access: 2-4ms seek time, 2-4ms rotate delay, transfer fast</li>
+  <li>Arranging pages by disk: try to put blocks on same track, followed by
+same cylinder, followed by adjacent cylinder
+    <ul>
+      <li>For a seq scan, you can pre-fetch stuff!</li>
+      <li>minimize seek/rotation delay</li>
+    </ul>
+  </li>
+  <li>
+    <p>SSD are faster, but uh still way slower than RAM</p>
+  </li>
+  <li>Storage trends: data isn’t that big! Choose wisely, you probably don’t
+need something super heavy
+    <ul>
+      <li>All weather: 20GB, English Wikipedia: 14GB, US Census: 200GB</li>
+    </ul>
+  </li>
+  <li>Data is important :)</li>
+  <li>
+    <p>Bottom line: large DBs are still around and they all use disk. Smaller
+DBs can definitely use SSD, many fit in RAM now! Change on the
+hardware storage tech side, and uncertainty on the software side - where
+to put stuff? That’s the current debate</p>
+  </li>
+  <li>Algo: map over records, write out result. Want to minimize RAM. Simple
+approach is to read from input buffer, write to output buffer, and
+then you can minimize how much you actually read/write which blocks in
+your algo</li>
+  <li>
+    <p>Double buffering even better, uses two threads to do I/O. If main
+thread is ready for new buffer, switch! While one thread is doing
+background I/O, another is in use. Okay</p>
+  </li>
+  <li>Spec of sorting and hashing</li>
+  <li>Given:
+    <ul>
+      <li>File f containing r records and taking up N storage blocks</li>
+      <li>Two disks with » N blocks of storage</li>
+      <li>Fixed amount of RAM space (== B disk blocks)</li>
+    </ul>
+  </li>
+  <li>Sort: procude output file with contents sorted according to criterion</li>
+  <li>
+    <p>Hash: produce output file with contents arranged so that no 2 records
+that are equal are separated by a greater or smaller record (i.e.
+matching records always stored consecutively)</p>
+  </li>
+  <li>Sorting!</li>
+  <li>Conquer and merge :) like the second part of merge sort. Take one page
+at a time and sort on first pass, then two pages on second pass, etc.
+    <ul>
+      <li>nlogn</li>
+    </ul>
+  </li>
+  <li>Better: general external merge sort. Use all input buffers in your RAM
+instead of just one at a time to start off with
+    <ul>
+      <li>log(base of b - 1) (n/b)</li>
+      <li>Just do each pass in parallel with all of your available buffer
+pages</li>
+      <li>Most of the time, takes two passes. Can sort, like, 8 at a time
+rather than 2 at a time always. Got it</li>
+    </ul>
+  </li>
+  <li>Heapsort: use two heaps, w/e w/e</li>
+  <li>
+    <p>Okay this is all very good and such</p>
+  </li>
+  <li>Hashing sometimes better than sorting because we don’t need order,
+just need to remove duplicates and/or form groups</li>
+  <li>Streaming partition, use a hash function (i.e. modulo) to stream
+records to the appropriate disk partition. Divides things up
+    <ul>
+      <li>Each partition is N / B records large. Each partition should be no
+more than B pages in size</li>
+    </ul>
+  </li>
+  <li>Then conquer by reading each partition into RAM hash table one at a
+time. Use a second hash function here with different granularity</li>
+  <li>
+    <p>Can hash large data sets by just recursing on your partitions to
+generate new partitions before doing the conquering</p>
+  </li>
+  <li>I/O cost is same for hash and sort. Hash: random writes and sequential
+reads. Sort: random reads and sequential writes</li>
+  <li>How to parallelize: just add a new hashing function to the beginning,
+higher granularity even than your partitioning function, this function
+will assign the record to a machine to be processed at</li>
+  <li>
+    <p>Hard to carve up data equally! Maybe try taking a random sample at
+first to get an idea of how data is distributed</p>
+  </li>
+  <li>These are just two ways of organizing data. Same memory requirement
+and same I/O cost…</li>
+  <li>Sorting good if data needs to be sorted anyways, or if input already
+sorted (duh). Not sensitive to data skew</li>
+  <li>Hashing eliminates duplication, scales better with # of different
+values. Sometimes one-pass! E.g. if just sorting male-female</li>
+  <li>
+    <p>Hashing divide and conquer, sorting conquer and merge. Sorting
+overkill for rendezvous most of the time. K</p>
+  </li>
+  <li>Single table queries. Can we just look at slides?</li>
+  <li>Okay</li>
+</ul>
+
+<h4 id="lecture-1">Lecture</h4>
+
+<ul>
+  <li>
+    <p>Why use a connection pool? To avoid overhead of establishing
+connection</p>
+  </li>
+  <li>Oz’s life and death of a query</li>
+  <li>Browser makes HTTP request</li>
+  <li>DBMS gets SQL query over TCP at the connection manager. Pass off to
+process manager, then the meaty relational query processor
+    <ul>
+      <li>Parse</li>
+      <li>Rewrite: rewrite views, simplify algebra, etc. on the query plan</li>
+      <li>Optimize: use stuff like pg_stats to make a better query plan</li>
+      <li>Execute: based on relational iterators. Get data, stream data,
+output, etc.</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class iterator {
+  void init(); // i.e. for sort, this pulls all of the data, sorts it to
+  set up
+  tuple next();
+  void close();
+  iterator &amp;inputs[];
+  // additional state goes here
+}
+</code></pre></div></div>
+
+<ul>
+  <li>Anatomy of a query plan</li>
+  <li>First row and anything following arrow is a relational operator</li>
+</ul>
+
+<p>Hash Join (cost=4.25..8.88 rows=33 width=28) (actual time=0.189..0.275 rows = 44 loops = 1)
+// Hash Join is the operator, cost is in notional units. 4.25 is the
+// time the first tuple is available, 8.88 is when the last record is
+// available. Actual time is an actual unit
+  Hash Cond: (individual.manager = manager.id)
+  Filter: (individual.salary &gt; manager.salary)
+  Rows removed by Join Filter: 56
+  -&gt; Seq Scan on employee individual
+  -&gt; Seq Scan on employee manager // ka chow</p>
+
+<ul>
+  <li>Vacuuming updates stats so you can get a clean, context-free slate for
+analysis</li>
+  <li>Composite indices: index on two different fields that are often
+queried together
+    <ul>
+      <li>A criterion for combining indices: what’s the cardinality? Try to
+narrow data more first. E.g. use salary index (wider range) before
+age index</li>
+    </ul>
+  </li>
+  <li>Implement executors</li>
+  <li>“SELECT * FROM ciadocs WHERE title = __
+    <ul>
+      <li>Maybe title is input to function</li>
+      <li>Additional iterator for *</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="3-joins">3: Joins</h3>
+
+<h4 id="cs186-lecture-2015-01-29">CS186 Lecture (2015-01-29)</h4>
+
+<ul>
+  <li>How to implement iterators?</li>
+  <li>INIT, then NEXT, then CLOSE. Got it</li>
+  <li>Okay cool</li>
+</ul>
+
+<h4 id="lecture-2">Lecture</h4>
+
+<ul>
+  <li>Cool, got most of it from the CS186 lecture</li>
+  <li>Three main types: nested loop (+index), hash join, sort merge</li>
+  <li>Nested loop does work with inequality predicates (&gt;, &lt;, &gt;=), the other
+two types do not</li>
+</ul>
+
+<h3 id="4-indexes">4: Indexes</h3>
+
+<h4 id="cs186-lecture-2015-02-10">CS186 Lecture (2015-02-10)</h4>
+
+<ul>
+  <li>How to implement indices?</li>
+</ul>
+
+<h4 id="lecture-3">Lecture</h4>
+
+<ul>
+  <li>Bit map index is translating two sets (doing a join, for example)
+into a binary representation so you can use bitwise operators to
+quickly find properties of your data</li>
+</ul>
+
+<h3 id="5-relational-algebra">5: Relational Algebra</h3>
+
+<h4 id="cs186-lecture-2015-02-12">CS186 Lecture (2015-02-12)</h4>
+
+<ul>
+  <li>How to implement indices?</li>
+</ul>
+
+<h4 id="lecture-4">Lecture</h4>
+
+<ul>
+  <li>Relational: relational schemas and relational instances</li>
+  <li>Table is a relational instance</li>
+  <li>Worthwhile because of high analysis, ability to create primitives</li>
+</ul>
+
+<h3 id="6-query-optimization">6: Query Optimization</h3>
+
+<h4 id="cs186-lecture-2015-03-12-2015-03-17">CS186 Lecture (2015-03-12, 2015-03-17)</h4>
+
+<ul>
+  <li>How to optimize queries? Let’s see</li>
+</ul>
+
+<h3 id="7-transactions-and-concurrency">7: Transactions and Concurrency</h3>
+
+<h4 id="cs186-lecture-2015-04-07-2015-04-10">CS186 Lecture (2015-04-07, 2015-04-10)</h4>
+
+<ul>
+  <li>See slides</li>
+</ul>
+
+<h4 id="lecture-5">Lecture</h4>
+
+<ul>
+  <li>
+    <p>Transactions are in DBMS’s for business reasons, e.g. debit/credit at
+the same time</p>
+  </li>
+  <li>A: All or nothing steps</li>
+  <li>C: abort on constraint (e.g. uniqueness) violation</li>
+  <li>I: illusion of you being the only DB user</li>
+  <li>
+    <p>D: after transaction commits, it’ll be there forever</p>
+  </li>
+  <li>
+    <p>Two phases of 2PL: acquiring is the first phase, releasing is the
+second phase</p>
+  </li>
+  <li>
+<em>Database object</em>: anything the database engine operates on. Page,
+row, table, collection of tables, wawawa</li>
+  <li>
+    <p>Lock manager in DBMS picks which unit of database object to acquire
+locks over</p>
+  </li>
+  <li>
+    <p>Deadlock detection beats avoidance and stuff for practicality reasons</p>
+  </li>
+  <li>Why maintain a write-ahead log? You need to write it to disk which is
+an added cost</li>
+  <li>Cost of writing to log is cheaper - in better storage, or kept in a
+memory buffer</li>
+</ul>
+
+<h3 id="8-distributed-databases">8: Distributed Databases</h3>
+
+<h4 id="red-book-ch-6-intro">Red Book Ch 6 Intro</h4>
+
+<ul>
+  <li>In theory, serializable transactions are all you need</li>
+  <li>In practice, DBMS’s have weak, non-serializable concurrency control
+    <ul>
+      <li>Why?</li>
+      <li>It’s expensive</li>
+      <li>Decrease throughput, increase latency, not good</li>
+      <li>Anywhere from threefold to order of magnitude performance penalty</li>
+      <li>Race to the bottom in competitive market</li>
+    </ul>
+  </li>
+  <li>Alternative: <em>weak isolation</em>
+    <ul>
+      <li>Can do weird “anomalies” like reading intermediate data from another
+transaction, reading aborted data, etc.</li>
+      <li>Obviously you want to reason about and make tradeoffs here.
+Invariants in serializable execution change around when you loosen</li>
+      <li>Hard to specify :/ and difficult to use</li>
+      <li>How is this better than “no isolation”? Seems dummy hard to reason
+about</li>
+      <li>In practice, few apps experience super high concurrency /shrug</li>
+      <li>New research is focused on trying to preserev semantics and improve
+programmability without giving up serializability</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="dynamo-paper">Dynamo paper</h4>
+
+<h5 id="background">Background</h5>
+
+<ul>
+  <li>Tradeoff here: more availability, less consistency</li>
+  <li>Specific business case for Amazon: downtime (unavailable) = lost money,
+double-purchase (inconsistent) = fine, we can resolve this</li>
+  <li>Presumption that at Amazon’s scale, there’s always a node in the
+network that’s down</li>
+  <li>RDBMS has a lot of overhead with complex querying and management. Hard
+to scale, choose consistency over availability, shard</li>
+  <li>By constrast, Dynamo is highly available, efficient, scales simply
+    <ul>
+      <li>Runs on own instances</li>
+    </ul>
+  </li>
+  <li>Properties</li>
+  <li>Query model: key-value, identify everything by unique key. Can’t get
+multiple items, no need for relational schema. Store &lt; 1 MB each
+object</li>
+  <li>From ACID: Trade less C for more A, no isolation guarantee</li>
+  <li>
+    <p>Paper doesn’t go much into security, that’s handled by others I guess</p>
+  </li>
+  <li>SLA</li>
+  <li>Optimize for 99.9th percentile. Want <em>all</em> customers to have a good
+time</li>
+  <li>
+    <p>Dynamo: give services control over durability and consistency, let
+services make tradeoffs b/t functionality, performance,
+cost-effectiveness. Wtf this is hand-wavy and I don’t get it</p>
+  </li>
+  <li>Design considerations</li>
+  <li>
+<em>When to resolve update conflicts</em>? Dynamo tries to be <em>always writeable</em>,
+so conflicts are resolved at read time. This is a business-application
+decision. Different from other DBMS’s</li>
+  <li>
+<em>Who does conflict resolution</em>, data store or application? Data store
+only has simple mechanisms, let app developer do fancier stuff because
+they know more</li>
+  <li>
+<em>Incremental scalability</em>: scale out without impact on the system</li>
+  <li>
+<em>Symmetry</em>: No one host is more important than others</li>
+  <li>
+<em>Decentralization</em>: P2P better than having a “main” host, SPOF</li>
+  <li>
+<em>Heterogeneity</em>: work distribution should be proportional to
+capabilities of each server :)</li>
+</ul>
+
+<h5 id="related-work">Related Work</h5>
+
+<ul>
+  <li>There’s previous p2p work but it doesn’t line up with Dynamo design
+considerations - makes other assumptions</li>
+  <li>Same with distributed filesystems and databases
+    <ul>
+      <li>They use block stores, but key-value is better because objects are
+smaller and easier to configure on a per-application basis</li>
+      <li>Also, don’t reject updates because of network partitions :)</li>
+    </ul>
+  </li>
+  <li>Basically a bunch of comparisons</li>
+  <li>Dynamo:
+    <ul>
+      <li>Always writeable</li>
+      <li>In a trusted network</li>
+      <li>No need for hierarchical namespaces (flat structure) or relational
+schema. Ask pls</li>
+      <li>Latency sensitive!</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="system-architecture">System Architecture</h5>
+
+<ul>
+  <li>Core distributed systems techniques in Dynamo: <em>partitioning,
+replication, versioning, membership, failure handling, scaling</em>
+</li>
+  <li>Partitioning</li>
+  <li>Damn, annotate the PDF for the rest of this</li>
+</ul>
+
+<h4 id="lecture-6">Lecture</h4>
+
+<ul>
+  <li>NoSQL: trade off transactions/serializability for availability</li>
+  <li>Again, it’s all about your context :)</li>
+  <li>Q: What about that pk access pattern?</li>
+</ul>
+
+<h3 id="9-big-data">9: Big Data</h3>
+
+<h4 id="lecture-7">Lecture</h4>
+
+<ul>
+  <li>Google File System
+    <ul>
+      <li>Problem: need to store the web on commodity hardware because we’re
+broke</li>
+    </ul>
+  </li>
+  <li>Large files, each containing many web pages, replicated</li>
+  <li>Keep appending, read sequentially, k</li>
+  <li>GFS foundation for Hadoop filesystem</li>
+  <li>Run on many machines, make data smaller, do stuff to it
+    <ul>
+      <li>Map and Reduce</li>
+      <li>Scan all your disks, Map function emits tuple if you match something</li>
+      <li>Reduce to other stuff, then Map, then Reduce</li>
+    </ul>
+  </li>
+  <li>Hive next, allowed for declarative query processing, which allows for
+better attempts at optimization
+    <ul>
+      <li>Easier for business analysts to use than just thinking about
+MapReduce</li>
+    </ul>
+  </li>
+</ul>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="center">
+  <div class="measure">
+    <small>
+      © 2018
+    </small>
+  </div>
+</footer>
+<!-- AnchorJS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.0.0/anchor.min.js"></script>
+<script>
+    anchors.options.visible = 'always';
+    anchors.add('article h2, article h3:not(.no-anchor), article h4:not(.no-anchor), article h5:not(.no-anchor), article h6');
+</script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch-theme-algolia.min.css">
+
+<script>
+const search = instantsearch({
+  appId: 'Q1JJ6NM1UC',
+  indexName: 'tigerthinks',
+  apiKey: '5a99d8bb6e9d1a03163a5eb0d67496e0',
+  searchFunction: function(helper) {
+    const searchHits = document.getElementById("search-hits")
+    const content = document.getElementById("content")
+
+    if (helper.state.query === '') {
+      searchHits.style.display = "none";
+      content.style.display = "block";
+      return;
+    }
+
+    helper.search();
+    searchHits.style.display = "block";
+    content.style.display = "none";
+  },
+  searchParameters: {
+    hitsPerPage: 10
+  }
+});
+
+const hitTemplate = function(hit) {
+  let date = '';
+  if (hit.date) {
+    date = moment.unix(hit.date).format('MMM D, YYYY');
+  }
+
+  let url = `${hit.url}#${hit.anchor}`;
+
+  const title = hit._highlightResult.title.value;
+
+  let breadcrumbs = '';
+  if (hit._highlightResult.headings) {
+    breadcrumbs = hit._highlightResult.headings.map(match => {
+      return `<span class="post-breadcrumb">${match.value}</span>`
+    }).join(' > ')
+  }
+
+  const content = hit._highlightResult.html.value;
+
+  return `
+    <div class="post-item">
+      <span class="post-meta small">${date}</span>
+      <a class="post-link" href="${url}"><h2 class="search-hit-title post-title">${title}</h2></a>
+
+      
+      <a href="${url}" class="post-breadcrumbs"><h5>${breadcrumbs}</h5></a>
+      
+
+      <div class="post-snippet">${content}</div>
+    </div>`;
+}
+
+// Adding searchbar and results widgets
+search.addWidget(
+  instantsearch.widgets.searchBox({
+    container: '#search-searchbar',
+    placeholder: '',
+    poweredBy: true,
+    autofocus: false,
+    cssClasses: {
+      root: 'tigerthinks-searchbar'
+    }
+  })
+);
+
+
+search.addWidget(
+  instantsearch.widgets.hits({
+    container: '#search-hits',
+    templates: {
+      item: hitTemplate
+    }
+  })
+);
+
+// Starting the search
+search.start();
+</script>
+
+<style>
+.ais-search-box {
+  max-width: 100%;
+}
+
+.post-item {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: thin solid #f3f3f3;
+}
+
+.post-link .ais-Highlight {
+  color: #0076df;
+  font-style: normal;
+}
+
+.post-breadcrumbs {
+  font-style: normal;
+  display: block;
+  padding-bottom: 10px;
+  background-image: none !important;
+  color: #333 !important;
+}
+
+.post-breadcrumb {
+  font-style: normal;
+  font-size: 18px;
+  color: #333;
+}
+
+.post-breadcrumb .ais-Highlight {
+  font-weight: bold;
+  font-style: normal;
+  color: #0076df;
+}
+
+.post-snippet .ais-Highlight {
+  color: #0076df;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.post-snippet img {
+  display: none;
+}
+</style>
+
+</body>
+</html>

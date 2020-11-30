@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Effective Java, 2nd Edition &#8211; Tiger Shen</title>
+    <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Very good grab bag of tips and tricks for Java. Many were immediately applicable. Explained at the perfect level of abstraction for me.">
+    <meta name="robots" content="all">
+    <meta name="author" content="Tiger Shen">
+    
+    <meta name="keywords" content="">
+    <link rel="canonical" href="http://tigerthinks.com/2018/04/18/effective-java/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for Tiger Shen" href="/feed.xml" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/pixyll.css?202011300937" type="text/css">
+
+    <!-- Fonts -->
+    
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&amp;subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300&amp;subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    
+    
+
+    <!-- MathJax -->
+    
+    <script type="text/javascript" async
+        src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+
+    <!-- Verifications -->
+    
+    
+
+    <!-- Open Graph -->
+    <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Effective Java, 2nd Edition">
+    <meta property="og:description" content="Tiger Shen">
+    <meta property="og:url" content="http://tigerthinks.com/2018/04/18/effective-java/">
+    <meta property="og:site_name" content="Tiger Shen">
+    
+    <meta property="og:image" content="http://tigerthinks.com/images/me.jpg">
+    
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    
+    <meta name="twitter:title" content="Effective Java, 2nd Edition" />
+    <meta name="twitter:description" content="Very good grab bag of tips and tricks for Java. Many were immediately applicable. Explained at the perfect level of abstraction for me." />
+    <meta name="twitter:url" content="http://tigerthinks.com/2018/04/18/effective-java/" />
+    
+    <meta name="twitter:image" content="http://tigerthinks.com/images/me.jpeg" />
+    
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    
+</head>
+
+
+<body>
+  
+  
+
+  <div class="site-wrap">
+    <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="http://tigerthinks.com/" class="site-title">Tiger Shen</a>
+      <nav class="site-nav">
+        <a href="/blog">
+  Personal
+</a>
+
+<a href="/tech-blog">
+  Tech
+</a>
+
+<a href="/anki">
+  Anki
+</a>
+
+<a href="#">
+  |
+</a>
+
+<a href="/books/top">
+  Books (43)
+</a>
+
+<a href="/articles/top">
+  Articles (119)
+</a>
+
+<a href="/other/top">
+  Other (151)
+</a>
+
+      </nav>
+      <div class="clearfix"></div>
+      
+
+      <span id="search-searchbar"></span>
+
+    </div>
+  </div>
+</header>
+
+
+    <div class="post p2 p-responsive wrap" role="main">
+      <div class="measure">
+        <div class="post-list" id="search-hits">
+        </div>
+
+        <div id="content">
+          
+
+
+<div class="post-header mb2">
+  <h1>
+    
+    <div class="clearfix mxn2">
+      <div class="col col-2 sm-col-12 px2">
+        <img class="inline" src="/images//books/effective-java.jpg" alt="Book Cover" />
+
+      </div>
+      <div class="col col-10 sm-col-12 px2">
+        Effective Java, 2nd Edition
+      </div>
+    </div>
+    
+  </h1>
+  <div class="tags">
+  
+    <a href="/book" class="badge badge-red-base">book</a>
+  
+    <a href="/nonfiction" class="badge badge-light-green-base">nonfiction</a>
+  
+    <a href="/technical" class="badge badge-deep-orange-base">technical</a>
+  
+    <a href="/programming" class="badge badge-lime-200">programming</a>
+  
+</div>
+
+  <span class="post-meta">By Joshua Bloch | <a target="_blank" href=https://www.goodreads.com/book/show/105099.Effective_Java_Programming_Language_Guide>Goodreads Page</a> | 350 pages, 135000 words | Apr 12, 2018</span><br>
+  
+  <span class="post-meta small">
+  
+    5 minute read
+  
+  </span>
+</div>
+
+<article class="post-content">
+  <b>  ★     ★     ★   </b>
+
+  <p><em>TL;DR</em>: Very good grab bag of tips and tricks for Java. Many were
+immediately applicable. Explained at the perfect level of abstraction
+for me.</p>
+
+<h2 id="notes">Notes</h2>
+
+<p>Note: skipped over Ch 10 (Concurrency) and Ch 11 (Serialization)</p>
+
+<ul>
+  <li>Looking forward to picking up Core Java after this</li>
+</ul>
+
+<h3 id="2-creating-and-destroying-objects">2: Creating and Destroying Objects</h3>
+
+<ul>
+  <li>Avoid memory leaks by nulling out references once they become
+obsolete…but don’t do it all the time!</li>
+</ul>
+
+<h3 id="3-methods-common-to-all-objects">3: Methods Common to All Objects</h3>
+
+<ul>
+  <li>Override <code class="language-plaintext highlighter-rouge">Object.equals</code> when a class has a notion of <em>logical
+equality</em> separate from object identity</li>
+  <li>Provide programmatic access to all of the information contained in the
+return value of <code class="language-plaintext highlighter-rouge">toString()</code></li>
+  <li>Override clone judiciously
+    <ul>
+      <li>The clone method functions as another constructor; you must ensure
+that it does no harm to the original object and that it properly
+establishes invariants on the clone.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="4-classes-and-interfaces">4: Classes and Interfaces</h3>
+
+<ul>
+  <li><strong>Minimize the accessibility of classes and members</strong>
+    <ul>
+      <li>Well-designed module hides all of its implementation details,
+seaprating API from implementation. Modules communicate with each
+other only through their APIs</li>
+      <li><strong>Information hiding</strong> or <strong>encapsulation</strong></li>
+      <li>Do not use public static final array fields in classes. These are
+accessible and mutable.</li>
+    </ul>
+  </li>
+  <li>To make a class immutable:
+    <ul>
+      <li>Don’t provide any methods that modify the object’s state</li>
+      <li>Ensure that the class can’t be extended (make it final)</li>
+      <li>Make all fields final</li>
+      <li>Make all fields private</li>
+      <li>Ensure exclusive access to any mutable components (don’t allow
+chained access to them)</li>
+    </ul>
+  </li>
+  <li><strong>Classes should be immutable unless there’s a very good reason to
+make them mutable.</strong></li>
+  <li><strong>Favor composition over inheritance</strong>
+    <ul>
+      <li>Inheritance violated encapsulation</li>
+      <li>Instead of extending an existing class, give new class a private
+field that references an instance of the existing class (the new
+class is composed of the existing class)</li>
+      <li>If you declare a member class that does not require access to
+enclosing instance, make it static</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="5-generics">5: Generics</h3>
+
+<ul>
+  <li>Class with <strong>type parameters</strong> in declaration is a <strong>generic</strong>
+    <ul>
+      <li>Each generic type defines <strong>parameterized types</strong> (<code class="language-plaintext highlighter-rouge">List&lt;String&gt;</code>)
+and a <strong>raw type</strong> (<code class="language-plaintext highlighter-rouge">List&lt;E&gt;</code>)
+        <ul>
+          <li>Don’t use raw types tho. You lose safety and expressiveness</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>If you eliminate all warnings, you are assured typesafe code.</li>
+  <li>Arrays are not generic
+    <ul>
+      <li>Arrays are <strong>covariant</strong>: <code class="language-plaintext highlighter-rouge">Sub[]</code> is a subtype of <code class="language-plaintext highlighter-rouge">Super[]</code>.
+Generics are <strong>invariant</strong> (<code class="language-plaintext highlighter-rouge">Sub[]</code> is not a subtype of <code class="language-plaintext highlighter-rouge">Super[]</code>)</li>
+      <li>Arrays are <strong>reified</strong>. They know and enforce their types at
+runtime. Generics are <strong>erasure</strong>, check these at compile time.</li>
+      <li><strong>Non-reifiable type</strong> has a runtime representation with less
+information than compile-time representation.</li>
+    </ul>
+  </li>
+  <li>Generic methods are safer and easier to use than methods that require
+their clients to cast input parameters and return values.</li>
+</ul>
+
+<h3 id="6-enums-and-annotations">6: Enums and Annotations</h3>
+
+<ul>
+  <li>Use enums!!</li>
+  <li>Associate a different behavior with each enum constant: declare an
+abstract apply method in the enum type, and override it with a
+concrete method for each constant in a <strong>constant-specific class
+body</strong>:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">PLUS { double apply(double x, double y) {return x + y;} }</code></li>
+    </ul>
+  </li>
+  <li><strong>Prefer annotations to naming patterns</strong>
+    <ul>
+      <li>First-class support, better semantics, less brittle</li>
+    </ul>
+  </li>
+  <li><strong>Use marker interfaces to define types</strong>
+    <ul>
+      <li>Interface with no method declarations that designates a class that
+implements that interface as having some property</li>
+      <li>Use marker annotations if you want to allow for possibility of
+adding more information to marker in the future</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="7-methods">7: Methods</h3>
+
+<ul>
+  <li>Every time you write a method, think about the restrictionos that
+exist on its parameters. Document and enforce these descriptions; the
+work it takes will pay for itself many times over.
+    <ul>
+      <li>Use <code class="language-plaintext highlighter-rouge">assert</code> statements to check parameters in non-public methods</li>
+    </ul>
+  </li>
+  <li>Defensively copy mutable components that you get or return to clients
+to ensure they aren’t messed with.</li>
+  <li>Method signatures:
+    <ul>
+      <li><strong>When in doubt, leave it out.</strong></li>
+      <li>Shorten long parameter lists by creating <strong>helper classes</strong> (e.g.
+Card class instead of suit/value parameters to everything)</li>
+      <li><strong>Favor interfaces over classes</strong> for parameter types</li>
+      <li><strong>Prefer two-element enum types to boolean parameters</strong>. They are
+more expressive</li>
+    </ul>
+  </li>
+  <li>Try not to overload. It’s confusing and error-prone.</li>
+  <li>JavaDoc comments should be considered mandatory for all exported API
+elements.</li>
+</ul>
+
+<h3 id="8-general-programming">8: General Programming</h3>
+
+<ul>
+  <li><strong>Minimize the scope of local variables</strong></li>
+  <li><strong>Know and use the standard libraries</strong></li>
+  <li><strong>Don’t use float/double for money</strong>. Use BigDecimal</li>
+  <li>Differences between primitives and boxed primitives:
+    <ul>
+      <li>Boxed primitives can be null</li>
+      <li>Primitives are more space-efficient</li>
+      <li>Primitives can only have their values, boxed primitives have
+distinct object identities
+        <ul>
+          <li><strong>Never use == with boxed primitives</strong></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Avoid strings where other types are more appropriate</strong>
+    <ul>
+      <li>Write a class to represent the aggregate (private static member)</li>
+    </ul>
+  </li>
+  <li><strong>Refer to objects by their interfaces</strong> (generalization of Item 40)
+    <ul>
+      <li>Much more flexible</li>
+      <li><code class="language-plaintext highlighter-rouge">List&lt;Subscriber&gt; subscribers = new Vector&lt;Subscriber&gt;();</code></li>
+    </ul>
+  </li>
+  <li>Mantras for optimization:
+    <ul>
+      <li><em>More computing sins are committed in the name of optimization
+(without necessarily achieving it) than for any other single reason
+– including blind stupidity.</em> (Wulf, 72)</li>
+      <li><em>We should forget about small inefficiencies, say about 97% of the
+time; premature optimization is the root of all evil.</em> (Knuth, 74)</li>
+      <li><em>Two rules in the matter of optimization: Rule 1. Don’t do it. Rule
+2 (for experts only). Don’t do it yet – that is, not until you have
+a perfectly clear and unoptimized solution.</em> (Jackson, 75)</li>
+      <li><strong>Strive to write good programs rather than fast ones.</strong></li>
+      <li><strong>Strive to avoid design decisions that limit performance.</strong></li>
+    </ul>
+  </li>
+  <li>Type parameter names:
+    <ul>
+      <li><strong>T</strong>: arbitrary type</li>
+      <li><strong>E</strong>: element type of a collection</li>
+      <li><strong>K</strong>: key type of a map</li>
+      <li><strong>V</strong>: value type of a map</li>
+      <li><strong>X</strong>: exception</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="9-exceptions">9: Exceptions</h3>
+
+<ul>
+  <li><strong>Use exceptions only for exceptional conditions.</strong></li>
+  <li><strong>Use checked exceptions for recoverable conditions and runtime
+exceptions for programming errors.</strong>
+    <ul>
+      <li>Checked exception: must be caught or declared in the method in which
+it is thrown</li>
+      <li>Make sure checked exception contains enough info for programmer to
+recover</li>
+    </ul>
+  </li>
+  <li>A <strong>failure atomic</strong> method leaves object in the state it was prior to
+invocation when the method fails. Strive for this.
+    <ul>
+      <li>Check parameters for validity before performing operation</li>
+    </ul>
+  </li>
+  <li>Implement Serializable judiciously; it drastically reduces portability
+and flexibility of the class.</li>
+</ul>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="center">
+  <div class="measure">
+    <small>
+      © 2018
+    </small>
+  </div>
+</footer>
+<!-- AnchorJS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.0.0/anchor.min.js"></script>
+<script>
+    anchors.options.visible = 'always';
+    anchors.add('article h2, article h3:not(.no-anchor), article h4:not(.no-anchor), article h5:not(.no-anchor), article h6');
+</script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch-theme-algolia.min.css">
+
+<script>
+const search = instantsearch({
+  appId: 'Q1JJ6NM1UC',
+  indexName: 'tigerthinks',
+  apiKey: '5a99d8bb6e9d1a03163a5eb0d67496e0',
+  searchFunction: function(helper) {
+    const searchHits = document.getElementById("search-hits")
+    const content = document.getElementById("content")
+
+    if (helper.state.query === '') {
+      searchHits.style.display = "none";
+      content.style.display = "block";
+      return;
+    }
+
+    helper.search();
+    searchHits.style.display = "block";
+    content.style.display = "none";
+  },
+  searchParameters: {
+    hitsPerPage: 10
+  }
+});
+
+const hitTemplate = function(hit) {
+  let date = '';
+  if (hit.date) {
+    date = moment.unix(hit.date).format('MMM D, YYYY');
+  }
+
+  let url = `${hit.url}#${hit.anchor}`;
+
+  const title = hit._highlightResult.title.value;
+
+  let breadcrumbs = '';
+  if (hit._highlightResult.headings) {
+    breadcrumbs = hit._highlightResult.headings.map(match => {
+      return `<span class="post-breadcrumb">${match.value}</span>`
+    }).join(' > ')
+  }
+
+  const content = hit._highlightResult.html.value;
+
+  return `
+    <div class="post-item">
+      <span class="post-meta small">${date}</span>
+      <a class="post-link" href="${url}"><h2 class="search-hit-title post-title">${title}</h2></a>
+
+      
+      <a href="${url}" class="post-breadcrumbs"><h5>${breadcrumbs}</h5></a>
+      
+
+      <div class="post-snippet">${content}</div>
+    </div>`;
+}
+
+// Adding searchbar and results widgets
+search.addWidget(
+  instantsearch.widgets.searchBox({
+    container: '#search-searchbar',
+    placeholder: '',
+    poweredBy: true,
+    autofocus: false,
+    cssClasses: {
+      root: 'tigerthinks-searchbar'
+    }
+  })
+);
+
+
+search.addWidget(
+  instantsearch.widgets.hits({
+    container: '#search-hits',
+    templates: {
+      item: hitTemplate
+    }
+  })
+);
+
+// Starting the search
+search.start();
+</script>
+
+<style>
+.ais-search-box {
+  max-width: 100%;
+}
+
+.post-item {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: thin solid #f3f3f3;
+}
+
+.post-link .ais-Highlight {
+  color: #0076df;
+  font-style: normal;
+}
+
+.post-breadcrumbs {
+  font-style: normal;
+  display: block;
+  padding-bottom: 10px;
+  background-image: none !important;
+  color: #333 !important;
+}
+
+.post-breadcrumb {
+  font-style: normal;
+  font-size: 18px;
+  color: #333;
+}
+
+.post-breadcrumb .ais-Highlight {
+  font-weight: bold;
+  font-style: normal;
+  color: #0076df;
+}
+
+.post-snippet .ais-Highlight {
+  color: #0076df;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.post-snippet img {
+  display: none;
+}
+</style>
+
+</body>
+</html>

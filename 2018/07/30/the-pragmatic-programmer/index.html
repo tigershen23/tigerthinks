@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>The Pragmatic Programmer &#8211; Tiger Shen</title>
+    <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Collection of somewhat common sense but well-stated programming advice.">
+    <meta name="robots" content="all">
+    <meta name="author" content="Tiger Shen">
+    
+    <meta name="keywords" content="">
+    <link rel="canonical" href="http://tigerthinks.com/2018/07/30/the-pragmatic-programmer/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for Tiger Shen" href="/feed.xml" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/pixyll.css?202011300937" type="text/css">
+
+    <!-- Fonts -->
+    
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&amp;subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300&amp;subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    
+    
+
+    <!-- MathJax -->
+    
+    <script type="text/javascript" async
+        src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+
+    <!-- Verifications -->
+    
+    
+
+    <!-- Open Graph -->
+    <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="The Pragmatic Programmer">
+    <meta property="og:description" content="Tiger Shen">
+    <meta property="og:url" content="http://tigerthinks.com/2018/07/30/the-pragmatic-programmer/">
+    <meta property="og:site_name" content="Tiger Shen">
+    
+    <meta property="og:image" content="http://tigerthinks.com/images/me.jpg">
+    
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    
+    <meta name="twitter:title" content="The Pragmatic Programmer" />
+    <meta name="twitter:description" content="Collection of somewhat common sense but well-stated programming advice." />
+    <meta name="twitter:url" content="http://tigerthinks.com/2018/07/30/the-pragmatic-programmer/" />
+    
+    <meta name="twitter:image" content="http://tigerthinks.com/images/me.jpeg" />
+    
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    
+</head>
+
+
+<body>
+  
+  
+
+  <div class="site-wrap">
+    <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="http://tigerthinks.com/" class="site-title">Tiger Shen</a>
+      <nav class="site-nav">
+        <a href="/blog">
+  Personal
+</a>
+
+<a href="/tech-blog">
+  Tech
+</a>
+
+<a href="/anki">
+  Anki
+</a>
+
+<a href="#">
+  |
+</a>
+
+<a href="/books/top">
+  Books (43)
+</a>
+
+<a href="/articles/top">
+  Articles (119)
+</a>
+
+<a href="/other/top">
+  Other (151)
+</a>
+
+      </nav>
+      <div class="clearfix"></div>
+      
+
+      <span id="search-searchbar"></span>
+
+    </div>
+  </div>
+</header>
+
+
+    <div class="post p2 p-responsive wrap" role="main">
+      <div class="measure">
+        <div class="post-list" id="search-hits">
+        </div>
+
+        <div id="content">
+          
+
+
+<div class="post-header mb2">
+  <h1>
+    
+    <div class="clearfix mxn2">
+      <div class="col col-2 sm-col-12 px2">
+        <img class="inline" src="/images//books/the-pragmatic-programmer.jpg" alt="Book Cover" />
+
+      </div>
+      <div class="col col-10 sm-col-12 px2">
+        The Pragmatic Programmer
+      </div>
+    </div>
+    
+  </h1>
+  <div class="tags">
+  
+    <a href="/book" class="badge badge-red-base">book</a>
+  
+    <a href="/nonfiction" class="badge badge-light-green-base">nonfiction</a>
+  
+    <a href="/technical" class="badge badge-deep-orange-base">technical</a>
+  
+    <a href="/programming" class="badge badge-lime-200">programming</a>
+  
+    <a href="/advice" class="badge badge-brown-200">advice</a>
+  
+</div>
+
+  <span class="post-meta">By Andy Hunt, Dave Thomas | <a target="_blank" href=https://www.goodreads.com/book/show/4099.The_Pragmatic_Programmer>Goodreads Page</a> | 321 pages, 84978 words | Jul 4, 2018</span><br>
+  
+  <span class="post-meta small">
+  
+    6 minute read
+  
+  </span>
+</div>
+
+<article class="post-content">
+  <b>  ★     ★     ★   </b>
+
+  <p><em>TL;DR</em>: Andy Hunt and Dave Thomas have done a lot of programming. This
+is what they have to say about it. Some pieces are outdated, others are
+timeless, all are certainly worth the read.</p>
+
+<h2 id="notes">Notes</h2>
+
+<h3 id="1-a-pragmatic-philosophy">1: A Pragmatic Philosophy</h3>
+
+<ul>
+  <li><em>Tip 1: Care About Your Craft</em></li>
+  <li><em>Tip 2: Think! About Your Work</em></li>
+  <li><em><b>Kaizen</b> is a Japanese term that captures the concept of
+continuously making many small improvements</em> (L239)</li>
+  <li>Pragmatic programmers think beyond the immediate problem, always aware
+of the bigger picture</li>
+  <li><em>One of the cornerstones of the pragmatic philosophy is the idea of
+taking responsibility for yourself and your actions in terms of your
+career advancement, your project, and your day-to-day work. “The
+greatest of all weaknesses is the fear of appearing weak.”</em> (L239)</li>
+  <li>Stone Soup and Boiled Frogs: kick off a small part of change yourself.
+People find it easier to join an ongoing success.</li>
+  <li><em>Great software today is often preferable to perfect software
+tomorrow. If you give your users something to play with early, their
+feedback will often lead you to a better eventual solution.</em> (L450)
+    <ul>
+      <li>Stop when you hit great!</li>
+    </ul>
+  </li>
+  <li><em>An investment in knowledge always pays the best interest - Ben
+Franklin</em> (L482)
+    <ul>
+      <li>Unfortunately, in tech, knowledge expires. Gotta keep the tools
+sharp.</li>
+    </ul>
+  </li>
+  <li><strong>WISDOM</strong> of understanding audience
+    <ul>
+      <li>What do you want them to learn?</li>
+      <li>what is their Interest in what you have to say?</li>
+      <li>how Sophisticated are they?</li>
+      <li>how much Detail do they want?</li>
+      <li>whom do you want to Own the information?</li>
+      <li>how can you Motivate them to listen to you?</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="2-a-pragmatic-approach">2: A Pragmatic Approach</h3>
+
+<ul>
+  <li><em>Maintenance is not a discrete activity, but a routine part of the
+entire development process.</em> (680)
+    <ul>
+      <li>Don’t bemoan it! You can try to cut down but it will still be there
+and it should be.</li>
+    </ul>
+  </li>
+  <li><strong>DRY</strong>: Don’t Repeat Yourself.</li>
+  <li>Duplication types:
+    <ul>
+      <li><strong>Imposed duplication</strong>, where developers feel like they have no
+choice</li>
+      <li><strong>Inadvertent duplication</strong>, where developers don’t realize they’re
+duplicating</li>
+      <li><strong>Impatient duplication</strong>, where developers get lazy and duplicate
+because it’s easier</li>
+      <li><strong>Interdeveloper duplication</strong>, where developers do the same work</li>
+    </ul>
+  </li>
+  <li>Things are <strong>orthogonal</strong> if changes in one do not affect any of the
+others, e.g. database code and user interface
+    <ul>
+      <li>Non-orthogonal systems are more complex to change and control. Make
+it so there’s no such thing as a local fix.</li>
+      <li><em>Tip 13: Eliminate Effects Between Unrelated Things</em></li>
+      <li>Main benefits: <strong>increased productivity</strong> and <strong>reduced risk</strong></li>
+    </ul>
+  </li>
+  <li><em>Don’t rely on the properties of things you can’t control</em> (L885)</li>
+  <li>With DRY you’re looking to minimize duplication within a system,
+whereas with orthogonality you reduce the interdependency among the
+system’s components.</li>
+  <li>When in doubt, choose the more <strong>reversible</strong> decision</li>
+  <li><strong>Tracer code</strong>: minimum viable deployable application, end to end
+    <ul>
+      <li><strong>Not</strong> throwaway code (that’s a prototype)</li>
+      <li>Benefits:
+        <ul>
+          <li>Users get to see something working early</li>
+          <li>Developers build a structure to work in</li>
+          <li>You have something to demonstrate</li>
+          <li>You have a better feel for progress (easier to scope)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Questions to ask when prototyping:
+    <ul>
+      <li>Are responsibilities of major components well-defined and
+appropriate?</li>
+      <li>Are the collaborations between major components well-defined?</li>
+      <li>Is coupling minimized?</li>
+      <li>Can you identify potential duplication?</li>
+      <li>Are interface definitions and constraints acceptable?</li>
+      <li>Does every module have access to the data it needs during execution?</li>
+    </ul>
+  </li>
+  <li><strong>Domain language</strong>: “ubiquitous language” concept from DDD.
+    <ul>
+      <li><em>Whether it’s a simple language to configure and control an
+application program, or a more complex language to specify rules or
+procedures, we think you should consider ways of moving your project
+closer to the problem domain.</em> (L1217)</li>
+    </ul>
+  </li>
+  <li><strong>Estimating</strong>
+    <ul>
+      <li>First question is about context. Do you need high accuracy or just a
+ballpark?</li>
+      <li>Steps:
+        <ul>
+          <li>Understand what’s being asked
+            <ul>
+              <li>Scope scope scope</li>
+            </ul>
+          </li>
+          <li>Build a mental model of the system</li>
+          <li>Break the model into components</li>
+          <li>Give each parameter a value</li>
+          <li>Calculate the answers</li>
+        </ul>
+      </li>
+      <li><strong>I’ll get back to you.</strong></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="3-the-basic-tools">3: The Basic Tools</h3>
+
+<ul>
+  <li><strong>Plain-text</strong>: universally portable, human readable, will never be
+obsolete, not tied to any implementation or parser
+    <ul>
+      <li><strong>Command shell</strong> is the workbench for manipulating plain text</li>
+    </ul>
+  </li>
+  <li><strong>Editor</strong>: know one. Well.</li>
+  <li><strong>Debugging</strong>
+    <ul>
+      <li>Debugging is problem solving.</li>
+      <li><em>Beware of myopia when debugging. Resist the urge to fix just the
+symptoms you see: it is more likely that the actual fault may be
+several steps removed from what you are observing, and may involve a
+number of other related things. Always try to discover the root
+cause of a problem, not just this particular appearance of it.</em>
+(L1758)</li>
+      <li>Start by gathering all relevant data</li>
+      <li>Go through all assumptions and verify</li>
+      <li>Tracer print statements: “I AM HERE”…</li>
+      <li>Rubber duck: just explain the problem out loud</li>
+      <li><strong>Test, test, test</strong> when you make the fix</li>
+      <li>Checklist:
+        <ul>
+          <li>Is the reported problem a symptom or the real thing?</li>
+          <li>Is the bug in the compiler or in the OS?</li>
+          <li>How would you explain the problem to a coworker?</li>
+          <li>Are the tests complete?</li>
+          <li>Do the conditions that caused this bug exist anywhere else in the
+system?</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="4-pragmatic-paranoia">4: Pragmatic Paranoia</h3>
+
+<ul>
+  <li>Don’t trust yourself! You make mistakes. Be defensive</li>
+  <li>Design by contract: Add contracts to your code (i.e. iContract for
+Java). Your code shøuld abide by the contract and do nothing more.
+    <ul>
+      <li>Meh</li>
+    </ul>
+  </li>
+  <li><strong>Liskov Substitution Principle</strong>: Subclasses must be usable through
+the base class interface without the need for the user to know the
+difference</li>
+  <li>Leave <strong>assertions</strong> in your code to call out non-negotiable contracts</li>
+  <li><em>Tip 34: Use Exceptions for Exceptional Problems.</em></li>
+  <li><em>Tip 35: Finish What You Start</em>
+    <ul>
+      <li>Close files, etc.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="5-bend-or-break">5: Bend, or Break</h3>
+
+<ul>
+  <li>Limit interaction between modules</li>
+  <li><strong>Law of Demeter</strong>: don’t reach into an object to gain access to a
+third object’s methods
+    <ul>
+      <li>More like a “guideline of Demeter”</li>
+    </ul>
+  </li>
+  <li><strong>MVC</strong>: separate model (data), view (interpretation of model),
+controller (coordination and translation mechanism)</li>
+</ul>
+
+<h3 id="6-while-you-are-coding">6: While You Are Coding</h3>
+
+<ul>
+  <li><strong>Program deliberately</strong>
+    <ul>
+      <li>Don’t “program by coincidence”; you must understand exactly why your
+code works</li>
+      <li><strong>Rely only on documented behavior</strong>
+        <ul>
+          <li>If you can’t, <strong>document your assumption well</strong></li>
+        </ul>
+      </li>
+      <li>How?
+        <ul>
+          <li>Always be aware of what you’re doing</li>
+          <li>Understand the domain</li>
+          <li>Plan first.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Programming isn’t construction, it’s gardening</strong>
+    <ul>
+      <li>Organic, changes, growth</li>
+      <li>Fowler’s rules on refactoring:
+        <ul>
+          <li>Don’t refactor and add functionality at the same time</li>
+          <li>Make sure you have good tests before you begin refactoring.
+Refactor tests as often as possible. Then you’ll know quickly if
+you broke anything</li>
+          <li>Take short, deliberate steps. Line by line, method by method.
+Check your changes often.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="7-before-the-project">7: Before the Project</h3>
+
+<ul>
+  <li><em>Tip 51: Don’t Gather Requirements, Dig For Them</em>
+    <ul>
+      <li>Requirements are not on the surface. People, especially domain
+experts, tend to leave out stuff that feels “basic” to them but is
+actually very important to the implementation</li>
+      <li>Shadowing is an effective technique</li>
+    </ul>
+  </li>
+  <li><strong>Project glossary</strong> tracks all the commonly used words in the project</li>
+  <li><strong>Specification trap</strong>: don’t try to get every single detail. Just get
+it to the point where the programmer’s skill can take over.
+    <ul>
+      <li>Trick: try to describe how to tie their shoes.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="8-pragmatic-projects">8: Pragmatic Projects</h3>
+
+<ul>
+  <li><strong>Automate, automate, automate</strong>
+    <ul>
+      <li>Appoint tool builders on the team to make sure things get automated</li>
+      <li><em>People just aren’t as repeatable as computers are.</em> (L4020)</li>
+    </ul>
+  </li>
+  <li>Types of tests to write:
+    <ul>
+      <li>Unit tests</li>
+      <li>Integration tests</li>
+      <li>Validation and verification (does it actually work the way the user
+wants?)</li>
+      <li>Resource exhaustion, errors, recovery
+        <ul>
+          <li>Memory, disk space, CPU bandwidth, wall-clock time</li>
+        </ul>
+      </li>
+      <li>Performance testing</li>
+      <li>Usability testing</li>
+    </ul>
+  </li>
+  <li>Make <strong>well chosen and meaningful</strong> variable names
+    <ul>
+      <li>Never make misleading names!! These trigger the <strong>Stroop Effect</strong>
+and the brain gets super confused</li>
+    </ul>
+  </li>
+  <li>Document concisely but thoroughly</li>
+  <li>Small usability wins:
+    <ul>
+      <li>Tooltip help</li>
+    </ul>
+  </li>
+</ul>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="center">
+  <div class="measure">
+    <small>
+      © 2018
+    </small>
+  </div>
+</footer>
+<!-- AnchorJS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.0.0/anchor.min.js"></script>
+<script>
+    anchors.options.visible = 'always';
+    anchors.add('article h2, article h3:not(.no-anchor), article h4:not(.no-anchor), article h5:not(.no-anchor), article h6');
+</script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch-theme-algolia.min.css">
+
+<script>
+const search = instantsearch({
+  appId: 'Q1JJ6NM1UC',
+  indexName: 'tigerthinks',
+  apiKey: '5a99d8bb6e9d1a03163a5eb0d67496e0',
+  searchFunction: function(helper) {
+    const searchHits = document.getElementById("search-hits")
+    const content = document.getElementById("content")
+
+    if (helper.state.query === '') {
+      searchHits.style.display = "none";
+      content.style.display = "block";
+      return;
+    }
+
+    helper.search();
+    searchHits.style.display = "block";
+    content.style.display = "none";
+  },
+  searchParameters: {
+    hitsPerPage: 10
+  }
+});
+
+const hitTemplate = function(hit) {
+  let date = '';
+  if (hit.date) {
+    date = moment.unix(hit.date).format('MMM D, YYYY');
+  }
+
+  let url = `${hit.url}#${hit.anchor}`;
+
+  const title = hit._highlightResult.title.value;
+
+  let breadcrumbs = '';
+  if (hit._highlightResult.headings) {
+    breadcrumbs = hit._highlightResult.headings.map(match => {
+      return `<span class="post-breadcrumb">${match.value}</span>`
+    }).join(' > ')
+  }
+
+  const content = hit._highlightResult.html.value;
+
+  return `
+    <div class="post-item">
+      <span class="post-meta small">${date}</span>
+      <a class="post-link" href="${url}"><h2 class="search-hit-title post-title">${title}</h2></a>
+
+      
+      <a href="${url}" class="post-breadcrumbs"><h5>${breadcrumbs}</h5></a>
+      
+
+      <div class="post-snippet">${content}</div>
+    </div>`;
+}
+
+// Adding searchbar and results widgets
+search.addWidget(
+  instantsearch.widgets.searchBox({
+    container: '#search-searchbar',
+    placeholder: '',
+    poweredBy: true,
+    autofocus: false,
+    cssClasses: {
+      root: 'tigerthinks-searchbar'
+    }
+  })
+);
+
+
+search.addWidget(
+  instantsearch.widgets.hits({
+    container: '#search-hits',
+    templates: {
+      item: hitTemplate
+    }
+  })
+);
+
+// Starting the search
+search.start();
+</script>
+
+<style>
+.ais-search-box {
+  max-width: 100%;
+}
+
+.post-item {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: thin solid #f3f3f3;
+}
+
+.post-link .ais-Highlight {
+  color: #0076df;
+  font-style: normal;
+}
+
+.post-breadcrumbs {
+  font-style: normal;
+  display: block;
+  padding-bottom: 10px;
+  background-image: none !important;
+  color: #333 !important;
+}
+
+.post-breadcrumb {
+  font-style: normal;
+  font-size: 18px;
+  color: #333;
+}
+
+.post-breadcrumb .ais-Highlight {
+  font-weight: bold;
+  font-style: normal;
+  color: #0076df;
+}
+
+.post-snippet .ais-Highlight {
+  color: #0076df;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.post-snippet img {
+  display: none;
+}
+</style>
+
+</body>
+</html>

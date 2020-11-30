@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Distributed Systems &#8211; Tiger Shen</title>
+    <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Lecture notes from Bradfield's distributed systems class">
+    <meta name="robots" content="all">
+    <meta name="author" content="Tiger Shen">
+    
+    <meta name="keywords" content="">
+    <link rel="canonical" href="http://tigerthinks.com/2017/03/26/bradfield-distributed-systems/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for Tiger Shen" href="/feed.xml" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/pixyll.css?202011300937" type="text/css">
+
+    <!-- Fonts -->
+    
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&amp;subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300&amp;subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    
+    
+
+    <!-- MathJax -->
+    
+    <script type="text/javascript" async
+        src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+
+    <!-- Verifications -->
+    
+    
+
+    <!-- Open Graph -->
+    <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Distributed Systems">
+    <meta property="og:description" content="Tiger Shen">
+    <meta property="og:url" content="http://tigerthinks.com/2017/03/26/bradfield-distributed-systems/">
+    <meta property="og:site_name" content="Tiger Shen">
+    
+    <meta property="og:image" content="http://tigerthinks.com/images/me.jpg">
+    
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    
+    <meta name="twitter:title" content="Distributed Systems" />
+    <meta name="twitter:description" content="Lecture notes from Bradfield's distributed systems class" />
+    <meta name="twitter:url" content="http://tigerthinks.com/2017/03/26/bradfield-distributed-systems/" />
+    
+    <meta name="twitter:image" content="http://tigerthinks.com/images/me.jpeg" />
+    
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    
+</head>
+
+
+<body>
+  
+  
+
+  <div class="site-wrap">
+    <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="http://tigerthinks.com/" class="site-title">Tiger Shen</a>
+      <nav class="site-nav">
+        <a href="/blog">
+  Personal
+</a>
+
+<a href="/tech-blog">
+  Tech
+</a>
+
+<a href="/anki">
+  Anki
+</a>
+
+<a href="#">
+  |
+</a>
+
+<a href="/books/top">
+  Books (43)
+</a>
+
+<a href="/articles/top">
+  Articles (119)
+</a>
+
+<a href="/other/top">
+  Other (151)
+</a>
+
+      </nav>
+      <div class="clearfix"></div>
+      
+
+      <span id="search-searchbar"></span>
+
+    </div>
+  </div>
+</header>
+
+
+    <div class="post p2 p-responsive wrap" role="main">
+      <div class="measure">
+        <div class="post-list" id="search-hits">
+        </div>
+
+        <div id="content">
+          
+
+
+<div class="post-header mb2">
+  <h1>
+    
+    <div class="clearfix mxn2">
+      <div class="col col-2 sm-col-12 px2">
+        <img class="inline" src="/images//courses/bradfield.png" alt="Book Cover">
+
+      </div>
+      <div class="col col-10 sm-col-12 px2">
+        Distributed Systems
+      </div>
+    </div>
+    
+  </h1>
+  <div class="tags">
+  
+    <a href="/course" class="badge badge-blue-grey-base">course</a>
+  
+    <a href="/technical" class="badge badge-deep-orange-base">technical</a>
+  
+    <a href="/cs" class="badge badge-deep-orange-100">cs</a>
+  
+    <a href="/bradfield" class="badge badge-amber-a200">bradfield</a>
+  
+</div>
+
+  <span class="post-meta">By Bradfield | <a target="_blank" href="https://bradfieldcs.com/courses/distributed-systems/">Course Page</a> | Taken 2017</span><br>
+  
+  <span class="post-meta small">
+  
+    13 minute read
+  
+  </span>
+</div>
+
+<article class="post-content">
+  <b> <img class="emoji" title=":star:" alt=":star:" src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png" height="20" width="20">  <img class="emoji" title=":star:" alt=":star:" src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png" height="20" width="20">  <img class="emoji" title=":star:" alt=":star:" src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png" height="20" width="20">  <img class="emoji" title=":star:" alt=":star:" src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png" height="20" width="20"> </b>
+
+  <h2 id="notes">Notes</h2>
+
+<p>Slides and stuff: http://people.inf.elte.hu/toth_m/osztott_rendszerek_c/</p>
+
+<h3 id="1---introduction-to-distributed-systems">1 - Introduction to Distributed Systems</h3>
+
+<h4 id="tannenbaum-11---12">Tannenbaum 1.1 - 1.2</h4>
+
+<ul>
+  <li>More powerful microprocessors + development of high-speed LANs -&gt; many
+machines cooperating to geet work done</li>
+  <li>
+<em>Distributed system</em>: collection of independent computers that appears
+to its users as a single coherent system
+    <ul>
+      <li>Computers are autonomous</li>
+      <li>Users are dealing with one system</li>
+      <li>Means autonomous components need to collaborate</li>
+    </ul>
+  </li>
+  <li>Characteristics
+    <ul>
+      <li>Differences b/t computers + ways they communicate are hidden from
+users</li>
+      <li>Interaction with system from user perspective is consistent and
+uniform regardless of point of entry</li>
+      <li>Maintenance, single node down, etc. shouldn’t be noticed by user</li>
+    </ul>
+  </li>
+  <li>Goals</li>
+  <li>Make resources easily accessible
+    <ul>
+      <li>Resource: printer, computer, data, web pages, etc.</li>
+      <li>Stuff like e-commerce enabled by this connectivity</li>
+      <li>Connectivity increasing does come with security concerns :/</li>
+    </ul>
+  </li>
+  <li>Reasonably hide fact that resources are distributed across network
+(Transparency)
+    <ul>
+      <li>All types of transparency: access, location, migration, relocation,
+replication, concurrency, failure</li>
+      <li>In conclusion though, transparency is a nice goal but it needs to be
+considered alongside performance and comprehensability</li>
+      <li>Getting full transparency can have a high cost</li>
+    </ul>
+  </li>
+  <li>Open
+    <ul>
+      <li>Offer services according to standard syntax and semantics
+(protocols)</li>
+      <li>Describe interface via Interface Definition Language</li>
+      <li>Interface should be <em>complete</em> and <em>neutral</em>: has everything
+necessary to implement interface, but doesn’t push towards any
+implementation style</li>
+      <li>Should be extensible (add parts easily, run on diff OS or
+filesystem, etc.)</li>
+      <li>Separate policy (rules/implementation) from mechanism (actual thing
+being done), e.g. caching is mechanism, cache usage policy can
+differ</li>
+    </ul>
+  </li>
+  <li>Scalable
+    <ul>
+      <li>Size, geographical, administratively</li>
+      <li>Think about decentralizing services, data, and algorithms for size
+scalability :)</li>
+      <li>Geographic scalability related to size scalability a bit. Need to
+get around the clock/time problem :/</li>
+      <li>Administrative scalability: conflicting situations in all different
+domains, e.g. users installing applets. May not get all the
+permissions they need. Distributed systems need to protect
+themselves from the new domain, new domain needs to protect
+themselves from system. Hard! Need to resolve nontech problems
+(humans, orgs, bleh)</li>
+      <li>How to scale?
+        <ul>
+          <li>Hide communication latencies: try to avoid waiting for remote
+rservice requests as much as possible (do useful work on my side
+while remote request is happening). Async communication</li>
+          <li>Distribution: Split up component into different parts and spread
+parts across system. Hey check out DNS. Root TLDs make tree, all
+the way down the subdomains until you get where you need to go</li>
+          <li>Replication: copy your data. Increase availability and balance
+load. Caching is a type of replication (but decision made by
+client, not server). Leads to consistency problems though :/</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>So many pitfalls!</li>
+  <li>Bad assumptions:
+    <ul>
+      <li>Network is reliable</li>
+      <li>Network is secure</li>
+      <li>Network is homogeneous</li>
+      <li>Topology doesn’t change (ASK)</li>
+      <li>Latency is 0</li>
+      <li>Bandwidth is infinite</li>
+      <li>Transport cost is 0</li>
+      <li>There is one administrator</li>
+    </ul>
+  </li>
+  <li>All of these things don’t come up in nondistributed systems, hence the
+first rule of distributed systems: don’t distribute your systems</li>
+</ul>
+
+<h4 id="lecture">Lecture</h4>
+
+<ul>
+  <li>Distributed system is <em>a collection of parts that communicate slowly
+and unreliably to do work</em>
+</li>
+  <li>Can distribute compute or storage, compute is much more difficult to
+do</li>
+  <li>First rule of distributed compute: don’t distribute your compute</li>
+  <li>
+<em>Open</em>: open for change, open for understanding, publicly</li>
+  <li>When something is <em>transparent</em>, the client isn’t doing the
+configuring (e.g. specifying exactly which port to go to)</li>
+  <li>
+    <p>Communication is tough - almost all Wide-Area Network communication
+happens point to point, but in the cloud a distributed system wants to
+broadcast!</p>
+  </li>
+  <li>
+<em>Cluster</em>: uniform, homogeneous set of nodes</li>
+  <li>
+    <p><em>Grid</em>: non-uniform, heterogeneous set of nodes. You would use maybe
+your own protocol here if you understood the hardware</p>
+  </li>
+  <li>Our networks are gonna be <em>asynchronous</em>: no guarantees about lockstep
+work and stuff</li>
+  <li>Benefit of “immutable” data: you can transfer data between nodes without
+a consequence of overwriting data
+    <ul>
+      <li>Mutable data is not necessarily a performance increase/something you
+do if you don’t care about history! Benefit of immutability is also
+that you’re writing sequentially :). Can garbage collect to free
+space if you don’t care about history</li>
+    </ul>
+  </li>
+  <li>Identity: how do identify data? Want to use them as pointers to
+content
+    <ul>
+      <li>Hard to come up with unique id’s!</li>
+      <li>Useful to be able to order identities</li>
+      <li>Senior engineer question: design an ID scheme
+        <ul>
+          <li>40 bits for time (ms granularity, choose your own epoch!), 14 bits
+for seq num, 10 bits for node id</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Modern regex: takes a linear time and space to match a string</li>
+</ul>
+
+<h3 id="2---communication-models-and-patterns">2 - Communication Models and Patterns</h3>
+
+<h4 id="tannenbaum-41---44">Tannenbaum 4.1 - 4.4</h4>
+
+<ul>
+  <li><em>Interprocess communication is at the heart of all distributed
+systems</em></li>
+  <li>
+<em>Multicasting</em>: general problem of sending data to multiple receivers</li>
+  <li>Want more context on background behind RPC</li>
+  <li>See slides</li>
+</ul>
+
+<h4 id="lecture-1">Lecture</h4>
+
+<ul>
+  <li>Even with TCP (reliable transport), you don’t have reliable
+application transport!</li>
+  <li>
+    <p><em>Framing</em>: you need to wrap a message such that the receiver knows
+when the message is over</p>
+  </li>
+  <li>Messaging patterns</li>
+  <li>Request/Response
+    <ul>
+      <li>Uses background processes as an internal application-level queue for
+messages. Helps with application-level reliability</li>
+      <li>Server replies to the client (conversation)</li>
+    </ul>
+  </li>
+  <li>Push/Pull
+    <ul>
+      <li>Contract: client creates data, drops it on a predetermined sharing
+socket for the server. Client does not actually expect a response
+from the server. Shouting in one direction, not a conversation</li>
+    </ul>
+  </li>
+  <li>Pub/Sub
+    <ul>
+      <li>Pretty much push/pull, but not one to one</li>
+      <li>Binding is what creates the socket in the first place, <em>generally</em>
+that’s the publisher. Nodes that <em>connect</em> later on are generally
+subscribers?</li>
+    </ul>
+  </li>
+  <li>
+    <p>You can describe all of your network communication in a system with
+these three primitives :) don’t get fancier</p>
+  </li>
+  <li>Making a chat protocol</li>
+  <li>Naively: each client needs 3 sockets
+    <ul>
+      <li>One for fetching archive cmsgs (REQUEST)</li>
+      <li>One for sending cmsgs (PUSH)</li>
+      <li>One for subscribing to new cmsgs (SUB)</li>
+    </ul>
+  </li>
+  <li>Server:
+    <ul>
+      <li>Archive (REPLY)</li>
+      <li>ADD MSG (PULL)</li>
+      <li>SEND MSG (PUB)</li>
+    </ul>
+  </li>
+  <li>How to multiplex these onto one socket?</li>
+</ul>
+
+<h3 id="3---consensus-paxos-and-raft">3 - Consensus: Paxos and Raft</h3>
+
+<h4 id="video-introduction-to-raft">Video: Introduction to Raft</h4>
+
+<h5 id="leader-election-demo">Leader Election Demo</h5>
+
+<ul>
+  <li>One leader, elected to begin with, everyone else is a follower</li>
+  <li>Followers wait for heartbeats from leader, if they don’t receive
+within a certain amount of time they time out
+    <ul>
+      <li>At most 1 leader per turn</li>
+    </ul>
+  </li>
+  <li>Every message includes a term number. If you get one ahead of your
+current term, you advance</li>
+  <li>To become a leader, you first vote for yourself in an election, then
+send out “request vote” RPCs to get votes from other servers
+    <ul>
+      <li>If you get a majority you’re the leader for that turn</li>
+    </ul>
+  </li>
+  <li>What if you get split votes?
+    <ul>
+      <li>Two candidates each get half of votes :/</li>
+      <li>Just wait an extra timeout :)
+        <ul>
+          <li>Timeouts are all randomized (like Ethernet, gg)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="log-replication-demo">Log Replication Demo</h5>
+
+<ul>
+  <li>RPC is “append entry” to catch up to log
+    <ul>
+      <li>After caught up to log, RPC is “heartbeat”</li>
+    </ul>
+  </li>
+  <li>
+    <p>Must commit to majority of servers in order to present uniform
+interface to client</p>
+  </li>
+  <li>How to repair inconsistencies?</li>
+  <li>Missing entries: fill in the missing entries if you get an
+append-entry with an index too far ahead. Back up until you match</li>
+  <li>Extraneous entries: blindly overwrite if you hear from a later-on
+leader</li>
+</ul>
+
+<h5 id="safety">Safety</h5>
+
+<ul>
+  <li>Request for votes includes candidate’s last log entry. Don’t grant any
+votes to people with worse logs than you (earlier term, or shorter)</li>
+</ul>
+
+<h4 id="lecture-2">Lecture</h4>
+
+<ul>
+  <li>Configuration for Raft:
+    <ul>
+      <li>Addresses</li>
+      <li>Snapshot of log</li>
+      <li>State machine</li>
+    </ul>
+  </li>
+  <li>Node state:
+    <ul>
+      <li>Log (array of pairs of [term, data])</li>
+    </ul>
+  </li>
+  <li>Out of scope: each node figuring out who else is in the cluster</li>
+  <li>RPC’s can all happen over ZeroMQ req/rep sockets</li>
+  <li>
+<em>Non-Byzantine</em> conditions: all nodes are operating under the same
+policy</li>
+  <li>Term acts as vector clock</li>
+  <li>A term is the length of time of one leadership</li>
+  <li>Each message has unique ID so that you know not to double-play retried
+request to two different leaders</li>
+</ul>
+
+<h3 id="4---naming-and-name-services">4 - Naming and name services</h3>
+
+<h4 id="tannenbaum-51---53">Tannenbaum 5.1 - 5.3</h4>
+
+<ul>
+  <li>See slides in 04_naming</li>
+</ul>
+
+<h4 id="lecture-3">Lecture</h4>
+
+<ul>
+  <li><strong>The entity is the identity</strong></li>
+  <li>Naming anti-patterns:
+    <ul>
+      <li>There is a place for random names/identities - it is better to give
+something a seemingly nonsensical name (esp. if it plays multiple
+roles) than misname it</li>
+      <li>False hierarchies where you don’t need them. As soon as you come up
+with categories you come up with exceptions :/</li>
+    </ul>
+  </li>
+  <li>Gg</li>
+</ul>
+
+<h3 id="5---synchronization-time-and-logical-clocks">5 - Synchronization, time, and logical clocks</h3>
+
+<h4 id="tannenbaum-61---62">Tannenbaum 6.1 - 6.2</h4>
+
+<ul>
+  <li>See slides in 05_synchronization</li>
+  <li>We asking about vector clocks out of order then I guess</li>
+</ul>
+
+<h4 id="lecture-4">Lecture</h4>
+
+<ul>
+  <li>NTP synchronizes real time (universally)
+    <ul>
+      <li>Predicated on belief that there is real time</li>
+    </ul>
+  </li>
+  <li>
+    <p>You also have a quartz crystal thingy not related to your CPU clock
+rate, used to time things locally</p>
+  </li>
+  <li>
+    <p>Realtime operating systems: can run a function every 50ms, <em>on the
+dot</em></p>
+  </li>
+  <li>
+    <p>Causal ordering only matters for multiple machines! Event A fires at 451
+on node X, event B fires at 452 on node Y, depending on event A</p>
+  </li>
+  <li>Vector clocks: each node keeps a map of nodes =&gt; vector clocks. When
+you get an update you update your own vector clock state. Whenever you
+synchronize with someone else, you send along your vector clock</li>
+</ul>
+
+<h3 id="6---replication-and-fault-tolerance-in-depth">6 - Replication and Fault Tolerance in Depth</h3>
+
+<h4 id="tannenbaum-71---73-p273-p295">Tannenbaum 7.1 - 7.3 (p273-p295)</h4>
+
+<ul>
+  <li>See slides</li>
+</ul>
+
+<h4 id="tannenbaum-85---86-p355-p373">Tannenbaum 8.5 - 8.6 (p355-p373)</h4>
+
+<ul>
+  <li>No more slides RIP</li>
+  <li>Hmm okay good stuff</li>
+</ul>
+
+<h4 id="lecture-5">Lecture</h4>
+
+<ul>
+  <li>
+<em>Availability</em>: high availability is all your requests getting good
+latency and succeeding; low availablility is failed requests, slow
+requests. Nothing to do with uptime! Think of a human being -
+responsiveness
+    <ul>
+      <li>What kind of bank would you want? High availability!</li>
+      <li>Alias to responsiveness</li>
+    </ul>
+  </li>
+  <li>
+<em>Reliability</em>: how often a system is up. Can have a highly available
+system (10ms response times) that is not reliable (goes down every 20
+minutes)
+    <ul>
+      <li>Maps to people: reliable person can only do something once a day,
+but they always do it. Bitcoin doesn’t have this kind of guarantee</li>
+      <li>Contract isn’t broken</li>
+    </ul>
+  </li>
+  <li>
+<em>Safety</em>: if a failure occurs, you can’t take the next action. When
+one of the components crashes, you’re not in a dangerous/corrupt state
+    <ul>
+      <li>i.e. in a bungee jumping system, if the failsafes are red, you can’t
+step out onto the plank</li>
+      <li>Unsafe but reliable: there are bugs that can lead to bad stuff, but
+they still do the job</li>
+      <li>Safe: never allows you to enter a bad state</li>
+    </ul>
+  </li>
+  <li>
+<em>Consistency</em>: extent to which nodes agree on state, high consistency
+means you get the same thing when you ask over and over</li>
+  <li>
+<em>Coherency</em>: data that doesn’t make sense according to user-imposed
+constraints
+    <ul>
+      <li>e.g. you add a foreign key constraint but you do a table scan and
+see that it’s violated</li>
+      <li>If a data store violates an application-level constraint, it can
+still be considered safe but it is incoherent</li>
+      <li>Related:
+        <ul>
+          <li>Adherent: believe something despite evidence (not part of one’s
+nature). Glue is adhesive</li>
+          <li>Inherent: built-in (humans have two legs)</li>
+          <li>Coherent: two things fit together. Cohesive is working together
+(Lego)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+<em>Monotonic reads</em>: client never gets data older than what it has
+already received. Can always trust data you received later more tahn
+data you received earlier</li>
+  <li>
+<em>Monotonic writes</em>: guarantee that writes occur in the order that the
+specific client sent them</li>
+  <li>
+    <p><em>Read your writes</em>: you always get what you wrote or something later
+when you write data</p>
+  </li>
+  <li>One phase commit: node who services write just commits data locally</li>
+  <li>Two phase commit: node who services write first sends new data to
+others and waits for acknowledgement of data before doing a hard
+commit. Don’t write until you’re satisfied that enough nodes have
+received the data</li>
+</ul>
+
+<h3 id="7---peer-to-peer-systems">7 - Peer-to-peer systems</h3>
+
+<h4 id="tannenbaum-523">Tannenbaum 5.2.3</h4>
+
+<ul>
+  <li>Got slides from before</li>
+</ul>
+
+<h4 id="chord-a-scalable-peer-to-peer-lookup-service-for-internet-applications">Chord: A Scalable Peer-to-peer Lookup Service for Internet Applications</h4>
+
+<ul>
+  <li>See PDF</li>
+  <li>
+    <h2 id="look-more-into-the-sha-1-collision-thing">Look more into the SHA-1 collision thing</h2>
+  </li>
+</ul>
+
+<h4 id="lecture-6">Lecture</h4>
+
+<ul>
+  <li>Problem with naive modulo hashing algorithm?
+    <ul>
+      <li>Have to re-hash everything if you add/delete a node</li>
+    </ul>
+  </li>
+  <li>Still don’t get Chord, RIP</li>
+</ul>
+
+<h3 id="8---distributed-file-systems">8 - Distributed file systems</h3>
+
+<h4 id="tannenbaum-111---114-p491---513">Tannenbaum 11.1 - 11.4 (p491 - 513)</h4>
+
+<ul>
+  <li>
+    <p>Goal: allow multiple processes to share data over long periods of time
+in a secure and reliable way</p>
+  </li>
+  <li>Client-server is most basic</li>
+  <li>NFS (Network File System) by Sun is widely used
+    <ul>
+      <li>Each NFS server provides standardized view of FS, regardless of its
+internal storage</li>
+    </ul>
+  </li>
+  <li>
+<em>Remote file service</em> model:
+    <ul>
+      <li>Client has interface similar to its local file system, server
+responsible for implementing that interface</li>
+    </ul>
+  </li>
+  <li>
+<em>Upload/download</em> model:
+    <ul>
+      <li>Client accesses locally after downloading from server. E.g. FTP</li>
+    </ul>
+  </li>
+  <li>Ayyah, see slides</li>
+  <li>Okay</li>
+</ul>
+
+<h4 id="lecture-7">Lecture</h4>
+
+<ul>
+  <li>Don’t distribute your files fam
+    <ul>
+      <li>Instead of using files, can we just use flat key-value binary blobs?
+Any kind of smaller set of records?</li>
+    </ul>
+  </li>
+  <li>Only reason to distribute filesystem is that all programs already talk
+the filesystem API</li>
+  <li>The filesystem is made up of <em>inodes and blocks</em>
+    <ul>
+      <li>Blocks are an address and associated byte data (file and directory
+contents)</li>
+    </ul>
+  </li>
+  <li>
+    <p>/tmp is all in-memory :)</p>
+  </li>
+  <li>Distributed filesystems are a bad idea because they break implicit
+contracts by processes expecting certain performance, reliability,
+etc. characteristics of file accesses</li>
+  <li>
+    <p>This changes with NFS v4, which makes you declare explicitly that
+you know you’re using a distributed file system</p>
+  </li>
+  <li>NFS, GFS is client-server model</li>
+  <li>DropBox is download-upload model
+    <ul>
+      <li>Userland process monitors folder, listens to filesystem events from
+kernel, and uploads files to server on file changes</li>
+    </ul>
+  </li>
+  <li>Git is da best distributed file system
+    <ul>
+      <li>Everything is explicit: fetch, push, log, etc</li>
+    </ul>
+  </li>
+  <li>Merkle tree sync</li>
+  <li>Node B wants content from node A, identified with a content hash</li>
+  <li>Content hash isn’t for entire file, it’s for individual block or group
+of blocks</li>
+  <li>This allows you to verify content hash on parts of data without
+downloading the entire file</li>
+  <li>So B asks for block 0 using the content hash of the entire file, A
+sends block 0 <em>along with the entire Merkle tree so B can verify that
+the contents were correct</em>
+    <ul>
+      <li>Optimization: B may already have some hashes because it got and
+verified other data blocks, it can send those to A as well so A
+knows the state</li>
+    </ul>
+  </li>
+  <li>How to represent tree?</li>
+  <li>Use flat in-order tree, which is binary addressable
+    <ul>
+      <li>How sway</li>
+      <li>
+        <h1 id="of-trailing-1s-in-binary-representation-of-indices-is-the-depth-of">of trailing 1s in binary representation of indices is the depth of</h1>
+        <p>that node in the tree</p>
+      </li>
+    </ul>
+  </li>
+  <li>Missing a piece about signing the root of the Merkle tree</li>
+</ul>
+
+<h3 id="9---revision">9 - Revision</h3>
+
+<h4 id="lecture-8">Lecture</h4>
+
+<ul>
+  <li>Implied stuff in what we’ve studied: secure network, trusted nodes
+    <ul>
+      <li>In the Internet this isn’t the case!</li>
+      <li>Intra-distributed systems: Cassandra/Riak/etc.d/Kafka
+        <ul>
+          <li>With ZMQ: super naive! Bare minimum
+            <ul>
+              <li>Why doesn’t this work over the Internet? i.e what we did for our
+chat app</li>
+              <li>Doesn’t scale with TCP sockets; we needed 3! Should try and use one
+per connection</li>
+              <li>Not designed for performance/reliability</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Inter-distributed systems: dat, bittorrent, bitcoin, DNS. Require
+encryption/security
+        <ul>
+          <li>Use gRPC</li>
+        </ul>
+      </li>
+      <li>Make this distinction clearly when you’re dealing with distributed
+systems</li>
+    </ul>
+  </li>
+  <li><em>Encryption is not about security, it’s about verifying that the
+content hasn’t been messed with in the middle (authenticity)</em></li>
+  <li>Important concepts for designing Internet application:
+    <ul>
+      <li>Where are keys?</li>
+      <li>What is signed?</li>
+      <li>How is signature checked</li>
+    </ul>
+  </li>
+  <li>Tor architecture:
+    <ul>
+      <li>All Tor nodes on a single graph</li>
+      <li>You want Silk Road? Distribute any single node’s DNS request across
+multiple nodes</li>
+    </ul>
+  </li>
+  <li>ZeroMQ dealer/router stuff
+    <ul>
+      <li>Multiple clients, multiple servers - proxy in the middle sends xREQ
+and returns xREP to the client, and clients connect directly to the
+proxy</li>
+    </ul>
+  </li>
+  <li>Dealer/router: dealer on every node
+    <ul>
+      <li>Delivering message to dealer socket: it will go to all other dealers</li>
+      <li>Take TCP, add message framing, don’t do anything else</li>
+      <li>Write to dealer, can send random stuff</li>
+    </ul>
+  </li>
+  <li>Router does what? Dealer connects to it, so it prefixes an identity to
+the message
+    <ul>
+      <li>First up, Dealer “greets” router</li>
+    </ul>
+  </li>
+</ul>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="center">
+  <div class="measure">
+    <small>
+      © 2018
+    </small>
+  </div>
+</footer>
+<!-- AnchorJS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.0.0/anchor.min.js"></script>
+<script>
+    anchors.options.visible = 'always';
+    anchors.add('article h2, article h3:not(.no-anchor), article h4:not(.no-anchor), article h5:not(.no-anchor), article h6');
+</script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch-theme-algolia.min.css">
+
+<script>
+const search = instantsearch({
+  appId: 'Q1JJ6NM1UC',
+  indexName: 'tigerthinks',
+  apiKey: '5a99d8bb6e9d1a03163a5eb0d67496e0',
+  searchFunction: function(helper) {
+    const searchHits = document.getElementById("search-hits")
+    const content = document.getElementById("content")
+
+    if (helper.state.query === '') {
+      searchHits.style.display = "none";
+      content.style.display = "block";
+      return;
+    }
+
+    helper.search();
+    searchHits.style.display = "block";
+    content.style.display = "none";
+  },
+  searchParameters: {
+    hitsPerPage: 10
+  }
+});
+
+const hitTemplate = function(hit) {
+  let date = '';
+  if (hit.date) {
+    date = moment.unix(hit.date).format('MMM D, YYYY');
+  }
+
+  let url = `${hit.url}#${hit.anchor}`;
+
+  const title = hit._highlightResult.title.value;
+
+  let breadcrumbs = '';
+  if (hit._highlightResult.headings) {
+    breadcrumbs = hit._highlightResult.headings.map(match => {
+      return `<span class="post-breadcrumb">${match.value}</span>`
+    }).join(' > ')
+  }
+
+  const content = hit._highlightResult.html.value;
+
+  return `
+    <div class="post-item">
+      <span class="post-meta small">${date}</span>
+      <a class="post-link" href="${url}"><h2 class="search-hit-title post-title">${title}</h2></a>
+
+      
+      <a href="${url}" class="post-breadcrumbs"><h5>${breadcrumbs}</h5></a>
+      
+
+      <div class="post-snippet">${content}</div>
+    </div>`;
+}
+
+// Adding searchbar and results widgets
+search.addWidget(
+  instantsearch.widgets.searchBox({
+    container: '#search-searchbar',
+    placeholder: '',
+    poweredBy: true,
+    autofocus: false,
+    cssClasses: {
+      root: 'tigerthinks-searchbar'
+    }
+  })
+);
+
+
+search.addWidget(
+  instantsearch.widgets.hits({
+    container: '#search-hits',
+    templates: {
+      item: hitTemplate
+    }
+  })
+);
+
+// Starting the search
+search.start();
+</script>
+
+<style>
+.ais-search-box {
+  max-width: 100%;
+}
+
+.post-item {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: thin solid #f3f3f3;
+}
+
+.post-link .ais-Highlight {
+  color: #0076df;
+  font-style: normal;
+}
+
+.post-breadcrumbs {
+  font-style: normal;
+  display: block;
+  padding-bottom: 10px;
+  background-image: none !important;
+  color: #333 !important;
+}
+
+.post-breadcrumb {
+  font-style: normal;
+  font-size: 18px;
+  color: #333;
+}
+
+.post-breadcrumb .ais-Highlight {
+  font-weight: bold;
+  font-style: normal;
+  color: #0076df;
+}
+
+.post-snippet .ais-Highlight {
+  color: #0076df;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.post-snippet img {
+  display: none;
+}
+</style>
+
+</body>
+</html>

@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Patterns of Enterprise Application Architecture &#8211; Tiger Shen</title>
+    <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Solid set of backbone concepts for enterprise applications. Many of his ideas have developed a lot since this book was released in 2002 but it strengthened my understanding to see them explained firsthand.">
+    <meta name="robots" content="all">
+    <meta name="author" content="Tiger Shen">
+    
+    <meta name="keywords" content="">
+    <link rel="canonical" href="http://tigerthinks.com/2018/04/18/patterns-of-enterprise-application-architecture/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for Tiger Shen" href="/feed.xml" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/pixyll.css?202011300937" type="text/css">
+
+    <!-- Fonts -->
+    
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&amp;subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300&amp;subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    
+    
+
+    <!-- MathJax -->
+    
+    <script type="text/javascript" async
+        src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+
+    <!-- Verifications -->
+    
+    
+
+    <!-- Open Graph -->
+    <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Patterns of Enterprise Application Architecture">
+    <meta property="og:description" content="Tiger Shen">
+    <meta property="og:url" content="http://tigerthinks.com/2018/04/18/patterns-of-enterprise-application-architecture/">
+    <meta property="og:site_name" content="Tiger Shen">
+    
+    <meta property="og:image" content="http://tigerthinks.com/images/me.jpg">
+    
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    
+    <meta name="twitter:title" content="Patterns of Enterprise Application Architecture" />
+    <meta name="twitter:description" content="Solid set of backbone concepts for enterprise applications. Many of his ideas have developed a lot since this book was released in 2002 but it strengthened my understanding to see them explained firsthand." />
+    <meta name="twitter:url" content="http://tigerthinks.com/2018/04/18/patterns-of-enterprise-application-architecture/" />
+    
+    <meta name="twitter:image" content="http://tigerthinks.com/images/me.jpeg" />
+    
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    
+</head>
+
+
+<body>
+  
+  
+
+  <div class="site-wrap">
+    <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="http://tigerthinks.com/" class="site-title">Tiger Shen</a>
+      <nav class="site-nav">
+        <a href="/blog">
+  Personal
+</a>
+
+<a href="/tech-blog">
+  Tech
+</a>
+
+<a href="/anki">
+  Anki
+</a>
+
+<a href="#">
+  |
+</a>
+
+<a href="/books/top">
+  Books (43)
+</a>
+
+<a href="/articles/top">
+  Articles (119)
+</a>
+
+<a href="/other/top">
+  Other (151)
+</a>
+
+      </nav>
+      <div class="clearfix"></div>
+      
+
+      <span id="search-searchbar"></span>
+
+    </div>
+  </div>
+</header>
+
+
+    <div class="post p2 p-responsive wrap" role="main">
+      <div class="measure">
+        <div class="post-list" id="search-hits">
+        </div>
+
+        <div id="content">
+          
+
+
+<div class="post-header mb2">
+  <h1>
+    
+    <div class="clearfix mxn2">
+      <div class="col col-2 sm-col-12 px2">
+        <img class="inline" src="/images//books/patterns-of-enterprise-application-architecture.jpg" alt="Book Cover" />
+
+      </div>
+      <div class="col col-10 sm-col-12 px2">
+        Patterns of Enterprise Application Architecture
+      </div>
+    </div>
+    
+  </h1>
+  <div class="tags">
+  
+    <a href="/book" class="badge badge-red-base">book</a>
+  
+    <a href="/nonfiction" class="badge badge-light-green-base">nonfiction</a>
+  
+    <a href="/technical" class="badge badge-deep-orange-base">technical</a>
+  
+    <a href="/programming" class="badge badge-lime-200">programming</a>
+  
+    <a href="/architecture" class="badge badge-yellow-200">architecture</a>
+  
+</div>
+
+  <span class="post-meta">By Martin Fowler | <a target="_blank" href=https://www.goodreads.com/book/show/70156.Patterns_of_Enterprise_Application_Architecture>Goodreads Page</a> | 170 pages, 62550 words | Apr 12, 2018</span><br>
+  
+  <span class="post-meta small">
+  
+    5 minute read
+  
+  </span>
+</div>
+
+<article class="post-content">
+  <b>  ★     ★   </b>
+
+  <p><em>TL;DR</em>: Fundamental concepts of enterprise application development.
+While this book dates itself in a lot of areas, the vocabulary and
+concepts it introduces will be quite useful for me moving forward.</p>
+
+<h2 id="notes">Notes</h2>
+
+<p>Note: Only read Part 1 (The Narratives), skipped Part 2 (The Patterns)</p>
+
+<ul>
+  <li><strong>Patterns are useful starting points, but they are not destinations</strong>
+    <ul>
+      <li>Do not be dogmatic about following patterns</li>
+    </ul>
+  </li>
+  <li>An important but often overlooked part of patterns is developing a
+common vocabulary</li>
+  <li>“Architecture” is overblown. Used primarily to draw attention. “If
+something is easier to change than you thought before, it is no longer
+architectural”.
+    <ul>
+      <li>Weird second point to make here, my understanding is that
+flexibility is a big part of architectural decisionmaking. If you
+find something easier to change later, then perhaps you optimized
+for the correct things architecturally.</li>
+    </ul>
+  </li>
+  <li><strong>Business logic</strong>: an oxymoron, since nothing is logical in business</li>
+  <li>Impact of architectural decisions: “If a system has business benefits,
+delaying those benefits costs money. However, you don’t want to make
+decisions now that hamper future growth. But if you add it now and get
+it wrong, the complexity added for flexibility’s sake may actually
+make it harder to evolve in the future.”</li>
+  <li>Performance vocab:
+    <ul>
+      <li><strong>Response time</strong>: total time it takes to process a request from the
+outside</li>
+      <li><strong>Responsiveness</strong>: amount of time it takes a system to acknowledge
+a request (as opposed to processing it)</li>
+      <li><strong>Latency</strong>: minimum time required to get any form of response from
+system</li>
+      <li><strong>Throughput</strong>: how much stuff you can do in a given amount of time</li>
+      <li><strong>Performance</strong>: either throughput or response time – whichever
+matters more to you</li>
+      <li><strong>Load</strong>: description of how much stress a system is under (e.g. how
+many users are currently connected</li>
+      <li><strong>Load sensitivity</strong>: how response time scales with load; if you
+double the load, what factor does response time scale up by?</li>
+      <li><strong>Efficiency</strong>: performance divided by resources</li>
+      <li><strong>Capacity</strong>: maximum effective throughput or load</li>
+      <li><strong>Scalability</strong>: How does adding resources affect performance?
+Scalable = more hardware, more performance without other changes
+        <ul>
+          <li>Build for hardware scalability for maximum flexibility</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="1-layering">1: Layering</h3>
+
+<ul>
+  <li>Canonical example: 5- or 7-layer network stack</li>
+  <li>Benefits of layering:
+    <ul>
+      <li>Understand single layer without knowing about other layers</li>
+      <li>Substitute one layer without affecting other layers</li>
+      <li>Standardization</li>
+    </ul>
+  </li>
+  <li>Downside:
+    <ul>
+      <li>Don’t encapsulate everything well, e.g. if you need a piece of data
+in the UI and the database it needs to exist in every layer in
+between
+        <ul>
+          <li>Hmm how would you avoid this in the first place though</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Generally three primary layers in enterprise application:
+    <ul>
+      <li><strong>Presentation</strong>
+        <ul>
+          <li>Domain and data source should never be dependent on presentation
+            <ul>
+              <li>Test: if you add a radically different presentation layer, do
+you have to duplicate logic?</li>
+            </ul>
+          </li>
+          <li>Display info to user, interpret commands from user to pass to
+domain</li>
+        </ul>
+      </li>
+      <li><strong>Domain</strong>
+        <ul>
+          <li>Business logic</li>
+          <li>“Work” application needs to do</li>
+        </ul>
+      </li>
+      <li><strong>Data source</strong>
+        <ul>
+          <li>Generally DB for storing persistent data</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="2-organizing-domain-logic">2: Organizing Domain Logic</h3>
+
+<ul>
+  <li><strong>Active Record</strong>: row data gateway with domain logic (handles model
+actions and data and persistence all together)
+    <ul>
+      <li>Alternative: <strong>Data Mapper</strong> separates persistence from logic
+completely between domain layer and data source</li>
+    </ul>
+  </li>
+  <li><strong>BLOB</strong>: Binary Large OBject (lol)</li>
+</ul>
+
+<h3 id="3-object-relational-mapping">3: Object-Relational Mapping</h3>
+
+<ul>
+  <li><em>“My first choice tends to be STI, as it’s easy to do and is resilient
+to many refactorings. I tend to use the other two (Class table
+Inheritance, Concrete Table Inheritance) as needed to help solve the
+inevitable issues with irrelevant and wasted columns”</em> (47)</li>
+</ul>
+
+<h3 id="4-web-presentation">4: Web Presentation</h3>
+
+<ul>
+  <li>Apply MVC to make sure models are completely separate from
+presentation</li>
+</ul>
+
+<h3 id="5-concurrency">5: Concurrency</h3>
+
+<ul>
+  <li><em>As long as you do all your data manipulation within a transaction,
+nothing really bad will happen to you</em></li>
+  <li>Enterprise application concurrency concerns:
+    <ul>
+      <li><strong>Offline concurrency</strong>: concurrency control for data that’s
+manipulated during multiple database transactions</li>
+      <li>Server concurrency (multi-threading)…easier to deal with, most
+frameworks deal with it for you</li>
+    </ul>
+  </li>
+  <li>Concurrency vocab:
+    <ul>
+      <li><strong>Lost update</strong>: two people check both do work from the same
+starting point, one commits before the other, the first person’s
+work is lost when the second commit happens</li>
+      <li><strong>Inconsistent read</strong>: read two things that are correct but not
+correct at the same time (i.e. two reads five seconds apart that
+happen in the middle of another operation and thus return a bad
+value)</li>
+      <li><strong>Liveness</strong>: how much concurrent activity a system can handle</li>
+    </ul>
+  </li>
+  <li>Execution contexts:
+    <ul>
+      <li><strong>Request</strong>: single call for the outside world which app works on
+and responds to</li>
+      <li><strong>Session</strong>: long-running interaction between client and server (can
+be stateful series of requests)</li>
+      <li><strong>Process</strong>: heavier execution context on the OS with full isolation
+of memory</li>
+      <li><strong>Thread</strong>: lighter execution context on the OS without memory
+isolation</li>
+    </ul>
+  </li>
+  <li>Base techniques:
+    <ul>
+      <li><strong>Isolation</strong>: keep transactions and operations apart from each other</li>
+      <li><strong>Immutability</strong>: immutable data can be confidently shared</li>
+    </ul>
+  </li>
+  <li>Lock types:
+    <ul>
+      <li><strong>Optimistic</strong>: allow concurrent edits, deal with conflicts on
+commit. Conflict detection.</li>
+      <li><strong>Pessimistic</strong>: do not allow concurrent edits. Conflict prevention</li>
+    </ul>
+  </li>
+  <li>ACID transcation:
+    <ul>
+      <li><strong>Atomic</strong>: all or nothing</li>
+      <li><strong>Consistent</strong>: system is in non-corrupt state at beginning and end
+of transaction</li>
+      <li><strong>Isolated</strong>: no other open transactions can see what’s happening in
+an in-progress transaction
+        <ul>
+          <li><strong>Serializable</strong> transactions can be executed concurrently and the
+result is the same as if you’d executed them serially. Always choose
+this isolation level!!</li>
+        </ul>
+      </li>
+      <li><strong>Durable</strong>: result of committed transaction must be permanent</li>
+    </ul>
+  </li>
+  <li>Also need to deal with <strong>business transactions</strong> which occur over the
+course of a session (e.g. an action someone is taking with their
+banking software over multiple UI pages)
+    <ul>
+      <li><strong>Process-per-request</strong> model is good. Scalable and more robust than
+thread per request (single thread can take down entire process).</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="6-session-state">6: Session State</h3>
+
+<ul>
+  <li><strong>Session state</strong> is data that’s only relevant for a particular
+session (distinct from persistent record data)</li>
+  <li>Can store session state on client, server, or database
+    <ul>
+      <li>Only put small amounts of data on client so you don’t have to keep
+passing big things back and forth</li>
+      <li>Database session state is harder to access and hard to keep isolated
+from record data</li>
+      <li>Server session state is good for most things</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="7-dsitribution-strategies">7: Dsitribution Strategies</h3>
+
+<ul>
+  <li><strong>First Law of Distributed Object Design: Don’t distribute your
+objects</strong></li>
+</ul>
+
+<h3 id="8-putting-it-all-together">8: Putting It All Together</h3>
+
+<ul>
+  <li>Meta good practices. Nice.
+    <ul>
+      <li>CI</li>
+      <li>TDD</li>
+      <li>Refactoring</li>
+    </ul>
+  </li>
+  <li>Start with the domain layer. This is the most imporatnt piece of the
+system. Lean towards using <strong>domain model</strong></li>
+</ul>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="center">
+  <div class="measure">
+    <small>
+      © 2018
+    </small>
+  </div>
+</footer>
+<!-- AnchorJS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.0.0/anchor.min.js"></script>
+<script>
+    anchors.options.visible = 'always';
+    anchors.add('article h2, article h3:not(.no-anchor), article h4:not(.no-anchor), article h5:not(.no-anchor), article h6');
+</script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch-theme-algolia.min.css">
+
+<script>
+const search = instantsearch({
+  appId: 'Q1JJ6NM1UC',
+  indexName: 'tigerthinks',
+  apiKey: '5a99d8bb6e9d1a03163a5eb0d67496e0',
+  searchFunction: function(helper) {
+    const searchHits = document.getElementById("search-hits")
+    const content = document.getElementById("content")
+
+    if (helper.state.query === '') {
+      searchHits.style.display = "none";
+      content.style.display = "block";
+      return;
+    }
+
+    helper.search();
+    searchHits.style.display = "block";
+    content.style.display = "none";
+  },
+  searchParameters: {
+    hitsPerPage: 10
+  }
+});
+
+const hitTemplate = function(hit) {
+  let date = '';
+  if (hit.date) {
+    date = moment.unix(hit.date).format('MMM D, YYYY');
+  }
+
+  let url = `${hit.url}#${hit.anchor}`;
+
+  const title = hit._highlightResult.title.value;
+
+  let breadcrumbs = '';
+  if (hit._highlightResult.headings) {
+    breadcrumbs = hit._highlightResult.headings.map(match => {
+      return `<span class="post-breadcrumb">${match.value}</span>`
+    }).join(' > ')
+  }
+
+  const content = hit._highlightResult.html.value;
+
+  return `
+    <div class="post-item">
+      <span class="post-meta small">${date}</span>
+      <a class="post-link" href="${url}"><h2 class="search-hit-title post-title">${title}</h2></a>
+
+      
+      <a href="${url}" class="post-breadcrumbs"><h5>${breadcrumbs}</h5></a>
+      
+
+      <div class="post-snippet">${content}</div>
+    </div>`;
+}
+
+// Adding searchbar and results widgets
+search.addWidget(
+  instantsearch.widgets.searchBox({
+    container: '#search-searchbar',
+    placeholder: '',
+    poweredBy: true,
+    autofocus: false,
+    cssClasses: {
+      root: 'tigerthinks-searchbar'
+    }
+  })
+);
+
+
+search.addWidget(
+  instantsearch.widgets.hits({
+    container: '#search-hits',
+    templates: {
+      item: hitTemplate
+    }
+  })
+);
+
+// Starting the search
+search.start();
+</script>
+
+<style>
+.ais-search-box {
+  max-width: 100%;
+}
+
+.post-item {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: thin solid #f3f3f3;
+}
+
+.post-link .ais-Highlight {
+  color: #0076df;
+  font-style: normal;
+}
+
+.post-breadcrumbs {
+  font-style: normal;
+  display: block;
+  padding-bottom: 10px;
+  background-image: none !important;
+  color: #333 !important;
+}
+
+.post-breadcrumb {
+  font-style: normal;
+  font-size: 18px;
+  color: #333;
+}
+
+.post-breadcrumb .ais-Highlight {
+  font-weight: bold;
+  font-style: normal;
+  color: #0076df;
+}
+
+.post-snippet .ais-Highlight {
+  color: #0076df;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.post-snippet img {
+  display: none;
+}
+</style>
+
+</body>
+</html>

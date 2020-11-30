@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Computer Networking &#8211; Tiger Shen</title>
+    <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Lecture notes from Bradfield's networking class">
+    <meta name="robots" content="all">
+    <meta name="author" content="Tiger Shen">
+    
+    <meta name="keywords" content="">
+    <link rel="canonical" href="http://tigerthinks.com/2017/03/26/bradfield-networking/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for Tiger Shen" href="/feed.xml" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/pixyll.css?202011300937" type="text/css">
+
+    <!-- Fonts -->
+    
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&amp;subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300&amp;subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    
+    
+
+    <!-- MathJax -->
+    
+    <script type="text/javascript" async
+        src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+
+    <!-- Verifications -->
+    
+    
+
+    <!-- Open Graph -->
+    <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Computer Networking">
+    <meta property="og:description" content="Tiger Shen">
+    <meta property="og:url" content="http://tigerthinks.com/2017/03/26/bradfield-networking/">
+    <meta property="og:site_name" content="Tiger Shen">
+    
+    <meta property="og:image" content="http://tigerthinks.com/images/me.jpg">
+    
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    
+    <meta name="twitter:title" content="Computer Networking" />
+    <meta name="twitter:description" content="Lecture notes from Bradfield's networking class" />
+    <meta name="twitter:url" content="http://tigerthinks.com/2017/03/26/bradfield-networking/" />
+    
+    <meta name="twitter:image" content="http://tigerthinks.com/images/me.jpeg" />
+    
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    
+</head>
+
+
+<body>
+  
+  
+
+  <div class="site-wrap">
+    <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="http://tigerthinks.com/" class="site-title">Tiger Shen</a>
+      <nav class="site-nav">
+        <a href="/blog">
+  Personal
+</a>
+
+<a href="/tech-blog">
+  Tech
+</a>
+
+<a href="/anki">
+  Anki
+</a>
+
+<a href="#">
+  |
+</a>
+
+<a href="/books/top">
+  Books (43)
+</a>
+
+<a href="/articles/top">
+  Articles (119)
+</a>
+
+<a href="/other/top">
+  Other (151)
+</a>
+
+      </nav>
+      <div class="clearfix"></div>
+      
+
+      <span id="search-searchbar"></span>
+
+    </div>
+  </div>
+</header>
+
+
+    <div class="post p2 p-responsive wrap" role="main">
+      <div class="measure">
+        <div class="post-list" id="search-hits">
+        </div>
+
+        <div id="content">
+          
+
+
+<div class="post-header mb2">
+  <h1>
+    
+    <div class="clearfix mxn2">
+      <div class="col col-2 sm-col-12 px2">
+        <img class="inline" src="/images//courses/bradfield.png" alt="Book Cover">
+
+      </div>
+      <div class="col col-10 sm-col-12 px2">
+        Computer Networking
+      </div>
+    </div>
+    
+  </h1>
+  <div class="tags">
+  
+    <a href="/course" class="badge badge-blue-grey-base">course</a>
+  
+    <a href="/technical" class="badge badge-deep-orange-base">technical</a>
+  
+    <a href="/programming" class="badge badge-lime-200">programming</a>
+  
+    <a href="/cs" class="badge badge-deep-orange-100">cs</a>
+  
+    <a href="/bradfield" class="badge badge-amber-a200">bradfield</a>
+  
+</div>
+
+  <span class="post-meta">By Bradfield | <a target="_blank" href="https://bradfieldcs.com/courses/networking/">Course Page</a> | Taken 2017</span><br>
+  
+  <span class="post-meta small">
+  
+    17 minute read
+  
+  </span>
+</div>
+
+<article class="post-content">
+  <b> <img class="emoji" title=":star:" alt=":star:" src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png" height="20" width="20">  <img class="emoji" title=":star:" alt=":star:" src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png" height="20" width="20">  <img class="emoji" title=":star:" alt=":star:" src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png" height="20" width="20">  <img class="emoji" title=":star:" alt=":star:" src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png" height="20" width="20">  <img class="emoji" title=":star:" alt=":star:" src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png" height="20" width="20"> </b>
+
+  <h2 id="notes">Notes</h2>
+
+<h3 id="misc">Misc</h3>
+
+<ul>
+  <li>Book PDFs: https://people.cs.clemson.edu/~jmarty/courses/kurose/</li>
+  <li>More: http://jpkc.ncwu.edu.cn/jsjwl/zjxx.asp?id=2</li>
+  <li>Slides: https://people.cs.clemson.edu/~jmarty/courses/kurose/</li>
+</ul>
+
+<h3 id="1-the-big-picture-layers-of-protocols">1: The big picture: layers of protocols</h3>
+
+<h4 id="kr-ch-1-computer-networks-and-the-internet">K&amp;R Ch 1: Computer Networks and the Internet</h4>
+
+<ul>
+  <li>Start at the Internet and go down into the links and switches</li>
+  <li>
+    <p>After survey of implementations, look at things more abstractly -
+models for throughput, delay, transmission, propagation, queueing,
+architecting, etc.</p>
+  </li>
+  <li>Nuts and bolts of Internet</li>
+  <li>Internet is a network that interconnects a bunch of devices all over
+the world</li>
+  <li>Each device is a <em>host</em>
+</li>
+  <li>Connections made by <em>communication links</em> (cables, wires, fibers,
+etc., each with different transmission rates) and <em>packet switches</em>
+(takes a packet arriving on communication link and forwards packet on an
+outgoing communication link)</li>
+  <li>Commonest packet switchers are <em>routers</em> (in network core) and
+<em>link-layer switches</em> (in access networks)</li>
+  <li>Sequence of communication links and packet switches from start to end
+is the <em>route</em> through the network</li>
+  <li>Mental model: similar to networks of highways, roads, intersections.
+Packets are trucks, links are highways/roads, switches are
+intersections, end systems are buildings</li>
+  <li>Each ISP (internet service provider) is a network of switches and
+links. Conform to conventions so that they can all access internet
+similar way</li>
+  <li>Protocols control send/receive info. TCP (Transmission Control) and IP
+(Internet) are very important. Together, TCP/IP</li>
+  <li>
+    <p>Standards come from the IETF (Internet Engineering Task Force), whose
+RFCs define protocols and stuff</p>
+  </li>
+  <li>Services of Internet</li>
+  <li>It’s an infrastructure that provides services to applications like web
+apps, social networks, IMs, etc.</li>
+  <li>How do these apps communicate? By following an API (Application
+Programming Interface). Set of rules that sending program mnust follow
+so that the Internet can deliver data to the destination program
+    <ul>
+      <li>Postal service API: stamp, from address, return address, post
+office, etc.</li>
+    </ul>
+  </li>
+  <li>Protocols</li>
+  <li>Human analogy: when meeting someone, “Hi how are you my name is
+Tiger”, etc etc.</li>
+  <li>There are specific messages we send and actions we take in response to
+the received reply messages or other events (like no reply)</li>
+  <li>Human analogy: “Got a question?” “Yes” “Yay, what is it?”</li>
+  <li>All Internet activity is governed by a protocol. <em>Protocol</em> defines
+the format and order of messages exchanged between two or more
+communicating entities, as well as the actions taken on the transmission
+and/or receipt of a message or other event</li>
+  <li>
+    <p>Mastering networking === understanding what/why/how of protocols</p>
+  </li>
+  <li>What’s on the edge of the network? Hosts and what they immediately
+talk to</li>
+  <li>Hosts can be clients (ask for stuff) and servers (return stuff)</li>
+  <li>
+<em>Access network</em>: network that physically connects edge router (first
+router) on a path from one host to a distant host. Can be home
+network, mobile network, ISP network, or enterprise network</li>
+  <li>DSL (digital subscriber line) piggybacks off the telephone company’s
+access, at different frequencies</li>
+  <li>Cable internet access piggybacks off of the cable TV company’s
+infrastructure. Bit faster. Shared network, so it’s slow if everyone’s
+downloading video files at the same time</li>
+  <li>Ethernet is a switch that is custom and connected to internet. Common
+for corporate/university/home networks</li>
+  <li>Finally, wireless LAN connects to access point that is in turn
+connected to the wired internet. Based on 802.11 tech, more
+colloquially known as WiFi</li>
+  <li>
+    <p>Wide-area access in the form of 3G and LTE. Use same tech as cell
+phones to send/receive packets through cell towers</p>
+  </li>
+  <li>Overview of physical media</li>
+  <li>Whenever you go from transmitter to receiver, you go through physical
+medium</li>
+  <li>Guided media: waves guided along solid medium. Fiber, twister-pair
+copper wire, coaxial cable</li>
+  <li>Unguided media: waves propagate in the atmosphere and outer space,
+such as in wireless communication</li>
+  <li>Cost of materials dwarfed by cost of labor, so in buildings you’ll lay
+down all three of twisted pair, fiber, and coaxial just in case
+another gets used in the future</li>
+  <li>Twister-pair copper: least expensive, most common, used by phones. Up
+to 10Gbps</li>
+  <li>Coaxial: used in cable TV. Shared medium</li>
+  <li>Fiber optics: up to hundreds of gigabits per second. Immune to
+electromagnetic interference, used for overseas links and stuff. Cost
+a lot tho</li>
+  <li>
+    <p>Satellites and terrestrial radio channels don’t require physical wire
+to be installed, can receive signals over the air</p>
+  </li>
+  <li>Okay, now the core of the network</li>
+  <li>Packet switching</li>
+  <li>Message broken down by source into chunks called packets</li>
+  <li>Packets transmitted as fast as the communication link can do it</li>
+  <li>
+<em>store-and-forward</em>: packet switch waits until it has the entire
+packet before it begins transmitting it</li>
+  <li>Each switch has an output buffer for each attached link. This stores
+packets while the link is busy. Output buffer time is a <em>queuing
+delay</em>
+</li>
+  <li>If you get new packet and output buffer is full, oops you got packet
+loss</li>
+  <li>How does router know which link to forward packet onto? Each router
+has a forwarding table that maps destination addresses (or portions of
+them) to the outbound links. When packet arrives, router examines the
+destination and forwards to correct outbound link
+    <ul>
+      <li>Analogy: car driver that keeps asking for directions of more and
+more specific parts of his destination address (Florida -&gt; Orlando
+-&gt; 145 Lakeside Dr)</li>
+    </ul>
+  </li>
+  <li>How are forwarding tables set? Using the Internet’s standard routing
+protocols. Use shortest path or something</li>
+  <li>
+    <p>Packet switching is how internet operates</p>
+  </li>
+  <li>Circuit switching e.g. for telephone lines. Analogous to making a
+reservation at restaurant so you have dedicated space (vs. packet
+switching using available resources)</li>
+  <li>Packet switchers say it makes better use of resources and is easier to
+implement
+    <ul>
+      <li>Way more resource efficient!</li>
+    </ul>
+  </li>
+  <li>Packet switchers say circuit switching is wasteful during dead periods</li>
+  <li>
+    <p>Circuit switchers say packet switchers can’t do real time stuff b/c
+it’s unreliable</p>
+  </li>
+  <li>Where are we now? <em>The internet is a network of networks.</em> Gotta
+connect everyone to everyone else!</li>
+  <li>Build up from the bottom!</li>
+  <li>https://gyazo.com/d1d1155212f7f875754566fbf96ab207</li>
+  <li>
+    <p>Consists of a dozen or so tier-1 ISPs and hundreds of thousands of
+lower-tier ISPs. They have diverse coverage all over the globe. Low
+tier ISPs connect to higher tier ISPs, which interconnect to one
+another. Users are customers of lower-tier ISPs, who are customers of
+higher-tier ISPs. Sometimes the Googles of the world also create their
+own networks and connect to lower-tier ISPs</p>
+  </li>
+  <li>Delay/loss/throughput in packet switching :’(</li>
+  <li>
+    <p>Constraints make it so that we can’t always have the throughput we
+want</p>
+  </li>
+  <li>How do you get delayed?</li>
+  <li>Nodal processing: time to examine packet header and determine where to
+direct packet, error checking. Microseconds. Negligible</li>
+  <li>Queuing: wait for space on the outbound link. Micro to milliseconds.
+If traffic arrive much faster than output speed, this is large.
+    <ul>
+      <li>
+<em>Traffic intensity</em>: average rate at which bits arrive divided by
+the transmission rate</li>
+      <li>Don’t have traffic intensity greater than 1! Exponential curve as
+traffic intensity approaches 1 too, so be carefuls</li>
+      <li>Higher traffic intensity = packet loss = sad face</li>
+    </ul>
+  </li>
+  <li>Transmission: time to push all packet’s bits from switch onto link.
+Micro to milliseconds. Can be significant if slow link</li>
+  <li>Propagation: time to move along the link. Supertiny, speed of light
+often? if a long area though, can be milliseconds. Longer for further
+away stuff</li>
+  <li>All of these make up the total nodal delay. Get a feel for how much
+each of them affect things</li>
+  <li>
+    <p>Total end-to-end delay is nodal delay for allll of the nodes in the
+path</p>
+  </li>
+  <li>
+    <p>Traceroute used to see your network path. Sends special packets that
+get a return message from every router along the way, so you can build
+up the path you took to get to your destination</p>
+  </li>
+  <li>
+    <p>Some stuff on network constraints. Today, it’s generally the access
+network that creates a bottleneck because of lower capacity</p>
+  </li>
+  <li>
+    <p>Okay, lots of words</p>
+  </li>
+  <li>Protocol layers and service models. Important!</li>
+  <li>Layers is best way to conceptualize complex systems</li>
+  <li>Analogy of traveling by plane</li>
+  <li>Layers are ticket, baggage, gate, takeoff/landing, and airplane
+routing. Each layer implements some functionality or service. Each
+layer has stuff happen below it that brings it back to that layer</li>
+  <li>Okay, now bring back to networking</li>
+  <li>Each network protocol belongs to a layer. What’s important is the
+<em>service model</em> of a layer: what service does the layer offer to the
+layer above it?</li>
+  <li>
+    <p>Layer performs service via actions and using services of layer below
+it</p>
+  </li>
+  <li>
+<em>Five layers</em>: Application &gt; Transport &gt; Network &gt; Link &gt; Physical</li>
+  <li>Application and transport in softwaare, link and physical in hardware,
+network is mixed</li>
+  <li>All of these layers are distributed across hosts. One piece of each of
+these layers found in hosts</li>
+  <li>Together, this is the protocol stack</li>
+  <li>Application: HTTP/SMTP/FTP. Distributed over multiple hosts, protocol
+used to exchange messages with application layer in another host</li>
+  <li>Transport: transport application-layer messages between endpoints. TCP
+and UDP. A transport-layer packet is a segment. TCP important for
+reliability and sequencing and throttling. Doesn’t solve security. UDP
+has no reliability or sequencing or throttling. UDP is basically IP with
+the ability to address ports. UDP used for stuff like streaming games
+and video</li>
+  <li>Network: move network-layer packets (datagrams) from one host to
+another. Takes a transport-layer segment and a destination address
+from transport layer, then provides the service of delivering segment to
+transport layer in the destination host. Generally uses IP here</li>
+  <li>Link: routes datagram through routers between source and destination.
+At each node, network layer passes datagram to link layer, which
+delivers datagram to the next node along the route. They differ -
+could be Ethernet, WiFi, custom cable protocol. Link layer packets are
+<em>frames</em>
+</li>
+  <li>Physical: move individual bits within a link layer frame from one node
+to the next. Dependent on which link layer is used. Depend on the
+actual physical medium as well. E.g. ethernet has a protocol for each
+physical layer - copper wire, coax, fiber, etc.</li>
+  <li>
+    <p>OSI model has two additional layers: presentation and session. If an
+app developer needs these for the Internet, they gotta build them into
+the application</p>
+  </li>
+  <li>
+    <p>Encapsulation is important. Applicatio-layer message sent to transport
+layer, which adds some information so it becomes a transport-layer
+segment. Thus, the segment encapsulates the message. Datagram
+encapsulates segment, and frame encapsulates datagram. Each layer adds
+its own headers</p>
+  </li>
+  <li>Shpeel on some security stuff. What can go wrong?</li>
+  <li>Malware can come across the Internet and do bad stuff to our device</li>
+  <li>Maybe it becomes part of a botnet, which is a bunch of devices
+controlled by bad guys to send spam or something</li>
+  <li>
+<em>Viruses</em> require some kind of user interaction to infect device.
+<em>Worms</em> can get in without user interaction (e.g. you’re on a bad
+network and stuff gets in the side door)</li>
+  <li>DDos: make a host unusable by legitimate users by slamming it with
+traffic
+    <ul>
+      <li>Vulnerability: send carefully-formed messages to a host to make it
+crash</li>
+      <li>Bandwidth flooding: send a shitt on of traffic so the host can’t
+keep up</li>
+      <li>Connection flooding: lots of half-open or slow TCP connections
+established, host too bogged down to accept real traffic</li>
+    </ul>
+  </li>
+  <li>Packet sniffers can listen on your router or something and copies all
+the packets that flow through. Can deconstruct those later to see if
+there’s anything useful</li>
+  <li>
+    <p>Spooky</p>
+  </li>
+  <li>Okay time for some history</li>
+  <li>Packet switching as an alternative to circuit switching came up in the
+60s. ARPANet also conceived with packet switchers. By 1972 ARPAnet had
+15 nodes and was demo’d. It was a single, closed network</li>
+  <li>Now in the 70s lots more networks from lots more places</li>
+  <li>TCP, UDP, IP concepts in place by end of 70s. Ethernet protocol as
+well</li>
+  <li>In the 80s, more stuff developed, ARPANet grew. French Minitel was a
+public packet-switched network that a bunch of French people had and
+that had a decent amount of good stuff</li>
+  <li>
+    <p>Internet explodes in the 90s. Invented by da god Tim Berners-Lee.
+Developed HTML, HTTP, web server, and browser. We get email, the web,
+IMs, p2p file share. A ton of shit now of course</p>
+  </li>
+  <li>Summary time</li>
+  <li>Lots of stuff in the Internet</li>
+  <li>Edge of the network: end systems, applications, and the service
+provided to those applications
+    <ul>
+      <li>Link and physical media in the access network: routers, cables, and
+such</li>
+    </ul>
+  </li>
+  <li>Now in the core, we’ve got different switches and the
+network-of-networks concept</li>
+  <li>Then we got to delays/throughput/packet loss</li>
+  <li>
+<em>Key</em> architectural principles of protocol layering and service models</li>
+</ul>
+
+<h4 id="lecture">Lecture</h4>
+
+<ul>
+  <li>OS abstractions for communication</li>
+  <li>File: file descriptor, basic read/write/offset functionality.
+Permanent storage. Seekable - you can jump around at different offsets</li>
+  <li>Pipe: returns two file descriptors, one for reading and one for
+writing. When you write to one the bytes are available for reading on
+the other end. No offset, once you read stuff it’s gone</li>
+  <li>Socket: Unix Domain Socket. Server process can bind to a socket address (e.g.
+/tmp/postgres.5123). Now clients can interact with that socket, and
+they get a r/w file descriptor to interface with
+    <ul>
+      <li>Like a phone call, cool</li>
+      <li>Does NOT specify connector vs. listener as client vs. server</li>
+      <li>The connector is usually the client, but doesn’t have to be. It can
+make a connection and then serve requests. K. Connector/listener are
+fundamental roles, client/server are “technical”, implemented roles</li>
+    </ul>
+  </li>
+  <li>More history</li>
+  <li>
+    <p>Military needs to connect stuff better, relay stuff</p>
+  </li>
+  <li>
+    <p>Why is there a need for layers above IP? No security, no reliability</p>
+  </li>
+  <li>Kernel is between the application and transport layers</li>
+  <li>
+    <p>SSL sits between application and transport, but don’t write your own.
+Use a reliable one instead</p>
+  </li>
+  <li>Use <code class="language-plaintext highlighter-rouge">file</code> to get file info for binary</li>
+</ul>
+
+<h3 id="2---application-layer-http">2 - Application Layer: HTTP</h3>
+
+<h4 id="kr-21---22">K&amp;R 2.1 - 2.2</h4>
+
+<ul>
+  <li>See slides</li>
+</ul>
+
+<h4 id="lecture-1">Lecture</h4>
+
+<ul>
+  <li>Why is text bad?</li>
+  <li>Parsing sucks</li>
+  <li>Wasted space</li>
+  <li>How do you transmit non-text??
+    <ul>
+      <li>Content-Type: octet-stream</li>
+      <li>Base64 encoding</li>
+    </ul>
+  </li>
+  <li>
+    <p>Upside: human-parseable. -_-</p>
+  </li>
+  <li>Alternatives to request/response (HTTP model)</li>
+  <li>push/pull: client pushes messages onto a stream, many hosts pull from
+the stream</li>
+  <li>
+    <p>pub/sub: server publishes to a stream where the client is subscribed
+and can pull stuff off</p>
+  </li>
+  <li>Why do you need to include the Host header? Isn’t it redundant?</li>
+  <li>Two ppl sharing a webserver and IP address</li>
+</ul>
+
+<h3 id="3---application-layer-dns-ftp-smtp-etc">3 - Application Layer: DNS, FTP, SMTP, etc.</h3>
+
+<h4 id="kr-23---25">K&amp;R 2.3 - 2.5</h4>
+
+<ul>
+  <li>See slides</li>
+</ul>
+
+<h4 id="lecture-2">Lecture</h4>
+
+<ul>
+  <li>What does DNS solve? People have a bunch of addresses but the
+addresses keep changing (they’re treated like home addresses), so we
+need a way to map names onto addresses</li>
+  <li>What is DNS? It’s a protocol for a distributed database</li>
+  <li>No forced cache invalidation is a tradeoff</li>
+  <li>Feature: extensible record types (hierarchical)</li>
+  <li>
+    <p>Who has authority?</p>
+  </li>
+  <li>
+    <p>There’s one root DB, but it pretty much just has NS records for the
+TLD’s</p>
+  </li>
+  <li>
+    <p>Dig is for looking at DNS</p>
+  </li>
+  <li>DNS requests happen in parallel with HTTP. Uses UDP because everything
+fits in one packet</li>
+</ul>
+
+<h3 id="4---transport-layer-tcp-and-udp">4 - Transport Layer: TCP and UDP</h3>
+
+<h4 id="kr-ch-3">K&amp;R Ch 3</h4>
+
+<ul>
+  <li>See slides</li>
+</ul>
+
+<h4 id="lecture-3">Lecture</h4>
+
+<ul>
+  <li>
+    <p>UDP always needs to fill source port field</p>
+  </li>
+  <li>SYN flood by forcing server to allocate a ton of resources that’ll
+never be used</li>
+  <li>Fix with Syn cookie - on initial SYN, don’t allocate anything, make a
+cookie. This cookie needs to come on the next ACK (since it’s on the
+SYN of the SYN ACK response) or else you won’t actually allocate resources</li>
+</ul>
+
+<h3 id="5---network-layer-ip">5 - Network Layer: IP</h3>
+
+<h4 id="kr-ch-4">K&amp;R Ch 4</h4>
+
+<ul>
+  <li>See slides</li>
+</ul>
+
+<h4 id="lecture-4">Lecture</h4>
+
+<ul>
+  <li>How does a router’s forwarding table get established?</li>
+  <li>Procedures convert routing algorithm into forwarding table at each
+router</li>
+  <li>Why have a “transport protocol layer” in the IP datagram header? So
+you know which code to jump to after parsing out the IP header!</li>
+  <li>
+<em>Risk-based</em> problem-solving: where’s the biggest risk? Can I mitigate
+that first? If I can’t, there’s no point in continuing</li>
+</ul>
+
+<h3 id="6---link-layer-ethernet">6 - Link Layer: Ethernet</h3>
+
+<h4 id="kr-ch-5">K&amp;R Ch 5</h4>
+
+<ul>
+  <li>See slides</li>
+</ul>
+
+<h4 id="lecture-5">Lecture</h4>
+
+<ul>
+  <li>Didn’t go over much, there was a wireshark lab. See mostly stuff in
+slides. This is a protocol that operates over hardware /shrug</li>
+</ul>
+
+<h3 id="7---multimedia-streaming-and-realtime-communication">7 - Multimedia streaming and realtime communication</h3>
+
+<h4 id="kr-ch-7">K&amp;R Ch 7</h4>
+
+<ul>
+  <li>See slides</li>
+</ul>
+
+<h4 id="lecture-6">Lecture</h4>
+
+<ul>
+  <li>Switching adds less noise to hubs, because not everything is broadcast</li>
+  <li>MAC address can identify a node as being on a specific VLAN</li>
+  <li>VLAN makes it even quieter, need specific translators between VLANs
+though</li>
+  <li>VPN tries to interpose one network over a set of other subnets, okay</li>
+  <li>
+    <p>If you TCP connect to a VPN, you can send requests from that VPN and
+it looks like your computer is just having one TCP connection /shrug</p>
+  </li>
+  <li>Streaming stored video time</li>
+  <li>TCP control channel for stuff like “start halfway through, send at
+this rate”, UDP channel for the actual data</li>
+</ul>
+
+<h3 id="8---security">8 - Security</h3>
+
+<h4 id="kr-ch-8">K&amp;R Ch 8</h4>
+
+<ul>
+  <li>See slides</li>
+</ul>
+
+<h4 id="lecture-7">Lecture</h4>
+
+<ul>
+  <li>Everything is bolted on!</li>
+  <li>To brute force decrypt: helps to have a ciphertext-plaintext pair</li>
+  <li>Cipher block: not byte by byte, but chunk by chunk</li>
+  <li>Chaining: Start with just one random seed, XOR with first message
+block, encrypt that block, then XOR next with (first xor’d w/
+random) then so on and so forth</li>
+  <li>So if you have symmetric encryption, how do you exchange keys?</li>
+  <li>Use asymmetric public/private key exchange <em>to exchange symmetric keys
+for the rest of the session</em>
+</li>
+  <li>
+    <p>RSA is 300x slower than AES to encrypt!</p>
+  </li>
+  <li>So now:
+    <ul>
+      <li>From Alice (plain)</li>
+      <li>Alice makes message key</li>
+      <li>Alice encrypts message with message key</li>
+      <li>Alice encrypts message key with Bob public key</li>
+      <li>Alice encrypts ^ with Alice public key</li>
+      <li>Alice hashes ^^ and encrypts the hash with her own public key and
+puts it at the end of the message (this is <em>signing</em>)</li>
+      <li>First thing Bob does is take the encrypted hash off the end of the
+payload, decrypt with Alice’s public key, and compare to hashing the
+payload</li>
+    </ul>
+  </li>
+  <li>
+<em>Certificate</em>: 3rd party certificate authority gets <em>your</em> public key
+with a proof of identity. CA verifies this, and if you pass, they
+verify your public key by hashing it and signing it with <em>their</em>
+(super secret) private key, which becomes your <em>certificate</em>
+</li>
+</ul>
+
+<h3 id="9---the-future-of-networking">9 - The Future of Networking</h3>
+
+<h4 id="ipfs-white-paper">IPFS White Paper</h4>
+
+<ul>
+  <li>See PDF in 09_future</li>
+  <li>In business, a white paper is closer to a form of marketing
+presentation, a tool meant to persuade customers and partners and
+promote a product or viewpoint</li>
+</ul>
+
+<h4 id="van-jacobson-on-a-new-way-to-look-at-networking">Van Jacobson on A New Way to Look at Networking</h4>
+
+<ul>
+  <li>Network research is dead end</li>
+  <li>
+    <p>Everything is about paths</p>
+  </li>
+  <li>Phone number is a <em>program</em> for directing your line on a switchboard</li>
+  <li>How do you amortize setup cost and worry about reliability?</li>
+  <li>But everyone thought telephony was the only model for networking</li>
+  <li>But then people came along with packet switching: focus on endpoints,
+not paths</li>
+  <li>Lots of paths from one endpoint to another. Split data into packets</li>
+  <li>
+    <p>But just overlayed over telco</p>
+  </li>
+  <li>Then Stanford peeps came up with TCP/IP stack
+    <ul>
+      <li>To concatenate paths</li>
+    </ul>
+  </li>
+  <li>Reliability increases exponentially with system size (more failure
+correction)</li>
+  <li>No call setup - high efficiency</li>
+  <li>No hot spots because topology can self adjust</li>
+  <li>
+<em>Connecting</em> is binary: either connected or not</li>
+  <li>
+    <p>Man I can’t take no notes, just listen</p>
+  </li>
+  <li>TCP/IP rescued us from plumbing at the wire level but we still have to
+do it at the data level. A dissemination based architecture would fix
+this</li>
+  <li>Many ad-hoc dissemination overlays have been created (CDN, BitTorrent,
+etc.) - there’s a need!</li>
+</ul>
+
+<h4 id="lecture-8">Lecture</h4>
+
+<ul>
+  <li>Packet switching had great diagrams, but how to implement?</li>
+  <li>At first had to piggyback on the telephone lines
+    <ul>
+      <li>Objection: “it’s basically the same thing”</li>
+    </ul>
+  </li>
+  <li>Key: <em>dissemination</em>. Internet is designed for conversations, not for
+<em>dissemination</em> (disseminate information and stuff)</li>
+  <li>Bad at broadcast</li>
+  <li>
+    <p>Binary connection - 2 participants</p>
+  </li>
+  <li>Ideas: address <em>data</em> not machines. Sign/Auth data</li>
+  <li>Big buffers/caches</li>
+  <li>Immutable data</li>
+</ul>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="center">
+  <div class="measure">
+    <small>
+      © 2018
+    </small>
+  </div>
+</footer>
+<!-- AnchorJS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.0.0/anchor.min.js"></script>
+<script>
+    anchors.options.visible = 'always';
+    anchors.add('article h2, article h3:not(.no-anchor), article h4:not(.no-anchor), article h5:not(.no-anchor), article h6');
+</script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch-theme-algolia.min.css">
+
+<script>
+const search = instantsearch({
+  appId: 'Q1JJ6NM1UC',
+  indexName: 'tigerthinks',
+  apiKey: '5a99d8bb6e9d1a03163a5eb0d67496e0',
+  searchFunction: function(helper) {
+    const searchHits = document.getElementById("search-hits")
+    const content = document.getElementById("content")
+
+    if (helper.state.query === '') {
+      searchHits.style.display = "none";
+      content.style.display = "block";
+      return;
+    }
+
+    helper.search();
+    searchHits.style.display = "block";
+    content.style.display = "none";
+  },
+  searchParameters: {
+    hitsPerPage: 10
+  }
+});
+
+const hitTemplate = function(hit) {
+  let date = '';
+  if (hit.date) {
+    date = moment.unix(hit.date).format('MMM D, YYYY');
+  }
+
+  let url = `${hit.url}#${hit.anchor}`;
+
+  const title = hit._highlightResult.title.value;
+
+  let breadcrumbs = '';
+  if (hit._highlightResult.headings) {
+    breadcrumbs = hit._highlightResult.headings.map(match => {
+      return `<span class="post-breadcrumb">${match.value}</span>`
+    }).join(' > ')
+  }
+
+  const content = hit._highlightResult.html.value;
+
+  return `
+    <div class="post-item">
+      <span class="post-meta small">${date}</span>
+      <a class="post-link" href="${url}"><h2 class="search-hit-title post-title">${title}</h2></a>
+
+      
+      <a href="${url}" class="post-breadcrumbs"><h5>${breadcrumbs}</h5></a>
+      
+
+      <div class="post-snippet">${content}</div>
+    </div>`;
+}
+
+// Adding searchbar and results widgets
+search.addWidget(
+  instantsearch.widgets.searchBox({
+    container: '#search-searchbar',
+    placeholder: '',
+    poweredBy: true,
+    autofocus: false,
+    cssClasses: {
+      root: 'tigerthinks-searchbar'
+    }
+  })
+);
+
+
+search.addWidget(
+  instantsearch.widgets.hits({
+    container: '#search-hits',
+    templates: {
+      item: hitTemplate
+    }
+  })
+);
+
+// Starting the search
+search.start();
+</script>
+
+<style>
+.ais-search-box {
+  max-width: 100%;
+}
+
+.post-item {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: thin solid #f3f3f3;
+}
+
+.post-link .ais-Highlight {
+  color: #0076df;
+  font-style: normal;
+}
+
+.post-breadcrumbs {
+  font-style: normal;
+  display: block;
+  padding-bottom: 10px;
+  background-image: none !important;
+  color: #333 !important;
+}
+
+.post-breadcrumb {
+  font-style: normal;
+  font-size: 18px;
+  color: #333;
+}
+
+.post-breadcrumb .ais-Highlight {
+  font-weight: bold;
+  font-style: normal;
+  color: #0076df;
+}
+
+.post-snippet .ais-Highlight {
+  color: #0076df;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.post-snippet img {
+  display: none;
+}
+</style>
+
+</body>
+</html>

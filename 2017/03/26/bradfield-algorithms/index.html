@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Problem Solving with Algorithms and Data Structures &#8211; Tiger Shen</title>
+    <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Lecture notes from Bradfield's algorithms class">
+    <meta name="robots" content="all">
+    <meta name="author" content="Tiger Shen">
+    
+    <meta name="keywords" content="">
+    <link rel="canonical" href="http://tigerthinks.com/2017/03/26/bradfield-algorithms/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for Tiger Shen" href="/feed.xml" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/pixyll.css?202011300937" type="text/css">
+
+    <!-- Fonts -->
+    
+    <link href='//fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic&amp;subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:900,300&amp;subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    
+    
+
+    <!-- MathJax -->
+    
+    <script type="text/javascript" async
+        src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+
+    <!-- Verifications -->
+    
+    
+
+    <!-- Open Graph -->
+    <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Problem Solving with Algorithms and Data Structures">
+    <meta property="og:description" content="Tiger Shen">
+    <meta property="og:url" content="http://tigerthinks.com/2017/03/26/bradfield-algorithms/">
+    <meta property="og:site_name" content="Tiger Shen">
+    
+    <meta property="og:image" content="http://tigerthinks.com/images/me.jpg">
+    
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    
+    <meta name="twitter:title" content="Problem Solving with Algorithms and Data Structures" />
+    <meta name="twitter:description" content="Lecture notes from Bradfield's algorithms class" />
+    <meta name="twitter:url" content="http://tigerthinks.com/2017/03/26/bradfield-algorithms/" />
+    
+    <meta name="twitter:image" content="http://tigerthinks.com/images/me.jpeg" />
+    
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    
+</head>
+
+
+<body>
+  
+  
+
+  <div class="site-wrap">
+    <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <a href="http://tigerthinks.com/" class="site-title">Tiger Shen</a>
+      <nav class="site-nav">
+        <a href="/blog">
+  Personal
+</a>
+
+<a href="/tech-blog">
+  Tech
+</a>
+
+<a href="/anki">
+  Anki
+</a>
+
+<a href="#">
+  |
+</a>
+
+<a href="/books/top">
+  Books (43)
+</a>
+
+<a href="/articles/top">
+  Articles (119)
+</a>
+
+<a href="/other/top">
+  Other (151)
+</a>
+
+      </nav>
+      <div class="clearfix"></div>
+      
+
+      <span id="search-searchbar"></span>
+
+    </div>
+  </div>
+</header>
+
+
+    <div class="post p2 p-responsive wrap" role="main">
+      <div class="measure">
+        <div class="post-list" id="search-hits">
+        </div>
+
+        <div id="content">
+          
+
+
+<div class="post-header mb2">
+  <h1>
+    
+    <div class="clearfix mxn2">
+      <div class="col col-2 sm-col-12 px2">
+        <img class="inline" src="/images//courses/bradfield.png" alt="Book Cover">
+
+      </div>
+      <div class="col col-10 sm-col-12 px2">
+        Problem Solving with Algorithms and Data Structures
+      </div>
+    </div>
+    
+  </h1>
+  <div class="tags">
+  
+    <a href="/course" class="badge badge-blue-grey-base">course</a>
+  
+    <a href="/technical" class="badge badge-deep-orange-base">technical</a>
+  
+    <a href="/programming" class="badge badge-lime-200">programming</a>
+  
+    <a href="/cs" class="badge badge-deep-orange-100">cs</a>
+  
+    <a href="/bradfield" class="badge badge-amber-a200">bradfield</a>
+  
+</div>
+
+  <span class="post-meta">By Bradfield | <a target="_blank" href="https://bradfieldcs.com/courses/algorithms/">Course Page</a> | Taken 2017</span><br>
+  
+  <span class="post-meta small">
+  
+    23 minute read
+  
+  </span>
+</div>
+
+<article class="post-content">
+  <b> <img class="emoji" title=":star:" alt=":star:" src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png" height="20" width="20">  <img class="emoji" title=":star:" alt=":star:" src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png" height="20" width="20">  <img class="emoji" title=":star:" alt=":star:" src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png" height="20" width="20">  <img class="emoji" title=":star:" alt=":star:" src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png" height="20" width="20"> </b>
+
+  <h2 id="notes">Notes</h2>
+
+<h3 id="1-introduction-to-technical-problem-solving-and-analysis">1: Introduction to technical problem solving and analysis</h3>
+
+<h4 id="prework-hammock-driven-development-talk-by-rich-hickey">Prework: Hammock Driven Development (talk by Rich Hickey)</h4>
+
+<ul>
+  <li>Time for hard thinking is critical</li>
+  <li>Solve problems! Don’t just write features</li>
+  <li>Users can specify problems, but not answers :)</li>
+  <li>
+    <p>Gotta practice problem solving to get good at it</p>
+  </li>
+  <li>First, state the problem (write it, say it please)</li>
+  <li>Understand the problem. What do you know? What don’t you know? Are
+there related problems? What are the solutions to those?
+    <ul>
+      <li>More input-&gt;Better Output. Get domain knowledge. When you come across
+other solutions, criticize them!</li>
+    </ul>
+  </li>
+  <li>Plan</li>
+  <li>Execute</li>
+  <li>Tradeoffs: must look at two or more possible solutions before you can
+talk about tradeoffs!</li>
+  <li>Focus: get away from da computer boss. Recognize that focus itself is
+a tradeoff, and you’ll drop the ball on some stuff</li>
+  <li>Two parts of the brain for this
+    <ul>
+      <li>Waking mind is good at critical thinking. However, not good for
+thinking outside the box (only finds local maxima). Should be used
+to feed work to the background mind</li>
+      <li>Background mind is good at synthesis, connection, strategy, etc.
+Happens during sleeping mostly. Solves non-trivial problems creatively,
+finding hidden relations and stuff</li>
+    </ul>
+  </li>
+  <li>Still need to use silly brain to figure stuff out. Can only load some stuff
+in the brain, need to write other stuff down</li>
+  <li>Now get back to the hammock and meditate on your solution</li>
+  <li>Don’t go crazy working on different things each day, but different
+projects over the course of months is fine</li>
+</ul>
+
+<h4 id="lecture">Lecture</h4>
+
+<ul>
+  <li>SOLVE THE SUBPROBLEM</li>
+</ul>
+
+<h3 id="2-stacks-queues-lists">2: Stacks, Queues, Lists</h3>
+
+<ul>
+  <li>
+<em>linear data strucutres</em> means that when an item is added it stays in
+the same position relative to its neighbors
+    <ul>
+      <li>distinguished by where additions and removals may occur</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="stacks">Stacks</h4>
+
+<ul>
+  <li>Insertion order is reverse of removal order</li>
+  <li>Can add or remove from top, other end is base</li>
+  <li>Definitions
+    <ul>
+      <li>Abstract Data Type (ADT) - logical description of view of data,
+regardless of implementation. Hides implementation details and
+encapsulates data (“information hiding”)</li>
+      <li>Data structure is an actual implementation of an abstract data type</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="queues">Queues</h4>
+
+<ul>
+  <li>First in first out. Insertion happens at the rear, removal happens at
+the front</li>
+</ul>
+
+<h4 id="deques">Deques</h4>
+
+<ul>
+  <li>Pronounced like deck</li>
+  <li>Combined queue + stack, can add + remove from rear and front in O(1)
+time</li>
+</ul>
+
+<h4 id="lists">Lists</h4>
+
+<ul>
+  <li>Pretty ez? Linked list, double linked list. Each node has a value and
+a next. Skim skim</li>
+</ul>
+
+<h4 id="searching">Searching</h4>
+
+<ul>
+  <li>Pretty straightforward, can probably skim most of this</li>
+  <li>Sequential search zzz, just look through list. Ordering list improves
+average case when item is not in list because you can fail fast but
+not much else</li>
+  <li>Binary search on an ordered list is gucci. BUT in real world must
+always consider whether or not it’s practical to sort first; doing a
+sequential search may beat sort then binary if you’re only going to do
+one search, for example</li>
+</ul>
+
+<h3 id="3-trees-tree-traversal-and-priority-queues">3: Trees, tree traversal, and priority queues</h3>
+
+<h4 id="trees">Trees</h4>
+
+<ul>
+  <li>Hierarchical relationships :)</li>
+  <li>Based on real trees :) root, branches, leaves</li>
+  <li>Properties of trees:
+    <ul>
+      <li>Can be followed top to bottom getting more specific each time</li>
+      <li>Each leaf is independent of others</li>
+      <li>Each leaf is unique</li>
+      <li>Sections can be moved around without affecting lower levels</li>
+    </ul>
+  </li>
+  <li>Definitions
+    <ul>
+      <li>
+<em>Node</em>: a “piece” of the tree. Generally contains information,
+referred to as payload</li>
+      <li>
+<em>Edge</em>: connects two nodes to show a relationship. Each node except
+root has one and only one incoming edge, one node can have many
+outgoing edges</li>
+      <li>
+<em>Root</em>: top node of tree, no incoming edges</li>
+      <li>
+<em>Path</em>: ordered list of nodes connected by edges</li>
+      <li>
+<em>Children</em>: set of nodes that have incoming edges originating at a
+given node are the given node’s children</li>
+      <li>
+<em>Parent</em>: the node from which the incoming of our node originated
+from</li>
+      <li>
+<em>Sibling</em>: Children with same parent are siblings (What if same
+level of nesting, diff parents?)</li>
+      <li>
+<em>Leaf Node</em>: node with no children</li>
+      <li>
+<em>Level</em>: level <em>n</em> is the number of edges on path from root node to
+<em>n</em>. Root node’s level is 0</li>
+      <li>
+<em>Height</em>: Maximum level of any node in tree</li>
+    </ul>
+  </li>
+  <li>Two definitions for a tree
+    <ul>
+      <li>Set of nodes and edges that connect pairs of nodes. One node is the
+root, every other node is connected by an edge from exactly one
+other node (its parent), there’s a unique path from root to each node</li>
+      <li>Either empty or has a root and zero or more subtrees, each of which
+is a tree itself. Root of each subtree is connected to the main root
+by an edge</li>
+    </ul>
+  </li>
+  <li>Can be represented by “nodes and references”, but that’s tougher.
+Dictionaries and lists are okay for us
+    <ul>
+      <li>Nodes and references: tree made up of Node classes. Each Node has
+value, left, and right, where left and right are either empty or
+point to another node</li>
+      <li>List of lists: list of triplets, where index 0 is value, index 1 is
+the left node, and index 2 is the right node</li>
+      <li>Dictionary representation with keys and values is preferred though
+because it’s more readable and easier to see the tree-like structure</li>
+    </ul>
+  </li>
+  <li>Let’s look at building and traversing parse trees for simple math</li>
+  <li>Building a tree we may need to traverse back up to the parent to
+continue. Use a stack for this, pushing and popping the parent on the
+stack</li>
+  <li>
+    <p>After building parse tree, we can walk it recursively to evaluate each
+sub expression and then bubble all the way back up to the root</p>
+  </li>
+  <li>Traversal!</li>
+  <li>preorder, inorder, and postorder
+    <ul>
+      <li>preorder: visit root first, then recursively pre-order traverse the
+left subtree, then pre-order traverse the right subtree</li>
+      <li>inorder: recursively indorder traverse the left subtree, then visit
+root node, then recursively inorder traverse the right subtree</li>
+      <li>postorder: recursively postorder traverse the left tree, postorder
+traverse the right tree, then visit the node</li>
+      <li>Difference is just when you evaluate and order of traversal</li>
+    </ul>
+  </li>
+  <li>Priority queue is like a queue except highest priority (not first in)
+is popped off first
+    <ul>
+      <li>Can be implemented with sorting and lists, but that doesn’t give us
+the best time complexity operations. Better to do da binary heap.
+O(logn) enqueueing and dequeueing</li>
+    </ul>
+  </li>
+  <li>Two types of binary heap
+    <ul>
+      <li>Min heap where smallest key at front</li>
+      <li>Max heap where largest key at front</li>
+    </ul>
+  </li>
+  <li>All based on maintaining the <em>heap order property</em>: in a heap, for
+every node x with parent p, the key in p is smaller than or equal to
+the key in x. Whew</li>
+  <li>Heap structure property, Complete tree property, ??</li>
+  <li>Start binary heap with a 0 at the first index so that you can begin
+adding elements. This zero is not used</li>
+  <li>When adding a leaf to the heap binary heap, if it’s smaller larger than its
+parent, swap it with its parent. Keep going until it’s larger than its
+parent
+    <ul>
+      <li>PARENT OF CURRENT NODE IS ALWAYS CURRENT INDEX OF NODE DIVIDED BY 2</li>
+      <li>percolate_up() is done to reset all dem nodes</li>
+    </ul>
+  </li>
+  <li>So to insert an item, append to items and then percolate</li>
+  <li>Delete min returns the minimum value item and returns it (remember,
+this is a min heap)
+    <ul>
+      <li>First we take the top guy and pop it off, then move from the end of
+the array to the beginning. Then we have to percolate all da way
+back down</li>
+    </ul>
+  </li>
+  <li>Build a heap from list of keys by starting with the entire list and
+percolating over and over :thinking_face:</li>
+  <li>
+    <p>Use case: prioritize customer support requests from users of different
+access/VIP-ness levels</p>
+  </li>
+  <li>Binary search tree time</li>
+  <li>Map ADT has operations on key value pairs :)</li>
+  <li>
+<em>BST Property</em>: keys less than the parent are found in the left
+subtree and keys that are greater than the parent are found in the
+right subtree
+    <ul>
+      <li>Means always O(logn) to search or insert in binary search tree</li>
+    </ul>
+  </li>
+  <li>Need to consider self rotation and whatnot. Hard problems but have
+been solved :)</li>
+  <li>Implement using nodes an references.<code class="language-plaintext highlighter-rouge">TreeNode</code> has the lower level
+logic, <code class="language-plaintext highlighter-rouge">BinarySearchTree</code> has a reference to the root node and is the
+interface the user interacts with</li>
+  <li>TreeNode must keep track of parent for deletion purposes, so that its
+children can come attached to parent
+    <ul>
+      <li>yield/<strong>iter</strong>/generator sugar for fun stuff</li>
+      <li>When you do ‘for elem in TreeNode’ it returns left all in a row then
+itself then right all in a row</li>
+    </ul>
+  </li>
+  <li>Now the actual map interface</li>
+  <li>How to put something?
+    <ul>
+      <li>Start at root, search and compare new key to key in current node. If
+new key is less than current node, search left side and if new key
+is greater search right side</li>
+      <li>If there is no left/right child to search, we found the right spot
+for the node. Cool beans</li>
+      <li>Rip duplicate handling. Probably best to just have new value replace
+old value instead of trying to resolve both</li>
+    </ul>
+  </li>
+  <li>How to get something?
+    <ul>
+      <li>Search tree recursively until there’s a non-matching leaf node or we
+found the thingy we want</li>
+      <li>Python calls <strong>getitem</strong> under the hood for you when you do
+dictionary lookup</li>
+    </ul>
+  </li>
+  <li>Deletions?
+    <ul>
+      <li>Start off same as before, traverse tree until you find the node with
+the key you want (raise error if not found)</li>
+      <li>If node has no kids, easy, just remove the reference to this node in
+the parent</li>
+      <li>If node has one kid, couple steps. Need to promote the kid to the
+parent
+        <ul>
+          <li>If current node is a left child itself, update parent reference of
+left child to point to parent of current node, then update parent.left
+to point to the left child</li>
+          <li>If current node is a right child, do the inverse of the above</li>
+          <li>If current node is a root node, call <code class="language-plaintext highlighter-rouge">replace_node_data()</code> with
+the data from the promoted node</li>
+        </ul>
+      </li>
+      <li>If node has two kids, we must find the <code class="language-plaintext highlighter-rouge">successor</code> (node that will
+preserve the BST property). This will be the next-largest key in the
+tree
+        <ul>
+          <li>Successor guaranteed to have one or fewer kids because it’s the
+next largest, sooo it can’t have a left subtree</li>
+          <li>Find successor with <code class="language-plaintext highlighter-rouge">self.right.find_min()</code>
+</li>
+          <li>If you have no right subtree, you find your parent’s successor and
+use that insteaderino</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Analyze a BST
+    <ul>
+      <li>Insertion is log base 2 of n in a balanced tree</li>
+      <li>Everything is! Worst case is searching every level of the tree, which
+is log base 2 of n</li>
+    </ul>
+  </li>
+  <li>AVL Trees</li>
+  <li>Basically keeps the tree balanced using a balance factor (height of
+left subtree - height of right subtree)
+    <ul>
+      <li>If balance factor becomes -1 or 1, do a tree rotation. This is
+constant time so we gucci</li>
+      <li>Balance factor &gt; 0 is LEFT HEAVY, balance factor &lt; 0 is RIGHT HEAVY</li>
+      <li>Fancy math derivations shows that at any time the height of AVL tree
+is 1.44 times log of number of nodes in the tree. Proves that search
+is O(log N)</li>
+    </ul>
+  </li>
+  <li>Implement by keeping a balance factor for each node/subtree
+    <ul>
+      <li>If a node is added to the right, balance factor of parent is -1; +1
+if added to the left</li>
+      <li>Once a parent balance factor is zero, all ancestors don’t change any
+more. Cool</li>
+      <li>How to update balance? If current node is out of balance, just
+rebalance self and you’re done</li>
+      <li>Otherwise increment parent balance factor and gogo</li>
+    </ul>
+  </li>
+  <li>There’s some trickiness where you have a tree that is still unbalanced
+after rotating (e.g. it zigzags)
+    <ul>
+      <li>To correct: if subtree needs left rotation to balance it, first
+check balance of right child. If right child is left heavy then do a
+right rotation on right child before doing your originally intended left
+rotation</li>
+      <li>Do opposite for if subtree needs right rotation</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="lecture-1">Lecture</h4>
+
+<ul>
+  <li>Hashing</li>
+  <li>Hashing algorithm that takes keys and produces index in a finite space
+(e.g. convert to ASCII and modulo 10)</li>
+  <li>We’ve got collisions when we try to hash keys to a finite space when
+two things point to the same space
+    <ul>
+      <li>Can do <em>chaining</em> which will put pointers in your finite space and
+then those pointers would point to a linked list
+        <ul>
+          <li>Each node of the linked list stores the original key, so that
+multiple keys that hash to the same value can be resolved still</li>
+        </ul>
+      </li>
+      <li>Other way is open addressing</li>
+    </ul>
+  </li>
+  <li>In a hashing function you want to make entropy high so you get good
+even distribution
+    <ul>
+      <li>Commonly, take first 4 bytes of a key and xor them all against each
+other. Use xor instead of and/or because truth table is balanced</li>
+    </ul>
+  </li>
+  <li>Check out Ruby hashing conversation</li>
+  <li>Results in a super nice API but a nightmare behind the scenes :)</li>
+  <li>Implement a little hash map if you get time</li>
+  <li>Load factor is 6/11 if 6 out of 11 spots in your hash table are filled</li>
+  <li>
+<em>perfect hash function</em> maps each item to a unique slot; only possible
+if we know all the inputs in the collection and that they will never
+change</li>
+  <li>“Folding” is breaking up the key into parts (e.g. “asdfasd” broken
+into “as” “df” “as” “d”) and then performing a function on it</li>
+  <li>Collusion resolition boys
+    <ul>
+      <li>Open addressing: find an open address!
+        <ul>
+          <li>Linear probing just looks sequentially for the first open slot</li>
+          <li>Can do a “plus 3” probe too that searches every third
+thingymabobber</li>
+        </ul>
+      </li>
+      <li>This process of computing a new place for the key to resolve
+collision is <em>rehashing</em>.</li>
+    </ul>
+  </li>
+  <li>Also chaining, described above</li>
+  <li>
+    <p>What’s the time complexity of these operations? Depends on the load
+factor!</p>
+  </li>
+  <li>Lots of things are trees!</li>
+  <li>If there isn’t defined hierarchy, it’s a graph :)</li>
+  <li>Forest traversal is just lots of trees</li>
+  <li>Depth first vs. Breadth first stuff</li>
+  <li>Using a stack, if you start at the root, pop, then push children,
+and recurse, you’ve done a depth first traversal</li>
+  <li>If you use a queue you do a breadth first traversal!
+    <ul>
+      <li>Both can be recursive!</li>
+    </ul>
+  </li>
+  <li>When use DFS vs when use BFS?
+    <ul>
+      <li>If going through everything it doesn’t matter</li>
+      <li>If you can terminate early based on your choice, that’s a better one</li>
+      <li>If you want to find the X closest to the root use BFS, or like the
+shortest way to get somewhere</li>
+    </ul>
+  </li>
+  <li>In AI: need to model all the states and check all of them
+    <ul>
+      <li>e.g. How do you find da bes tic tac toe move</li>
+      <li>For tic tac toe you can build out a game tree and see whats up</li>
+    </ul>
+  </li>
+  <li>Brute force sudoku: strategy called backtracking where you keep
+“building” the board that you’re traversing to, and then you go back
+once you hit an impossible point
+    <ul>
+      <li>If you want to find if you have any paths &gt; 10 use DFS</li>
+    </ul>
+  </li>
+  <li>
+    <p>Branching factor is “average” number of children for each node (binary
+tree has branching factor of 2)</p>
+  </li>
+  <li>Binary Search Tree</li>
+  <li>Need to keep ‘em self balancing dawg
+    <ul>
+      <li>Check out red black trees</li>
+    </ul>
+  </li>
+  <li>B-Trees in database indices
+    <ul>
+      <li>Bunch of information packed into each node</li>
+      <li>Now each child of the “chunk” of info in each node is just a
+subsection</li>
+      <li>Ends up being very stumpy</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="4-graphs">4: Graphs</h3>
+
+<h4 id="graphs">Graphs!</h4>
+
+<ul>
+  <li>
+<em>Vertex</em> or node is the fundamental building block. Can have a payload</li>
+  <li>
+<em>Edge</em> is the fundamental connector. Connects two vertices to show a
+relationship. If one-way, it’s a directed graph (digraph); if two-way,
+just a graph</li>
+  <li>
+<em>Weight</em>: edges can be weighted to show the cost of going from one
+vertex to another. How expensive to traverse</li>
+  <li>Graph made up of vertices and edges. Each edge is made up of (v, w)
+tuple where v and w are vertices, and possibly a weight as well</li>
+  <li>
+<em>Path</em> is sequence of vertices that can be traversed directly</li>
+  <li>
+    <p><em>Cycle</em> is a path that starts and ends at same vertex. Graph with no
+cycles is <em>acyclic</em>. Digraph with no cycles is <em>directed acyclic</em>.
+This will be important</p>
+  </li>
+  <li>How to represent a graph?</li>
+  <li>Adjacency matrix
+    <ul>
+      <li>Just a 2d matrix with all vertices on both sides, and intersections
+with vertices filled in with weights</li>
+      <li>Results in sparse data, which is no bueno because matrix operations
+are expensive</li>
+      <li>Only good for when number of edges is large relative to number of
+vertices</li>
+    </ul>
+  </li>
+  <li>Adjacency “list” (bad name) (most intuitive and flexible)
+    <ul>
+      <li>Keep a master collection of all vertices, and then each of those
+vertices maintains a list of other vertices that it connects to (and
+the weights of the connection). Cool got it. List of connections is
+<code class="language-plaintext highlighter-rouge">neighbors</code>
+</li>
+      <li>We can compactly represent a sparse graph :)</li>
+      <li>Also lets you easily find all links directly connected to particular</li>
+      <li>Can be represented as just a dictionary and you can interact with it
+directly. Cool. Demonstration purposes of wrapping Vertex and Graph
+classes was helpful though</li>
+    </ul>
+  </li>
+  <li>Word ladder</li>
+  <li>Get from one word to another by swapping one letter at a time; each
+intermediate must also be a word</li>
+  <li>Can represent relationships between all words as a graph, then use
+breadth first search to find the quickest path from start to end</li>
+  <li>Process for creating graph: Start with your word. “Wild card” one
+letter at a time, plug in all possibilities for that letter, and if
+you do this for all letters in the word you have the list of all words
+that are one letter away. This is the word’s “bucket”. See
+<code class="language-plaintext highlighter-rouge">word_ladder.py</code>
+</li>
+  <li>Okay let’s do a breadth first search</li>
+  <li>Starting at vertex s, breadth first search first goes to all vertices
+with an edge from x. Then goes out from those to the next level.
+Visualize it as building a tree, one level at a time, where height of
+tree is distance from starting point</li>
+  <li>Use a set to keep a record of which vertices have been visited already</li>
+  <li>Use a queue to contain the paths from our starting vertex that have
+been processed already</li>
+  <li>Process
+    <ul>
+      <li>Pop a path from our queue to explore</li>
+      <li>Retrieve the last vertex visited from that path</li>
+      <li>Retrieve neighbors from graph</li>
+      <li>Remove vertices that have been visited already</li>
+      <li>For each of the remaining neighbors, add the vertex to visited and
+add a path consisting of the path so far plus the vertex</li>
+    </ul>
+  </li>
+  <li>Visualization in the book</li>
+  <li>
+    <p>Run time performance is O(V + E) where V is number of vertices in
+graph and E is number of edges</p>
+  </li>
+  <li>Knight’s Tour</li>
+  <li>Heuristics wow</li>
+  <li>
+    <p>Why does this have such an improvement</p>
+  </li>
+  <li>General depth first search goal is to connect as many nodes in the
+graph as possible and search as deeply as possible</li>
+  <li>Can create multiple trees. Group of trees is a <em>depth first forest</em>
+</li>
+  <li>To produce a forest just DFS from all vertices</li>
+  <li>
+    <p>If you track the discovery and finish times of a depth first search,
+you see the <em>parenthesis property</em>: all children of a node have a
+later discovery time and earlier finish time than their parent</p>
+  </li>
+  <li>Top sort!</li>
+  <li>Pancake recipe instructions: stuff needs to be done with dependencies,
+is there a best way to do it?</li>
+  <li>Top sort takes a DAG and produces a linear ordering of all of its
+vertices such that you always do the dependencies of a vertex before
+the vertex itself. Indicated precedence of events</li>
+  <li>Adaptation of depth first search</li>
+  <li>First, do a depth first search to compute finish times</li>
+  <li>Store the vertices in a list in decreasing order of finish time</li>
+  <li>
+    <p>Return ordered list as result of topo sort. Wowza</p>
+  </li>
+  <li>Dijkstra’s Algorithm to find shortest path :)</li>
+  <li>Example of routers directing internet traffic. Can be represented as
+weighted graph</li>
+  <li>Want to find the path with the smallest total weight to route a
+message</li>
+  <li>Algorithm is Dijkstra’s Algo</li>
+  <li>Iterative. Similar to breadth first search</li>
+  <li>Use priority queue to arrange “next move”s according to total distance
+from start. Always dequeue the lowest total distance and move
+accordingly</li>
+  <li>Wut da furq</li>
+  <li>Ok cool</li>
+  <li>
+    <p>Need to implement</p>
+  </li>
+  <li>Strongly Connected Components</li>
+  <li>Let’s think about very big graphs (web pages, etc.)</li>
+  <li>By looking at the graph of links to and from a site you can get an
+idea of how to categorize things on the web and such</li>
+  <li>Strongly Connected Component is the largest subset of vertices such
+that we can go to any other vertex from any vertex in the SCC</li>
+  <li>
+<em>transpose</em> of a graph is the graph where all of the edges have
+been reversed (i.e. edge from node A-&gt;B becomes edge from B-&gt;A)</li>
+  <li>To get the SCC for a graph:
+    <ul>
+      <li>Perform DFS for the graph to compute finish times for each vertex</li>
+      <li>Compute the transpose</li>
+      <li>Perform DFS of the transpose but explore each vertex in <em>decreasing
+order</em> of finish time from first step</li>
+      <li>Each tree in the forest computed in step 3 is an SCC. Output vertex
+id’s for each vertex in each tree in the forest to identify the
+component</li>
+    </ul>
+  </li>
+  <li>
+    <p>Cool, must implement</p>
+  </li>
+  <li>Prim’s spanning tree algo</li>
+  <li>Problem: need to broadcast to everyone on a graph</li>
+  <li>e.g. broadcast host needs to hit every listener to get all of the
+sound data out</li>
+  <li>Brute force: just send one copy of the data to each listener. Need to
+send n copies for n listeners.  Routers see extra, unbalanced traffic</li>
+  <li>Uncontrolled flooding: each msg starts with a time to live value set
+to a number &gt;= number of edges b/t broadcaster and furthest listener.
+Each router receives message and passes to all neighbors. When message
+is passed, ttl decreased, messages keep getting sent until ttl reaches
+    <ol>
+      <li>Way more messages than is necessary</li>
+    </ol>
+  </li>
+  <li>Solution involves constructing a minimum weight <em>spanning tree</em>
+</li>
+  <li>This is an acyclic subset of original graph that connects all
+vertices. Sum of weights of edges in the spanning tree is minimized</li>
+  <li>So now, one copy of message gets sent, and each router just forwards
+it to other routers who are a part of the min spanning tree. This
+minimizes message passing and every listener still gets the message</li>
+  <li>Prim’s algorithm is “greedy”, since it chooses the cheapest next step
+at every step
+    <ul>
+      <li>In this case, follow edge with lowest weight</li>
+    </ul>
+  </li>
+  <li>While T is not yet a spanning tree, find an edge that is safe to add
+to the tree and add it :)
+    <ul>
+      <li>Safe edge is any one that connects a vertex that is in the spanning
+tree to one that is not in the spanning tree</li>
+      <li>Assures no cycles</li>
+    </ul>
+  </li>
+  <li>Cool beanss</li>
+</ul>
+
+<h4 id="lecture-2">Lecture</h4>
+
+<ul>
+  <li>
+    <p>Implement breadth first search for pancake problem</p>
+  </li>
+  <li>Weighted nodes</li>
+  <li>Uniform cost search/Djykstra is the same as BFS but using a priority
+queue
+    <ul>
+      <li>The stuff you enqueue and dequeue is the total length</li>
+    </ul>
+  </li>
+  <li>Strongly connected component means you can get to any node from any
+node
+    <ul>
+      <li>Clique means everything is connected to everything</li>
+    </ul>
+  </li>
+  <li>Topological sorting is finding the most efficient way thru a DAG
+    <ul>
+      <li>Put stuff into a stack to go through</li>
+    </ul>
+  </li>
+  <li>Min spanning trees
+    <ul>
+      <li>What means? Connect everything in the least amount of space</li>
+    </ul>
+  </li>
+  <li>Take shortest edge connected to ur stuff. Cool</li>
+</ul>
+
+<h3 id="5-recursion">5: Recursion</h3>
+
+<ul>
+  <li>Compute sum of a list of numbers. How do without a loop?</li>
+  <li>Imagine it’s parenthesized. Can evaluate each subexpression and bubble
+up</li>
+  <li>Recursion: call yo self</li>
+  <li>
+    <p>Nice</p>
+  </li>
+  <li>Three laws</li>
+  <li>Must have a base case</li>
+  <li>Must change state and move towards base case</li>
+  <li>Must call itself recursively</li>
+  <li>
+    <p>Nice to see it broken down like this</p>
+  </li>
+  <li>Example of converting int to string representation in another base</li>
+  <li>
+    <p>Example of Tower of Hanoi. Cool</p>
+  </li>
+  <li>Dynamic Programming: solve subproblems just once</li>
+  <li>When a problem has overlapping subproblems, dynamic programming is
+better than recursion to avoid recomputation</li>
+  <li>Avoid redundant calls!</li>
+  <li>“Bottom up” counterpart to recursion</li>
+  <li>Fibonacci example: straightforward dynamic solution</li>
+  <li>
+    <p>Lattice traversal example k cool</p>
+  </li>
+  <li>Tail call optimization uses recursive syntax to do iterative action</li>
+</ul>
+
+<h3 id="6-np-completeness">6: NP-Completeness</h3>
+
+<h4 id="lecture-23-skiena">Lecture 23 Skiena</h4>
+
+<ul>
+  <li>When you can’t find fast algorithm: can either say “I can’t find a
+good solution”, “there is no fast algorithm” (lower bound proof), “I
+can’t solve it but no one else in the world can” (NP-completeness
+reduction)</li>
+  <li>Lots of problems that can’t be solved! Theory of NP-Completeness says
+that all of these problems are related. If you can prove your problem
+is NP-hard, you good :)</li>
+  <li>Main idea!! If you translate from instances of one type of problem to
+instances of another type such that answers are preserved is called a
+reduction.
+    <ul>
+      <li>Isomorphic: same thing in different forms</li>
+      <li>If there is no fast way of solving a problem, then there is no fast
+way of solving the reduction either wtf</li>
+    </ul>
+  </li>
+  <li>For the purpose of proving hardness, take a problem we know is hard
+and reduce our problem into that problem</li>
+  <li>Couple of definitions</li>
+  <li>
+<em>Problem</em>: general question, with parameters for the input and
+conditions on what is a satisfactory answer or solution. Must be
+specific! E.g. traveling salesman problem: given a weighted graph G,
+what tour {v1, v2, …vn} minimizes sum of edge weights on the tour</li>
+  <li>
+<em>Instance</em>: input to a problem with the input parameters specified.
+E.g. weighted graph is an instance of the traveling salesman problem</li>
+  <li>
+<em>Decision problem</em>: answer restricted to “yes” or “no”. Most
+interesting optimization problems can be phrased as decision problems.
+Easier to think about things this way since fewer cases to deal with.
+For traveling salesman: given a weighted graph G and integer k, does
+there exist a traveling salesman tour with cost &lt;= k? Now a yes-no
+problem. Now can binary search around k, to narrow down the actual
+answer</li>
+  <li>
+<em>Satisfiability</em>: logic problem. Given: a set V of boolean variables
+and a set of clauses C over V. Does there exist a satisfying truth
+assignment for C? wtf
+    <ul>
+      <li>Some things are not satisfiable!</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="lecture-3">Lecture</h4>
+
+<ul>
+  <li>Why do we think np-complete problems are unsolvable? Because they are
+all reductions of one another and none have polynomial solutions</li>
+  <li>P = NP: Polynomial = Non-polynomial</li>
+</ul>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="center">
+  <div class="measure">
+    <small>
+      © 2018
+    </small>
+  </div>
+</footer>
+<!-- AnchorJS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.0.0/anchor.min.js"></script>
+<script>
+    anchors.options.visible = 'always';
+    anchors.add('article h2, article h3:not(.no-anchor), article h4:not(.no-anchor), article h5:not(.no-anchor), article h6');
+</script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch-theme-algolia.min.css">
+
+<script>
+const search = instantsearch({
+  appId: 'Q1JJ6NM1UC',
+  indexName: 'tigerthinks',
+  apiKey: '5a99d8bb6e9d1a03163a5eb0d67496e0',
+  searchFunction: function(helper) {
+    const searchHits = document.getElementById("search-hits")
+    const content = document.getElementById("content")
+
+    if (helper.state.query === '') {
+      searchHits.style.display = "none";
+      content.style.display = "block";
+      return;
+    }
+
+    helper.search();
+    searchHits.style.display = "block";
+    content.style.display = "none";
+  },
+  searchParameters: {
+    hitsPerPage: 10
+  }
+});
+
+const hitTemplate = function(hit) {
+  let date = '';
+  if (hit.date) {
+    date = moment.unix(hit.date).format('MMM D, YYYY');
+  }
+
+  let url = `${hit.url}#${hit.anchor}`;
+
+  const title = hit._highlightResult.title.value;
+
+  let breadcrumbs = '';
+  if (hit._highlightResult.headings) {
+    breadcrumbs = hit._highlightResult.headings.map(match => {
+      return `<span class="post-breadcrumb">${match.value}</span>`
+    }).join(' > ')
+  }
+
+  const content = hit._highlightResult.html.value;
+
+  return `
+    <div class="post-item">
+      <span class="post-meta small">${date}</span>
+      <a class="post-link" href="${url}"><h2 class="search-hit-title post-title">${title}</h2></a>
+
+      
+      <a href="${url}" class="post-breadcrumbs"><h5>${breadcrumbs}</h5></a>
+      
+
+      <div class="post-snippet">${content}</div>
+    </div>`;
+}
+
+// Adding searchbar and results widgets
+search.addWidget(
+  instantsearch.widgets.searchBox({
+    container: '#search-searchbar',
+    placeholder: '',
+    poweredBy: true,
+    autofocus: false,
+    cssClasses: {
+      root: 'tigerthinks-searchbar'
+    }
+  })
+);
+
+
+search.addWidget(
+  instantsearch.widgets.hits({
+    container: '#search-hits',
+    templates: {
+      item: hitTemplate
+    }
+  })
+);
+
+// Starting the search
+search.start();
+</script>
+
+<style>
+.ais-search-box {
+  max-width: 100%;
+}
+
+.post-item {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: thin solid #f3f3f3;
+}
+
+.post-link .ais-Highlight {
+  color: #0076df;
+  font-style: normal;
+}
+
+.post-breadcrumbs {
+  font-style: normal;
+  display: block;
+  padding-bottom: 10px;
+  background-image: none !important;
+  color: #333 !important;
+}
+
+.post-breadcrumb {
+  font-style: normal;
+  font-size: 18px;
+  color: #333;
+}
+
+.post-breadcrumb .ais-Highlight {
+  font-weight: bold;
+  font-style: normal;
+  color: #0076df;
+}
+
+.post-snippet .ais-Highlight {
+  color: #0076df;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.post-snippet img {
+  display: none;
+}
+</style>
+
+</body>
+</html>
