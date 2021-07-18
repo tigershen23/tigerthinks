@@ -77,6 +77,7 @@ tag_badge_colors:
   story: 'blue-800'
   memory: 'light-blue-800'
   fantasy: 'cyan-800'
+  scifi: 'teal-800'
 
   # Specific provider
   # Do all the a100s

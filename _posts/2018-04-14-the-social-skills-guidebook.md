@@ -12,7 +12,7 @@ date_started: 2018-02-19
 date_finished: 2018-03-22
 goodreads_url: "https://www.goodreads.com/book/show/28728007-the-social-skills-guidebook"
 image: /books/the-social-skills-guidebook.jpg
-summary: "Mostly common sense advice on how to navigate social situations. Honestly reassured me about my own social skills more than anything else."
+summary: "Common sense advice on how to navigate social situations. Came recommended from 80000 hours"
 ---
 
 *TL;DR*: Grab bag of tips, advice, walkthroughs on how to navigate
@@ -24,7 +24,9 @@ of content on the human psyche, but this was mostly common sense.
 * I guess my social skills are better than I thought? This book is more
   for those whose lack of social skills severely affects their lives, or
   maybe even lie on the autism spectrum. Most of the advice is pretty
-  common sense to me, which I suppose is a good thing.
+  common sense to me, which I suppose is a good thing. Always felt weird
+  navigating being "the youngest one in the room", this book didn't do much
+  to address that. 
 * For the things I did struggle with, it was nice to see them put into
   words. The author does a good job of presenting things simply and
   nonjudgmentally.
